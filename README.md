@@ -77,14 +77,14 @@ The dashboard is called **Cell Observatory**. It is designed as a replay console
 
 ```mermaid
 flowchart TD
-    A[Raw MATR MATLAB v7.3 / HDF5 files] --> B[Extraction, cell stitching and data-quality checks]
-    B --> C[Cell-specific early reference curve and Q0]
-    C --> D[Partial-discharge ΔQ(V) window · 32 sampled points]
-    D --> E[M0 five-seed MLP · trained from scratch]
-    E --> F[ONNX export · CPU inference]
-    F --> G[Causal HealthMonitor]
-    G --> H[Per-cycle SOH, interval and alert state]
-    H --> I[Streamlit Cell Observatory replay dashboard]
+    A["Raw MATR MATLAB v7.3 / HDF5 files"] --> B["Extraction, cell stitching, and data-quality checks"]
+    B --> C["Cell-specific early reference curve and Q0"]
+    C --> D["Partial-discharge ΔQ(V) window - 32 sampled points"]
+    D --> E["M0 five-seed MLP - trained from scratch"]
+    E --> F["ONNX export - CPU inference"]
+    F --> G["Causal HealthMonitor"]
+    G --> H["Per-cycle SOH, interval, and alert state"]
+    H --> I["Streamlit Cell Observatory replay dashboard"]
 ```
 
 ### 1. Dataset preparation
