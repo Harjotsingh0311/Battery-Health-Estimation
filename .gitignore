@@ -1,0 +1,35 @@
+# Python environments and bytecode
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyd
+.Python
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+
+# Local secrets and environment variables
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+.streamlit/credentials.toml
+
+# Large source and derived datasets (download/build locally)
+data/raw/
+data/processed/
+
+# Large intermediate caches and smoke-test outputs
+**/cache/
+**/smoke/
+*.npy
+*.pt
+*.pth
+*.ckpt
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
