@@ -1,0 +1,694 @@
+{
+  "checks": [
+    {
+      "detail": "torch 2.14.1+cu130, torch.cuda.is_available() = True, device NVIDIA GeForce RTX 3050 6GB Laptop GPU; this notebook needs no GPU",
+      "name": "CUDA available",
+      "status": "PASS"
+    },
+    {
+      "detail": "monitor_config.json: got 638b6c3a6ad31c69... expected 638b6c3a6ad31c69...",
+      "name": "[start] sha256 monitor_config",
+      "status": "PASS"
+    },
+    {
+      "detail": "preregistration.json: got 11f9741387cb001e... expected 11f9741387cb001e...",
+      "name": "[start] sha256 preregistration",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch3_predictions.parquet: got 679ec76862de63f2... expected 679ec76862de63f2...",
+      "name": "[start] sha256 batch3_predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch3_verdict.json: got 57a054bdf25243d3... expected 57a054bdf25243d3...",
+      "name": "[start] sha256 batch3_verdict",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W240.npz: got 29cd3ec8c5c2113d... expected 29cd3ec8c5c2113d...",
+      "name": "[start] sha256 model_M0_W240",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W300.npz: got 06f63dc6c5a89750... expected 06f63dc6c5a89750...",
+      "name": "[start] sha256 model_M0_W300",
+      "status": "PASS"
+    },
+    {
+      "detail": "found ['start', 'start', 'config_frozen', 'labels_loaded', 'done']",
+      "name": "7b log: events start, start, config_frozen, labels_loaded, done",
+      "status": "PASS"
+    },
+    {
+      "detail": "5 of 5 links valid",
+      "name": "7b log: prev_line_sha256 equals SHA-256 of the previous raw line",
+      "status": "PASS"
+    },
+    {
+      "detail": "logged 638b6c3a6ad31c69..., file 638b6c3a6ad31c69...",
+      "name": "7b log: logged config hash equals monitor_config.json",
+      "status": "PASS"
+    },
+    {
+      "detail": "alpha {'W240': 0.3, 'W300': 0.3}",
+      "name": "config: EMA alpha is 0.3 at both windows",
+      "status": "PASS"
+    },
+    {
+      "detail": "5 of 5 agree",
+      "name": "config: embedded reference hashes equal the guarded hashes",
+      "status": "PASS"
+    },
+    {
+      "detail": "10 bins, 9 inner edges, pred_hi equals inner_edges: True",
+      "name": "config: W300 raw conformal table is well formed",
+      "status": "PASS"
+    },
+    {
+      "detail": "10 bins, 9 inner edges, pred_hi equals inner_edges: True",
+      "name": "config: W300 ema conformal table is well formed",
+      "status": "PASS"
+    },
+    {
+      "detail": "10 bins, 9 inner edges, pred_hi equals inner_edges: True",
+      "name": "config: W240 raw conformal table is well formed",
+      "status": "PASS"
+    },
+    {
+      "detail": "10 bins, 9 inner edges, pred_hi equals inner_edges: True",
+      "name": "config: W240 ema conformal table is well formed",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['model', 'window', 'seed', 'row_id', 'cell_id', 'pred_pp']",
+      "name": "predictions have the expected columns",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0 windows ['W240', 'W300'], 404,560 rows",
+      "name": "predictions: M0 present at both windows",
+      "status": "PASS"
+    },
+    {
+      "detail": "seeds per row min 5 max 5, NaN 0",
+      "name": "predictions: M0 has 5 seeds per row, no NaN",
+      "status": "PASS"
+    },
+    {
+      "detail": "40,456 unique M0 row_ids",
+      "name": "predictions: no duplicate keys",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['cell_id', 'batch', 'idx', 'status', 'stitched_into', 'has_continuation', 'continuation_cell', 'policy_str', 'policy_norm', 'cycle_life_field', 'n_cycles', 'cycle_life_final', 'qd_last', 'reached_eol_in_data', 'n_post_eol_cycles', 'last_cycle_number', 'policy_raw', 'policy_numeric', 'policy_vec', 'policy_size', 'policy_dtype']",
+      "name": "registry has column cell_id",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['cell_id', 'batch', 'idx', 'status', 'stitched_into', 'has_continuation', 'continuation_cell', 'policy_str', 'policy_norm', 'cycle_life_field', 'n_cycles', 'cycle_life_final', 'qd_last', 'reached_eol_in_data', 'n_post_eol_cycles', 'last_cycle_number', 'policy_raw', 'policy_numeric', 'policy_vec', 'policy_size', 'policy_dtype']",
+      "name": "registry has column cycle_life_field",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['cell_id', 'batch', 'idx', 'status', 'stitched_into', 'has_continuation', 'continuation_cell', 'policy_str', 'policy_norm', 'cycle_life_field', 'n_cycles', 'cycle_life_final', 'qd_last', 'reached_eol_in_data', 'n_post_eol_cycles', 'last_cycle_number', 'policy_raw', 'policy_numeric', 'policy_vec', 'policy_size', 'policy_dtype']",
+      "name": "registry has column cycle_life_final",
+      "status": "PASS"
+    },
+    {
+      "detail": "labels_table_v2.parquet columns ['row_id', 'cell_id', 'batch', 'cycle_number', 'segment', 'in_life', 'qdlin_ok', 'causal_ok', 'label_suspect', 'post_junction', 'is_ref', 'q0', 'ref_last', 'score_start', 'soh_nom', 'soh_rel', 'soh_nom_repaired', 'scored', 'scored_incl_suspect', 'train_ok', 'ratio_end', 'max_step', 'qdlin_tail_suspect', 'qdlin_ok2', 'scored2', 'high_defect_cell']",
+      "name": "label table has needed columns",
+      "status": "PASS"
+    },
+    {
+      "detail": "104,971 rows",
+      "name": "labels: row_id equals row position",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['window', 'model', 'repeat', 'outer_fold', 'seed', 'row_id', 'cell_id', 'pred_pp']",
+      "name": "5b columns present",
+      "status": "PASS"
+    },
+    {
+      "detail": "windows ['W240', 'W280', 'W300', 'W305', 'W310', 'WFULL']",
+      "name": "5b contains M0 at both windows",
+      "status": "PASS"
+    },
+    {
+      "detail": "84 development, 40 batch-3",
+      "name": "84 development cells and 40 batch-3 cells",
+      "status": "PASS"
+    },
+    {
+      "detail": "overlap []",
+      "name": "development and batch-3 cells are disjoint",
+      "status": "PASS"
+    },
+    {
+      "detail": "development batches [1, 2], batch-3 batches [3]",
+      "name": "batch-3 cells are batch 3 and development cells are batches 1 and 2",
+      "status": "PASS"
+    },
+    {
+      "detail": "124 of 124 found, duplicate cell_id rows in registry 0",
+      "name": "registry holds each of the 124 kept cells exactly once",
+      "status": "PASS"
+    },
+    {
+      "detail": "124 cells, NaN 0",
+      "name": "cycle_life_field and cycle_life_final are finite for all kept cells",
+      "status": "PASS"
+    },
+    {
+      "detail": "40 of 40 equal, max abs diff 0.0",
+      "name": "batch-3 cells: cycle_life_field equals cycle_life_final (all 40, not stitched)",
+      "status": "PASS"
+    },
+    {
+      "detail": "5 differing cells, 0 of them outside development: []",
+      "name": "differences only for development cells",
+      "status": "PASS"
+    },
+    {
+      "detail": "5 differing cells: ['b1c0', 'b1c1', 'b1c2', 'b1c3', 'b1c4']",
+      "name": "exactly five cells differ",
+      "status": "PASS"
+    },
+    {
+      "detail": "flag columns ['stitched_into', 'has_continuation', 'continuation_cell']; differing ['b1c0', 'b1c1', 'b1c2', 'b1c3', 'b1c4']; flagged ['b1c0', 'b1c1', 'b1c2', 'b1c3', 'b1c4']",
+      "name": "the differing cells are the registry-flagged stitched cells",
+      "status": "PASS"
+    },
+    {
+      "detail": "differences [662, 981, 1060, 208, 482]",
+      "name": "final life exceeds the field value for every differing cell",
+      "status": "PASS"
+    },
+    {
+      "detail": "4 cells: ['b1c4', 'b1c0', 'b1c1', 'b1c2'] with final lives [1709, 1852, 2160, 2237] (by cycle_life_field: 0)",
+      "name": "development cells with final life > 1434: 4 expected",
+      "status": "PASS"
+    },
+    {
+      "detail": "stitched 4 of 4, final lives 1709-2237",
+      "name": "those cells are stitched with final lives within 1709-2237",
+      "status": "PASS"
+    },
+    {
+      "detail": "79 non-stitched of 84; stitched ['b1c0', 'b1c1', 'b1c2', 'b1c3', 'b1c4']",
+      "name": "79 non-stitched development cells",
+      "status": "PASS"
+    },
+    {
+      "detail": "96,419 scored rows, 124 cells",
+      "name": "scored rows: finite y and life",
+      "status": "PASS"
+    },
+    {
+      "detail": "cells with a scored cycle beyond life: batch 3 0, development 0 (alerts count only if fired at cycle <= life)",
+      "name": "scored cycles do not exceed cycle_life_final",
+      "status": "PASS"
+    },
+    {
+      "detail": "0 of 40 cells reach 80 pp",
+      "name": "batch 3: 0 of 40 cells have a scored row with y <= 80 (the 07b observation)",
+      "status": "PASS"
+    },
+    {
+      "detail": "43 of 84 development cells never reach 80 pp",
+      "name": "development: some scored cells never reach y <= 80 (as Phase 6a found)",
+      "status": "PASS"
+    },
+    {
+      "detail": "monitor_config_addendum.json, 2411 characters",
+      "name": "addendum is write-once: new, or identical to the stored file",
+      "status": "PASS"
+    },
+    {
+      "detail": "expectations.json, 373 characters",
+      "name": "expectations are write-once: new, or identical to the stored file",
+      "status": "PASS"
+    },
+    {
+      "detail": "log events ['start', 'addendum_frozen']",
+      "name": "addendum_frozen is logged (80% alert metrics are blocked until it is)",
+      "status": "PASS"
+    },
+    {
+      "detail": "40,456 scored rows, 40 cells, NaN 0",
+      "name": "batch-3 M0 ensemble mean: one finite value per scored row",
+      "status": "PASS"
+    },
+    {
+      "detail": "max abs diff 0.00e+00 over 8 rows (macro, pooled and lower-bound coverage)",
+      "name": "parity: batch-3 coverage (8 series x variants) equals 07b to 1e-9",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed 0.986065301, rounds to 0.986",
+      "name": "parity: W300 raw pooled macro coverage is 0.986",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed 0.979958605, rounds to 0.980",
+      "name": "parity: W240 raw pooled macro coverage is 0.980",
+      "status": "PASS"
+    },
+    {
+      "detail": "4 rows vs 4 07b rows, 10 columns compared, columns differing [], max abs diff 0.00e+00",
+      "name": "85% warning (rule A) with cycle_life_final is identical to 07b",
+      "status": "PASS"
+    },
+    {
+      "detail": "n_cells per row [40], cells 40",
+      "name": "80% EOL: every batch-3 cell has a truth (life) and is evaluated",
+      "status": "PASS"
+    },
+    {
+      "detail": "167,889 scored rows, 84 cells, 3 repeats, seeds per row 5-5",
+      "name": "W300 dev OOF: finite y, pred, life; 5 seeds per row",
+      "status": "PASS"
+    },
+    {
+      "detail": "79 cells, 3 repeats",
+      "name": "W300 dev OOF: non-stitched cells only",
+      "status": "PASS"
+    },
+    {
+      "detail": "167,889 scored rows, 84 cells, 3 repeats, seeds per row 5-5",
+      "name": "W240 dev OOF: finite y, pred, life; 5 seeds per row",
+      "status": "PASS"
+    },
+    {
+      "detail": "79 cells, 3 repeats",
+      "name": "W240 dev OOF: non-stitched cells only",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed 63.7% vs 6b 63.7% (diff +0.0 points); early 1.3% vs 1.3%; mean abs delay 1.46% vs 1.4% of life",
+      "name": "6b reference: W300 80% EOL rule A missed% within 5 points",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed 12.7% vs 6b 7.2% (diff +5.5 points); early 16.5% vs 30.0%; mean abs delay 3.70% vs 4.4% of life",
+      "name": "6b reference: W300 80% EOL rule B (pooled) missed% within 5 points",
+      "status": "WARN"
+    },
+    {
+      "detail": "observed 52.3% vs 6b 52.3% (diff +0.0 points); early 0.0% vs 0.0%; mean abs delay 0.52% vs 0.5% of life",
+      "name": "6b reference: W240 80% EOL rule A missed% within 5 points",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed 7.2% vs 6b 7.6% (diff -0.4 points); early 1.3% vs 0.8%; mean abs delay 2.10% vs 2.2% of life",
+      "name": "6b reference: W240 80% EOL rule B (pooled) missed% within 5 points",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed 1.3% vs 6b 1.3% (diff -0.0 points); early 3.8% vs 3.8%; mean abs delay 2.42% vs 2.4% of life",
+      "name": "6b reference: W300 85% rule A missed% within 5 points",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed 1.3% vs 6b 1.3% (diff -0.0 points); early 0.0% vs 0.0%; mean abs delay 1.16% vs 1.2% of life",
+      "name": "6b reference: W240 85% rule A missed% within 5 points",
+      "status": "PASS"
+    },
+    {
+      "detail": "monitor_config.json: got 638b6c3a6ad31c69... expected 638b6c3a6ad31c69...",
+      "name": "[end] sha256 monitor_config",
+      "status": "PASS"
+    },
+    {
+      "detail": "preregistration.json: got 11f9741387cb001e... expected 11f9741387cb001e...",
+      "name": "[end] sha256 preregistration",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch3_predictions.parquet: got 679ec76862de63f2... expected 679ec76862de63f2...",
+      "name": "[end] sha256 batch3_predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch3_verdict.json: got 57a054bdf25243d3... expected 57a054bdf25243d3...",
+      "name": "[end] sha256 batch3_verdict",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W240.npz: got 29cd3ec8c5c2113d... expected 29cd3ec8c5c2113d...",
+      "name": "[end] sha256 model_M0_W240",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W300.npz: got 06f63dc6c5a89750... expected 06f63dc6c5a89750...",
+      "name": "[end] sha256 model_M0_W300",
+      "status": "PASS"
+    },
+    {
+      "detail": "sha256 638b6c3a6ad31c69...",
+      "name": "monitor_config.json unchanged (start vs end)",
+      "status": "PASS"
+    },
+    {
+      "detail": "sha256 d842e5f4c3186889...",
+      "name": "addendum unchanged since it was logged",
+      "status": "PASS"
+    },
+    {
+      "detail": "sha256 8201a667fb3686f3...",
+      "name": "expectations unchanged since they were logged",
+      "status": "PASS"
+    },
+    {
+      "detail": "first 80% metric at 2026-11-05T04:59:08+00:00 with log events ['start', 'addendum_frozen']; addendum_frozen logged at 2026-11-05T04:59:07+00:00",
+      "name": "addendum logged before any 80% alert metric",
+      "status": "PASS"
+    },
+    {
+      "detail": "4 rows vs 4 07b rows, 10 columns compared, columns differing [], max abs diff 0.00e+00",
+      "name": "85% numbers identical to 07b",
+      "status": "PASS"
+    },
+    {
+      "detail": "3 events ['start', 'addendum_frozen', 'done'], chain links valid 3",
+      "name": "phase7b2 log: hash chain intact; start, addendum_frozen, done in order",
+      "status": "PASS"
+    },
+    {
+      "detail": "16 tables printed, 0 missing from the report []",
+      "name": "every printed table is in the report",
+      "status": "PASS"
+    }
+  ],
+  "created_utc": "2026-11-05T04:59:14+00:00",
+  "elapsed_s": 12.6,
+  "extra": {
+    "addendum_sha256": "d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632",
+    "alpha": {
+      "W240": 0.3,
+      "W300": 0.3
+    },
+    "cells_batch3": 40,
+    "dev_cells_life_gt_1434": {
+      "cells": [
+        "b1c4",
+        "b1c0",
+        "b1c1",
+        "b1c2"
+      ],
+      "lives": [
+        1709.0,
+        1852.0,
+        2160.0,
+        2237.0
+      ],
+      "n": 4,
+      "n_by_cycle_life_field": 0
+    },
+    "eol80_metrics": {
+      "W240|ema|A": {
+        "early_pct": 0.0,
+        "mean_abs_delay_cycles": 9.333333333333334,
+        "mean_abs_delay_pct_life": 1.0927342096377088,
+        "median_abs_delay_cycles": 6.0,
+        "median_abs_delay_pct_life": 0.6437768240343348,
+        "median_lead_cycles": 6.0,
+        "median_signed_delay_cycles": -6.0,
+        "median_signed_delay_pct_life": -0.6437768240343348,
+        "missed_pct": 92.5,
+        "n_cells": 40,
+        "n_early": 0,
+        "n_fired": 3,
+        "n_missed": 37
+      },
+      "W240|ema|B": {
+        "early_pct": 0.0,
+        "mean_abs_delay_cycles": 11.764705882352942,
+        "mean_abs_delay_pct_life": 1.0823449797044,
+        "median_abs_delay_cycles": 8.0,
+        "median_abs_delay_pct_life": 0.8891394622267679,
+        "median_lead_cycles": 8.0,
+        "median_signed_delay_cycles": -8.0,
+        "median_signed_delay_pct_life": -0.8891394622267679,
+        "missed_pct": 15.0,
+        "n_cells": 40,
+        "n_early": 0,
+        "n_fired": 34,
+        "n_missed": 6
+      },
+      "W240|ema|Bcb": {
+        "early_pct": 0.0,
+        "mean_abs_delay_cycles": 11.823529411764707,
+        "mean_abs_delay_pct_life": 1.0880097897898735,
+        "median_abs_delay_cycles": 8.0,
+        "median_abs_delay_pct_life": 0.894045021552871,
+        "median_lead_cycles": 8.0,
+        "median_signed_delay_cycles": -8.0,
+        "median_signed_delay_pct_life": -0.894045021552871,
+        "missed_pct": 15.0,
+        "n_cells": 40,
+        "n_early": 0,
+        "n_fired": 34,
+        "n_missed": 6
+      },
+      "W240|raw|A": {
+        "early_pct": 0.0,
+        "mean_abs_delay_cycles": 6.666666666666667,
+        "mean_abs_delay_pct_life": 0.7582581314670901,
+        "median_abs_delay_cycles": 5.5,
+        "median_abs_delay_pct_life": 0.543571182946907,
+        "median_lead_cycles": 5.5,
+        "median_signed_delay_cycles": -5.5,
+        "median_signed_delay_pct_life": -0.543571182946907,
+        "missed_pct": 85.0,
+        "n_cells": 40,
+        "n_early": 0,
+        "n_fired": 6,
+        "n_missed": 34
+      },
+      "W240|raw|B": {
+        "early_pct": 0.0,
+        "mean_abs_delay_cycles": 12.93939393939394,
+        "mean_abs_delay_pct_life": 1.1825278484125599,
+        "median_abs_delay_cycles": 9.0,
+        "median_abs_delay_pct_life": 0.91324200913242,
+        "median_lead_cycles": 9.0,
+        "median_signed_delay_cycles": -9.0,
+        "median_signed_delay_pct_life": -0.91324200913242,
+        "missed_pct": 17.5,
+        "n_cells": 40,
+        "n_early": 0,
+        "n_fired": 33,
+        "n_missed": 7
+      },
+      "W240|raw|Bcb": {
+        "early_pct": 0.0,
+        "mean_abs_delay_cycles": 12.363636363636363,
+        "mean_abs_delay_pct_life": 1.1294234684569324,
+        "median_abs_delay_cycles": 9.0,
+        "median_abs_delay_pct_life": 0.851063829787234,
+        "median_lead_cycles": 9.0,
+        "median_signed_delay_cycles": -9.0,
+        "median_signed_delay_pct_life": -0.851063829787234,
+        "missed_pct": 17.5,
+        "n_cells": 40,
+        "n_early": 0,
+        "n_fired": 33,
+        "n_missed": 7
+      },
+      "W300|ema|A": {
+        "early_pct": 0.0,
+        "mean_abs_delay_cycles": 6.0,
+        "mean_abs_delay_pct_life": 0.8207934336525308,
+        "median_abs_delay_cycles": 6.0,
+        "median_abs_delay_pct_life": 0.8207934336525308,
+        "median_lead_cycles": 6.0,
+        "median_signed_delay_cycles": -6.0,
+        "median_signed_delay_pct_life": -0.8207934336525308,
+        "missed_pct": 97.5,
+        "n_cells": 40,
+        "n_early": 0,
+        "n_fired": 1,
+        "n_missed": 39
+      },
+      "W300|ema|B": {
+        "early_pct": 5.0,
+        "mean_abs_delay_cycles": 21.558823529411764,
+        "mean_abs_delay_pct_life": 2.492477773197115,
+        "median_abs_delay_cycles": 19.0,
+        "median_abs_delay_pct_life": 2.1483046730787914,
+        "median_lead_cycles": 19.0,
+        "median_signed_delay_cycles": -19.0,
+        "median_signed_delay_pct_life": -2.1483046730787914,
+        "missed_pct": 15.0,
+        "n_cells": 40,
+        "n_early": 2,
+        "n_fired": 34,
+        "n_missed": 6
+      },
+      "W300|ema|Bcb": {
+        "early_pct": 15.0,
+        "mean_abs_delay_cycles": 36.05714285714286,
+        "mean_abs_delay_pct_life": 4.06969651746196,
+        "median_abs_delay_cycles": 34.0,
+        "median_abs_delay_pct_life": 3.4965034965034967,
+        "median_lead_cycles": 34.0,
+        "median_signed_delay_cycles": -34.0,
+        "median_signed_delay_pct_life": -3.4965034965034967,
+        "missed_pct": 12.5,
+        "n_cells": 40,
+        "n_early": 6,
+        "n_fired": 35,
+        "n_missed": 5
+      },
+      "W300|raw|A": {
+        "early_pct": 0.0,
+        "mean_abs_delay_cycles": 5.0,
+        "mean_abs_delay_pct_life": 0.6697662561711424,
+        "median_abs_delay_cycles": 5.0,
+        "median_abs_delay_pct_life": 0.6697662561711424,
+        "median_lead_cycles": 5.0,
+        "median_signed_delay_cycles": -5.0,
+        "median_signed_delay_pct_life": -0.6697662561711424,
+        "missed_pct": 95.0,
+        "n_cells": 40,
+        "n_early": 0,
+        "n_fired": 2,
+        "n_missed": 38
+      },
+      "W300|raw|B": {
+        "early_pct": 5.0,
+        "mean_abs_delay_cycles": 20.685714285714287,
+        "mean_abs_delay_pct_life": 2.3712311367482513,
+        "median_abs_delay_cycles": 19.0,
+        "median_abs_delay_pct_life": 2.1689497716894977,
+        "median_lead_cycles": 19.0,
+        "median_signed_delay_cycles": -19.0,
+        "median_signed_delay_pct_life": -2.1689497716894977,
+        "missed_pct": 12.5,
+        "n_cells": 40,
+        "n_early": 2,
+        "n_fired": 35,
+        "n_missed": 5
+      },
+      "W300|raw|Bcb": {
+        "early_pct": 15.0,
+        "mean_abs_delay_cycles": 35.62162162162162,
+        "mean_abs_delay_pct_life": 3.9192158478584678,
+        "median_abs_delay_cycles": 34.0,
+        "median_abs_delay_pct_life": 3.404669260700389,
+        "median_lead_cycles": 34.0,
+        "median_signed_delay_cycles": -34.0,
+        "median_signed_delay_pct_life": -3.404669260700389,
+        "missed_pct": 7.5,
+        "n_cells": 40,
+        "n_early": 6,
+        "n_fired": 37,
+        "n_missed": 3
+      }
+    },
+    "expectations_sha256": "8201a667fb3686f30f58ede596a019fbd0ff6f7755e0328b933f985d60327e36",
+    "hashes_end": {
+      "batch3_predictions": {
+        "expected": "679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd",
+        "got": "679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd",
+        "path": "outputs\\phase7a\\batch3_predictions.parquet"
+      },
+      "batch3_verdict": {
+        "expected": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "got": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "path": "outputs\\phase7a\\batch3_verdict.json"
+      },
+      "model_M0_W240": {
+        "expected": "29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe",
+        "got": "29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe",
+        "path": "outputs\\phase7a\\models\\M0_W240.npz"
+      },
+      "model_M0_W300": {
+        "expected": "06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2",
+        "got": "06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2",
+        "path": "outputs\\phase7a\\models\\M0_W300.npz"
+      },
+      "monitor_config": {
+        "expected": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+        "got": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+        "path": "outputs\\phase7b\\monitor_config.json"
+      },
+      "preregistration": {
+        "expected": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "got": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "path": "outputs\\phase7a\\preregistration.json"
+      }
+    },
+    "hashes_start": {
+      "batch3_predictions": {
+        "expected": "679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd",
+        "got": "679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd",
+        "path": "outputs\\phase7a\\batch3_predictions.parquet"
+      },
+      "batch3_verdict": {
+        "expected": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "got": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "path": "outputs\\phase7a\\batch3_verdict.json"
+      },
+      "model_M0_W240": {
+        "expected": "29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe",
+        "got": "29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe",
+        "path": "outputs\\phase7a\\models\\M0_W240.npz"
+      },
+      "model_M0_W300": {
+        "expected": "06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2",
+        "got": "06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2",
+        "path": "outputs\\phase7a\\models\\M0_W300.npz"
+      },
+      "monitor_config": {
+        "expected": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+        "got": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+        "path": "outputs\\phase7b\\monitor_config.json"
+      },
+      "preregistration": {
+        "expected": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "got": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "path": "outputs\\phase7a\\preregistration.json"
+      }
+    },
+    "life_column": "cycle_life_final",
+    "monitor_config_sha256": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+    "s2_cause": "Batch 3: 40 of 40 cells never have a scored y <= 80 + 1e-9 (min y - 80: min 0.00, median 0.04, max 0.65 pp). At the last scored cycle y sits a median 0.04 pp above 80, and that cycle is the life cycle in 0 of 40 cells (median life minus last scored cycle 1). Development: 43 of 84 cells never reach it (median min y - 80 0.00 pp). What the numbers support: the cycle-life field is reached while the scored label series (soh_nom = QD/1.1 Ah) is still above 80 pp in 40 of 40 batch-3 cells and 43 of 84 development cells, so a crossing defined on scored y cannot mark EOL for those cells; EOL is taken from the life field. The numbers do not say why the two disagree; no mechanism is claimed here.",
+    "s6": [
+      {
+        "consistent": false,
+        "expected": "Rule B (raw series, pooled ql) at W240 misses at most 15% of batch-3 cells and its median signed delay is no earlier than -5% of life.",
+        "id": "H5",
+        "observed": "W240 rule B raw: missed 17.5% (7 of 40), median signed delay -0.91% of life (-9 cycles), early alarms 0.0%"
+      },
+      {
+        "consistent": true,
+        "expected": "Rule A (raw series) at both windows misses at least 30% of batch-3 cells.",
+        "id": "H6",
+        "observed": "rule A raw missed: W300 95.0% (38 of 40), W240 85.0% (34 of 40)"
+      },
+      {
+        "consistent": true,
+        "expected": "At W300 (raw series), more than half of the batch-3 cells above 1,434 cycles are missed under rule A and under rule B (pooled).",
+        "id": "H7",
+        "observed": "W300 raw, 4 cells above 1434: missed under rule A 4, under rule B 3"
+      }
+    ],
+    "stitched_cells": [
+      "b1c0",
+      "b1c1",
+      "b1c2",
+      "b1c3",
+      "b1c4"
+    ]
+  },
+  "failed": null,
+  "smoke": false,
+  "summary": {
+    "FAIL": 0,
+    "PASS": 75,
+    "WARN": 1
+  }
+}

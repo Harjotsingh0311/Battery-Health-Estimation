@@ -1,0 +1,198 @@
+{
+  "batch3_cells": [
+    "b3c0",
+    "b3c1",
+    "b3c10",
+    "b3c11",
+    "b3c12",
+    "b3c13",
+    "b3c14",
+    "b3c15",
+    "b3c16",
+    "b3c17",
+    "b3c18",
+    "b3c19",
+    "b3c20",
+    "b3c21",
+    "b3c22",
+    "b3c24",
+    "b3c25",
+    "b3c26",
+    "b3c27",
+    "b3c28",
+    "b3c29",
+    "b3c3",
+    "b3c30",
+    "b3c31",
+    "b3c33",
+    "b3c34",
+    "b3c35",
+    "b3c36",
+    "b3c38",
+    "b3c39",
+    "b3c4",
+    "b3c40",
+    "b3c41",
+    "b3c44",
+    "b3c45",
+    "b3c5",
+    "b3c6",
+    "b3c7",
+    "b3c8",
+    "b3c9"
+  ],
+  "comparator_definitions": {
+    "B0b": "HistGradientBoostingRegressor(random_state=42) on cycle_number, sample_weight=w",
+    "B1": "ElasticNetCV(l1_ratio [0.1,0.5,0.9], GroupKFold(5) on cells, random_state=42) on standardised [log var(dq), min(dq), skew(dq), Q0]",
+    "B3": "HistGradientBoostingRegressor(max_depth=2, learning_rate=0.05, random_state=42) on [qdlin[i_close]-qdlin[0], Q0], sample_weight=w",
+    "B3r": "B3 with target y-100*Q0/1.1 (offset added back)",
+    "B4": "RandomForestRegressor(300, max_features=0.33, random_state=42) on [dq[:, grid], Q0], absolute target; min_samples_leaf in {1,2,3,5} chosen by Protocol D closeness to the frozen value",
+    "B4r": "same forest, target y-100*Q0/1.1, leaf = frozen b4r_leaf",
+    "common": "stride-5 cell-balanced rows via train_rows(cells, 42); same windows, features and Q0; absolute SOH in pp unless stated"
+  },
+  "counts": {
+    "batch3_cells": 40,
+    "batch3_rows": 40456,
+    "dev_cells": 84,
+    "dev_rows": 55963
+  },
+  "created_utc": "2026-11-04T20:38:38+00:00",
+  "expectations_not_promises": {
+    "M0_cell_macro_MAE_pp": {
+      "W240": [
+        0.6,
+        1.3
+      ],
+      "W300": [
+        1.5,
+        2.5
+      ]
+    },
+    "context": "batch 3 is mostly long-lived cells"
+  },
+  "frozen_hashes": {
+    "frozen_config": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+    "gate_verdict_5b": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+    "gate_week2": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+    "soh_deep_v2": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+    "soh_deep_v3": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb"
+  },
+  "label_lock": "batch-3 soh_nom is read only after the predictions_written log entry; y_work = 90.0 for every batch-3 row until then",
+  "name": "Phase 7a locked batch-3 test (Protocol S)",
+  "notebook": "notebooks/07a_locked_batch3_test.ipynb",
+  "pass_rule_D68": {
+    "formal_comparators": "B0b, B3, B4; B1 only if it passed the reproduction check in S5",
+    "labels": {
+      "CLEARLY_BETTER": "upper bound of the 95% interval < 0",
+      "PASS_point": "point difference <= 0"
+    },
+    "paired_bootstrap": {
+      "difference": "M0 - best comparator",
+      "draws": 5000,
+      "interval": "95% percentile",
+      "resample": "cells",
+      "seed": 42
+    },
+    "rule": "PASS iff M0 cell-macro MAE <= the lowest cell-macro MAE among the formal comparators refit on all 84 development cells",
+    "sensitivity": "all numbers also reported without the batch-3 cells whose policy_norm occurs among the 84 development cells",
+    "shared_policy_cells": {
+      "b3c10": "4.8C(80%)-4.8C",
+      "b3c16": "4.8C(80%)-4.8C",
+      "b3c45": "4.8C(80%)-4.8C",
+      "b3c7": "4.8C(80%)-4.8C"
+    },
+    "statistic": "cell-macro MAE = mean over the 40 batch-3 cells of per-cell MAE (pp)"
+  },
+  "protocol": {
+    "frozen_config": {
+      "common": {
+        "E": 120,
+        "batch": 256,
+        "clip": 1.0,
+        "head": "abs",
+        "huber_delta_pp": 1.0,
+        "noise_sigma": 0.02,
+        "nominal_ah": 1.1,
+        "rows": "cell-balanced, per-cell random offset (as 05b)",
+        "seeds": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "stride": 5,
+        "tree_max_features": 0.33,
+        "tree_seed": 42,
+        "trees": 300,
+        "warmup_frac": 0.05
+      },
+      "created": "2026-11-03T10:00:01",
+      "gate_sha256": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+      "module_sha256": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+      "rule": "D69: per window, the (lr, wd) of M0 with the lowest mean inner MAE pooled over all rows of outputs/phase5b/tuning_log_5b.csv for that window; B4r leaf by the same pooled rule",
+      "source_tuning_log_sha256": "462481a68fc84c6e0a12a2ae9018bb1b7f1155d50acb2c4960f755d56ce69948",
+      "windows": {
+        "W240": {
+          "b4r_config": "leaf1",
+          "b4r_leaf": 1,
+          "b4r_pooled_inner_mae": 0.5650977016439801,
+          "config": "lr0.008_wd0.001",
+          "lr": 0.008,
+          "pooled_inner_mae": 0.5808051564963796,
+          "wd": 0.001
+        },
+        "W300": {
+          "b4r_config": "leaf3",
+          "b4r_leaf": 3,
+          "b4r_pooled_inner_mae": 0.8673704175338319,
+          "config": "lr0.004_wd0.0001",
+          "lr": 0.004,
+          "pooled_inner_mae": 0.8971332248315983,
+          "wd": 0.0001
+        }
+      }
+    },
+    "model": "M0 (5-seed ensemble mean, seeds 42-46), no cycle index",
+    "test": "40 batch-3 cells, evaluated once",
+    "train": "all 84 development cells (batches 1+2), stride-5 cell-balanced rows, per-seed offsets",
+    "training": "from scratch, fp32, TF32 off, deterministic",
+    "windows": {
+      "W240": "companion",
+      "W300": "headline"
+    }
+  },
+  "reproduction_rule": {
+    "data": "development cells only, Protocol D (3 repeats x 6 outer folds), cell-macro MAE averaged over repeats",
+    "frozen_reference_pp": {
+      "W240": {
+        "B0b": 2.644,
+        "B1": 1.246,
+        "B3": 0.847,
+        "B4": 0.655
+      },
+      "W300": {
+        "B0b": 2.644,
+        "B1": 1.268,
+        "B3": 1.242,
+        "B4": 0.895
+      }
+    },
+    "tolerance": "B0b, B3, B4 within 5% (failure = WARN, continue with these definitions); B1 within 10% else excluded from the formal rule"
+  },
+  "secondary_lines": {
+    "addendum_comparators": [
+      "B3r",
+      "B4r"
+    ],
+    "deployment_decision": "Phase 8: M0 at W240 (M0+idx selectable); made from development evidence, fixed here",
+    "lines": [
+      "M0+idx",
+      "B4r",
+      "B4r+idx",
+      "avg(M0 ensemble, B4r) per-row mean"
+    ],
+    "note": "reported for information; none selected on batch 3; none is a gate result"
+  },
+  "v4_sha256": "2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4"
+}

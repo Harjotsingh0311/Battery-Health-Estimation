@@ -1,0 +1,900 @@
+{
+  "checks": [
+    {
+      "detail": "torch.cuda.is_available() = True; training on cuda",
+      "name": "CUDA available (else CPU fallback)",
+      "status": "PASS"
+    },
+    {
+      "detail": "matmul_tf32=False, cudnn_tf32=False, deterministic=True",
+      "name": "TF32 off, deterministic, fp32",
+      "status": "PASS"
+    },
+    {
+      "detail": "torch 2.14.1+cu130",
+      "name": "torch version is 2.14.1+cu130",
+      "status": "PASS"
+    },
+    {
+      "detail": "1 match(es): ['outputs\\\\phase7b2\\\\monitor_config_addendum.json']",
+      "name": "monitor_config_addendum.json located",
+      "status": "PASS"
+    },
+    {
+      "detail": "frozen_config.json: expected 78b571c7526551c7..., got 78b571c7526551c7...",
+      "name": "[start] sha256 frozen_config",
+      "status": "PASS"
+    },
+    {
+      "detail": "soh_deep_v4.py: expected 2be9ce5ded197b16..., got 2be9ce5ded197b16...",
+      "name": "[start] sha256 soh_deep_v4",
+      "status": "PASS"
+    },
+    {
+      "detail": "soh_deep_v3.py: expected 9c022dd391193de9..., got 9c022dd391193de9...",
+      "name": "[start] sha256 soh_deep_v3",
+      "status": "PASS"
+    },
+    {
+      "detail": "preregistration.json: expected 11f9741387cb001e..., got 11f9741387cb001e...",
+      "name": "[start] sha256 preregistration",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch3_verdict.json: expected 57a054bdf25243d3..., got 57a054bdf25243d3...",
+      "name": "[start] sha256 batch3_verdict",
+      "status": "PASS"
+    },
+    {
+      "detail": "monitor_config.json: expected 638b6c3a6ad31c69..., got 638b6c3a6ad31c69...",
+      "name": "[start] sha256 monitor_config",
+      "status": "PASS"
+    },
+    {
+      "detail": "monitor_config_addendum.json: expected d842e5f4c3186889..., got d842e5f4c3186889...",
+      "name": "[start] sha256 monitor_config_addendum",
+      "status": "PASS"
+    },
+    {
+      "detail": "file keys: ['rule', 'created', 'source_tuning_log_sha256', 'module_sha256', 'gate_sha256', 'common', 'windows']",
+      "name": "frozen_config.json content equals the expected values",
+      "status": "PASS"
+    },
+    {
+      "detail": "{'W300': 5, 'W240': 5}",
+      "name": "formal B4 leaf is 5 for both windows (7a formal_comparators.json)",
+      "status": "PASS"
+    },
+    {
+      "detail": "sc.load_tables(root=None, mmap=True)",
+      "name": "helper sc.load_tables present",
+      "status": "PASS"
+    },
+    {
+      "detail": "sc.assert_allowed(columns, allowlist=None, roles=('primary', 'ablation'))",
+      "name": "helper sc.assert_allowed present",
+      "status": "PASS"
+    },
+    {
+      "detail": "sc.grid_index(voltage)",
+      "name": "helper sc.grid_index present",
+      "status": "PASS"
+    },
+    {
+      "detail": "sc.build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None)",
+      "name": "helper sc.build_delta_q present",
+      "status": "PASS"
+    },
+    {
+      "detail": "sd4.train_members(X, q0, y, members, kind, head, lr, epochs, cfg, device, dtype=torch.float32, log_every=10, extra=None, return_state=False)",
+      "name": "helper sd4.train_members present",
+      "status": "PASS"
+    },
+    {
+      "detail": "sd4.sub_idx(L)",
+      "name": "helper sd4.sub_idx present",
+      "status": "PASS"
+    },
+    {
+      "detail": "sd4.cell_macro_mae(pred, yv, codes)",
+      "name": "helper sd4.cell_macro_mae present",
+      "status": "PASS"
+    },
+    {
+      "detail": "(104971, 1000)",
+      "name": "qdlin shape (104971, 1000)",
+      "status": "PASS"
+    },
+    {
+      "detail": "unique batch values: [np.int64(1), np.int64(2), np.int64(3)]",
+      "name": "batch-3 value found in labels.batch",
+      "status": "PASS"
+    },
+    {
+      "detail": "104971",
+      "name": "labels: 104,971 rows, row_id == position",
+      "status": "PASS"
+    },
+    {
+      "detail": "registry columns: ['cell_id', 'batch', 'idx', 'status', 'stitched_into', 'has_continuation', 'continuation_cell', 'policy_str', 'policy_norm', 'cycle_life_field', 'n_cycles', 'cycle_life_final', 'qd_last', 'reached_eol_in_data', 'n_post_eol_cycles', 'last_cycle_number', 'policy_raw', 'policy_numeric', 'policy_vec', 'policy_size', 'policy_dtype']",
+      "name": "registry has cell_id and cycle_life_final",
+      "status": "PASS"
+    },
+    {
+      "detail": "0 cells differ (cycle_life_final is used): []",
+      "name": "kept-table life equals cycle_life_final",
+      "status": "PASS"
+    },
+    {
+      "detail": "84",
+      "name": "84 development cells (protocol_D)",
+      "status": "PASS"
+    },
+    {
+      "detail": "40",
+      "name": "40 batch-3 cells",
+      "status": "PASS"
+    },
+    {
+      "detail": "124 cells; overlap dev/b3 0; sensitivity cells present []",
+      "name": "124 cells, no sensitivity cell, dev and batch 3 disjoint",
+      "status": "PASS"
+    },
+    {
+      "detail": "124 of 124 have cycle_life_final",
+      "name": "life known for all 124 cells",
+      "status": "PASS"
+    },
+    {
+      "detail": "55963 (7a: 55,963)",
+      "name": "scored development rows equal 7a (55,963)",
+      "status": "PASS"
+    },
+    {
+      "detail": "40456 (7a: 40,456)",
+      "name": "scored batch-3 rows equal 7a (40,456)",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "no NaN in q0 / cycle_number / life",
+      "status": "PASS"
+    },
+    {
+      "detail": "(129, 1000), 124 distinct rows for 124 cells",
+      "name": "qref covers every cell, one distinct reference row per cell",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "development labels complete, no NaN",
+      "status": "PASS"
+    },
+    {
+      "detail": "{'W300': 333, 'W240': 733}",
+      "name": "window slices from the frozen module (i_close 333 / 733)",
+      "status": "PASS"
+    },
+    {
+      "detail": "max diff 0.00e+00",
+      "name": "W300: spot-check single-row recompute (1e-6)",
+      "status": "PASS"
+    },
+    {
+      "detail": "max |dq0| 0.00e+00, shape (96419, 334)",
+      "name": "W300: delta-Q finite, dq[:,0] about 0, width 334",
+      "status": "PASS"
+    },
+    {
+      "detail": "max diff 0.00e+00",
+      "name": "W240: spot-check single-row recompute (1e-6)",
+      "status": "PASS"
+    },
+    {
+      "detail": "max |dq0| 0.00e+00, shape (96419, 734)",
+      "name": "W240: delta-Q finite, dq[:,0] about 0, width 734",
+      "status": "PASS"
+    },
+    {
+      "detail": "{'W300': 32, 'W240': 32}",
+      "name": "sub_idx returns 32 points",
+      "status": "PASS"
+    },
+    {
+      "detail": "1 candidate(s); using data\\processed\\splits\\protocol_P.csv column 'role'",
+      "name": "Phase 3 Protocol P split file found (41 training cells inside the development set)",
+      "status": "PASS"
+    },
+    {
+      "detail": "43 test cells in file vs 43 derived",
+      "name": "split file's test cells equal development minus training",
+      "status": "PASS"
+    },
+    {
+      "detail": "train 41, primary test 43, secondary test 40",
+      "name": "Protocol P counts 41 / 43 / 40",
+      "status": "PASS"
+    },
+    {
+      "detail": "124 assignments, 124 distinct, equals 124-cell set: True",
+      "name": "the 124 cells are covered exactly once by Protocol P",
+      "status": "PASS"
+    },
+    {
+      "detail": "source outputs\\phase3\\kept_cells_groups_strata.csv",
+      "name": "policy_norm found for all 124 cells",
+      "status": "PASS"
+    },
+    {
+      "detail": "22 of 43",
+      "name": "policy-twin count equals Phase 3 (22 of 43)",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch 1 41, batch 2 43, stitched cells in batch 1: ['b1c0', 'b1c1', 'b1c2', 'b1c3', 'b1c4']",
+      "name": "batch 1 has 41 cells (incl. stitched b1c0-b1c4), batch 2 has 43",
+      "status": "PASS"
+    },
+    {
+      "detail": "train 41, test 83, overlap []",
+      "name": "[P] no cell in both training and test",
+      "status": "PASS"
+    },
+    {
+      "detail": "train 41, test 43, overlap []",
+      "name": "[b1->b2] no cell in both training and test",
+      "status": "PASS"
+    },
+    {
+      "detail": "train 43, test 41, overlap []",
+      "name": "[b2->b1] no cell in both training and test",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "comparator features finite",
+      "status": "PASS"
+    },
+    {
+      "detail": "41 train / 83 test",
+      "name": "[P] training cells are development cells only, none in the test set",
+      "status": "PASS"
+    },
+    {
+      "detail": "26,715 training-cell rows, 69,704 test rows",
+      "name": "[P] test rows hold no training label and share no row with training",
+      "status": "PASS"
+    },
+    {
+      "detail": "16s, E=120, nan_members []",
+      "name": "W300 M0: 5 members, finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "12s, E=120, nan_members []",
+      "name": "W300 M0+idx: 5 members, finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[P] W300 B0b: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[P] W300 B1: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[P] W300 B3: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[P] W300 B4: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[P] W300 B4r: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[P] W300 B4r+idx: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "11s, E=120, nan_members []",
+      "name": "W240 M0: 5 members, finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "13s, E=120, nan_members []",
+      "name": "W240 M0+idx: 5 members, finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[P] W240 B0b: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[P] W240 B1: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[P] W240 B3: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[P] W240 B4: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "2s",
+      "name": "[P] W240 B4r: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "2s",
+      "name": "[P] W240 B4r+idx: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "41 train / 43 test",
+      "name": "[b1->b2] training cells are development cells only, none in the test set",
+      "status": "PASS"
+    },
+    {
+      "detail": "36,715 training-cell rows, 19,248 test rows",
+      "name": "[b1->b2] test rows hold no training label and share no row with training",
+      "status": "PASS"
+    },
+    {
+      "detail": "18s, E=120, nan_members []",
+      "name": "W300 M0: 5 members, finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "18s, E=120, nan_members []",
+      "name": "W300 M0+idx: 5 members, finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[b1->b2] W300 B0b: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[b1->b2] W300 B1: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[b1->b2] W300 B3: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "2s",
+      "name": "[b1->b2] W300 B4: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "2s",
+      "name": "[b1->b2] W300 B4r: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "2s",
+      "name": "[b1->b2] W300 B4r+idx: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "22s, E=120, nan_members []",
+      "name": "W240 M0: 5 members, finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "20s, E=120, nan_members []",
+      "name": "W240 M0+idx: 5 members, finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[b1->b2] W240 B0b: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[b1->b2] W240 B1: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[b1->b2] W240 B3: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "2s",
+      "name": "[b1->b2] W240 B4: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "2s",
+      "name": "[b1->b2] W240 B4r: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "3s",
+      "name": "[b1->b2] W240 B4r+idx: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "43 train / 41 test",
+      "name": "[b2->b1] training cells are development cells only, none in the test set",
+      "status": "PASS"
+    },
+    {
+      "detail": "19,248 training-cell rows, 36,715 test rows",
+      "name": "[b2->b1] test rows hold no training label and share no row with training",
+      "status": "PASS"
+    },
+    {
+      "detail": "14s, E=120, nan_members []",
+      "name": "W300 M0: 5 members, finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "11s, E=120, nan_members []",
+      "name": "W300 M0+idx: 5 members, finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[b2->b1] W300 B0b: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[b2->b1] W300 B1: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[b2->b1] W300 B3: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[b2->b1] W300 B4: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[b2->b1] W300 B4r: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[b2->b1] W300 B4r+idx: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "10s, E=120, nan_members []",
+      "name": "W240 M0: 5 members, finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "9s, E=120, nan_members []",
+      "name": "W240 M0+idx: 5 members, finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[b2->b1] W240 B0b: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[b2->b1] W240 B1: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "0s",
+      "name": "[b2->b1] W240 B3: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[b2->b1] W240 B4: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[b2->b1] W240 B4r: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "1s",
+      "name": "[b2->b1] W240 B4r+idx: finite predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "84 distinct training cells",
+      "name": "trained cells are development cells only (no batch-3 cell ever in training)",
+      "status": "PASS"
+    },
+    {
+      "detail": "4,021,344 prediction rows",
+      "name": "no NaN in predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "2 label reads, 0 with batch-3 labels",
+      "name": "no batch-3 label read before predictions_written",
+      "status": "PASS"
+    },
+    {
+      "detail": "0669a1d338220f08...",
+      "name": "predictions file hash equals the logged hash (hashed before any score)",
+      "status": "PASS"
+    },
+    {
+      "detail": "96,419 rows",
+      "name": "labels complete for all scored rows",
+      "status": "PASS"
+    },
+    {
+      "detail": "64 prediction vectors, expected 64",
+      "name": "every scored test row predicted for every model/window/test set",
+      "status": "PASS"
+    },
+    {
+      "detail": "128 model/seed groups",
+      "name": "rows per model/seed equal the scored test rows",
+      "status": "PASS"
+    },
+    {
+      "detail": "0 duplicates",
+      "name": "no duplicated prediction keys",
+      "status": "PASS"
+    },
+    {
+      "detail": "computed from the 84 development cells: 493 and 710 (Phase 2 reference about 493 and 710)",
+      "name": "development life tertile cut points about 493 and 710",
+      "status": "PASS"
+    },
+    {
+      "detail": "1 row(s)",
+      "name": "batch3_results.csv has M0 W300",
+      "status": "PASS"
+    },
+    {
+      "detail": "1 row(s)",
+      "name": "batch3_results.csv has M0 W240",
+      "status": "PASS"
+    },
+    {
+      "detail": "1 row(s)",
+      "name": "batch3_results.csv has B4 W300",
+      "status": "PASS"
+    },
+    {
+      "detail": "1 row(s)",
+      "name": "batch3_results.csv has B4 W240",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0 W300 0.597 (stated 0.597), M0 W240 0.420 (stated 0.420), B4 W300 0.742 (stated 0.742), B4 W240 0.567 (stated 0.567)",
+      "name": "batch3_results.csv matches the stated values (M0 0.597/0.420, B4 0.742/0.567)",
+      "status": "PASS"
+    },
+    {
+      "detail": "frozen_config.json: expected 78b571c7526551c7..., got 78b571c7526551c7...",
+      "name": "[end] sha256 frozen_config",
+      "status": "PASS"
+    },
+    {
+      "detail": "soh_deep_v4.py: expected 2be9ce5ded197b16..., got 2be9ce5ded197b16...",
+      "name": "[end] sha256 soh_deep_v4",
+      "status": "PASS"
+    },
+    {
+      "detail": "soh_deep_v3.py: expected 9c022dd391193de9..., got 9c022dd391193de9...",
+      "name": "[end] sha256 soh_deep_v3",
+      "status": "PASS"
+    },
+    {
+      "detail": "preregistration.json: expected 11f9741387cb001e..., got 11f9741387cb001e...",
+      "name": "[end] sha256 preregistration",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch3_verdict.json: expected 57a054bdf25243d3..., got 57a054bdf25243d3...",
+      "name": "[end] sha256 batch3_verdict",
+      "status": "PASS"
+    },
+    {
+      "detail": "monitor_config.json: expected 638b6c3a6ad31c69..., got 638b6c3a6ad31c69...",
+      "name": "[end] sha256 monitor_config",
+      "status": "PASS"
+    },
+    {
+      "detail": "monitor_config_addendum.json: expected d842e5f4c3186889..., got d842e5f4c3186889...",
+      "name": "[end] sha256 monitor_config_addendum",
+      "status": "PASS"
+    },
+    {
+      "detail": "0669a1d338220f08...",
+      "name": "predictions file unchanged since it was hashed",
+      "status": "PASS"
+    },
+    {
+      "detail": "1 batch-3 label read(s), all after the predictions_written entry",
+      "name": "no batch-3 label read before predictions_written (label log)",
+      "status": "PASS"
+    },
+    {
+      "detail": "no model, window, threshold or setting is chosen from phase 7c; expectations were registered before scoring",
+      "name": "nothing selected on these results",
+      "status": "PASS"
+    },
+    {
+      "detail": "5 entries, broken links at []",
+      "name": "log hash chain intact",
+      "status": "PASS"
+    },
+    {
+      "detail": "4.3 min",
+      "name": "runtime under 25 minutes",
+      "status": "PASS"
+    }
+  ],
+  "created_utc": "2026-11-05T10:01:24+00:00",
+  "elapsed_s": 257.2,
+  "extra": {
+    "artifacts": [
+      {
+        "path": "outputs\\phase7c\\figures\\fig_bias_vs_life_M0_vs_B4.png",
+        "size_kb": 253.0
+      },
+      {
+        "path": "outputs\\phase7c\\figures\\fig_percell_mae_vs_life_M0_vs_B4.png",
+        "size_kb": 245.3
+      },
+      {
+        "path": "outputs\\phase7c\\phase7c_by_cell.csv",
+        "size_kb": 185.8
+      },
+      {
+        "path": "outputs\\phase7c\\phase7c_by_life_tertile.csv",
+        "size_kb": 9.5
+      },
+      {
+        "path": "outputs\\phase7c\\phase7c_context.csv",
+        "size_kb": 0.9
+      },
+      {
+        "path": "outputs\\phase7c\\phase7c_expectations.csv",
+        "size_kb": 0.8
+      },
+      {
+        "path": "outputs\\phase7c\\phase7c_h8_detail.csv",
+        "size_kb": 1.6
+      },
+      {
+        "path": "outputs\\phase7c\\phase7c_log.jsonl",
+        "size_kb": 3.9
+      },
+      {
+        "path": "outputs\\phase7c\\phase7c_paired.csv",
+        "size_kb": 4.3
+      },
+      {
+        "path": "outputs\\phase7c\\phase7c_policy_twin.csv",
+        "size_kb": 0.6
+      },
+      {
+        "path": "outputs\\phase7c\\phase7c_predictions.parquet",
+        "size_kb": 31851.8
+      },
+      {
+        "path": "outputs\\phase7c\\phase7c_report.txt",
+        "size_kb": 7.0
+      },
+      {
+        "path": "outputs\\phase7c\\phase7c_scores.csv",
+        "size_kb": 9.8
+      },
+      {
+        "path": "outputs\\phase7c\\phase7c_splits.csv",
+        "size_kb": 13.0
+      },
+      {
+        "path": "outputs\\phase7c\\verification_report.json",
+        "size_kb": 6.7
+      },
+      {
+        "path": "outputs\\phase7c\\cache (0 files)",
+        "size_kb": 0.0
+      }
+    ],
+    "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "expectations": {
+      "H10": {
+        "consistent": "yes",
+        "expected": "On the Protocol P primary test, cells with a policy twin have lower M0 MAE than cells without, at least at one window.",
+        "observed": "twin minus no-twin M0 MAE: W300 +0.256 pp, W240 -0.214 pp"
+      },
+      "H11": {
+        "consistent": "yes",
+        "expected": "Protocol P primary-test M0 MAE at W240 is within a factor 1.6 of the Protocol D value (41 vs about 70 training cells).",
+        "observed": "P primary M0 W240 0.606 pp vs Protocol D 0.530 pp: ratio 1.14"
+      },
+      "H8": {
+        "consistent": "yes",
+        "expected": "Every model's error on b1->b2 and on b2->b1 is larger than its Protocol D error (life-range extrapolation).",
+        "observed": "20 of 20 judgeable model/window/fold cases are larger than Protocol D (models judged: ['B0b', 'B1', 'B3', 'B4', 'M0'])"
+      },
+      "H9": {
+        "consistent": "no",
+        "expected": "M0+idx is worse than M0 on at least one stress fold at W300.",
+        "observed": "M0+idx minus M0 at W300: b1->b2 -0.635 pp, b2->b1 -0.535 pp"
+      }
+    },
+    "expectations_sha256": "5e3829c86fe00fce5070d2c20fd0c448de2e5c04b7dbf2569fb6e982095a9ddd",
+    "hashes_end": {
+      "batch3_verdict": {
+        "expected": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "got": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "got_lf": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "ok": true,
+        "path": "outputs\\phase7a\\batch3_verdict.json"
+      },
+      "frozen_config": {
+        "expected": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "got": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "got_lf": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "ok": true,
+        "path": "outputs\\phase6b\\frozen_config.json"
+      },
+      "monitor_config": {
+        "expected": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+        "got": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+        "got_lf": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+        "ok": true,
+        "path": "outputs\\phase7b\\monitor_config.json"
+      },
+      "monitor_config_addendum": {
+        "expected": "d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632",
+        "got": "d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632",
+        "got_lf": "d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632",
+        "ok": true,
+        "path": "outputs\\phase7b2\\monitor_config_addendum.json"
+      },
+      "preregistration": {
+        "expected": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "got": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "got_lf": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "ok": true,
+        "path": "outputs\\phase7a\\preregistration.json"
+      },
+      "soh_deep_v3": {
+        "expected": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb",
+        "got": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb",
+        "got_lf": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb",
+        "ok": true,
+        "path": "src\\soh_deep_v3.py"
+      },
+      "soh_deep_v4": {
+        "expected": "2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4",
+        "got": "2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4",
+        "got_lf": "2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4",
+        "ok": true,
+        "path": "src\\soh_deep_v4.py"
+      }
+    },
+    "hashes_start": {
+      "batch3_verdict": {
+        "expected": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "got": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "got_lf": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "ok": true,
+        "path": "outputs\\phase7a\\batch3_verdict.json"
+      },
+      "frozen_config": {
+        "expected": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "got": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "got_lf": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "ok": true,
+        "path": "outputs\\phase6b\\frozen_config.json"
+      },
+      "monitor_config": {
+        "expected": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+        "got": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+        "got_lf": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+        "ok": true,
+        "path": "outputs\\phase7b\\monitor_config.json"
+      },
+      "monitor_config_addendum": {
+        "expected": "d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632",
+        "got": "d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632",
+        "got_lf": "d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632",
+        "ok": true,
+        "path": "outputs\\phase7b2\\monitor_config_addendum.json"
+      },
+      "preregistration": {
+        "expected": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "got": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "got_lf": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "ok": true,
+        "path": "outputs\\phase7a\\preregistration.json"
+      },
+      "soh_deep_v3": {
+        "expected": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb",
+        "got": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb",
+        "got_lf": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb",
+        "ok": true,
+        "path": "src\\soh_deep_v3.py"
+      },
+      "soh_deep_v4": {
+        "expected": "2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4",
+        "got": "2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4",
+        "got_lf": "2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4",
+        "ok": true,
+        "path": "src\\soh_deep_v4.py"
+      }
+    },
+    "label_reads": [
+      {
+        "b3_label": false,
+        "batch3": "all",
+        "columns": [
+          "row_id",
+          "cell_id",
+          "batch",
+          "cycle_number",
+          "q0",
+          "scored2"
+        ],
+        "n": 104971,
+        "t": 1793872645.3281991
+      },
+      {
+        "b3_label": false,
+        "batch3": "exclude",
+        "columns": [
+          "row_id",
+          "soh_nom"
+        ],
+        "n": 63731,
+        "t": 1793872645.4684644
+      },
+      {
+        "b3_label": true,
+        "batch3": "all",
+        "columns": [
+          "row_id",
+          "soh_nom"
+        ],
+        "n": 104971,
+        "t": 1793872870.9975233
+      }
+    ],
+    "life_tertile_cuts": [
+      493.3333333333333,
+      710.3333333333333
+    ],
+    "predictions_sha256": "0669a1d338220f08d77422959089a65fb28250dc8f84717991bdb53dbc16331b",
+    "runtime_min": 4.29,
+    "torch": "2.14.1+cu130"
+  },
+  "failed": null,
+  "smoke": false
+}

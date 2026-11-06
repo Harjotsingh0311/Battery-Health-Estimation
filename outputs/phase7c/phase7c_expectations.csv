@@ -1,0 +1,5 @@
+id,expected,observed,consistent
+H8,Every model's error on b1->b2 and on b2->b1 is larger than its Protocol D error (life-range extrapolation).,"20 of 20 judgeable model/window/fold cases are larger than Protocol D (models judged: ['B0b', 'B1', 'B3', 'B4', 'M0'])",yes
+H9,M0+idx is worse than M0 on at least one stress fold at W300.,"M0+idx minus M0 at W300: b1->b2 -0.635 pp, b2->b1 -0.535 pp",no
+H10,"On the Protocol P primary test, cells with a policy twin have lower M0 MAE than cells without, at least at one window.","twin minus no-twin M0 MAE: W300 +0.256 pp, W240 -0.214 pp",yes
+H11,Protocol P primary-test M0 MAE at W240 is within a factor 1.6 of the Protocol D value (41 vs about 70 training cells).,P primary M0 W240 0.606 pp vs Protocol D 0.530 pp: ratio 1.14,yes

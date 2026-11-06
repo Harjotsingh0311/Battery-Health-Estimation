@@ -1,0 +1,298 @@
+PHASE 7a - LOCKED BATCH-3 TEST (Protocol S)
+==============================================================================
+
+VERDICT PER WINDOW (formal rule D68; M0 vs best of B0b, B3, B4, B1)
+------------------------------------------------------------------------------
+W300 (headline): M0 cell-macro MAE 0.597 pp against the best formal comparator B4 at 0.742 pp;
+difference -0.145 pp (95% interval -0.275 to -0.019). VERDICT: PASS. M0 beats the best comparator
+and the whole interval lies below zero. Without the 4 shared-policy cells: M0 0.498 vs B4 0.698,
+difference -0.200 (-0.322 to -0.076), PASS/CLEARLY-BETTER. Pre-registered expectation 1.5-2.5 pp:
+observed M0 is below the range.
+
+W240 (companion): M0 cell-macro MAE 0.420 pp against the best formal comparator B4 at 0.567 pp;
+difference -0.147 pp (95% interval -0.235 to -0.063). VERDICT: PASS. M0 beats the best comparator
+and the whole interval lies below zero. Without the 4 shared-policy cells: M0 0.419 vs B4 0.532,
+difference -0.114 (-0.200 to -0.029), PASS/CLEARLY-BETTER. Pre-registered expectation 0.6-1.3 pp:
+observed M0 is below the range.
+
+Secondary lines (M0+idx, B4r, B4r+idx, avg) and addendum comparators (B3r, B4r) are reported for information only; none is a gate result.
+The development-phase verdict (phase5b: W300 FAIL, W240 PASS) is not recomputed here.
+
+RESULTS W300 (cell-macro over 40 cells, pp; bias = pred - y, positive = over-estimated)
+------------------------------------------------------------------------------
+      model  formal  cell_macro_mae  signed_bias  mae_last20  row_pooled_mae  cell_macro_mae_excl_shared
+         M0   False           0.597        0.309       1.130           0.712                       0.498
+     M0+idx   False           0.641       -0.265       1.078           0.648                       0.620
+        B0b    True           2.657       -0.861       3.611           2.706                       2.622
+         B3    True           2.075        2.068       4.723           2.190                       1.998
+        B3r   False           1.950        1.938       4.729           2.081                       1.855
+         B4    True           0.742        0.322       1.567           0.795                       0.698
+        B4r   False           0.692       -0.227       1.398           0.713                       0.679
+    B4r+idx   False           0.534       -0.209       1.069           0.534                       0.531
+         B1    True           1.187        1.037       2.847           1.306                       1.084
+avg(M0,B4r)   False           0.544        0.041       1.094           0.609                       0.487
+
+By life group W300
+------------------------------------------------------------------------------
+      model  mae_life<=1000  n_life<=1000  mae_1000<life<=1434  n_1000<life<=1434  mae_life>1434  n_life>1434
+         M0           0.334            21                0.652                 15          1.771            4
+     M0+idx           0.633            21                0.571                 15          0.940            4
+        B0b           2.390            21                2.937                 15          3.012            4
+         B3           1.773            21                2.175                 15          3.281            4
+        B3r           1.596            21                2.104                 15          3.230            4
+         B4           0.641            21                0.714                 15          1.382            4
+        B4r           0.672            21                0.622                 15          1.055            4
+    B4r+idx           0.505            21                0.568                 15          0.559            4
+         B1           0.914            21                1.243                 15          2.409            4
+avg(M0,B4r)           0.440            21                0.472                 15          1.359            4
+
+RESULTS W240 (cell-macro over 40 cells, pp; bias = pred - y, positive = over-estimated)
+------------------------------------------------------------------------------
+      model  formal  cell_macro_mae  signed_bias  mae_last20  row_pooled_mae  cell_macro_mae_excl_shared
+         M0   False           0.420        0.140       0.837           0.415                       0.419
+     M0+idx   False           0.546       -0.390       0.924           0.566                       0.535
+        B0b    True           2.657       -0.861       3.611           2.706                       2.622
+         B3    True           0.793        0.669       1.636           0.872                       0.738
+        B3r   False           0.766        0.613       1.692           0.841                       0.714
+         B4    True           0.567        0.285       0.983           0.597                       0.532
+        B4r   False           0.433        0.158       0.800           0.456                       0.409
+    B4r+idx   False           0.333       -0.008       0.513           0.315                       0.346
+         B1    True           1.250        1.085       2.653           1.385                       1.140
+avg(M0,B4r)   False           0.394        0.149       0.786           0.405                       0.379
+
+By life group W240
+------------------------------------------------------------------------------
+      model  mae_life<=1000  n_life<=1000  mae_1000<life<=1434  n_1000<life<=1434  mae_life>1434  n_life>1434
+         M0           0.439            21                0.371                 15          0.499            4
+     M0+idx           0.519            21                0.510                 15          0.823            4
+        B0b           2.390            21                2.937                 15          3.012            4
+         B3           0.611            21                0.833                 15          1.592            4
+        B3r           0.559            21                0.878                 15          1.436            4
+         B4           0.474            21                0.608                 15          0.894            4
+        B4r           0.346            21                0.492                 15          0.667            4
+    B4r+idx           0.371            21                0.291                 15          0.295            4
+         B1           0.923            21                1.364                 15          2.538            4
+avg(M0,B4r)           0.348            21                0.413                 15          0.558            4
+
+PAIRED CLUSTER BOOTSTRAP (cells, 5000 draws, seed 42; difference = first - second)
+------------------------------------------------------------------------------
+window             subset       model comparator  diff_pp  ci95_lo  ci95_hi          label
+  W300                all          M0         B4   -0.145   -0.275   -0.019 CLEARLY-BETTER
+  W300                all          M0        B0b   -2.060   -2.278   -1.856 CLEARLY-BETTER
+  W300                all          M0         B3   -1.477   -1.670   -1.281 CLEARLY-BETTER
+  W300                all          M0         B1   -0.589   -0.703   -0.464 CLEARLY-BETTER
+  W300                all          M0        B3r   -1.353   -1.547   -1.159 CLEARLY-BETTER
+  W300                all          M0        B4r   -0.094   -0.229    0.042     PASS-point
+  W300                all      M0+idx         B4   -0.102   -0.266    0.071     PASS-point
+  W300                all         B4r         B4   -0.051   -0.165    0.058     PASS-point
+  W300                all     B4r+idx         B4   -0.208   -0.350   -0.069 CLEARLY-BETTER
+  W300                all avg(M0,B4r)         B4   -0.199   -0.302   -0.102 CLEARLY-BETTER
+  W300 excl_shared_policy          M0         B4   -0.200   -0.322   -0.076 CLEARLY-BETTER
+  W300 excl_shared_policy          M0        B0b   -2.124   -2.362   -1.905 CLEARLY-BETTER
+  W300 excl_shared_policy          M0         B3   -1.499   -1.712   -1.293 CLEARLY-BETTER
+  W300 excl_shared_policy          M0         B1   -0.586   -0.711   -0.454 CLEARLY-BETTER
+  W300 excl_shared_policy          M0        B3r   -1.357   -1.565   -1.154 CLEARLY-BETTER
+  W300 excl_shared_policy          M0        B4r   -0.181   -0.298   -0.063 CLEARLY-BETTER
+  W300 excl_shared_policy      M0+idx         B4   -0.078   -0.250    0.100     PASS-point
+  W300 excl_shared_policy         B4r         B4   -0.019   -0.147    0.094     PASS-point
+  W300 excl_shared_policy     B4r+idx         B4   -0.168   -0.314   -0.031 CLEARLY-BETTER
+  W300 excl_shared_policy avg(M0,B4r)         B4   -0.212   -0.321   -0.108 CLEARLY-BETTER
+  W240                all          M0         B4   -0.147   -0.235   -0.063 CLEARLY-BETTER
+  W240                all          M0        B0b   -2.237   -2.453   -2.025 CLEARLY-BETTER
+  W240                all          M0         B3   -0.373   -0.521   -0.236 CLEARLY-BETTER
+  W240                all          M0         B1   -0.830   -1.045   -0.626 CLEARLY-BETTER
+  W240                all          M0        B3r   -0.346   -0.469   -0.226 CLEARLY-BETTER
+  W240                all          M0        B4r   -0.013   -0.075    0.050     PASS-point
+  W240                all      M0+idx         B4   -0.020   -0.135    0.089     PASS-point
+  W240                all         B4r         B4   -0.134   -0.188   -0.079 CLEARLY-BETTER
+  W240                all     B4r+idx         B4   -0.233   -0.335   -0.137 CLEARLY-BETTER
+  W240                all avg(M0,B4r)         B4   -0.173   -0.240   -0.108 CLEARLY-BETTER
+  W240 excl_shared_policy          M0         B4   -0.114   -0.200   -0.029 CLEARLY-BETTER
+  W240 excl_shared_policy          M0        B0b   -2.204   -2.450   -1.968 CLEARLY-BETTER
+  W240 excl_shared_policy          M0         B3   -0.319   -0.461   -0.186 CLEARLY-BETTER
+  W240 excl_shared_policy          M0         B1   -0.721   -0.919   -0.533 CLEARLY-BETTER
+  W240 excl_shared_policy          M0        B3r   -0.295   -0.413   -0.181 CLEARLY-BETTER
+  W240 excl_shared_policy          M0        B4r    0.010   -0.053    0.075           FAIL
+  W240 excl_shared_policy      M0+idx         B4    0.003   -0.114    0.122           FAIL
+  W240 excl_shared_policy         B4r         B4   -0.124   -0.180   -0.064 CLEARLY-BETTER
+  W240 excl_shared_policy     B4r+idx         B4   -0.186   -0.277   -0.092 CLEARLY-BETTER
+  W240 excl_shared_policy avg(M0,B4r)         B4   -0.153   -0.220   -0.085 CLEARLY-BETTER
+
+SEED SPREAD (cell-macro MAE of single seeds)
+------------------------------------------------------------------------------
+window  model  seed_min_mae  seed_max_mae  cell_macro_mae
+  W300     M0         0.592         0.658           0.597
+  W300 M0+idx         0.566         0.758           0.641
+  W240     M0         0.392         0.463           0.420
+  W240 M0+idx         0.496         0.665           0.546
+
+Shared-policy batch-3 cells (4): b3c10 (4.8C(80%)-4.8C), b3c16 (4.8C(80%)-4.8C), b3c45 (4.8C(80%)-4.8C), b3c7 (4.8C(80%)-4.8C)
+
+COMPARATOR REPRODUCTION (Protocol D, development data)
+------------------------------------------------------------------------------
+window comparator  leaf  observed  frozen  rel_err_pct  tol_pct  passed  chosen
+  W300         B4 1.000     0.887   0.895       -0.858    5.000    True   False
+  W300         B4 2.000     0.885   0.895       -1.167    5.000    True   False
+  W300         B4 3.000     0.886   0.895       -1.020    5.000    True   False
+  W300         B4 5.000     0.890   0.895       -0.597    5.000    True    True
+  W300        B0b   NaN     2.657   2.644        0.510    5.000    True    True
+  W300         B3   NaN     1.187   1.242       -4.466    5.000    True    True
+  W300         B1   NaN     1.268   1.268        0.024   10.000    True    True
+  W240         B4 1.000     0.636   0.655       -2.870    5.000    True   False
+  W240         B4 2.000     0.639   0.655       -2.501    5.000    True   False
+  W240         B4 3.000     0.644   0.655       -1.650    5.000    True   False
+  W240         B4 5.000     0.653   0.655       -0.230    5.000    True    True
+  W240        B0b   NaN     2.657   2.644        0.510    5.000    True    True
+  W240         B3   NaN     0.801   0.847       -5.410    5.000   False    True
+  W240         B1   NaN     1.245   1.246       -0.078   10.000    True    True
+
+Formal comparators: {"W300": ["B0b", "B3", "B4", "B1"], "W240": ["B0b", "B3", "B4", "B1"]}  B4 leaf: {"W300": 5, "W240": 5}
+
+PROVENANCE
+------------------------------------------------------------------------------
+preregistration sha256 11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce
+predictions sha256     679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd
+verdict sha256         57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8
+soh_deep_v4 sha256     2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4
+
+CHECKS
+------------------------------------------------------------------------------
+[PASS] CUDA available - torch.cuda.is_available() is False
+[PASS] RAM available >= 2 GB - 3.83 GB
+[PASS] [start] sha256 gate_week2 - week2_gate.json: got 40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901
+[PASS] [start] sha256 soh_deep_v2 - soh_deep_v2.py: got fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6
+[PASS] [start] sha256 soh_deep_v3 - soh_deep_v3.py: got 9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb
+[PASS] [start] sha256 gate_verdict_5b - gate_verdict.json: got 2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb
+[PASS] [start] sha256 frozen_config - frozen_config.json: got 78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5
+[PASS] frozen_config.json content equals the expected values - file keys: ['rule', 'created', 'source_tuning_log_sha256', 'module_sha256', 'gate_sha256', 'common', 'windows']
+[PASS] qdlin shape (104971, 1000) - (104971, 1000)
+[PASS] batch-3 value found in labels.batch - unique batch values: [np.int64(1), np.int64(2), np.int64(3)]
+[PASS] labels: 104,971 rows, row_id == position - 104971
+[PASS] 84 development cells (protocol_D) - 84
+[PASS] 40 batch-3 cells - 40
+[PASS] no sensitivity cell in dev or batch 3
+[PASS] no cell in both dev and batch 3
+[PASS] dev cells are batch 1/2, batch-3 cells are batch 3
+[PASS] life known for every dev and batch-3 cell
+[PASS] 55,963 scored development rows - 55963
+[WARN] batch-3 scored rows about 44,832 - 40456 (expected about 44,832)
+[PASS] no NaN in q0 / cycle_number
+[PASS] qref covers every cell - (129, 1000)
+[PASS] label lock: development read contains no batch-3 row
+[PASS] development labels complete, no NaN
+[PASS] y_work: batch-3 rows are the constant 90.0
+[PASS] W300: spot-check single-row recompute (1e-6) - max diff 0.00e+00
+[PASS] W300: dq[:,0] about 0 - max |dq0| 0.00e+00
+[PASS] W300: delta-Q finite
+[PASS] W300: width - i_close=333
+[PASS] W240: spot-check single-row recompute (1e-6) - max diff 0.00e+00
+[PASS] W240: dq[:,0] about 0 - max |dq0| 0.00e+00
+[PASS] W240: delta-Q finite
+[PASS] W240: width - i_close=733
+[PASS] sub_idx returns 32 points
+[PASS] v4 patch applied exactly once - single train_members header replaced
+[PASS] v4 signature = v3 signature + return_state - ['X', 'q0', 'y', 'members', 'kind', 'head', 'lr', 'epochs', 'cfg', 'device', 'dtype', 'log_every', 'extra', 'return_state']
+[PASS] [after v4 write] sha256 gate_week2 - week2_gate.json: got 40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901
+[PASS] [after v4 write] sha256 soh_deep_v2 - soh_deep_v2.py: got fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6
+[PASS] [after v4 write] sha256 soh_deep_v3 - soh_deep_v3.py: got 9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb
+[PASS] [after v4 write] sha256 gate_verdict_5b - gate_verdict.json: got 2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb
+[PASS] [after v4 write] sha256 frozen_config - frozen_config.json: got 78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5
+[PASS] v4(return_state=False) == v3 [M0] - max diff 0.0
+[PASS] v4(return_state=True) == v3 [M0] - max diff 0.0
+[PASS] NumPy forward from state reproduces val_pred [M0] - max diff 7.63e-06 pp
+[PASS] parameter count from state [M0] - 2969 (expected 2969)
+[PASS] count_params [M0] - 2969 (expected 2969)
+[PASS] v4(return_state=False) == v3 [M0+idx] - max diff 0.0
+[PASS] v4(return_state=True) == v3 [M0+idx] - max diff 0.0
+[PASS] NumPy forward from state reproduces val_pred [M0+idx] - max diff 7.63e-06 pp
+[PASS] parameter count from state [M0+idx] - 3013 (expected 3013)
+[PASS] count_params [M0+idx] - 3013 (expected 3013)
+[PASS] some batch-3 cells share a policy with development - 4 cells (about 4 expected)
+[PASS] no batch-3 prediction exists before the preregistration
+[PASS] placeholder invariance: batch-3 predictions identical for 90.0 vs 40.0 - max diff 0.0
+[PASS] comparator features finite
+[PASS] reproduction runs before any batch-3 prediction
+[PASS] W300 reproduction B0b within 5% of frozen - observed 2.657 vs frozen 2.644
+[PASS] W300 reproduction B3 within 5% of frozen - observed 1.187 vs frozen 1.242
+[PASS] W300 reproduction B4 within 5% of frozen - observed 0.890 vs frozen 0.895
+[PASS] W300 reproduction B1 within 10% of frozen - observed 1.268 vs frozen 1.268
+[PASS] W240 reproduction B0b within 5% of frozen - observed 2.657 vs frozen 2.644
+[WARN] W240 reproduction B3 within 5% of frozen - observed 0.801 vs frozen 0.847
+[PASS] W240 reproduction B4 within 5% of frozen - observed 0.653 vs frozen 0.655
+[PASS] W240 reproduction B1 within 10% of frozen - observed 1.245 vs frozen 1.246
+[PASS] W300 M0: 5 members, finite predictions - 36s, train_mae [0.618, 0.627, 0.625, 0.632, 0.633]
+[PASS] W300 M0: 5 members, finite predictions - 35s, train_mae [0.618, 0.627, 0.625, 0.632, 0.633]
+[PASS] W300 M0: v4 state-run predictions equal v2 (exact) - max diff 0.00e+00 pp
+[PASS] W300 M0+idx: 5 members, finite predictions - 31s, train_mae [0.316, 0.326, 0.306, 0.321, 0.304]
+[PASS] W300 M0: saved npz reproduces predictions (S3b) - max diff 7.63e-06 pp
+[PASS] W300 M0idx: saved npz reproduces predictions (S3b) - max diff 7.63e-06 pp
+[PASS] W300 B0b: finite batch-3 predictions - 0s
+[PASS] W300 B3: finite batch-3 predictions - 0s
+[PASS] W300 B3r: finite batch-3 predictions - 0s
+[PASS] W300 B4: finite batch-3 predictions - 2s
+[PASS] W300 B4r: finite batch-3 predictions - 3s
+[PASS] W300 B4ridx: finite batch-3 predictions - 3s
+[PASS] W300 B1: finite batch-3 predictions - 0s
+[PASS] W240 M0: 5 members, finite predictions - 26s, train_mae [0.306, 0.337, 0.325, 0.316, 0.321]
+[PASS] W240 M0: 5 members, finite predictions - 32s, train_mae [0.306, 0.337, 0.325, 0.316, 0.321]
+[PASS] W240 M0: v4 state-run predictions equal v2 (exact) - max diff 0.00e+00 pp
+[PASS] W240 M0+idx: 5 members, finite predictions - 31s, train_mae [0.245, 0.242, 0.257, 0.244, 0.235]
+[PASS] W240 M0: saved npz reproduces predictions (S3b) - max diff 7.63e-06 pp
+[PASS] W240 M0idx: saved npz reproduces predictions (S3b) - max diff 7.63e-06 pp
+[PASS] W240 B0b: finite batch-3 predictions - 0s
+[PASS] W240 B3: finite batch-3 predictions - 0s
+[PASS] W240 B3r: finite batch-3 predictions - 0s
+[PASS] W240 B4: finite batch-3 predictions - 3s
+[PASS] W240 B4r: finite batch-3 predictions - 3s
+[PASS] W240 B4ridx: finite batch-3 predictions - 3s
+[PASS] W240 B1: finite batch-3 predictions - 0s
+[PASS] batch-3 cells never in any training set - 84 cells used for training
+[PASS] no batch-3 label read before predictions_written - 2 label reads, none with batch-3 labels before the write
+[PASS] every batch-3 row predicted exactly once per model/window/seed - 1,375,504 keys
+[PASS] no NaN in predictions
+[PASS] predictions contain batch-3 cells only
+[PASS] predictions logged before unlock
+[PASS] label lock held until unlock - 0 earlier batch-3 label reads
+[PASS] log order: predictions_written precedes unlock
+[PASS] batch-3 labels complete - 40456 rows
+[PASS] verdict file write-once
+[PASS] exactly one batch-3 label read in this run, after predictions_written
+[PASS] no NaN in scores
+[PASS] [end] sha256 gate_week2 - week2_gate.json: got 40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901
+[PASS] [end] sha256 soh_deep_v2 - soh_deep_v2.py: got fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6
+[PASS] [end] sha256 soh_deep_v3 - soh_deep_v3.py: got 9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb
+[PASS] [end] sha256 gate_verdict_5b - gate_verdict.json: got 2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb
+[PASS] [end] sha256 frozen_config - frozen_config.json: got 78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5
+[PASS] v4 module unchanged since preregistration
+[PASS] predictions file unchanged
+[PASS] preregistration file unchanged
+[PASS] counts: 84 dev cells, 55,963 dev rows, 40 batch-3 cells
+
+ARTIFACTS
+------------------------------------------------------------------------------
+                                        path  size_kb
+          outputs\phase7a\batch3_by_cell.csv     73.0
+           outputs\phase7a\batch3_paired.csv      7.2
+  outputs\phase7a\batch3_predictions.parquet  10465.2
+          outputs\phase7a\batch3_results.csv      3.8
+         outputs\phase7a\batch3_verdict.json      2.6
+ outputs\phase7a\comparator_reproduction.csv      1.0
+       outputs\phase7a\fig_paired_forest.png     74.0
+ outputs\phase7a\fig_percell_mae_vs_life.png    146.2
+outputs\phase7a\fig_signed_error_vs_life.png     79.6
+     outputs\phase7a\formal_comparators.json      0.5
+       outputs\phase7a\locked_test_log.jsonl      2.8
+          outputs\phase7a\models\M0_W240.npz     68.9
+   outputs\phase7a\models\M0_W240.npz.sha256      0.1
+          outputs\phase7a\models\M0_W300.npz     68.9
+   outputs\phase7a\models\M0_W300.npz.sha256      0.1
+       outputs\phase7a\models\M0idx_W240.npz     70.3
+outputs\phase7a\models\M0idx_W240.npz.sha256      0.1
+       outputs\phase7a\models\M0idx_W300.npz     70.3
+outputs\phase7a\models\M0idx_W300.npz.sha256      0.1
+        outputs\phase7a\preregistration.json      6.3
+  outputs\phase7a\preregistration_sha256.txt      0.1
+    outputs\phase7a\verification_report.json      6.0
+                          src\soh_deep_v4.py     24.6
+            outputs\phase7a\cache (17 files) 403834.0
+

@@ -1,0 +1,6 @@
+{
+  "H1": "The policy-cluster bootstrap interval for M0 - B4 is wider than the cell-level interval at both windows; it may include zero at W300 and is less likely to at W240.",
+  "H2": "Conformal macro coverage on batch 3 is at least 0.90 at both windows, with misses concentrated in cells above 1,434 cycles.",
+  "H3": "The 85% rule-A warning has a median delay within +/-3% of life.",
+  "H4": "Spearman correlation of per-cell M0 bias with life is positive and significant at W300 and not significant at W240."
+}

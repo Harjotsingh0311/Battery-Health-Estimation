@@ -1,0 +1,652 @@
+{
+  "alert_rules": {
+    "eol": "cycle_life field",
+    "eol_80": {
+      "comparison": "rule A: point estimate <= 80.0",
+      "fires_when": "conformal one-sided lower bound <= 80.0",
+      "rule": "B"
+    },
+    "metrics": "missed = never fires by EOL (right-censored: later detections count as missed); early alarm = fires > 5% of life before the true crossing",
+    "true_crossing": "first scored cycle with y <= threshold + 1e-9",
+    "warning_85": {
+      "fires_when": "point estimate <= 85.0 (EMA series primary, raw reported)",
+      "rule": "A"
+    }
+  },
+  "built_from": "84 development cells (batches 1+2); out-of-fold M0 ensemble-mean predictions from phase 5b; no batch-3 label or result used",
+  "conformal": {
+    "bin_definition": {
+      "W240": "10 equal-count bins on development OOF predicted SOH, bins with fewer than 12 cells merged (6a/6b bin definition not found)",
+      "W300": "10 equal-count bins on development OOF predicted SOH, bins with fewer than 12 cells merged (6a/6b bin definition not found)"
+    },
+    "coverage": 0.9,
+    "interval": "estimate +/- q2[bin(estimate)]",
+    "kind": "split conformal calibrated on development OOF M0 predictions, binned by PREDICTED SOH (causal)",
+    "lower_bound": "lower = estimate - ql[bin(estimate)]",
+    "parity_gate": {
+      "W240": {
+        "abs_diff": 0.004389037367934057,
+        "observed": 0.8963890373679341,
+        "reference_6b": 0.892
+      },
+      "W300": {
+        "abs_diff": 0.011861863502317438,
+        "observed": 0.9578618635023174,
+        "reference_6b": 0.946
+      }
+    },
+    "primary": "quantile pooled over rows (q2_pooled two-sided half-width, ql_pooled one-sided over-estimation margin)",
+    "sensitivity": "cell-balanced weights (q2_cellbal, ql_cellbal)",
+    "tables": {
+      "W240": {
+        "ema": {
+          "bins": [
+            {
+              "bin": 0,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 86.95432766894888,
+              "pred_lo": null,
+              "q2_cellbal": 1.7824882951415333,
+              "q2_pooled": 1.781725257092745,
+              "ql_cellbal": 1.7779634889223246,
+              "ql_pooled": 1.7744912524016456
+            },
+            {
+              "bin": 1,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 91.22020672407055,
+              "pred_lo": 86.95432766894888,
+              "q2_cellbal": 1.7976389704439129,
+              "q2_pooled": 1.8434217409283917,
+              "ql_cellbal": 1.7909435771029223,
+              "ql_pooled": 1.841008854003391
+            },
+            {
+              "bin": 2,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 93.7137486613291,
+              "pred_lo": 91.22020672407055,
+              "q2_cellbal": 1.556594796507838,
+              "q2_pooled": 1.6056937621763012,
+              "ql_cellbal": 1.5296091496148705,
+              "ql_pooled": 1.6054641229983275
+            },
+            {
+              "bin": 3,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 95.10033642336309,
+              "pred_lo": 93.7137486613291,
+              "q2_cellbal": 1.4512223784668805,
+              "q2_pooled": 1.388516275273929,
+              "ql_cellbal": 1.3955276862664476,
+              "ql_pooled": 1.3466579585119405
+            },
+            {
+              "bin": 4,
+              "n_cells": 84,
+              "n_rows": 16788,
+              "pred_hi": 96.08271610247974,
+              "pred_lo": 95.10033642336309,
+              "q2_cellbal": 1.2232189426404858,
+              "q2_pooled": 1.210781932308862,
+              "ql_cellbal": 1.128075785209461,
+              "ql_pooled": 1.1062535309411174
+            },
+            {
+              "bin": 5,
+              "n_cells": 82,
+              "n_rows": 16789,
+              "pred_hi": 96.78391033729056,
+              "pred_lo": 96.08271610247974,
+              "q2_cellbal": 1.0714798505004381,
+              "q2_pooled": 0.9902161734541437,
+              "ql_cellbal": 0.965958141380213,
+              "ql_pooled": 0.9126950970958774
+            },
+            {
+              "bin": 6,
+              "n_cells": 81,
+              "n_rows": 16789,
+              "pred_hi": 97.33206814222575,
+              "pred_lo": 96.78391033729056,
+              "q2_cellbal": 0.8315041612659684,
+              "q2_pooled": 0.7985900074200316,
+              "ql_cellbal": 0.7755357579047626,
+              "ql_pooled": 0.7297313238456979
+            },
+            {
+              "bin": 7,
+              "n_cells": 75,
+              "n_rows": 16789,
+              "pred_hi": 97.79789938688714,
+              "pred_lo": 97.33206814222575,
+              "q2_cellbal": 0.6149155863663225,
+              "q2_pooled": 0.5697603806637801,
+              "ql_cellbal": 0.5375926423569979,
+              "ql_pooled": 0.48895218539482244
+            },
+            {
+              "bin": 8,
+              "n_cells": 60,
+              "n_rows": 16789,
+              "pred_hi": 98.25583850394364,
+              "pred_lo": 97.79789938688714,
+              "q2_cellbal": 0.445925843526652,
+              "q2_pooled": 0.42849780338922017,
+              "ql_cellbal": 0.3661015057317769,
+              "ql_pooled": 0.37984546325506585
+            },
+            {
+              "bin": 9,
+              "n_cells": 40,
+              "n_rows": 16789,
+              "pred_hi": null,
+              "pred_lo": 98.25583850394364,
+              "q2_cellbal": 0.21972683187635766,
+              "q2_pooled": 0.24466363219667642,
+              "ql_cellbal": 0.16687444551428143,
+              "ql_pooled": 0.1950215707462064
+            }
+          ],
+          "coverage": 0.9,
+          "inner_edges": [
+            86.95432766894888,
+            91.22020672407055,
+            93.7137486613291,
+            95.10033642336309,
+            96.08271610247974,
+            96.78391033729056,
+            97.33206814222575,
+            97.79789938688714,
+            98.25583850394364
+          ]
+        },
+        "raw": {
+          "bins": [
+            {
+              "bin": 0,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 86.77009765625,
+              "pred_lo": null,
+              "q2_cellbal": 1.5971416159890026,
+              "q2_pooled": 1.6425318554687607,
+              "ql_cellbal": 1.5464374576083202,
+              "ql_pooled": 1.59181857865768
+            },
+            {
+              "bin": 1,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 91.11208282470703,
+              "pred_lo": 86.77009765625,
+              "q2_cellbal": 1.6975703990589466,
+              "q2_pooled": 1.8249576003195926,
+              "ql_cellbal": 1.5968143461470135,
+              "ql_pooled": 1.776659486638863
+            },
+            {
+              "bin": 2,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 93.64263397216797,
+              "pred_lo": 91.11208282470703,
+              "q2_cellbal": 1.5599112930575387,
+              "q2_pooled": 1.606823562899507,
+              "ql_cellbal": 1.4586577381480907,
+              "ql_pooled": 1.5654716506125794
+            },
+            {
+              "bin": 3,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 95.07194763183594,
+              "pred_lo": 93.64263397216797,
+              "q2_cellbal": 1.4367767134232992,
+              "q2_pooled": 1.4189429754083847,
+              "ql_cellbal": 1.3427022616299809,
+              "ql_pooled": 1.346776812189276
+            },
+            {
+              "bin": 4,
+              "n_cells": 84,
+              "n_rows": 16788,
+              "pred_hi": 96.05740051269531,
+              "pred_lo": 95.07194763183594,
+              "q2_cellbal": 1.2248657792524824,
+              "q2_pooled": 1.2427282193270486,
+              "ql_cellbal": 1.094818077503561,
+              "ql_pooled": 1.1076317549272119
+            },
+            {
+              "bin": 5,
+              "n_cells": 82,
+              "n_rows": 16789,
+              "pred_hi": 96.76476470947266,
+              "pred_lo": 96.05740051269531,
+              "q2_cellbal": 1.0615276677911822,
+              "q2_pooled": 1.0143078424627419,
+              "ql_cellbal": 0.9488990456321176,
+              "ql_pooled": 0.9193600419477974
+            },
+            {
+              "bin": 6,
+              "n_cells": 81,
+              "n_rows": 16789,
+              "pred_hi": 97.31998779296875,
+              "pred_lo": 96.76476470947266,
+              "q2_cellbal": 0.8420486416903543,
+              "q2_pooled": 0.7955687333540453,
+              "ql_cellbal": 0.7602263472123525,
+              "ql_pooled": 0.7177190906871544
+            },
+            {
+              "bin": 7,
+              "n_cells": 77,
+              "n_rows": 16789,
+              "pred_hi": 97.78937530517578,
+              "pred_lo": 97.31998779296875,
+              "q2_cellbal": 0.6379754605380015,
+              "q2_pooled": 0.5767212369051862,
+              "ql_cellbal": 0.5607895285866533,
+              "ql_pooled": 0.48393548029119415
+            },
+            {
+              "bin": 8,
+              "n_cells": 62,
+              "n_rows": 16789,
+              "pred_hi": 98.24734954833984,
+              "pred_lo": 97.78937530517578,
+              "q2_cellbal": 0.4427276855468989,
+              "q2_pooled": 0.42822550270774684,
+              "ql_cellbal": 0.3611288318980854,
+              "ql_pooled": 0.37811518554687495
+            },
+            {
+              "bin": 9,
+              "n_cells": 41,
+              "n_rows": 16789,
+              "pred_hi": null,
+              "pred_lo": 98.24734954833984,
+              "q2_cellbal": 0.22505370760832477,
+              "q2_pooled": 0.24925561523438944,
+              "ql_cellbal": 0.1630626076438375,
+              "ql_pooled": 0.19353256059127943
+            }
+          ],
+          "coverage": 0.9,
+          "inner_edges": [
+            86.77009765625,
+            91.11208282470703,
+            93.64263397216797,
+            95.07194763183594,
+            96.05740051269531,
+            96.76476470947266,
+            97.31998779296875,
+            97.78937530517578,
+            98.24734954833984
+          ]
+        }
+      },
+      "W300": {
+        "ema": {
+          "bins": [
+            {
+              "bin": 0,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 88.09285911588802,
+              "pred_lo": null,
+              "q2_cellbal": 3.7704200257848868,
+              "q2_pooled": 2.722049873336715,
+              "ql_cellbal": 3.756670726550155,
+              "ql_pooled": 2.694564268370087
+            },
+            {
+              "bin": 1,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 92.25204207425301,
+              "pred_lo": 88.09285911588802,
+              "q2_cellbal": 3.1644470062295795,
+              "q2_pooled": 5.049241965030021,
+              "ql_cellbal": 3.1644470062295795,
+              "ql_pooled": 5.049241965030021
+            },
+            {
+              "bin": 2,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 94.4403388857433,
+              "pred_lo": 92.25204207425301,
+              "q2_cellbal": 2.8272872955176354,
+              "q2_pooled": 4.538497603138524,
+              "ql_cellbal": 2.8272872955176354,
+              "ql_pooled": 4.538497603138524
+            },
+            {
+              "bin": 3,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 95.65346665011042,
+              "pred_lo": 94.4403388857433,
+              "q2_cellbal": 2.274155403649189,
+              "q2_pooled": 3.7375045320005427,
+              "ql_cellbal": 2.2733816240189384,
+              "ql_pooled": 3.7375045320005427
+            },
+            {
+              "bin": 4,
+              "n_cells": 82,
+              "n_rows": 16788,
+              "pred_hi": 96.45287635806565,
+              "pred_lo": 95.65346665011042,
+              "q2_cellbal": 1.859841522344098,
+              "q2_pooled": 3.3577251277418014,
+              "ql_cellbal": 1.8596052708752637,
+              "ql_pooled": 3.3577251277418014
+            },
+            {
+              "bin": 5,
+              "n_cells": 81,
+              "n_rows": 16789,
+              "pred_hi": 97.02114480959688,
+              "pred_lo": 96.45287635806565,
+              "q2_cellbal": 1.4558425852360273,
+              "q2_pooled": 3.507002815338609,
+              "ql_cellbal": 1.4558425852360273,
+              "ql_pooled": 3.507002815338609
+            },
+            {
+              "bin": 6,
+              "n_cells": 80,
+              "n_rows": 16789,
+              "pred_hi": 97.44831061265685,
+              "pred_lo": 97.02114480959688,
+              "q2_cellbal": 0.9227098318269356,
+              "q2_pooled": 3.1188880450964263,
+              "ql_cellbal": 0.9098534130051519,
+              "ql_pooled": 3.1188880450964263
+            },
+            {
+              "bin": 7,
+              "n_cells": 76,
+              "n_rows": 16789,
+              "pred_hi": 97.81075403426551,
+              "pred_lo": 97.44831061265685,
+              "q2_cellbal": 0.6295513831981907,
+              "q2_pooled": 2.382855329524716,
+              "ql_cellbal": 0.5319857967799777,
+              "ql_pooled": 2.382855329524716
+            },
+            {
+              "bin": 8,
+              "n_cells": 62,
+              "n_rows": 16789,
+              "pred_hi": 98.26376712378216,
+              "pred_lo": 97.81075403426551,
+              "q2_cellbal": 0.4281593491911906,
+              "q2_pooled": 1.2469214469421388,
+              "ql_cellbal": 0.35001325259119653,
+              "ql_pooled": 1.2469214469421388
+            },
+            {
+              "bin": 9,
+              "n_cells": 44,
+              "n_rows": 16789,
+              "pred_hi": null,
+              "pred_lo": 98.26376712378216,
+              "q2_cellbal": 0.26330287339405345,
+              "q2_pooled": 0.3759926078701028,
+              "ql_cellbal": 0.22292777821360232,
+              "ql_pooled": 0.3666755975085749
+            }
+          ],
+          "coverage": 0.9,
+          "inner_edges": [
+            88.09285911588802,
+            92.25204207425301,
+            94.4403388857433,
+            95.65346665011042,
+            96.45287635806565,
+            97.02114480959688,
+            97.44831061265685,
+            97.81075403426551,
+            98.26376712378216
+          ]
+        },
+        "raw": {
+          "bins": [
+            {
+              "bin": 0,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 87.86513549804688,
+              "pred_lo": null,
+              "q2_cellbal": 3.6293731656161157,
+              "q2_pooled": 2.745061708540476,
+              "ql_cellbal": 3.571226632191056,
+              "ql_pooled": 2.492925234818898
+            },
+            {
+              "bin": 1,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 92.128330078125,
+              "pred_lo": 87.86513549804688,
+              "q2_cellbal": 3.1313792027698923,
+              "q2_pooled": 4.607863904030552,
+              "ql_cellbal": 3.0823159193004273,
+              "ql_pooled": 4.591120597478692
+            },
+            {
+              "bin": 2,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 94.40301849365234,
+              "pred_lo": 92.128330078125,
+              "q2_cellbal": 2.7855298295454674,
+              "q2_pooled": 3.0853421464399986,
+              "ql_cellbal": 2.768247784978712,
+              "ql_pooled": 3.063482508877854
+            },
+            {
+              "bin": 3,
+              "n_cells": 84,
+              "n_rows": 16789,
+              "pred_hi": 95.61669647216797,
+              "pred_lo": 94.40301849365234,
+              "q2_cellbal": 2.218717907714847,
+              "q2_pooled": 3.916338721812849,
+              "ql_cellbal": 2.2084198275479423,
+              "ql_pooled": 3.916338721812849
+            },
+            {
+              "bin": 4,
+              "n_cells": 83,
+              "n_rows": 16788,
+              "pred_hi": 96.42873992919922,
+              "pred_lo": 95.61669647216797,
+              "q2_cellbal": 1.7713447332208858,
+              "q2_pooled": 3.505685670055044,
+              "ql_cellbal": 1.7617618452592296,
+              "ql_pooled": 3.505685670055044
+            },
+            {
+              "bin": 5,
+              "n_cells": 81,
+              "n_rows": 16789,
+              "pred_hi": 97.00734466552734,
+              "pred_lo": 96.42873992919922,
+              "q2_cellbal": 1.4828559858842425,
+              "q2_pooled": 3.467479613148086,
+              "ql_cellbal": 1.4794302379261381,
+              "ql_pooled": 3.467479613148086
+            },
+            {
+              "bin": 6,
+              "n_cells": 81,
+              "n_rows": 16789,
+              "pred_hi": 97.44815307617188,
+              "pred_lo": 97.00734466552734,
+              "q2_cellbal": 0.9828237515536102,
+              "q2_pooled": 2.9599812444513702,
+              "ql_cellbal": 0.9563464710582394,
+              "ql_pooled": 2.9599812444513702
+            },
+            {
+              "bin": 7,
+              "n_cells": 76,
+              "n_rows": 16789,
+              "pred_hi": 97.81139801025391,
+              "pred_lo": 97.44815307617188,
+              "q2_cellbal": 0.6490662986061579,
+              "q2_pooled": 2.253337093838809,
+              "ql_cellbal": 0.5470858431729511,
+              "ql_pooled": 2.253337093838809
+            },
+            {
+              "bin": 8,
+              "n_cells": 66,
+              "n_rows": 16789,
+              "pred_hi": 98.26362762451173,
+              "pred_lo": 97.81139801025391,
+              "q2_cellbal": 0.4304652465820169,
+              "q2_pooled": 1.3564003884055467,
+              "ql_cellbal": 0.3615671109286325,
+              "ql_pooled": 1.3564003884055467
+            },
+            {
+              "bin": 9,
+              "n_cells": 46,
+              "n_rows": 16789,
+              "pred_hi": null,
+              "pred_lo": 98.26362762451173,
+              "q2_cellbal": 0.28647850785689855,
+              "q2_pooled": 0.41808748224433145,
+              "ql_cellbal": 0.2527471934925529,
+              "ql_pooled": 0.4144403786399238
+            }
+          ],
+          "coverage": 0.9,
+          "inner_edges": [
+            87.86513549804688,
+            92.128330078125,
+            94.40301849365234,
+            95.61669647216797,
+            96.42873992919922,
+            97.00734466552734,
+            97.44815307617188,
+            97.81139801025391,
+            98.26362762451173
+          ]
+        }
+      }
+    }
+  },
+  "ema": {
+    "alphas_tested": [
+      0.2,
+      0.3,
+      0.5
+    ],
+    "causal": true,
+    "chosen": {
+      "W240": 0.3,
+      "W300": 0.3
+    },
+    "dev_oof_cell_macro_mae_pp": {
+      "W240|EMA alpha=0.2": 0.5287747915304752,
+      "W240|EMA alpha=0.3": 0.521109266945399,
+      "W240|EMA alpha=0.5": 0.5217685459276191,
+      "W240|raw": 0.530092315471049,
+      "W300|EMA alpha=0.2": 0.8168467584611311,
+      "W300|EMA alpha=0.3": 0.8159574444285616,
+      "W300|EMA alpha=0.5": 0.8206981250036529,
+      "W300|raw": 0.8360091897695184
+    },
+    "initialisation": "first scored estimate (no warm-up)",
+    "selection": "lowest pooled development OOF cell-macro MAE of the smoothed M0 ensemble mean"
+  },
+  "frozen_reference_hashes": {
+    "batch3_predictions": "679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd",
+    "batch3_verdict": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+    "comparator_reproduction": "2e9bd9d7d9c588aac6ee78f6d1e7f13ae736d2aeb8cccb251368d997627f2688",
+    "formal_comparators": "0e1c1daa4839e8b92773c04a866327d308d5a1bda29e9768ca83f3bf91fc2231",
+    "frozen_config": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+    "gate_verdict_5b": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+    "gate_week2": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+    "model_M0_W240": "29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe",
+    "model_M0_W300": "06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2",
+    "model_M0idx_W240": "b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18",
+    "model_M0idx_W300": "0e7430ee1586a57b38207ce95e7d73b902b230678a92c0f32a4a704e5c05e99e",
+    "preregistration": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+    "soh_deep_v2": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+    "soh_deep_v3": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb",
+    "soh_deep_v4": "2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4"
+  },
+  "label": "soh_nom = QD / 1.1 Ah, in percentage points (pp); bias = pred - y",
+  "models": {
+    "all_files": {
+      "M0_W240": {
+        "file": "outputs\\phase7a\\models\\M0_W240.npz",
+        "sha256": "29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe"
+      },
+      "M0_W300": {
+        "file": "outputs\\phase7a\\models\\M0_W300.npz",
+        "sha256": "06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2"
+      },
+      "M0idx_W240": {
+        "file": "outputs\\phase7a\\models\\M0idx_W240.npz",
+        "sha256": "b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18"
+      },
+      "M0idx_W300": {
+        "file": "outputs\\phase7a\\models\\M0idx_W300.npz",
+        "sha256": "0e7430ee1586a57b38207ce95e7d73b902b230678a92c0f32a4a704e5c05e99e"
+      }
+    },
+    "deployed": {
+      "file": "outputs\\phase7a\\models\\M0_W240.npz",
+      "model": "M0",
+      "note": "no cycle index, from-scratch, no pretrained weights",
+      "sha256": "29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe",
+      "window": "W240"
+    },
+    "experimental": {
+      "file": "outputs\\phase7a\\models\\M0idx_W240.npz",
+      "model": "M0+idx",
+      "note": "EXPERIMENTAL: adds log1p(cycle_number)",
+      "sha256": "b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18",
+      "window": "W240"
+    }
+  },
+  "name": "Phase 7b monitor configuration",
+  "q0_definition": "Q0 = median discharge capacity QD of the reference cycles",
+  "reference_cycles": "reference cycles per rule D15 (normally cycles 8-12); DeltaQ(V) is referenced to the cell's own early curve",
+  "scoring_start": "normally cycle 20 (last reference cycle + 8); scored cycles <= end of life (EOL = cycle_life field); masked rows excluded",
+  "statement": "built from development data only",
+  "windows": {
+    "W240": {
+      "close_voltage": 2.4,
+      "end_index_inclusive": 733,
+      "grid": "1000-point voltage grid, 3.5 V down to 2.0 V",
+      "role": "companion, deployed",
+      "source": "soh_common.grid_index (frozen module)",
+      "start_index": 0,
+      "width": 734
+    },
+    "W300": {
+      "close_voltage": 3.0,
+      "end_index_inclusive": 333,
+      "grid": "1000-point voltage grid, 3.5 V down to 2.0 V",
+      "role": "headline",
+      "source": "soh_common.grid_index (frozen module)",
+      "start_index": 0,
+      "width": 334
+    }
+  }
+}

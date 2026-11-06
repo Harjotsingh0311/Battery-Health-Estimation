@@ -1,0 +1,120 @@
+{
+  "W240": {
+    "all": {
+      "best_comparator": "B4",
+      "best_mae": 0.566559,
+      "ci95": [
+        -0.235082,
+        -0.063159
+      ],
+      "diff": -0.146991,
+      "label": "CLEARLY-BETTER",
+      "m0_mae": 0.419568,
+      "n_cells": 40,
+      "verdict": "PASS"
+    },
+    "excl_shared_policy": {
+      "best_comparator": "B4",
+      "best_mae": 0.532268,
+      "ci95": [
+        -0.19972,
+        -0.028876
+      ],
+      "diff": -0.113568,
+      "label": "CLEARLY-BETTER",
+      "m0_mae": 0.4187,
+      "n_cells": 36,
+      "verdict": "PASS"
+    },
+    "expectation": {
+      "observed_m0_pp": 0.419568,
+      "position": "below",
+      "range_pp": [
+        0.6,
+        1.3
+      ]
+    }
+  },
+  "W300": {
+    "all": {
+      "best_comparator": "B4",
+      "best_mae": 0.742318,
+      "ci95": [
+        -0.275188,
+        -0.018973
+      ],
+      "diff": -0.145149,
+      "label": "CLEARLY-BETTER",
+      "m0_mae": 0.597169,
+      "n_cells": 40,
+      "verdict": "PASS"
+    },
+    "excl_shared_policy": {
+      "best_comparator": "B4",
+      "best_mae": 0.698445,
+      "ci95": [
+        -0.322371,
+        -0.075555
+      ],
+      "diff": -0.200282,
+      "label": "CLEARLY-BETTER",
+      "m0_mae": 0.498163,
+      "n_cells": 36,
+      "verdict": "PASS"
+    },
+    "expectation": {
+      "observed_m0_pp": 0.597169,
+      "position": "below",
+      "range_pp": [
+        1.5,
+        2.5
+      ]
+    }
+  },
+  "_meta": {
+    "formal_comparators": {
+      "W240": {
+        "B1_included": true,
+        "B4_leaf": 5,
+        "comparators": [
+          "B0b",
+          "B3",
+          "B4",
+          "B1"
+        ],
+        "reproduction_passed": {
+          "B0b": true,
+          "B1": true,
+          "B3": false,
+          "B4": true
+        }
+      },
+      "W300": {
+        "B1_included": true,
+        "B4_leaf": 5,
+        "comparators": [
+          "B0b",
+          "B3",
+          "B4",
+          "B1"
+        ],
+        "reproduction_passed": {
+          "B0b": true,
+          "B1": true,
+          "B3": true,
+          "B4": true
+        }
+      }
+    },
+    "formal_comparators_sha256": "0e1c1daa4839e8b92773c04a866327d308d5a1bda29e9768ca83f3bf91fc2231",
+    "predictions_sha256": "679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd",
+    "preregistration_sha256": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+    "shared_policy_cells": [
+      "b3c10",
+      "b3c16",
+      "b3c45",
+      "b3c7"
+    ],
+    "statement": "W300 is the headline, W240 the companion; secondary lines are not gate results; development-phase verdict (phase5b) not recomputed"
+  }
+}

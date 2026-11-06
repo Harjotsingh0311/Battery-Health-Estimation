@@ -1,0 +1,5 @@
+id,expected,observed,consistent
+H1,cluster CI wider than cell CI at both windows,"W300: cluster 0.266 vs cell 0.256 pp, includes zero True; W240: cluster 0.184 vs cell 0.172 pp, includes zero False",True
+H2,"macro coverage >= 0.90 at both windows, misses concentrated in life > 1434","W300: coverage 0.986, 96% of misses from long cells vs 18% of rows; W240: coverage 0.980, 35% of misses from long cells vs 18% of rows",True
+H3,median signed delay within +/-3% of life,W300/raw: +0.12%; W300/ema: +0.46%; W240/raw: +1.04%; W240/ema: +1.22%,True
+H4,"positive and significant at W300, not significant at W240","W300: rho +0.624 (p=0.000, CI +0.30 to +0.85); W240: rho -0.078 (p=0.631, CI -0.43 to +0.30)",True

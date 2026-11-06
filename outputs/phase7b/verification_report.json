@@ -1,0 +1,767 @@
+{
+  "checks": [
+    {
+      "detail": "device NVIDIA GeForce RTX 3050 6GB Laptop GPU, free VRAM 5.04 of 6.00 GB",
+      "name": "CUDA available",
+      "status": "PASS"
+    },
+    {
+      "detail": "week2_gate.json: got 40df2fb82096e994... expected 40df2fb82096e994...",
+      "name": "[start] sha256 gate_week2",
+      "status": "PASS"
+    },
+    {
+      "detail": "soh_deep_v2.py: got fc53e37d506ebe51... expected fc53e37d506ebe51...",
+      "name": "[start] sha256 soh_deep_v2",
+      "status": "PASS"
+    },
+    {
+      "detail": "soh_deep_v3.py: got 9c022dd391193de9... expected 9c022dd391193de9...",
+      "name": "[start] sha256 soh_deep_v3",
+      "status": "PASS"
+    },
+    {
+      "detail": "soh_deep_v4.py: got 2be9ce5ded197b16... expected 2be9ce5ded197b16...",
+      "name": "[start] sha256 soh_deep_v4",
+      "status": "PASS"
+    },
+    {
+      "detail": "gate_verdict.json: got 2f59f82a7c7d8940... expected 2f59f82a7c7d8940...",
+      "name": "[start] sha256 gate_verdict_5b",
+      "status": "PASS"
+    },
+    {
+      "detail": "frozen_config.json: got 78b571c7526551c7... expected 78b571c7526551c7...",
+      "name": "[start] sha256 frozen_config",
+      "status": "PASS"
+    },
+    {
+      "detail": "preregistration.json: got 11f9741387cb001e... expected 11f9741387cb001e...",
+      "name": "[start] sha256 preregistration",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch3_predictions.parquet: got 679ec76862de63f2... expected 679ec76862de63f2...",
+      "name": "[start] sha256 batch3_predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch3_verdict.json: got 57a054bdf25243d3... expected 57a054bdf25243d3...",
+      "name": "[start] sha256 batch3_verdict",
+      "status": "PASS"
+    },
+    {
+      "detail": "formal_comparators.json: got 0e1c1daa4839e8b9... expected 0e1c1daa4839e8b9...",
+      "name": "[start] sha256 formal_comparators",
+      "status": "PASS"
+    },
+    {
+      "detail": "comparator_reproduction.csv: got 2e9bd9d7d9c588aa... expected 2e9bd9d7d9c588aa...",
+      "name": "[start] sha256 comparator_reproduction",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W240.npz: got 29cd3ec8c5c2113d... expected 29cd3ec8c5c2113d...",
+      "name": "[start] sha256 model_M0_W240",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W300.npz: got 06f63dc6c5a89750... expected 06f63dc6c5a89750...",
+      "name": "[start] sha256 model_M0_W300",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0idx_W240.npz: got b7822335aa1c7cb5... expected b7822335aa1c7cb5...",
+      "name": "[start] sha256 model_M0idx_W240",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0idx_W300.npz: got 0e7430ee1586a57b... expected 0e7430ee1586a57b...",
+      "name": "[start] sha256 model_M0idx_W300",
+      "status": "PASS"
+    },
+    {
+      "detail": "found ['preregistration_written', 'placeholder_test', 'formal_comparators_written', 'predictions_written', 'unlock', 'scored']",
+      "name": "7a lock log: 6 events in order",
+      "status": "PASS"
+    },
+    {
+      "detail": "6 of 6 links valid",
+      "name": "7a lock log: prev_line_sha256 chain intact",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['model', 'window', 'seed', 'row_id', 'cell_id', 'pred_pp'], missing []",
+      "name": "predictions have the expected columns",
+      "status": "PASS"
+    },
+    {
+      "detail": "1,375,504 rows",
+      "name": "predictions: 1,375,504 rows",
+      "status": "PASS"
+    },
+    {
+      "detail": "34 series: ['B0b', 'B1', 'B3', 'B3r', 'B4', 'B4r', 'B4ridx', 'M0', 'M0idx']",
+      "name": "predictions: 34 series",
+      "status": "PASS"
+    },
+    {
+      "detail": "per-series rows min 40456, max 40456",
+      "name": "predictions: 40,456 rows per series",
+      "status": "PASS"
+    },
+    {
+      "detail": "40,456 unique row_ids",
+      "name": "predictions: no duplicate keys",
+      "status": "PASS"
+    },
+    {
+      "detail": "0 NaN",
+      "name": "predictions: no NaN",
+      "status": "PASS"
+    },
+    {
+      "detail": "windows ['W240', 'W300']",
+      "name": "predictions: windows are W300 and W240",
+      "status": "PASS"
+    },
+    {
+      "detail": "unknown []",
+      "name": "predictions: all model names known",
+      "status": "PASS"
+    },
+    {
+      "detail": "see print above",
+      "name": "qdlin is 104,971 x 1000",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['cell_id', 'batch', 'idx', 'status', 'stitched_into', 'has_continuation', 'continuation_cell', 'policy_str', 'policy_norm', 'cycle_life_field', 'n_cycles', 'cycle_life_final', 'qd_last', 'reached_eol_in_data', 'n_post_eol_cycles', 'last_cycle_number', 'policy_raw', 'policy_numeric', 'policy_vec', 'policy_size', 'policy_dtype']",
+      "name": "registry has column cell_id",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['cell_id', 'batch', 'idx', 'status', 'stitched_into', 'has_continuation', 'continuation_cell', 'policy_str', 'policy_norm', 'cycle_life_field', 'n_cycles', 'cycle_life_final', 'qd_last', 'reached_eol_in_data', 'n_post_eol_cycles', 'last_cycle_number', 'policy_raw', 'policy_numeric', 'policy_vec', 'policy_size', 'policy_dtype']",
+      "name": "registry has column policy_norm",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['cell_id', 'batch', 'idx', 'status', 'stitched_into', 'has_continuation', 'continuation_cell', 'policy_str', 'policy_norm', 'cycle_life_field', 'n_cycles', 'cycle_life_final', 'qd_last', 'reached_eol_in_data', 'n_post_eol_cycles', 'last_cycle_number', 'policy_raw', 'policy_numeric', 'policy_vec', 'policy_size', 'policy_dtype']",
+      "name": "registry has column batch",
+      "status": "PASS"
+    },
+    {
+      "detail": "using 'cycle_life_field' (spec: EOL = the cycle_life field)",
+      "name": "registry has a cycle-life column",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['stitched_into', 'has_continuation', 'continuation_cell']; 10 stitched cells (of 140 registry rows)",
+      "name": "registry stitched flag found",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['row_id', 'cell_id', 'batch', 'cycle_number', 'segment', 'in_life', 'qdlin_ok', 'causal_ok', 'label_suspect', 'post_junction', 'is_ref', 'q0', 'ref_last', 'score_start', 'soh_nom', 'soh_rel', 'soh_nom_repaired', 'scored', 'scored_incl_suspect', 'train_ok', 'ratio_end', 'max_step', 'qdlin_tail_suspect', 'qdlin_ok2', 'scored2', 'high_defect_cell']",
+      "name": "label table has needed columns",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch values [np.int64(1), np.int64(2), np.int64(3)]",
+      "name": "batch-3 value found in labels.batch",
+      "status": "PASS"
+    },
+    {
+      "detail": "104,971 rows",
+      "name": "labels: row_id equals row position",
+      "status": "PASS"
+    },
+    {
+      "detail": "63,731 development-side rows",
+      "name": "development labels read without batch 3",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['window', 'model', 'repeat', 'outer_fold', 'seed', 'row_id', 'cell_id', 'pred_pp']",
+      "name": "5b columns present",
+      "status": "PASS"
+    },
+    {
+      "detail": "models ['B3r', 'B4r', 'M0', 'M1p']",
+      "name": "5b contains model M0 for both windows",
+      "status": "PASS"
+    },
+    {
+      "detail": "167,889 rows",
+      "name": "W300 dev OOF: finite y, pred, life",
+      "status": "PASS"
+    },
+    {
+      "detail": "167,889 rows",
+      "name": "W240 dev OOF: finite y, pred, life",
+      "status": "PASS"
+    },
+    {
+      "detail": "84 cells, 3 repeats, 167,889 rows, seeds/row min 5 max 5",
+      "name": "W300 dev OOF: 84 cells, 5 seeds per row",
+      "status": "PASS"
+    },
+    {
+      "detail": "84 cells, 3 repeats, 167,889 rows, seeds/row min 5 max 5",
+      "name": "W240 dev OOF: 84 cells, 5 seeds per row",
+      "status": "PASS"
+    },
+    {
+      "detail": "84 dev, 40 batch-3",
+      "name": "dev and batch-3 cells are disjoint; all in registry",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch values dev [1, 2]",
+      "name": "batch-3 cells are batch 3 and dev cells are not",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed 0.9579 vs 6b 0.946 (abs diff 0.0119, tolerance 0.02); own numbers are used",
+      "name": "parity gate W300: dev macro coverage vs 6b",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed 0.8964 vs 6b 0.892 (abs diff 0.0044, tolerance 0.02); own numbers are used",
+      "name": "parity gate W240: dev macro coverage vs 6b",
+      "status": "PASS"
+    },
+    {
+      "detail": "{'W300': 333, 'W240': 733} from soh_common.grid_index (frozen module)",
+      "name": "window closing indices equal 333 / 733",
+      "status": "PASS"
+    },
+    {
+      "detail": "2 label reads so far, batch-3 label reads 0",
+      "name": "no batch-3 label read before config_frozen",
+      "status": "PASS"
+    },
+    {
+      "detail": "log events ['start', 'start', 'config_frozen']",
+      "name": "config_frozen is in the log before labels are read",
+      "status": "PASS"
+    },
+    {
+      "detail": "40,456 rows, 40 cells",
+      "name": "batch-3 labels complete",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch-3 label reads 1",
+      "name": "batch-3 label read happened after config_frozen",
+      "status": "PASS"
+    },
+    {
+      "detail": "40,456 label rows vs 40,456 prediction rows",
+      "name": "score rows equal prediction rows",
+      "status": "PASS"
+    },
+    {
+      "detail": "0 unmatched of 20",
+      "name": "S2: every line matches a 7a row",
+      "status": "PASS"
+    },
+    {
+      "detail": "max abs diff 0.00e+00 over 20 lines",
+      "name": "S2: cell-macro MAE of all lines equals batch3_results.csv to 1e-9",
+      "status": "PASS"
+    },
+    {
+      "detail": "max abs diff 0.00e+00 over 800 of 800 rows",
+      "name": "S2: per-cell MAE equals batch3_by_cell.csv to 1e-9",
+      "status": "PASS"
+    },
+    {
+      "detail": "diff -0.145149 [-0.275188, -0.018973] vs 7a -0.145149 [-0.275188, -0.018973], max abs diff 0.00e+00",
+      "name": "S2: W300 M0-B4 paired cell bootstrap (5000 draws, seed 42) equals 7a to 1e-9",
+      "status": "PASS"
+    },
+    {
+      "detail": "verdict PASS, diff -0.145149 vs recomputed -0.145149",
+      "name": "S2: W300 verdict file agrees",
+      "status": "PASS"
+    },
+    {
+      "detail": "diff -0.146991 [-0.235082, -0.063159] vs 7a -0.146991 [-0.235082, -0.063159], max abs diff 0.00e+00",
+      "name": "S2: W240 M0-B4 paired cell bootstrap (5000 draws, seed 42) equals 7a to 1e-9",
+      "status": "PASS"
+    },
+    {
+      "detail": "verdict PASS, diff -0.146991 vs recomputed -0.146991",
+      "name": "S2: W240 verdict file agrees",
+      "status": "PASS"
+    },
+    {
+      "detail": "0 from 6a, 40 own fit",
+      "name": "knee available for every batch-3 cell",
+      "status": "PASS"
+    },
+    {
+      "detail": "week2_gate.json: got 40df2fb82096e994... expected 40df2fb82096e994...",
+      "name": "[end] sha256 gate_week2",
+      "status": "PASS"
+    },
+    {
+      "detail": "soh_deep_v2.py: got fc53e37d506ebe51... expected fc53e37d506ebe51...",
+      "name": "[end] sha256 soh_deep_v2",
+      "status": "PASS"
+    },
+    {
+      "detail": "soh_deep_v3.py: got 9c022dd391193de9... expected 9c022dd391193de9...",
+      "name": "[end] sha256 soh_deep_v3",
+      "status": "PASS"
+    },
+    {
+      "detail": "soh_deep_v4.py: got 2be9ce5ded197b16... expected 2be9ce5ded197b16...",
+      "name": "[end] sha256 soh_deep_v4",
+      "status": "PASS"
+    },
+    {
+      "detail": "gate_verdict.json: got 2f59f82a7c7d8940... expected 2f59f82a7c7d8940...",
+      "name": "[end] sha256 gate_verdict_5b",
+      "status": "PASS"
+    },
+    {
+      "detail": "frozen_config.json: got 78b571c7526551c7... expected 78b571c7526551c7...",
+      "name": "[end] sha256 frozen_config",
+      "status": "PASS"
+    },
+    {
+      "detail": "preregistration.json: got 11f9741387cb001e... expected 11f9741387cb001e...",
+      "name": "[end] sha256 preregistration",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch3_predictions.parquet: got 679ec76862de63f2... expected 679ec76862de63f2...",
+      "name": "[end] sha256 batch3_predictions",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch3_verdict.json: got 57a054bdf25243d3... expected 57a054bdf25243d3...",
+      "name": "[end] sha256 batch3_verdict",
+      "status": "PASS"
+    },
+    {
+      "detail": "formal_comparators.json: got 0e1c1daa4839e8b9... expected 0e1c1daa4839e8b9...",
+      "name": "[end] sha256 formal_comparators",
+      "status": "PASS"
+    },
+    {
+      "detail": "comparator_reproduction.csv: got 2e9bd9d7d9c588aa... expected 2e9bd9d7d9c588aa...",
+      "name": "[end] sha256 comparator_reproduction",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W240.npz: got 29cd3ec8c5c2113d... expected 29cd3ec8c5c2113d...",
+      "name": "[end] sha256 model_M0_W240",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W300.npz: got 06f63dc6c5a89750... expected 06f63dc6c5a89750...",
+      "name": "[end] sha256 model_M0_W300",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0idx_W240.npz: got b7822335aa1c7cb5... expected b7822335aa1c7cb5...",
+      "name": "[end] sha256 model_M0idx_W240",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0idx_W300.npz: got 0e7430ee1586a57b... expected 0e7430ee1586a57b...",
+      "name": "[end] sha256 model_M0idx_W300",
+      "status": "PASS"
+    },
+    {
+      "detail": "sha256 638b6c3a6ad31c69...",
+      "name": "monitor_config.json unchanged",
+      "status": "PASS"
+    },
+    {
+      "detail": "sha256 50d29893e8cbbc43...",
+      "name": "expectations file unchanged",
+      "status": "PASS"
+    },
+    {
+      "detail": "4 events ['start', 'start', 'config_frozen', 'labels_loaded']",
+      "name": "phase7b log: hash chain intact",
+      "status": "PASS"
+    },
+    {
+      "detail": "event order ['start', 'start', 'config_frozen', 'labels_loaded']",
+      "name": "config_frozen logged before the last labels_loaded",
+      "status": "PASS"
+    }
+  ],
+  "created_utc": "2026-11-05T03:30:25+00:00",
+  "elapsed_s": 27.8,
+  "extra": {
+    "alpha": {
+      "W240": 0.3,
+      "W300": 0.3
+    },
+    "dev_cells_life_gt_1434": 0,
+    "ensemble_arrays_keys": {
+      "P__W240__B3r": [
+        3,
+        55963
+      ],
+      "P__W240__B4r": [
+        3,
+        55963
+      ],
+      "P__W240__M0": [
+        3,
+        55963
+      ],
+      "P__W240__M1p": [
+        3,
+        55963
+      ],
+      "P__W280__B3r": [
+        3,
+        55963
+      ],
+      "P__W280__B4r": [
+        3,
+        55963
+      ],
+      "P__W280__M0": [
+        3,
+        55963
+      ],
+      "P__W300__B3r": [
+        3,
+        55963
+      ],
+      "P__W300__B4r": [
+        3,
+        55963
+      ],
+      "P__W300__M0": [
+        3,
+        55963
+      ],
+      "P__W300__M1p": [
+        3,
+        55963
+      ],
+      "P__W305__B3r": [
+        3,
+        55963
+      ],
+      "P__W305__B4r": [
+        3,
+        55963
+      ],
+      "P__W305__M0": [
+        3,
+        55963
+      ],
+      "P__W310__B3r": [
+        3,
+        55963
+      ],
+      "P__W310__B4r": [
+        3,
+        55963
+      ],
+      "P__W310__M0": [
+        3,
+        55963
+      ],
+      "P__WFULL__B3r": [
+        3,
+        55963
+      ],
+      "P__WFULL__B4r": [
+        3,
+        55963
+      ],
+      "P__WFULL__M0": [
+        3,
+        55963
+      ],
+      "meta": [],
+      "sig": []
+    },
+    "expectations_sha256": "50d29893e8cbbc433f2201ad1baa9bb12566d4b0d76ef1b26190c918e36d5f10",
+    "hashes_end": {
+      "batch3_predictions": {
+        "expected": "679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd",
+        "got": "679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\batch3_predictions.parquet"
+      },
+      "batch3_verdict": {
+        "expected": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "got": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\batch3_verdict.json"
+      },
+      "comparator_reproduction": {
+        "expected": "2e9bd9d7d9c588aac6ee78f6d1e7f13ae736d2aeb8cccb251368d997627f2688",
+        "got": "2e9bd9d7d9c588aac6ee78f6d1e7f13ae736d2aeb8cccb251368d997627f2688",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\comparator_reproduction.csv"
+      },
+      "formal_comparators": {
+        "expected": "0e1c1daa4839e8b92773c04a866327d308d5a1bda29e9768ca83f3bf91fc2231",
+        "got": "0e1c1daa4839e8b92773c04a866327d308d5a1bda29e9768ca83f3bf91fc2231",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\formal_comparators.json"
+      },
+      "frozen_config": {
+        "expected": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "got": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "lf_normalised": false,
+        "path": "outputs\\phase6b\\frozen_config.json"
+      },
+      "gate_verdict_5b": {
+        "expected": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "got": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "lf_normalised": false,
+        "path": "outputs\\phase5b\\gate_verdict.json"
+      },
+      "gate_week2": {
+        "expected": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "got": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "lf_normalised": false,
+        "path": "outputs\\phase4\\week2_gate.json"
+      },
+      "model_M0_W240": {
+        "expected": "29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe",
+        "got": "29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\models\\M0_W240.npz"
+      },
+      "model_M0_W300": {
+        "expected": "06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2",
+        "got": "06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\models\\M0_W300.npz"
+      },
+      "model_M0idx_W240": {
+        "expected": "b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18",
+        "got": "b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\models\\M0idx_W240.npz"
+      },
+      "model_M0idx_W300": {
+        "expected": "0e7430ee1586a57b38207ce95e7d73b902b230678a92c0f32a4a704e5c05e99e",
+        "got": "0e7430ee1586a57b38207ce95e7d73b902b230678a92c0f32a4a704e5c05e99e",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\models\\M0idx_W300.npz"
+      },
+      "preregistration": {
+        "expected": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "got": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\preregistration.json"
+      },
+      "soh_deep_v2": {
+        "expected": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "got": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "lf_normalised": true,
+        "path": "src\\soh_deep_v2.py"
+      },
+      "soh_deep_v3": {
+        "expected": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb",
+        "got": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb",
+        "lf_normalised": true,
+        "path": "src\\soh_deep_v3.py"
+      },
+      "soh_deep_v4": {
+        "expected": "2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4",
+        "got": "2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4",
+        "lf_normalised": false,
+        "path": "src\\soh_deep_v4.py"
+      }
+    },
+    "hashes_start": {
+      "batch3_predictions": {
+        "expected": "679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd",
+        "got": "679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\batch3_predictions.parquet"
+      },
+      "batch3_verdict": {
+        "expected": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "got": "57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\batch3_verdict.json"
+      },
+      "comparator_reproduction": {
+        "expected": "2e9bd9d7d9c588aac6ee78f6d1e7f13ae736d2aeb8cccb251368d997627f2688",
+        "got": "2e9bd9d7d9c588aac6ee78f6d1e7f13ae736d2aeb8cccb251368d997627f2688",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\comparator_reproduction.csv"
+      },
+      "formal_comparators": {
+        "expected": "0e1c1daa4839e8b92773c04a866327d308d5a1bda29e9768ca83f3bf91fc2231",
+        "got": "0e1c1daa4839e8b92773c04a866327d308d5a1bda29e9768ca83f3bf91fc2231",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\formal_comparators.json"
+      },
+      "frozen_config": {
+        "expected": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "got": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "lf_normalised": false,
+        "path": "outputs\\phase6b\\frozen_config.json"
+      },
+      "gate_verdict_5b": {
+        "expected": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "got": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "lf_normalised": false,
+        "path": "outputs\\phase5b\\gate_verdict.json"
+      },
+      "gate_week2": {
+        "expected": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "got": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "lf_normalised": false,
+        "path": "outputs\\phase4\\week2_gate.json"
+      },
+      "model_M0_W240": {
+        "expected": "29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe",
+        "got": "29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\models\\M0_W240.npz"
+      },
+      "model_M0_W300": {
+        "expected": "06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2",
+        "got": "06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\models\\M0_W300.npz"
+      },
+      "model_M0idx_W240": {
+        "expected": "b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18",
+        "got": "b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\models\\M0idx_W240.npz"
+      },
+      "model_M0idx_W300": {
+        "expected": "0e7430ee1586a57b38207ce95e7d73b902b230678a92c0f32a4a704e5c05e99e",
+        "got": "0e7430ee1586a57b38207ce95e7d73b902b230678a92c0f32a4a704e5c05e99e",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\models\\M0idx_W300.npz"
+      },
+      "preregistration": {
+        "expected": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "got": "11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce",
+        "lf_normalised": false,
+        "path": "outputs\\phase7a\\preregistration.json"
+      },
+      "soh_deep_v2": {
+        "expected": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "got": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "lf_normalised": true,
+        "path": "src\\soh_deep_v2.py"
+      },
+      "soh_deep_v3": {
+        "expected": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb",
+        "got": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb",
+        "lf_normalised": true,
+        "path": "src\\soh_deep_v3.py"
+      },
+      "soh_deep_v4": {
+        "expected": "2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4",
+        "got": "2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4",
+        "lf_normalised": false,
+        "path": "src\\soh_deep_v4.py"
+      }
+    },
+    "label_reads": [
+      {
+        "b3_label": false,
+        "columns": [
+          "row_id",
+          "cell_id",
+          "batch",
+          "cycle_number",
+          "scored2"
+        ],
+        "config_frozen_logged": false,
+        "n": 104971,
+        "subset": "all",
+        "t_utc": "2026-11-05T03:30:09+00:00"
+      },
+      {
+        "b3_label": false,
+        "columns": [
+          "row_id",
+          "soh_nom"
+        ],
+        "config_frozen_logged": false,
+        "n": 63731,
+        "subset": "dev",
+        "t_utc": "2026-11-05T03:30:09+00:00"
+      },
+      {
+        "b3_label": true,
+        "columns": [
+          "row_id",
+          "soh_nom"
+        ],
+        "config_frozen_logged": true,
+        "n": 41240,
+        "subset": "b3",
+        "t_utc": "2026-11-05T03:30:17+00:00"
+      }
+    ],
+    "monitor_config_sha256": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+    "parity": {
+      "W240": {
+        "abs_diff": 0.004389037367934057,
+        "observed": 0.8963890373679341,
+        "reference_6b": 0.892
+      },
+      "W300": {
+        "abs_diff": 0.011861863502317438,
+        "observed": 0.9578618635023174,
+        "reference_6b": 0.946
+      }
+    },
+    "s7": [
+      {
+        "consistent": true,
+        "expected": "cluster CI wider than cell CI at both windows",
+        "id": "H1",
+        "observed": "W300: cluster 0.266 vs cell 0.256 pp, includes zero True; W240: cluster 0.184 vs cell 0.172 pp, includes zero False"
+      },
+      {
+        "consistent": true,
+        "expected": "macro coverage >= 0.90 at both windows, misses concentrated in life > 1434",
+        "id": "H2",
+        "observed": "W300: coverage 0.986, 96% of misses from long cells vs 18% of rows; W240: coverage 0.980, 35% of misses from long cells vs 18% of rows"
+      },
+      {
+        "consistent": true,
+        "expected": "median signed delay within +/-3% of life",
+        "id": "H3",
+        "observed": "W300/raw: +0.12%; W300/ema: +0.46%; W240/raw: +1.04%; W240/ema: +1.22%"
+      },
+      {
+        "consistent": true,
+        "expected": "positive and significant at W300, not significant at W240",
+        "id": "H4",
+        "observed": "W300: rho +0.624 (p=0.000, CI +0.30 to +0.85); W240: rho -0.078 (p=0.631, CI -0.43 to +0.30)"
+      }
+    ],
+    "shared_policy_cells": [
+      "b3c10",
+      "b3c16",
+      "b3c45",
+      "b3c7"
+    ]
+  },
+  "failed": null,
+  "smoke": false,
+  "summary": {
+    "FAIL": 0,
+    "PASS": 79,
+    "WARN": 0
+  }
+}

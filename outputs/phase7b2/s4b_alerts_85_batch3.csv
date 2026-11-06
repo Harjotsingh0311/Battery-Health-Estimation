@@ -1,0 +1,5 @@
+window,series,alert,rule,n_cells,n_with_crossing,n_detected,missed_pct,early_pct,median_abs_delay_cycles,mean_abs_delay_cycles,median_abs_delay_pct_life,mean_abs_delay_pct_life,median_signed_delay_pct_life
+W300,raw,85% warning,A: estimate <= 85,40,40,40,0.0,2.5,11.5,17.925,1.0940735351726452,1.552419863359806,0.12166098323387325
+W300,ema,85% warning,A: estimate <= 85,40,40,38,5.0,0.0,12.5,16.763157894736842,1.2152553610999632,1.5197545740205138,0.4561381683979183
+W240,raw,85% warning,A: estimate <= 85,40,40,40,0.0,0.0,12.0,13.675,1.1839960359920432,1.4808191715227363,1.0430407289046033
+W240,ema,85% warning,A: estimate <= 85,40,40,40,0.0,0.0,14.0,15.3,1.2787591756258077,1.6361262827213359,1.2168808503887039

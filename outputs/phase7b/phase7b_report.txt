@@ -1,0 +1,152 @@
+PHASE 7b - BATCH-3 SECONDARY ANALYSIS AND MONITOR CONFIGURATION
+==============================================================================
+
+Batch 3 is spent; every batch-3 number below is descriptive. The monitor config was frozen from development data only before labels were read.
+monitor_config.json sha256 638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2
+
+EMA alpha chosen on development data: {'W300': 0.3, 'W240': 0.3}
+Conformal bins: {"W300": "10 equal-count bins on development OOF predicted SOH, bins with fewer than 12 cells merged (6a/6b bin definition not found)", "W240": "10 equal-count bins on development OOF predicted SOH, bins with fewer than 12 cells merged (6a/6b bin definition not found)"}
+Parity gate (dev macro coverage vs 6b): {"W300": {"observed": 0.9578618635023174, "reference_6b": 0.946, "abs_diff": 0.011861863502317438}, "W240": {"observed": 0.8963890373679341, "reference_6b": 0.892, "abs_diff": 0.004389037367934057}}
+
+S2 GATE REPRODUCTION
+window comparator  n_cells    m0  best   diff  ci_lo  ci_hi
+  W300         B4       40 0.597 0.742 -0.145 -0.275 -0.019
+  W240         B4       40 0.420 0.567 -0.147 -0.235 -0.063
+
+S3a POLICY-CLUSTER BOOTSTRAP
+window comparator  diff_pp  cell_ci_lo  cell_ci_hi  cell_width  cluster_ci_lo  cluster_ci_hi  cluster_width  cluster_includes_zero  n_groups  n_cells
+  W300         B4   -0.145      -0.275      -0.019       0.256         -0.240          0.025          0.266                   True         8       40
+  W240         B4   -0.147      -0.235      -0.063       0.172         -0.236         -0.052          0.184                  False         8       40
+
+S3b WINS / TRIMMED
+window comparator  wins  losses  ties  sign_test_p  mean_diff | all cells  n | all cells  mean_diff | without 5 most favourable  n | without 5 most favourable  mean_diff | without life > 1434  n | without life > 1434  mean_diff | without 4 shared-policy cells  n | without 4 shared-policy cells
+  W300         B4    25      15     0        0.154                 -0.145             40                                 -0.055                             35                           -0.204                       36                                     -0.200                                 36
+  W300        B4r    23      17     0        0.430                 -0.094             40                                 -0.009                             35                           -0.184                       36                                     -0.181                                 36
+  W240         B4    28      12     0        0.017                 -0.147             40                                 -0.075                             35                           -0.119                       36                                     -0.114                                 36
+  W240        B4r    23      17     0        0.430                 -0.013             40                                  0.030                             35                            0.004                       36                                      0.010                                 36
+
+S4 SPEARMAN
+window  model  spearman_bias_vs_life  p_value  ci_lo  ci_hi  n_cells  n_valid_draws
+  W300     M0                  0.624    0.000  0.298  0.846       40           5000
+  W300     B4                  0.312    0.050 -0.045  0.613       40           5000
+  W300    B4r                  0.503    0.001  0.171  0.737       40           5000
+  W300 M0+idx                 -0.345    0.029 -0.626  0.001       40           5000
+  W240     M0                 -0.078    0.631 -0.431  0.297       40           5000
+  W240     B4                  0.238    0.139 -0.104  0.531       40           5000
+  W240    B4r                  0.380    0.016  0.003  0.711       40           5000
+  W240 M0+idx                 -0.199    0.219 -0.533  0.179       40           5000
+
+S5 ALERTS
+window series       alert                 rule  n_cells  n_with_crossing  n_detected  missed_pct  early_pct  median_abs_delay_cycles  mean_abs_delay_cycles  median_abs_delay_pct_life  mean_abs_delay_pct_life  median_signed_delay_pct_life
+  W300    raw 85% warning    A: estimate <= 85       40               40          40        0.00       2.50                    11.50                  17.93                       1.09                     1.55                          0.12
+  W300    raw     80% EOL    A: estimate <= 80       40                0           0         NaN        NaN                      NaN                    NaN                        NaN                      NaN                           NaN
+  W300    raw     80% EOL B: lower bound <= 80       40                0           0         NaN        NaN                      NaN                    NaN                        NaN                      NaN                           NaN
+  W300    ema 85% warning    A: estimate <= 85       40               40          38        5.00       0.00                    12.50                  16.76                       1.22                     1.52                          0.46
+  W300    ema     80% EOL    A: estimate <= 80       40                0           0         NaN        NaN                      NaN                    NaN                        NaN                      NaN                           NaN
+  W300    ema     80% EOL B: lower bound <= 80       40                0           0         NaN        NaN                      NaN                    NaN                        NaN                      NaN                           NaN
+  W240    raw 85% warning    A: estimate <= 85       40               40          40        0.00       0.00                    12.00                  13.68                       1.18                     1.48                          1.04
+  W240    raw     80% EOL    A: estimate <= 80       40                0           0         NaN        NaN                      NaN                    NaN                        NaN                      NaN                           NaN
+  W240    raw     80% EOL B: lower bound <= 80       40                0           0         NaN        NaN                      NaN                    NaN                        NaN                      NaN                           NaN
+  W240    ema 85% warning    A: estimate <= 85       40               40          40        0.00       0.00                    14.00                  15.30                       1.28                     1.64                          1.22
+  W240    ema     80% EOL    A: estimate <= 80       40                0           0         NaN        NaN                      NaN                    NaN                        NaN                      NaN                           NaN
+  W240    ema     80% EOL B: lower bound <= 80       40                0           0         NaN        NaN                      NaN                    NaN                        NaN                      NaN                           NaN
+
+S5 COVERAGE
+window series variant  macro_coverage  macro_ci_lo  macro_ci_hi  pooled_coverage  macro_cov | life<=1000  macro_cov | 1000<life<=1434  macro_cov | life>1434  mean_width_pp  share_cells_cov_below_0_8  misses_y_below_lower  misses_y_above_upper  share_of_misses_from_life_gt_1434  share_of_rows_from_life_gt_1434  lower_bound_macro_coverage  n_cells  n_rows
+  W300    raw  pooled           0.986        0.972        0.997            0.976                   1.000                        0.998                  0.869          6.944                      0.000                   965                     0                              0.965                            0.176                       0.985       40   40456
+  W300    raw cellbal           0.964        0.923        0.995            0.935                   1.000                        1.000                  0.638          4.450                      0.075                  2630                     1                              0.997                            0.176                       0.963       40   40456
+  W300    ema  pooled           0.991        0.983        0.998            0.985                   0.999                        0.997                  0.923          7.462                      0.000                   595                     0                              0.919                            0.176                       0.991       40   40456
+  W300    ema cellbal           0.963        0.922        0.996            0.935                   1.000                        1.000                  0.636          4.551                      0.075                  2647                     0                              0.998                            0.176                       0.963       40   40456
+  W240    raw  pooled           0.980        0.965        0.993            0.981                   0.975                        0.991                  0.963          2.655                      0.000                   594                   182                              0.351                            0.176                       0.982       40   40456
+  W240    raw cellbal           0.975        0.957        0.991            0.977                   0.970                        0.985                  0.961          2.632                      0.025                   688                   261                              0.298                            0.176                       0.976       40   40456
+  W240    ema  pooled           0.979        0.962        0.993            0.981                   0.973                        0.993                  0.964          2.658                      0.025                   710                    77                              0.335                            0.176                       0.980       40   40456
+  W240    ema cellbal           0.977        0.959        0.992            0.978                   0.971                        0.988                  0.961          2.692                      0.025                   751                   150                              0.313                            0.176                       0.979       40   40456
+
+S7 EXPECTED VS OBSERVED
+id                                                                   expected                                                                                                                               observed  consistent
+H1                              cluster CI wider than cell CI at both windows                    W300: cluster 0.266 vs cell 0.256 pp, includes zero True; W240: cluster 0.184 vs cell 0.172 pp, includes zero False        True
+H2 macro coverage >= 0.90 at both windows, misses concentrated in life > 1434 W300: coverage 0.986, 96% of misses from long cells vs 18% of rows; W240: coverage 0.980, 35% of misses from long cells vs 18% of rows        True
+H3                                   median signed delay within +/-3% of life                                                                 W300/raw: +0.12%; W300/ema: +0.46%; W240/raw: +1.04%; W240/ema: +1.22%        True
+H4                  positive and significant at W300, not significant at W240                                           W300: rho +0.624 (p=0.000, CI +0.30 to +0.85); W240: rho -0.078 (p=0.631, CI -0.43 to +0.30)        True
+
+CHECKS
+------------------------------------------------------------------------------
+[PASS] CUDA available - device NVIDIA GeForce RTX 3050 6GB Laptop GPU, free VRAM 5.04 of 6.00 GB
+[PASS] [start] sha256 gate_week2 - week2_gate.json: got 40df2fb82096e994... expected 40df2fb82096e994...
+[PASS] [start] sha256 soh_deep_v2 - soh_deep_v2.py: got fc53e37d506ebe51... expected fc53e37d506ebe51...
+[PASS] [start] sha256 soh_deep_v3 - soh_deep_v3.py: got 9c022dd391193de9... expected 9c022dd391193de9...
+[PASS] [start] sha256 soh_deep_v4 - soh_deep_v4.py: got 2be9ce5ded197b16... expected 2be9ce5ded197b16...
+[PASS] [start] sha256 gate_verdict_5b - gate_verdict.json: got 2f59f82a7c7d8940... expected 2f59f82a7c7d8940...
+[PASS] [start] sha256 frozen_config - frozen_config.json: got 78b571c7526551c7... expected 78b571c7526551c7...
+[PASS] [start] sha256 preregistration - preregistration.json: got 11f9741387cb001e... expected 11f9741387cb001e...
+[PASS] [start] sha256 batch3_predictions - batch3_predictions.parquet: got 679ec76862de63f2... expected 679ec76862de63f2...
+[PASS] [start] sha256 batch3_verdict - batch3_verdict.json: got 57a054bdf25243d3... expected 57a054bdf25243d3...
+[PASS] [start] sha256 formal_comparators - formal_comparators.json: got 0e1c1daa4839e8b9... expected 0e1c1daa4839e8b9...
+[PASS] [start] sha256 comparator_reproduction - comparator_reproduction.csv: got 2e9bd9d7d9c588aa... expected 2e9bd9d7d9c588aa...
+[PASS] [start] sha256 model_M0_W240 - M0_W240.npz: got 29cd3ec8c5c2113d... expected 29cd3ec8c5c2113d...
+[PASS] [start] sha256 model_M0_W300 - M0_W300.npz: got 06f63dc6c5a89750... expected 06f63dc6c5a89750...
+[PASS] [start] sha256 model_M0idx_W240 - M0idx_W240.npz: got b7822335aa1c7cb5... expected b7822335aa1c7cb5...
+[PASS] [start] sha256 model_M0idx_W300 - M0idx_W300.npz: got 0e7430ee1586a57b... expected 0e7430ee1586a57b...
+[PASS] 7a lock log: 6 events in order - found ['preregistration_written', 'placeholder_test', 'formal_comparators_written', 'predictions_written', 'unlock', 'scored']
+[PASS] 7a lock log: prev_line_sha256 chain intact - 6 of 6 links valid
+[PASS] predictions have the expected columns - columns ['model', 'window', 'seed', 'row_id', 'cell_id', 'pred_pp'], missing []
+[PASS] predictions: 1,375,504 rows - 1,375,504 rows
+[PASS] predictions: 34 series - 34 series: ['B0b', 'B1', 'B3', 'B3r', 'B4', 'B4r', 'B4ridx', 'M0', 'M0idx']
+[PASS] predictions: 40,456 rows per series - per-series rows min 40456, max 40456
+[PASS] predictions: no duplicate keys - 40,456 unique row_ids
+[PASS] predictions: no NaN - 0 NaN
+[PASS] predictions: windows are W300 and W240 - windows ['W240', 'W300']
+[PASS] predictions: all model names known - unknown []
+[PASS] qdlin is 104,971 x 1000 - see print above
+[PASS] registry has column cell_id - columns ['cell_id', 'batch', 'idx', 'status', 'stitched_into', 'has_continuation', 'continuation_cell', 'policy_str', 'policy_norm', 'cycle_life_field', 'n_cycles', 'cycle_life_final', 'qd_last', 'reached_eol_in_data', 'n_post_eol_cycles', 'last_cycle_number', 'policy_raw', 'policy_numeric', 'policy_vec', 'policy_size', 'policy_dtype']
+[PASS] registry has column policy_norm - columns ['cell_id', 'batch', 'idx', 'status', 'stitched_into', 'has_continuation', 'continuation_cell', 'policy_str', 'policy_norm', 'cycle_life_field', 'n_cycles', 'cycle_life_final', 'qd_last', 'reached_eol_in_data', 'n_post_eol_cycles', 'last_cycle_number', 'policy_raw', 'policy_numeric', 'policy_vec', 'policy_size', 'policy_dtype']
+[PASS] registry has column batch - columns ['cell_id', 'batch', 'idx', 'status', 'stitched_into', 'has_continuation', 'continuation_cell', 'policy_str', 'policy_norm', 'cycle_life_field', 'n_cycles', 'cycle_life_final', 'qd_last', 'reached_eol_in_data', 'n_post_eol_cycles', 'last_cycle_number', 'policy_raw', 'policy_numeric', 'policy_vec', 'policy_size', 'policy_dtype']
+[PASS] registry has a cycle-life column - using 'cycle_life_field' (spec: EOL = the cycle_life field)
+[PASS] registry stitched flag found - columns ['stitched_into', 'has_continuation', 'continuation_cell']; 10 stitched cells (of 140 registry rows)
+[PASS] label table has needed columns - columns ['row_id', 'cell_id', 'batch', 'cycle_number', 'segment', 'in_life', 'qdlin_ok', 'causal_ok', 'label_suspect', 'post_junction', 'is_ref', 'q0', 'ref_last', 'score_start', 'soh_nom', 'soh_rel', 'soh_nom_repaired', 'scored', 'scored_incl_suspect', 'train_ok', 'ratio_end', 'max_step', 'qdlin_tail_suspect', 'qdlin_ok2', 'scored2', 'high_defect_cell']
+[PASS] batch-3 value found in labels.batch - batch values [np.int64(1), np.int64(2), np.int64(3)]
+[PASS] labels: row_id equals row position - 104,971 rows
+[PASS] development labels read without batch 3 - 63,731 development-side rows
+[PASS] 5b columns present - columns ['window', 'model', 'repeat', 'outer_fold', 'seed', 'row_id', 'cell_id', 'pred_pp']
+[PASS] 5b contains model M0 for both windows - models ['B3r', 'B4r', 'M0', 'M1p']
+[PASS] W300 dev OOF: finite y, pred, life - 167,889 rows
+[PASS] W240 dev OOF: finite y, pred, life - 167,889 rows
+[PASS] W300 dev OOF: 84 cells, 5 seeds per row - 84 cells, 3 repeats, 167,889 rows, seeds/row min 5 max 5
+[PASS] W240 dev OOF: 84 cells, 5 seeds per row - 84 cells, 3 repeats, 167,889 rows, seeds/row min 5 max 5
+[PASS] dev and batch-3 cells are disjoint; all in registry - 84 dev, 40 batch-3
+[PASS] batch-3 cells are batch 3 and dev cells are not - batch values dev [1, 2]
+[PASS] parity gate W300: dev macro coverage vs 6b - observed 0.9579 vs 6b 0.946 (abs diff 0.0119, tolerance 0.02); own numbers are used
+[PASS] parity gate W240: dev macro coverage vs 6b - observed 0.8964 vs 6b 0.892 (abs diff 0.0044, tolerance 0.02); own numbers are used
+[PASS] window closing indices equal 333 / 733 - {'W300': 333, 'W240': 733} from soh_common.grid_index (frozen module)
+[PASS] no batch-3 label read before config_frozen - 2 label reads so far, batch-3 label reads 0
+[PASS] config_frozen is in the log before labels are read - log events ['start', 'start', 'config_frozen']
+[PASS] batch-3 labels complete - 40,456 rows, 40 cells
+[PASS] batch-3 label read happened after config_frozen - batch-3 label reads 1
+[PASS] score rows equal prediction rows - 40,456 label rows vs 40,456 prediction rows
+[PASS] S2: every line matches a 7a row - 0 unmatched of 20
+[PASS] S2: cell-macro MAE of all lines equals batch3_results.csv to 1e-9 - max abs diff 0.00e+00 over 20 lines
+[PASS] S2: per-cell MAE equals batch3_by_cell.csv to 1e-9 - max abs diff 0.00e+00 over 800 of 800 rows
+[PASS] S2: W300 M0-B4 paired cell bootstrap (5000 draws, seed 42) equals 7a to 1e-9 - diff -0.145149 [-0.275188, -0.018973] vs 7a -0.145149 [-0.275188, -0.018973], max abs diff 0.00e+00
+[PASS] S2: W300 verdict file agrees - verdict PASS, diff -0.145149 vs recomputed -0.145149
+[PASS] S2: W240 M0-B4 paired cell bootstrap (5000 draws, seed 42) equals 7a to 1e-9 - diff -0.146991 [-0.235082, -0.063159] vs 7a -0.146991 [-0.235082, -0.063159], max abs diff 0.00e+00
+[PASS] S2: W240 verdict file agrees - verdict PASS, diff -0.146991 vs recomputed -0.146991
+[PASS] knee available for every batch-3 cell - 0 from 6a, 40 own fit
+[PASS] [end] sha256 gate_week2 - week2_gate.json: got 40df2fb82096e994... expected 40df2fb82096e994...
+[PASS] [end] sha256 soh_deep_v2 - soh_deep_v2.py: got fc53e37d506ebe51... expected fc53e37d506ebe51...
+[PASS] [end] sha256 soh_deep_v3 - soh_deep_v3.py: got 9c022dd391193de9... expected 9c022dd391193de9...
+[PASS] [end] sha256 soh_deep_v4 - soh_deep_v4.py: got 2be9ce5ded197b16... expected 2be9ce5ded197b16...
+[PASS] [end] sha256 gate_verdict_5b - gate_verdict.json: got 2f59f82a7c7d8940... expected 2f59f82a7c7d8940...
+[PASS] [end] sha256 frozen_config - frozen_config.json: got 78b571c7526551c7... expected 78b571c7526551c7...
+[PASS] [end] sha256 preregistration - preregistration.json: got 11f9741387cb001e... expected 11f9741387cb001e...
+[PASS] [end] sha256 batch3_predictions - batch3_predictions.parquet: got 679ec76862de63f2... expected 679ec76862de63f2...
+[PASS] [end] sha256 batch3_verdict - batch3_verdict.json: got 57a054bdf25243d3... expected 57a054bdf25243d3...
+[PASS] [end] sha256 formal_comparators - formal_comparators.json: got 0e1c1daa4839e8b9... expected 0e1c1daa4839e8b9...
+[PASS] [end] sha256 comparator_reproduction - comparator_reproduction.csv: got 2e9bd9d7d9c588aa... expected 2e9bd9d7d9c588aa...
+[PASS] [end] sha256 model_M0_W240 - M0_W240.npz: got 29cd3ec8c5c2113d... expected 29cd3ec8c5c2113d...
+[PASS] [end] sha256 model_M0_W300 - M0_W300.npz: got 06f63dc6c5a89750... expected 06f63dc6c5a89750...
+[PASS] [end] sha256 model_M0idx_W240 - M0idx_W240.npz: got b7822335aa1c7cb5... expected b7822335aa1c7cb5...
+[PASS] [end] sha256 model_M0idx_W300 - M0idx_W300.npz: got 0e7430ee1586a57b... expected 0e7430ee1586a57b...
+[PASS] monitor_config.json unchanged - sha256 638b6c3a6ad31c69...
+[PASS] expectations file unchanged - sha256 50d29893e8cbbc43...
+[PASS] phase7b log: hash chain intact - 4 events ['start', 'start', 'config_frozen', 'labels_loaded']
+[PASS] config_frozen logged before the last labels_loaded - event order ['start', 'start', 'config_frozen', 'labels_loaded']

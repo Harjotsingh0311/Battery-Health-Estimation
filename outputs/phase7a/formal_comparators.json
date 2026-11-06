@@ -1,0 +1,34 @@
+{
+  "W240": {
+    "B1_included": true,
+    "B4_leaf": 5,
+    "comparators": [
+      "B0b",
+      "B3",
+      "B4",
+      "B1"
+    ],
+    "reproduction_passed": {
+      "B0b": true,
+      "B1": true,
+      "B3": false,
+      "B4": true
+    }
+  },
+  "W300": {
+    "B1_included": true,
+    "B4_leaf": 5,
+    "comparators": [
+      "B0b",
+      "B3",
+      "B4",
+      "B1"
+    ],
+    "reproduction_passed": {
+      "B0b": true,
+      "B1": true,
+      "B3": true,
+      "B4": true
+    }
+  }
+}

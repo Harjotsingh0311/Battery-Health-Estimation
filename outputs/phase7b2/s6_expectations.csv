@@ -1,0 +1,4 @@
+id,expected,observed,consistent
+H5,"Rule B (raw series, pooled ql) at W240 misses at most 15% of batch-3 cells and its median signed delay is no earlier than -5% of life.","W240 rule B raw: missed 17.5% (7 of 40), median signed delay -0.91% of life (-9 cycles), early alarms 0.0%",False
+H6,Rule A (raw series) at both windows misses at least 30% of batch-3 cells.,"rule A raw missed: W300 95.0% (38 of 40), W240 85.0% (34 of 40)",True
+H7,"At W300 (raw series), more than half of the batch-3 cells above 1,434 cycles are missed under rule A and under rule B (pooled).","W300 raw, 4 cells above 1434: missed under rule A 4, under rule B 3",True

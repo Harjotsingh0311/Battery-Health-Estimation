@@ -1,0 +1,5 @@
+{
+  "H5": "Rule B (raw series, pooled ql) at W240 misses at most 15% of batch-3 cells and its median signed delay is no earlier than -5% of life.",
+  "H6": "Rule A (raw series) at both windows misses at least 30% of batch-3 cells.",
+  "H7": "At W300 (raw series), more than half of the batch-3 cells above 1,434 cycles are missed under rule A and under rule B (pooled)."
+}

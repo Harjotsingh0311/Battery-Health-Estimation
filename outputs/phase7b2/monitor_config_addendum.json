@@ -1,0 +1,32 @@
+{
+  "correction_statement": "The 80% definition was corrected after the first definition (true crossing = first scored cycle with y <= 80 + 1e-9) returned zero crossings in 0 of 40 batch-3 cells, and before any 80% result was seen. 07b also used the registry column cycle_life_field, which for the five stitched development cells is only the batch-1 record length + 1; cycle_life_final is the correct column.",
+  "eol_80": {
+    "counts_only_if": "the alert fires at a scored cycle <= cycle_life_final",
+    "delay": "fire cycle - cycle_life_final (negative = early)",
+    "delay_summaries": "mean and median absolute delay (cycles and % of life) are over cells that fired",
+    "early_alarm": "fires more than 5% of life before cycle_life_final; early_pct = early alarms / all cells",
+    "lead_time": "cycle_life_final - fire cycle, median over cells that fired (reported for rule B)",
+    "missed": "no alert at a scored cycle <= cycle_life_final; missed_pct = missed cells / all cells",
+    "rule_A": "estimate <= 80.0",
+    "rule_B": "conformal lower bound <= 80.0, lower = estimate - ql[bin(estimate)], pooled ql (primary); cell-balanced ql as sensitivity",
+    "truth": "80% EOL = cycle_life_final; no y <= 80 crossing is used"
+  },
+  "life_column": "cycle_life_final (not cycle_life_field)",
+  "monitor_config": {
+    "file": "outputs/phase7b/monitor_config.json",
+    "sha256": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+    "status": "unchanged; EMA alpha and conformal tables are read from it and never recomputed"
+  },
+  "name": "Phase 7b2 monitor configuration addendum",
+  "series": "raw and EMA series both reported; EMA alpha and conformal tables per window and series come from monitor_config.json",
+  "test_set_status": "Batch 3 is spent: labels are used for descriptive reporting only and nothing is chosen with them.",
+  "warning_85": {
+    "delay": "fire cycle - 85% crossing cycle (negative = early)",
+    "early_alarm": "fires more than 5% of life before the crossing",
+    "missed": "never fires by end of life (right-censored)",
+    "note": "computed with the 7b functions and cycle_life_final; the result must equal 7b",
+    "rule_A": "fires at the first scored cycle with estimate <= 85.0",
+    "signal": "raw M0 ensemble-mean estimate (D84); the EMA series is reported alongside",
+    "truth": "85% crossing = first scored cycle with y <= 85.0 + 1e-9"
+  }
+}

@@ -1,0 +1,607 @@
+PHASE 7c - PROTOCOL P AND STRESS FOLDS
+==============================================================================
+
+torch 2.14.1+cu130 | CUDA available True | device NVIDIA GeForce RTX 3050 6GB Laptop GPU | free VRAM 5.04 GB of 6.00 GB | python 3.13.13
+ROOT C:\workstation\3RD YEAR\Battery-Health-Estimation | OUT C:\workstation\3RD YEAR\Battery-Health-Estimation\outputs\phase7c | SMOKE False
+frozen config: E=120 (run with E=120), seeds [42, 43, 44, 45, 46], windows {"W300": {"config": "lr0.004_wd0.0001", "lr": 0.004, "wd": 0.0001, "pooled_inner_mae": 0.8971332248315983, "b4r_leaf": 3, "b4r_config": "leaf3", "b4r_pooled_inner_mae": 0.8673704175338319}, "W240": {"config": "lr0.008_wd0.001", "lr": 0.008, "wd": 0.001, "pooled_inner_mae": 0.5808051564963796, "b4r_leaf": 1, "b4r_config": "leaf1", "b4r_pooled_inner_mae": 0.5650977016439801}}, B4 leaf {'W300': 5, 'W240': 5}, B4r leaf {'W300': 3, 'W240': 1}
+expectations H8-H11 registered, sha256 5e3829c86fe00fce5070d2c20fd0c448de2e5c04b7dbf2569fb6e982095a9ddd
+sc.load_tables(root=None, mmap=True)
+sc.assert_allowed(columns, allowlist=None, roles=('primary', 'ablation'))
+sc.grid_index(voltage)
+sc.build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None)
+sd4.train_members(X, q0, y, members, kind, head, lr, epochs, cfg, device, dtype=torch.float32, log_every=10, extra=None, return_state=False)
+sd4.sub_idx(L)
+sd4.cell_macro_mae(pred, yv, codes)
+label table columns: row_id, cell_id, batch, cycle_number, segment, in_life, qdlin_ok, causal_ok, label_suspect, post_junction, is_ref, q0, ref_last, score_start, soh_nom, soh_rel, soh_nom_repaired, scored, scored_incl_suspect, train_ok, ratio_end, max_step, qdlin_tail_suspect, qdlin_ok2, scored2, high_defect_cell
+mask-like label columns: [] (scored2 is the final scored mask used here)
+scored rows (scored2, cycle <= cycle_life_final): dev 55,963 | batch 3 40,456 | total 96,419
+W300: delta-Q loaded from outputs\phase7a\cache (96419, 334)
+W240: delta-Q loaded from outputs\phase7a\cache (96419, 734)
+train_rows(cells, seed)
+Phase 3 / processed files that look split-related:
+  data\processed\splits\locked_test_cells.json
+  data\processed\splits\protocol_D.csv columns ['repeat', 'outer_fold', 'cell_id', 'role', 'seed', 'tertile']
+  data\processed\splits\protocol_D_inner.csv columns ['repeat', 'outer_fold', 'inner_fold', 'cell_id', 'role']
+  data\processed\splits\protocol_P.csv columns ['cell_id', 'position', 'role']
+  data\processed\splits\protocol_S.csv columns ['fold', 'cell_id', 'role']
+  outputs\phase3\causality_test.csv columns ['cell_id', 'k', 'unchanged']
+  outputs\phase3\kept_cells_groups_strata.csv columns ['cell_id', 'batch', 'policy_norm', 'policy_str', 'life', 'position', 'is_dev', 'tertile', 'tertile_label']
+  outputs\phase3\policy_group_sizes.csv columns ['policy_norm', 'n_cells']
+  outputs\phase3\split_report.csv columns ['protocol', 'fold', 'role', 'n_cells', 'n_policy_groups', 'short', 'mid', 'long']
+Protocol P primary test: 22 of 43 cells share a policy_norm with the 41 training cells (Phase 3 found 22)
+  with twin: b1c0 (3.6C(80%)-3.6C), b1c14 (5.4C(60%)-3C), b1c16 (5.4C(60%)-3.6C), b1c18 (5.4C(70%)-3C), b1c2 (3.6C(80%)-3.6C), b1c20 (5.4C(80%)-5.4C), b1c25 (6C(40%)-3C), b1c27 (6C(40%)-3.6C), b1c29 (6C(50%)-3C), b1c31 (6C(50%)-3.6C), b1c33 (6C(60%)-3C), b1c35 (7C(30%)-3.6C), b1c37 (7C(40%)-3C), b1c39 (7C(40%)-3.6C), b1c4 (4C(80%)-4C), b1c41 (8C(15%)-3.6C), b1c43 (8C(25%)-3.6C), b1c45 (8C(35%)-3.6C), b1c6 (4.8C(80%)-4.8C), b2c24 (4.8C(80%)-4.8C), b2c26 (4.8C(80%)-4.8C), b2c47 (6C(60%)-3C)
+  without twin: b1c23 (6C(30%)-3.6C), b1c9 (5.4C(40%)-3.6C), b2c1 (2C(10%)-6C), b2c10 (3.6C(9%)-5C), b2c12 (4C(31%)-5), b2c14 (4C(4%)-4.85C), b2c18 (4.4C(47%)-5.5C), b2c20 (4.4C(8%)-4.85C), b2c22 (4.65C(44%)-5C), b2c28 (4.9C(61%)-4.5C), b2c3 (2C(7%)-5.5C), b2c30 (5.2C(10%)-4.75C), b2c32 (5.2C(50%)-4.25C), b2c34 (5.2C(66%)-3.5C), b2c36 (5.6C(25%)-4.5C), b2c38 (5.6C(47%)-4C), b2c40 (5.6C(5%)-4.75C), b2c42 (6C(20%)-4.5C), b2c44 (6C(40%)-4C), b2c46 (6C(52%)-3.5C), b2c5 (3.6C(2%)-4.85C)
+Protocol P secondary (batch 3): 4 of 40 cells share a policy with the P training cells
+stress folds are 'batch plus life-range shift': batch 1 life median 842 (mean 921), batch 2 life median 481 (mean 473) cycles
+b1->b2: 4 of 43 test cells have their policy_norm in the training batch | b2->b1: 4 of 41
+Splits used (policy twin = test cell whose policy_norm occurs among the training cells)
+---------------------------------------------------------------------------------------
+protocol  test_set  n_train  n_cells  n_with_policy_twin  life_median
+       P   primary       41       43                22.0        561.0
+       P secondary       41       40                 4.0        964.5
+  b1->b2        b2       41       43                 4.0        481.0
+  b2->b1        b1       43       41                 4.0        842.0
+
+fit_tree(comp, w, cells, eval_pos, leaf, yfit)
+run_mlp(w, train_cells, eval_pos, idx, y_t)
+[P] W300 done in 34s (elapsed 1.1 min)
+[P] W240 done in 30s (elapsed 1.6 min)
+[b1->b2] W300 done in 42s (elapsed 2.3 min)
+[b1->b2] W240 done in 50s (elapsed 3.1 min)
+[b2->b1] W300 done in 29s (elapsed 3.6 min)
+[b2->b1] W240 done in 24s (elapsed 4.0 min)
+predictions_written: 0669a1d338220f08d77422959089a65fb28250dc8f84717991bdb53dbc16331b (4,021,344 rows)
+Scores · protocol P, test set primary (43 cells; pp; bias = pred - y; CI = 95% cell bootstrap, 5000 draws, seed 42)
+-------------------------------------------------------------------------------------------------------------------
+window   model  n_cells  cell_macro_mae  ci95_lo  ci95_hi  pooled_mae  rmspe_pct   bias  last20_mae
+  W300      M0       43           0.919    0.707    1.160       1.206      2.366  0.386       1.761
+  W300  M0+idx       43           0.575    0.414    0.783       0.464      0.869  0.158       0.932
+  W300     B0b       43           2.632    2.250    3.079       2.880      4.226 -0.016       4.634
+  W300      B1       43           1.330    1.107    1.586       1.566      2.611  0.293       2.331
+  W300      B3       43           1.189    1.007    1.397       1.442      2.517  0.132       2.219
+  W300      B4       43           0.955    0.765    1.166       1.069      2.005  0.158       1.650
+  W300     B4r       43           0.837    0.676    1.011       0.948      1.875  0.155       1.537
+  W300 B4r+idx       43           0.628    0.470    0.835       0.580      1.117  0.173       1.077
+  W240      M0       43           0.606    0.445    0.844       0.501      0.865  0.154       0.922
+  W240  M0+idx       43           0.518    0.357    0.749       0.411      0.744  0.126       0.804
+  W240     B0b       43           2.632    2.250    3.079       2.880      4.226 -0.016       4.634
+  W240      B1       43           1.303    1.091    1.560       1.500      2.472  0.274       2.229
+  W240      B3       43           0.863    0.695    1.070       0.951      1.560  0.148       1.426
+  W240      B4       43           0.756    0.569    1.011       0.720      1.175  0.129       1.128
+  W240     B4r       43           0.585    0.436    0.795       0.536      0.920  0.116       0.906
+  W240 B4r+idx       43           0.502    0.339    0.744       0.413      0.782  0.144       0.764
+
+Scores · protocol P, test set secondary (40 cells; pp; bias = pred - y; CI = 95% cell bootstrap, 5000 draws, seed 42)
+---------------------------------------------------------------------------------------------------------------------
+window   model  n_cells  cell_macro_mae  ci95_lo  ci95_hi  pooled_mae  rmspe_pct   bias  last20_mae
+  W300      M0       40           0.697    0.560    0.862       0.810      1.389  0.423       1.257
+  W300  M0+idx       40           0.602    0.484    0.732       0.610      0.982 -0.183       0.960
+  W300     B0b       40           2.784    2.549    3.032       2.885      4.052 -0.933       3.697
+  W300      B1       40           1.413    1.215    1.618       1.529      2.422  1.293       3.164
+  W300      B3       40           2.007    1.741    2.279       2.136      3.378  1.953       4.714
+  W300      B4       40           0.907    0.762    1.065       0.944      1.583  0.602       1.738
+  W300     B4r       40           0.634    0.550    0.728       0.676      1.228 -0.017       1.379
+  W300 B4r+idx       40           0.539    0.448    0.643       0.529      0.905 -0.063       1.109
+  W240      M0       40           0.403    0.348    0.463       0.410      0.589  0.149       0.589
+  W240  M0+idx       40           0.335    0.267    0.413       0.317      0.520 -0.040       0.499
+  W240     B0b       40           2.784    2.549    3.032       2.885      4.052 -0.933       3.697
+  W240      B1       40           1.469    1.269    1.677       1.604      2.368  1.300       2.933
+  W240      B3       40           0.949    0.819    1.085       1.014      1.560  0.905       2.054
+  W240      B4       40           0.737    0.617    0.861       0.776      1.137  0.676       1.216
+  W240     B4r       40           0.487    0.418    0.563       0.508      0.773  0.331       0.856
+  W240 B4r+idx       40           0.343    0.272    0.427       0.321      0.518  0.118       0.564
+
+Scores · protocol b1->b2, test set b2 (43 cells; pp; bias = pred - y; CI = 95% cell bootstrap, 5000 draws, seed 42)
+-------------------------------------------------------------------------------------------------------------------
+window   model  n_cells  cell_macro_mae  ci95_lo  ci95_hi  pooled_mae  rmspe_pct   bias  last20_mae
+  W300      M0       43           1.645    1.464    1.831       1.623      2.410 -1.466       3.136
+  W300  M0+idx       43           1.010    0.847    1.198       0.982      1.547 -0.601       1.900
+  W300     B0b       43           3.440    2.991    3.972       3.295      5.787  3.380       9.198
+  W300      B1       43           2.260    2.058    2.450       2.216      2.919 -2.097       3.120
+  W300      B3       43           2.249    2.041    2.460       2.230      2.978 -2.166       2.946
+  W300      B4       43           1.936    1.768    2.100       1.934      2.813 -1.488       2.994
+  W300     B4r       43           1.946    1.784    2.099       1.928      2.856 -1.727       3.304
+  W300 B4r+idx       43           1.465    1.309    1.622       1.425      2.203 -1.159       2.865
+  W240      M0       43           1.134    0.996    1.303       1.088      1.580 -0.758       2.091
+  W240  M0+idx       43           1.111    0.948    1.291       1.049      1.544 -0.815       2.026
+  W240     B0b       43           3.440    2.991    3.972       3.295      5.787  3.380       9.198
+  W240      B1       43           2.132    1.941    2.308       2.079      2.761 -1.920       2.927
+  W240      B3       43           1.202    1.054    1.365       1.169      1.599 -0.848       1.859
+  W240      B4       43           1.091    0.900    1.329       1.058      1.566 -0.466       1.761
+  W240     B4r       43           1.046    0.916    1.219       0.998      1.444 -0.662       1.838
+  W240 B4r+idx       43           1.024    0.875    1.232       0.962      1.434 -0.605       1.817
+
+Scores · protocol b2->b1, test set b1 (41 cells; pp; bias = pred - y; CI = 95% cell bootstrap, 5000 draws, seed 42)
+-------------------------------------------------------------------------------------------------------------------
+window   model  n_cells  cell_macro_mae  ci95_lo  ci95_hi  pooled_mae  rmspe_pct   bias  last20_mae
+  W300      M0       41           1.764    1.518    2.048       2.091      3.565  1.696       4.412
+  W300  M0+idx       41           1.229    0.997    1.501       1.564      2.475 -0.770       1.966
+  W300     B0b       41           5.008    4.543    5.439       5.484      7.137 -4.643       3.391
+  W300      B1       41           2.070    1.782    2.381       2.453      3.607  1.978       4.187
+  W300      B3       41           1.800    1.584    2.047       2.095      3.550  1.626       4.598
+  W300      B4       41           1.449    1.226    1.703       1.744      3.160  1.238       3.872
+  W300     B4r       41           1.479    1.258    1.724       1.775      3.159  1.395       3.965
+  W300 B4r+idx       41           1.134    0.929    1.367       1.411      2.664  0.983       2.991
+  W240      M0       41           1.215    1.018    1.431       1.468      2.355  1.109       2.353
+  W240  M0+idx       41           1.065    0.910    1.226       1.249      1.809  1.010       1.792
+  W240     B0b       41           5.008    4.543    5.439       5.484      7.137 -4.643       3.391
+  W240      B1       41           2.026    1.739    2.332       2.404      3.515  1.912       4.109
+  W240      B3       41           1.057    0.882    1.254       1.276      2.057  0.819       2.105
+  W240      B4       41           0.962    0.827    1.110       1.109      1.919  0.326       1.837
+  W240     B4r       41           0.927    0.831    1.038       1.032      1.752  0.342       1.725
+  W240 B4r+idx       41           0.789    0.679    0.913       0.904      1.569  0.212       1.270
+
+RMSPE is for comparison with Roman et al. only. Their inputs include lagged capacity, so it is not a like-for-like benchmark.
+RMSPE = 100 * sqrt(mean(((pred - y) / y)^2)) over pooled rows; bias and last-20%-of-life MAE are cell-macro means (last 20% = cycles > 0.8 * cycle_life_final).
+
+Paired cell-bootstrap differences (negative favours M0; same cell resample as the scores)
+-----------------------------------------------------------------------------------------
+protocol  test_set window  comparison  diff_pp  ci95_lo  ci95_hi  interval_excludes_zero
+       P   primary   W300    M0 - B0b   -1.713   -2.070   -1.389                    True
+       P   primary   W300     M0 - B1   -0.411   -0.537   -0.287                    True
+       P   primary   W300     M0 - B3   -0.271   -0.460   -0.075                    True
+       P   primary   W300     M0 - B4   -0.036   -0.185    0.104                   False
+       P   primary   W300    M0 - B4r    0.082   -0.047    0.213                   False
+       P   primary   W300 M0 - M0+idx    0.344    0.137    0.588                    True
+       P   primary   W240    M0 - B0b   -2.025   -2.388   -1.684                    True
+       P   primary   W240     M0 - B1   -0.697   -0.922   -0.489                    True
+       P   primary   W240     M0 - B3   -0.257   -0.394   -0.130                    True
+       P   primary   W240     M0 - B4   -0.149   -0.261   -0.039                    True
+       P   primary   W240    M0 - B4r    0.022   -0.052    0.099                   False
+       P   primary   W240 M0 - M0+idx    0.088    0.040    0.137                    True
+       P secondary   W300    M0 - B0b   -2.087   -2.287   -1.896                    True
+       P secondary   W300     M0 - B1   -0.716   -0.835   -0.591                    True
+       P secondary   W300     M0 - B3   -1.310   -1.516   -1.111                    True
+       P secondary   W300     M0 - B4   -0.210   -0.361   -0.067                    True
+       P secondary   W300    M0 - B4r    0.063   -0.064    0.190                   False
+       P secondary   W300 M0 - M0+idx    0.095   -0.051    0.256                   False
+       P secondary   W240    M0 - B0b   -2.381   -2.624   -2.142                    True
+       P secondary   W240     M0 - B1   -1.066   -1.276   -0.858                    True
+       P secondary   W240     M0 - B3   -0.545   -0.686   -0.405                    True
+       P secondary   W240     M0 - B4   -0.334   -0.463   -0.209                    True
+       P secondary   W240    M0 - B4r   -0.084   -0.157   -0.012                    True
+       P secondary   W240 M0 - M0+idx    0.068    0.002    0.133                    True
+  b1->b2        b2   W300    M0 - B0b   -1.795   -2.369   -1.277                    True
+  b1->b2        b2   W300     M0 - B1   -0.615   -0.751   -0.475                    True
+  b1->b2        b2   W300     M0 - B3   -0.604   -0.728   -0.471                    True
+  b1->b2        b2   W300     M0 - B4   -0.291   -0.447   -0.156                    True
+  b1->b2        b2   W300    M0 - B4r   -0.301   -0.405   -0.192                    True
+  b1->b2        b2   W300 M0 - M0+idx    0.635    0.457    0.815                    True
+  b1->b2        b2   W240    M0 - B0b   -2.306   -2.800   -1.872                    True
+  b1->b2        b2   W240     M0 - B1   -0.998   -1.150   -0.829                    True
+  b1->b2        b2   W240     M0 - B3   -0.068   -0.159    0.022                   False
+  b1->b2        b2   W240     M0 - B4    0.043   -0.102    0.169                   False
+  b1->b2        b2   W240    M0 - B4r    0.088    0.038    0.146                    True
+  b1->b2        b2   W240 M0 - M0+idx    0.023   -0.097    0.135                   False
+  b2->b1        b1   W300    M0 - B0b   -3.244   -3.599   -2.860                    True
+  b2->b1        b1   W300     M0 - B1   -0.306   -0.464   -0.157                    True
+  b2->b1        b1   W300     M0 - B3   -0.036   -0.152    0.081                   False
+  b2->b1        b1   W300     M0 - B4    0.315    0.250    0.379                    True
+  b2->b1        b1   W300    M0 - B4r    0.285    0.212    0.358                    True
+  b2->b1        b1   W300 M0 - M0+idx    0.535    0.419    0.647                    True
+  b2->b1        b1   W240    M0 - B0b   -3.792   -4.138   -3.409                    True
+  b2->b1        b1   W240     M0 - B1   -0.811   -0.969   -0.652                    True
+  b2->b1        b1   W240     M0 - B3    0.158    0.062    0.252                    True
+  b2->b1        b1   W240     M0 - B4    0.254    0.109    0.399                    True
+  b2->b1        b1   W240    M0 - B4r    0.288    0.137    0.442                    True
+  b2->b1        b1   W240 M0 - M0+idx    0.151    0.085    0.222                    True
+
+By life tertile (Phase 2 development cut points 493 and 710 cycles; cell-macro MAE, pp)
+---------------------------------------------------------------------------------------
+protocol  test_set window   model       tertile  n_cells  cell_macro_mae
+       P   primary   W300      M0     life<=493       12           0.847
+       P   primary   W300      M0 493<life<=710       17           0.668
+       P   primary   W300      M0      life>710       14           1.285
+       P   primary   W300  M0+idx     life<=493       12           0.803
+       P   primary   W300  M0+idx 493<life<=710       17           0.634
+       P   primary   W300  M0+idx      life>710       14           0.307
+       P   primary   W300     B0b     life<=493       12           2.519
+       P   primary   W300     B0b 493<life<=710       17           2.050
+       P   primary   W300     B0b      life>710       14           3.434
+       P   primary   W300      B1     life<=493       12           1.421
+       P   primary   W300      B1 493<life<=710       17           1.003
+       P   primary   W300      B1      life>710       14           1.648
+       P   primary   W300      B3     life<=493       12           1.134
+       P   primary   W300      B3 493<life<=710       17           0.981
+       P   primary   W300      B3      life>710       14           1.490
+       P   primary   W300      B4     life<=493       12           0.973
+       P   primary   W300      B4 493<life<=710       17           0.858
+       P   primary   W300      B4      life>710       14           1.058
+       P   primary   W300     B4r     life<=493       12           0.887
+       P   primary   W300     B4r 493<life<=710       17           0.752
+       P   primary   W300     B4r      life>710       14           0.896
+       P   primary   W300 B4r+idx     life<=493       12           0.830
+       P   primary   W300 B4r+idx 493<life<=710       17           0.610
+       P   primary   W300 B4r+idx      life>710       14           0.477
+       P   primary   W240      M0     life<=493       12           0.864
+       P   primary   W240      M0 493<life<=710       17           0.617
+       P   primary   W240      M0      life>710       14           0.373
+       P   primary   W240  M0+idx     life<=493       12           0.823
+       P   primary   W240  M0+idx 493<life<=710       17           0.497
+       P   primary   W240  M0+idx      life>710       14           0.282
+       P   primary   W240     B0b     life<=493       12           2.519
+       P   primary   W240     B0b 493<life<=710       17           2.050
+       P   primary   W240     B0b      life>710       14           3.434
+       P   primary   W240      B1     life<=493       12           1.430
+       P   primary   W240      B1 493<life<=710       17           1.003
+       P   primary   W240      B1      life>710       14           1.559
+       P   primary   W240      B3     life<=493       12           1.069
+       P   primary   W240      B3 493<life<=710       17           0.688
+       P   primary   W240      B3      life>710       14           0.900
+       P   primary   W240      B4     life<=493       12           0.965
+       P   primary   W240      B4 493<life<=710       17           0.648
+       P   primary   W240      B4      life>710       14           0.706
+       P   primary   W240     B4r     life<=493       12           0.814
+       P   primary   W240     B4r 493<life<=710       17           0.537
+       P   primary   W240     B4r      life>710       14           0.447
+       P   primary   W240 B4r+idx     life<=493       12           0.779
+       P   primary   W240 B4r+idx 493<life<=710       17           0.473
+       P   primary   W240 B4r+idx      life>710       14           0.302
+       P secondary   W300      M0     life<=493        0             NaN
+       P secondary   W300      M0 493<life<=710        2           0.997
+       P secondary   W300      M0      life>710       38           0.681
+       P secondary   W300  M0+idx     life<=493        0             NaN
+       P secondary   W300  M0+idx 493<life<=710        2           1.407
+       P secondary   W300  M0+idx      life>710       38           0.559
+       P secondary   W300     B0b     life<=493        0             NaN
+       P secondary   W300     B0b 493<life<=710        2           4.698
+       P secondary   W300     B0b      life>710       38           2.683
+       P secondary   W300      B1     life<=493        0             NaN
+       P secondary   W300      B1 493<life<=710        2           2.181
+       P secondary   W300      B1      life>710       38           1.372
+       P secondary   W300      B3     life<=493        0             NaN
+       P secondary   W300      B3 493<life<=710        2           3.164
+       P secondary   W300      B3      life>710       38           1.946
+       P secondary   W300      B4     life<=493        0             NaN
+       P secondary   W300      B4 493<life<=710        2           1.630
+       P secondary   W300      B4      life>710       38           0.869
+       P secondary   W300     B4r     life<=493        0             NaN
+       P secondary   W300     B4r 493<life<=710        2           0.809
+       P secondary   W300     B4r      life>710       38           0.625
+       P secondary   W300 B4r+idx     life<=493        0             NaN
+       P secondary   W300 B4r+idx 493<life<=710        2           1.486
+       P secondary   W300 B4r+idx      life>710       38           0.489
+       P secondary   W240      M0     life<=493        0             NaN
+       P secondary   W240      M0 493<life<=710        2           0.528
+       P secondary   W240      M0      life>710       38           0.397
+       P secondary   W240  M0+idx     life<=493        0             NaN
+       P secondary   W240  M0+idx 493<life<=710        2           0.615
+       P secondary   W240  M0+idx      life>710       38           0.320
+       P secondary   W240     B0b     life<=493        0             NaN
+       P secondary   W240     B0b 493<life<=710        2           4.698
+       P secondary   W240     B0b      life>710       38           2.683
+       P secondary   W240      B1     life<=493        0             NaN
+       P secondary   W240      B1 493<life<=710        2           2.009
+       P secondary   W240      B1      life>710       38           1.441
+       P secondary   W240      B3     life<=493        0             NaN
+       P secondary   W240      B3 493<life<=710        2           1.494
+       P secondary   W240      B3      life>710       38           0.920
+       P secondary   W240      B4     life<=493        0             NaN
+       P secondary   W240      B4 493<life<=710        2           1.364
+       P secondary   W240      B4      life>710       38           0.704
+       P secondary   W240     B4r     life<=493        0             NaN
+       P secondary   W240     B4r 493<life<=710        2           1.025
+       P secondary   W240     B4r      life>710       38           0.459
+       P secondary   W240 B4r+idx     life<=493        0             NaN
+       P secondary   W240 B4r+idx 493<life<=710        2           1.169
+       P secondary   W240 B4r+idx      life>710       38           0.299
+  b1->b2        b2   W300      M0     life<=493       28           1.771
+  b1->b2        b2   W300      M0 493<life<=710       14           1.468
+  b1->b2        b2   W300      M0      life>710        1           0.596
+  b1->b2        b2   W300  M0+idx     life<=493       28           1.091
+  b1->b2        b2   W300  M0+idx 493<life<=710       14           0.852
+  b1->b2        b2   W300  M0+idx      life>710        1           0.974
+  b1->b2        b2   W300     B0b     life<=493       28           3.735
+  b1->b2        b2   W300     B0b 493<life<=710       14           2.819
+  b1->b2        b2   W300     B0b      life>710        1           3.882
+  b1->b2        b2   W300      B1     life<=493       28           2.425
+  b1->b2        b2   W300      B1 493<life<=710       14           2.042
+  b1->b2        b2   W300      B1      life>710        1           0.689
+  b1->b2        b2   W300      B3     life<=493       28           2.417
+  b1->b2        b2   W300      B3 493<life<=710       14           1.945
+  b1->b2        b2   W300      B3      life>710        1           1.792
+  b1->b2        b2   W300      B4     life<=493       28           1.999
+  b1->b2        b2   W300      B4 493<life<=710       14           1.715
+  b1->b2        b2   W300      B4      life>710        1           3.258
+  b1->b2        b2   W300     B4r     life<=493       28           2.055
+  b1->b2        b2   W300     B4r 493<life<=710       14           1.790
+  b1->b2        b2   W300     B4r      life>710        1           1.097
+  b1->b2        b2   W300 B4r+idx     life<=493       28           1.582
+  b1->b2        b2   W300 B4r+idx 493<life<=710       14           1.256
+  b1->b2        b2   W300 B4r+idx      life>710        1           1.099
+  b1->b2        b2   W240      M0     life<=493       28           1.217
+  b1->b2        b2   W240      M0 493<life<=710       14           0.971
+  b1->b2        b2   W240      M0      life>710        1           1.109
+  b1->b2        b2   W240  M0+idx     life<=493       28           1.259
+  b1->b2        b2   W240  M0+idx 493<life<=710       14           0.834
+  b1->b2        b2   W240  M0+idx      life>710        1           0.828
+  b1->b2        b2   W240     B0b     life<=493       28           3.735
+  b1->b2        b2   W240     B0b 493<life<=710       14           2.819
+  b1->b2        b2   W240     B0b      life>710        1           3.882
+  b1->b2        b2   W240      B1     life<=493       28           2.296
+  b1->b2        b2   W240      B1 493<life<=710       14           1.924
+  b1->b2        b2   W240      B1      life>710        1           0.473
+  b1->b2        b2   W240      B3     life<=493       28           1.277
+  b1->b2        b2   W240      B3 493<life<=710       14           1.045
+  b1->b2        b2   W240      B3      life>710        1           1.316
+  b1->b2        b2   W240      B4     life<=493       28           1.112
+  b1->b2        b2   W240      B4 493<life<=710       14           0.907
+  b1->b2        b2   W240      B4      life>710        1           3.057
+  b1->b2        b2   W240     B4r     life<=493       28           1.108
+  b1->b2        b2   W240     B4r 493<life<=710       14           0.913
+  b1->b2        b2   W240     B4r      life>710        1           1.175
+  b1->b2        b2   W240 B4r+idx     life<=493       28           1.101
+  b1->b2        b2   W240 B4r+idx 493<life<=710       14           0.867
+  b1->b2        b2   W240 B4r+idx      life>710        1           1.056
+  b2->b1        b1   W300      M0     life<=493        0             NaN
+  b2->b1        b1   W300      M0 493<life<=710       14           1.307
+  b2->b1        b1   W300      M0      life>710       27           2.001
+  b2->b1        b1   W300  M0+idx     life<=493        0             NaN
+  b2->b1        b1   W300  M0+idx 493<life<=710       14           0.697
+  b2->b1        b1   W300  M0+idx      life>710       27           1.505
+  b2->b1        b1   W300     B0b     life<=493        0             NaN
+  b2->b1        b1   W300     B0b 493<life<=710       14           3.451
+  b2->b1        b1   W300     B0b      life>710       27           5.815
+  b2->b1        b1   W300      B1     life<=493        0             NaN
+  b2->b1        b1   W300      B1 493<life<=710       14           1.401
+  b2->b1        b1   W300      B1      life>710       27           2.417
+  b2->b1        b1   W300      B3     life<=493        0             NaN
+  b2->b1        b1   W300      B3 493<life<=710       14           1.377
+  b2->b1        b1   W300      B3      life>710       27           2.020
+  b2->b1        b1   W300      B4     life<=493        0             NaN
+  b2->b1        b1   W300      B4 493<life<=710       14           1.038
+  b2->b1        b1   W300      B4      life>710       27           1.662
+  b2->b1        b1   W300     B4r     life<=493        0             NaN
+  b2->b1        b1   W300     B4r 493<life<=710       14           1.048
+  b2->b1        b1   W300     B4r      life>710       27           1.703
+  b2->b1        b1   W300 B4r+idx     life<=493        0             NaN
+  b2->b1        b1   W300 B4r+idx 493<life<=710       14           0.791
+  b2->b1        b1   W300 B4r+idx      life>710       27           1.312
+  b2->b1        b1   W240      M0     life<=493        0             NaN
+  b2->b1        b1   W240      M0 493<life<=710       14           0.863
+  b2->b1        b1   W240      M0      life>710       27           1.398
+  b2->b1        b1   W240  M0+idx     life<=493        0             NaN
+  b2->b1        b1   W240  M0+idx 493<life<=710       14           0.806
+  b2->b1        b1   W240  M0+idx      life>710       27           1.199
+  b2->b1        b1   W240     B0b     life<=493        0             NaN
+  b2->b1        b1   W240     B0b 493<life<=710       14           3.451
+  b2->b1        b1   W240     B0b      life>710       27           5.815
+  b2->b1        b1   W240      B1     life<=493        0             NaN
+  b2->b1        b1   W240      B1 493<life<=710       14           1.327
+  b2->b1        b1   W240      B1      life>710       27           2.388
+  b2->b1        b1   W240      B3     life<=493        0             NaN
+  b2->b1        b1   W240      B3 493<life<=710       14           0.794
+  b2->b1        b1   W240      B3      life>710       27           1.194
+  b2->b1        b1   W240      B4     life<=493        0             NaN
+  b2->b1        b1   W240      B4 493<life<=710       14           0.805
+  b2->b1        b1   W240      B4      life>710       27           1.043
+  b2->b1        b1   W240     B4r     life<=493        0             NaN
+  b2->b1        b1   W240     B4r 493<life<=710       14           0.873
+  b2->b1        b1   W240     B4r      life>710       27           0.956
+  b2->b1        b1   W240 B4r+idx     life<=493        0             NaN
+  b2->b1        b1   W240 B4r+idx 493<life<=710       14           0.777
+  b2->b1        b1   W240 B4r+idx      life>710       27           0.795
+
+Policy-twin diagnostic, Protocol P primary test (cell-macro MAE, pp; difference = with twin minus without; CI from independent cell bootstraps per group; descriptive only)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+window model  n_with_twin  n_without_twin  mae_with_twin  mae_without_twin  diff_twin_minus_no_twin  ci95_lo  ci95_hi
+  W300    M0           22              21          1.044             0.788                    0.256   -0.153    0.726
+  W300    B4           22              21          1.006             0.902                    0.104   -0.307    0.486
+  W240    M0           22              21          0.502             0.716                   -0.214   -0.694    0.114
+  W240    B4           22              21          0.721             0.792                   -0.072   -0.577    0.318
+
+Context: cell-macro MAE (pp). B4 = formal B4 (leaf 5 for the new rows). Batch 3 and the new protocols are not selection evidence.
+---------------------------------------------------------------------------------------------------------------------------------
+                            protocol  n_train   n_test  M0_W300  B4_W300  M0_W240  B4_W240  M0_minus_B4_W300  M0_minus_B4_W240
+D (reference, 6-fold on development) about 70 about 14    0.836    0.895    0.530    0.655            -0.059            -0.125
+         S batch 3 (7a, train on 84)       84       40    0.597    0.742    0.420    0.567            -0.145            -0.147
+                   P / primary (new)       41       43    0.919    0.955    0.606    0.756            -0.036            -0.149
+                 P / secondary (new)       41       40    0.697    0.907    0.403    0.737            -0.210            -0.334
+                   b1->b2 / b2 (new)       41       43    1.645    1.936    1.134    1.091            -0.291             0.043
+                   b2->b1 / b1 (new)       43       41    1.764    1.449    1.215    0.962             0.315             0.254
+
+H8 detail: stress-fold error against the model's Protocol D error (only models with a Protocol D value can be judged; M0+idx, B4r and B4r+idx have none)
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+  model window   fold  observed  protocol_D larger_than_D
+     M0   W300 b1->b2     1.645       0.836          True
+     M0   W300 b2->b1     1.764       0.836          True
+     M0   W240 b1->b2     1.134       0.530          True
+     M0   W240 b2->b1     1.215       0.530          True
+ M0+idx   W300 b1->b2     1.010         NaN          None
+ M0+idx   W300 b2->b1     1.229         NaN          None
+ M0+idx   W240 b1->b2     1.111         NaN          None
+ M0+idx   W240 b2->b1     1.065         NaN          None
+    B0b   W300 b1->b2     3.440       2.657          True
+    B0b   W300 b2->b1     5.008       2.657          True
+    B0b   W240 b1->b2     3.440       2.657          True
+    B0b   W240 b2->b1     5.008       2.657          True
+     B1   W300 b1->b2     2.260       1.268          True
+     B1   W300 b2->b1     2.070       1.268          True
+     B1   W240 b1->b2     2.132       1.245          True
+     B1   W240 b2->b1     2.026       1.245          True
+     B3   W300 b1->b2     2.249       1.187          True
+     B3   W300 b2->b1     1.800       1.187          True
+     B3   W240 b1->b2     1.202       0.801          True
+     B3   W240 b2->b1     1.057       0.801          True
+     B4   W300 b1->b2     1.936       0.895          True
+     B4   W300 b2->b1     1.449       0.895          True
+     B4   W240 b1->b2     1.091       0.655          True
+     B4   W240 b2->b1     0.962       0.655          True
+    B4r   W300 b1->b2     1.946         NaN          None
+    B4r   W300 b2->b1     1.479         NaN          None
+    B4r   W240 b1->b2     1.046         NaN          None
+    B4r   W240 b2->b1     0.927         NaN          None
+B4r+idx   W300 b1->b2     1.465         NaN          None
+B4r+idx   W300 b2->b1     1.134         NaN          None
+B4r+idx   W240 b1->b2     1.024         NaN          None
+B4r+idx   W240 b2->b1     0.789         NaN          None
+
+Expectations registered before scoring (sha256 5e3829c86fe00fce5070d2c20fd0c448de2e5c04b7dbf2569fb6e982095a9ddd); nothing is selected on these results.
+H8 | expected: Every model's error on b1->b2 and on b2->b1 is larger than its Protocol D error (life-range extrapolation).
+     observed: 20 of 20 judgeable model/window/fold cases are larger than Protocol D (models judged: ['B0b', 'B1', 'B3', 'B4', 'M0'])
+     consistent? yes
+H9 | expected: M0+idx is worse than M0 on at least one stress fold at W300.
+     observed: M0+idx minus M0 at W300: b1->b2 -0.635 pp, b2->b1 -0.535 pp
+     consistent? no
+H10 | expected: On the Protocol P primary test, cells with a policy twin have lower M0 MAE than cells without, at least at one window.
+     observed: twin minus no-twin M0 MAE: W300 +0.256 pp, W240 -0.214 pp
+     consistent? yes
+H11 | expected: Protocol P primary-test M0 MAE at W240 is within a factor 1.6 of the Protocol D value (41 vs about 70 training cells).
+     observed: P primary M0 W240 0.606 pp vs Protocol D 0.530 pp: ratio 1.14
+     consistent? yes
+
+CHECKS
+------------------------------------------------------------------------------
+[PASS] CUDA available (else CPU fallback) - torch.cuda.is_available() = True; training on cuda
+[PASS] TF32 off, deterministic, fp32 - matmul_tf32=False, cudnn_tf32=False, deterministic=True
+[PASS] torch version is 2.14.1+cu130 - torch 2.14.1+cu130
+[PASS] monitor_config_addendum.json located - 1 match(es): ['outputs\\phase7b2\\monitor_config_addendum.json']
+[PASS] [start] sha256 frozen_config - frozen_config.json: expected 78b571c7526551c7..., got 78b571c7526551c7...
+[PASS] [start] sha256 soh_deep_v4 - soh_deep_v4.py: expected 2be9ce5ded197b16..., got 2be9ce5ded197b16...
+[PASS] [start] sha256 soh_deep_v3 - soh_deep_v3.py: expected 9c022dd391193de9..., got 9c022dd391193de9...
+[PASS] [start] sha256 preregistration - preregistration.json: expected 11f9741387cb001e..., got 11f9741387cb001e...
+[PASS] [start] sha256 batch3_verdict - batch3_verdict.json: expected 57a054bdf25243d3..., got 57a054bdf25243d3...
+[PASS] [start] sha256 monitor_config - monitor_config.json: expected 638b6c3a6ad31c69..., got 638b6c3a6ad31c69...
+[PASS] [start] sha256 monitor_config_addendum - monitor_config_addendum.json: expected d842e5f4c3186889..., got d842e5f4c3186889...
+[PASS] frozen_config.json content equals the expected values - file keys: ['rule', 'created', 'source_tuning_log_sha256', 'module_sha256', 'gate_sha256', 'common', 'windows']
+[PASS] formal B4 leaf is 5 for both windows (7a formal_comparators.json) - {'W300': 5, 'W240': 5}
+[PASS] helper sc.load_tables present - sc.load_tables(root=None, mmap=True)
+[PASS] helper sc.assert_allowed present - sc.assert_allowed(columns, allowlist=None, roles=('primary', 'ablation'))
+[PASS] helper sc.grid_index present - sc.grid_index(voltage)
+[PASS] helper sc.build_delta_q present - sc.build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None)
+[PASS] helper sd4.train_members present - sd4.train_members(X, q0, y, members, kind, head, lr, epochs, cfg, device, dtype=torch.float32, log_every=10, extra=None, return_state=False)
+[PASS] helper sd4.sub_idx present - sd4.sub_idx(L)
+[PASS] helper sd4.cell_macro_mae present - sd4.cell_macro_mae(pred, yv, codes)
+[PASS] qdlin shape (104971, 1000) - (104971, 1000)
+[PASS] batch-3 value found in labels.batch - unique batch values: [np.int64(1), np.int64(2), np.int64(3)]
+[PASS] labels: 104,971 rows, row_id == position - 104971
+[PASS] registry has cell_id and cycle_life_final - registry columns: ['cell_id', 'batch', 'idx', 'status', 'stitched_into', 'has_continuation', 'continuation_cell', 'policy_str', 'policy_norm', 'cycle_life_field', 'n_cycles', 'cycle_life_final', 'qd_last', 'reached_eol_in_data', 'n_post_eol_cycles', 'last_cycle_number', 'policy_raw', 'policy_numeric', 'policy_vec', 'policy_size', 'policy_dtype']
+[PASS] kept-table life equals cycle_life_final - 0 cells differ (cycle_life_final is used): []
+[PASS] 84 development cells (protocol_D) - 84
+[PASS] 40 batch-3 cells - 40
+[PASS] 124 cells, no sensitivity cell, dev and batch 3 disjoint - 124 cells; overlap dev/b3 0; sensitivity cells present []
+[PASS] life known for all 124 cells - 124 of 124 have cycle_life_final
+[PASS] scored development rows equal 7a (55,963) - 55963 (7a: 55,963)
+[PASS] scored batch-3 rows equal 7a (40,456) - 40456 (7a: 40,456)
+[PASS] no NaN in q0 / cycle_number / life
+[PASS] qref covers every cell, one distinct reference row per cell - (129, 1000), 124 distinct rows for 124 cells
+[PASS] development labels complete, no NaN
+[PASS] window slices from the frozen module (i_close 333 / 733) - {'W300': 333, 'W240': 733}
+[PASS] W300: spot-check single-row recompute (1e-6) - max diff 0.00e+00
+[PASS] W300: delta-Q finite, dq[:,0] about 0, width 334 - max |dq0| 0.00e+00, shape (96419, 334)
+[PASS] W240: spot-check single-row recompute (1e-6) - max diff 0.00e+00
+[PASS] W240: delta-Q finite, dq[:,0] about 0, width 734 - max |dq0| 0.00e+00, shape (96419, 734)
+[PASS] sub_idx returns 32 points - {'W300': 32, 'W240': 32}
+[PASS] Phase 3 Protocol P split file found (41 training cells inside the development set) - 1 candidate(s); using data\processed\splits\protocol_P.csv column 'role'
+[PASS] split file's test cells equal development minus training - 43 test cells in file vs 43 derived
+[PASS] Protocol P counts 41 / 43 / 40 - train 41, primary test 43, secondary test 40
+[PASS] the 124 cells are covered exactly once by Protocol P - 124 assignments, 124 distinct, equals 124-cell set: True
+[PASS] policy_norm found for all 124 cells - source outputs\phase3\kept_cells_groups_strata.csv
+[PASS] policy-twin count equals Phase 3 (22 of 43) - 22 of 43
+[PASS] batch 1 has 41 cells (incl. stitched b1c0-b1c4), batch 2 has 43 - batch 1 41, batch 2 43, stitched cells in batch 1: ['b1c0', 'b1c1', 'b1c2', 'b1c3', 'b1c4']
+[PASS] [P] no cell in both training and test - train 41, test 83, overlap []
+[PASS] [b1->b2] no cell in both training and test - train 41, test 43, overlap []
+[PASS] [b2->b1] no cell in both training and test - train 43, test 41, overlap []
+[PASS] comparator features finite
+[PASS] [P] training cells are development cells only, none in the test set - 41 train / 83 test
+[PASS] [P] test rows hold no training label and share no row with training - 26,715 training-cell rows, 69,704 test rows
+[PASS] W300 M0: 5 members, finite predictions - 16s, E=120, nan_members []
+[PASS] W300 M0+idx: 5 members, finite predictions - 12s, E=120, nan_members []
+[PASS] [P] W300 B0b: finite predictions - 1s
+[PASS] [P] W300 B1: finite predictions - 0s
+[PASS] [P] W300 B3: finite predictions - 0s
+[PASS] [P] W300 B4: finite predictions - 1s
+[PASS] [P] W300 B4r: finite predictions - 1s
+[PASS] [P] W300 B4r+idx: finite predictions - 1s
+[PASS] W240 M0: 5 members, finite predictions - 11s, E=120, nan_members []
+[PASS] W240 M0+idx: 5 members, finite predictions - 13s, E=120, nan_members []
+[PASS] [P] W240 B0b: finite predictions - 0s
+[PASS] [P] W240 B1: finite predictions - 0s
+[PASS] [P] W240 B3: finite predictions - 0s
+[PASS] [P] W240 B4: finite predictions - 1s
+[PASS] [P] W240 B4r: finite predictions - 2s
+[PASS] [P] W240 B4r+idx: finite predictions - 2s
+[PASS] [b1->b2] training cells are development cells only, none in the test set - 41 train / 43 test
+[PASS] [b1->b2] test rows hold no training label and share no row with training - 36,715 training-cell rows, 19,248 test rows
+[PASS] W300 M0: 5 members, finite predictions - 18s, E=120, nan_members []
+[PASS] W300 M0+idx: 5 members, finite predictions - 18s, E=120, nan_members []
+[PASS] [b1->b2] W300 B0b: finite predictions - 0s
+[PASS] [b1->b2] W300 B1: finite predictions - 0s
+[PASS] [b1->b2] W300 B3: finite predictions - 0s
+[PASS] [b1->b2] W300 B4: finite predictions - 2s
+[PASS] [b1->b2] W300 B4r: finite predictions - 2s
+[PASS] [b1->b2] W300 B4r+idx: finite predictions - 2s
+[PASS] W240 M0: 5 members, finite predictions - 22s, E=120, nan_members []
+[PASS] W240 M0+idx: 5 members, finite predictions - 20s, E=120, nan_members []
+[PASS] [b1->b2] W240 B0b: finite predictions - 0s
+[PASS] [b1->b2] W240 B1: finite predictions - 1s
+[PASS] [b1->b2] W240 B3: finite predictions - 0s
+[PASS] [b1->b2] W240 B4: finite predictions - 2s
+[PASS] [b1->b2] W240 B4r: finite predictions - 2s
+[PASS] [b1->b2] W240 B4r+idx: finite predictions - 3s
+[PASS] [b2->b1] training cells are development cells only, none in the test set - 43 train / 41 test
+[PASS] [b2->b1] test rows hold no training label and share no row with training - 19,248 training-cell rows, 36,715 test rows
+[PASS] W300 M0: 5 members, finite predictions - 14s, E=120, nan_members []
+[PASS] W300 M0+idx: 5 members, finite predictions - 11s, E=120, nan_members []
+[PASS] [b2->b1] W300 B0b: finite predictions - 1s
+[PASS] [b2->b1] W300 B1: finite predictions - 0s
+[PASS] [b2->b1] W300 B3: finite predictions - 0s
+[PASS] [b2->b1] W300 B4: finite predictions - 1s
+[PASS] [b2->b1] W300 B4r: finite predictions - 1s
+[PASS] [b2->b1] W300 B4r+idx: finite predictions - 1s
+[PASS] W240 M0: 5 members, finite predictions - 10s, E=120, nan_members []
+[PASS] W240 M0+idx: 5 members, finite predictions - 9s, E=120, nan_members []
+[PASS] [b2->b1] W240 B0b: finite predictions - 0s
+[PASS] [b2->b1] W240 B1: finite predictions - 0s
+[PASS] [b2->b1] W240 B3: finite predictions - 0s
+[PASS] [b2->b1] W240 B4: finite predictions - 1s
+[PASS] [b2->b1] W240 B4r: finite predictions - 1s
+[PASS] [b2->b1] W240 B4r+idx: finite predictions - 1s
+[PASS] trained cells are development cells only (no batch-3 cell ever in training) - 84 distinct training cells
+[PASS] no NaN in predictions - 4,021,344 prediction rows
+[PASS] no batch-3 label read before predictions_written - 2 label reads, 0 with batch-3 labels
+[PASS] predictions file hash equals the logged hash (hashed before any score) - 0669a1d338220f08...
+[PASS] labels complete for all scored rows - 96,419 rows
+[PASS] every scored test row predicted for every model/window/test set - 64 prediction vectors, expected 64
+[PASS] rows per model/seed equal the scored test rows - 128 model/seed groups
+[PASS] no duplicated prediction keys - 0 duplicates
+[PASS] development life tertile cut points about 493 and 710 - computed from the 84 development cells: 493 and 710 (Phase 2 reference about 493 and 710)
+[PASS] batch3_results.csv has M0 W300 - 1 row(s)
+[PASS] batch3_results.csv has M0 W240 - 1 row(s)
+[PASS] batch3_results.csv has B4 W300 - 1 row(s)
+[PASS] batch3_results.csv has B4 W240 - 1 row(s)
+[PASS] batch3_results.csv matches the stated values (M0 0.597/0.420, B4 0.742/0.567) - M0 W300 0.597 (stated 0.597), M0 W240 0.420 (stated 0.420), B4 W300 0.742 (stated 0.742), B4 W240 0.567 (stated 0.567)
+[PASS] [end] sha256 frozen_config - frozen_config.json: expected 78b571c7526551c7..., got 78b571c7526551c7...
+[PASS] [end] sha256 soh_deep_v4 - soh_deep_v4.py: expected 2be9ce5ded197b16..., got 2be9ce5ded197b16...
+[PASS] [end] sha256 soh_deep_v3 - soh_deep_v3.py: expected 9c022dd391193de9..., got 9c022dd391193de9...
+[PASS] [end] sha256 preregistration - preregistration.json: expected 11f9741387cb001e..., got 11f9741387cb001e...
+[PASS] [end] sha256 batch3_verdict - batch3_verdict.json: expected 57a054bdf25243d3..., got 57a054bdf25243d3...
+[PASS] [end] sha256 monitor_config - monitor_config.json: expected 638b6c3a6ad31c69..., got 638b6c3a6ad31c69...
+[PASS] [end] sha256 monitor_config_addendum - monitor_config_addendum.json: expected d842e5f4c3186889..., got d842e5f4c3186889...
+[PASS] predictions file unchanged since it was hashed - 0669a1d338220f08...
+[PASS] no batch-3 label read before predictions_written (label log) - 1 batch-3 label read(s), all after the predictions_written entry
+[PASS] nothing selected on these results - no model, window, threshold or setting is chosen from phase 7c; expectations were registered before scoring
+[PASS] log hash chain intact - 5 entries, broken links at []
+[PASS] runtime under 25 minutes - 4.3 min
+
+ARTIFACTS
+------------------------------------------------------------------------------
+                                                        path  size_kb
+       outputs\phase7c\figures\fig_bias_vs_life_M0_vs_B4.png    253.0
+outputs\phase7c\figures\fig_percell_mae_vs_life_M0_vs_B4.png    245.3
+                         outputs\phase7c\phase7c_by_cell.csv    185.8
+                 outputs\phase7c\phase7c_by_life_tertile.csv      9.5
+                         outputs\phase7c\phase7c_context.csv      0.9
+                    outputs\phase7c\phase7c_expectations.csv      0.8
+                       outputs\phase7c\phase7c_h8_detail.csv      1.6
+                           outputs\phase7c\phase7c_log.jsonl      3.9
+                          outputs\phase7c\phase7c_paired.csv      4.3
+                     outputs\phase7c\phase7c_policy_twin.csv      0.6
+                 outputs\phase7c\phase7c_predictions.parquet  31851.8
+                          outputs\phase7c\phase7c_report.txt      7.0
+                          outputs\phase7c\phase7c_scores.csv      9.8
+                          outputs\phase7c\phase7c_splits.csv     13.0
+                    outputs\phase7c\verification_report.json      6.7
+                             outputs\phase7c\cache (0 files)      0.0
+
+RUNTIME 4.3 min | PASS 131 | WARN 0 | FAIL 0
