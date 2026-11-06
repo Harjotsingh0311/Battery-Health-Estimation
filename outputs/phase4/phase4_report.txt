@@ -1,0 +1,77 @@
+PHASE 4 REPORT
+runtime (this session): 48.0 min | seed 42 | boot 5000
+rows: development scored 55963 | cells 84 (b1 41, b2 43) | per window W310 55963, W305 55963, W300 55963, W280 55963, W240 55963, WFULL 55963
+
+cell-macro MAE in pp, mean +- sd over repeats
+window           B0a          B0b           B1           B2           B3           B4           B5
+W310     2.737+-0.01  2.644+-0.01  1.495+-0.00  0.049+-0.00  1.504+-0.01  1.087+-0.01  0.049+-0.00
+W305     2.737+-0.01  2.644+-0.01  1.370+-0.00  0.049+-0.00  1.363+-0.01  0.947+-0.01  0.049+-0.00
+W300     2.737+-0.01  2.644+-0.01  1.268+-0.00  0.049+-0.00  1.242+-0.02  0.895+-0.01  0.049+-0.00
+W280     2.737+-0.01  2.644+-0.01  1.204+-0.00  0.049+-0.00  1.137+-0.04  0.798+-0.02  0.049+-0.00
+W240     2.737+-0.01  2.644+-0.01  1.246+-0.00  0.049+-0.00  0.847+-0.02  0.655+-0.01  0.049+-0.00
+WFULL    2.737+-0.01  2.644+-0.01  1.199+-0.00  0.049+-0.00  0.868+-0.02  0.626+-0.00  0.049+-0.00
+
+paired differences in cell-macro MAE, pp, estimate [95% cluster-bootstrap interval]
+W310  B3-B0b -1.140 [-1.446,-0.843]  B4-B3 -0.417 [-0.579,-0.248]  B1-B3 -0.010 [-0.158,+0.146]
+W305  B3-B0b -1.280 [-1.582,-0.994]  B4-B3 -0.417 [-0.569,-0.262]  B1-B3 +0.007 [-0.130,+0.149]
+W300  B3-B0b -1.402 [-1.703,-1.118]  B4-B3 -0.347 [-0.496,-0.196]  B1-B3 +0.027 [-0.099,+0.161]
+W280  B3-B0b -1.507 [-1.750,-1.258]  B4-B3 -0.339 [-0.471,-0.216]  B1-B3 +0.067 [-0.047,+0.171]
+W240  B3-B0b -1.797 [-2.040,-1.550]  B4-B3 -0.192 [-0.300,-0.085]  B1-B3 +0.399 [+0.290,+0.501]
+WFULL B3-B0b -1.775 [-2.025,-1.525]  B4-B3 -0.243 [-0.355,-0.132]  B1-B3 +0.331 [+0.240,+0.414]
+
+canaries
+  a. label shuffle W300 r0: B3 3.639, B4 3.630 pp vs best B0 2.643 pp
+  b. tail w_full: R2 0.9162, MAE 0.978 pp (55963 rows)
+  b. tail w_full+qd_cv_tail: R2 0.9985, MAE 0.101 pp (55963 rows)
+  c. scalar W310: R2 0.702 (Phase 3b 0.711), MAE 1.716 pp
+  c. scalar W305: R2 0.745 (Phase 3b None), MAE 1.573 pp
+  c. scalar W300: R2 0.769 (Phase 3b 0.775), MAE 1.488 pp
+  c. scalar W280: R2 0.826 (Phase 3b None), MAE 1.400 pp
+  c. scalar W240: R2 0.917 (Phase 3b 0.917), MAE 0.995 pp
+  c. scalar WFULL: R2 0.916 (Phase 3b 0.918), MAE 0.978 pp
+
+gate (M1 target = 0.85 x best baseline), pp
+  W310: best B4 1.087 -> target 0.924 | B2 0.049 | B5 0.049
+  W305: best B4 0.947 -> target 0.805 | B2 0.049 | B5 0.049
+  W300: best B4 0.895 -> target 0.760 | B2 0.049 | B5 0.049
+  W280: best B4 0.798 -> target 0.678 | B2 0.049 | B5 0.049
+  W240: best B4 0.655 -> target 0.557 | B2 0.049 | B5 0.049
+  WFULL: best B4 0.626 -> target 0.532 | B2 0.049 | B5 0.049
+within 15% of B2: none
+B3 vs B4 (does the waveform add anything?):
+  W310: B3 - B4 = +0.417 pp, paired B4-B3 -0.417 [-0.579, -0.248] -> waveform adds value
+  W305: B3 - B4 = +0.417 pp, paired B4-B3 -0.417 [-0.569, -0.262] -> waveform adds value
+  W300: B3 - B4 = +0.347 pp, paired B4-B3 -0.347 [-0.496, -0.196] -> waveform adds value
+  W280: B3 - B4 = +0.339 pp, paired B4-B3 -0.339 [-0.471, -0.216] -> waveform adds value
+  W240: B3 - B4 = +0.192 pp, paired B4-B3 -0.192 [-0.300, -0.085] -> waveform adds value
+  WFULL: B3 - B4 = +0.243 pp, paired B4-B3 -0.243 [-0.355, -0.132] -> waveform adds value
+
+five worst cells, best baseline at W300 (B4):
+  b2c36    MAE 3.238 pp | life 535 | batch 2
+  b1c0     MAE 2.843 pp | life 1852 | batch 1
+  b2c47    MAE 2.757 pp | life 713 | batch 2
+  b2c1     MAE 2.547 pp | life 148 | batch 2
+  b1c1     MAE 2.544 pp | life 2160 | batch 1
+
+PASS (205)
+WARN (3)
+  - kept_cells_groups_strata.csv covered by artifact_hashes.json
+  - B1: derived columns not in allow-list (built from delta-Q windows) | 3 columns, e.g. ['log10_var_dq', 'min_dq', 'skew_dq']; checked only through their allow-listed sources ['q0']
+  - B4: derived columns not in allow-list (built from delta-Q windows) | 32 columns, e.g. ['dq_00', 'dq_01', 'dq_02']; checked only through their allow-listed sources ['q0']
+FAIL (0)
+errors recorded (0)
+
+artifacts
+  baseline_by_batch.csv 6.3 KB
+  baseline_by_cell.csv 407.1 KB
+  baseline_by_stage.csv 9.5 KB
+  baseline_results.csv 5.9 KB
+  bootstrap_ci.csv 2.8 KB
+  figures\cell_error_heatmap_B4_W300.png 45.8 KB
+  figures\error_by_life_tenth_W300.png 26.6 KB
+  figures\mae_vs_minutes.png 61.2 KB
+  gate_hash.txt 0.1 KB
+  model_inputs.csv 0.8 KB
+  tuning_log.csv 177.3 KB
+  week2_gate.json 1.8 KB
+  cache/ 708 files 706.0 MB

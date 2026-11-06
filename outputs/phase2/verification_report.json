@@ -1,0 +1,574 @@
+{
+  "phase": 2,
+  "root": "c:\\workstation\\3RD YEAR\\Battery-Health-Estimation",
+  "runtime_seconds": 271.61223554611206,
+  "config": {
+    "SEED": 42,
+    "NOMINAL_AH": 1.1,
+    "EOL_AH": 0.88,
+    "V_HIGH": 3.5,
+    "V_LOW": 2.0,
+    "FORCE_REEXTRACT": false
+  },
+  "raw_files": {
+    "1": {
+      "file": "2017-05-12_batchdata_updated_struct_errorcorrect.mat",
+      "sha256": "9d928ab978f0e3c70b31cb833a749fedd35094d01af76475d69b40aa3497f5ba",
+      "size": 3025320241
+    },
+    "2": {
+      "file": "2017-06-30_batchdata_updated_struct_errorcorrect.mat",
+      "sha256": "63ab200d09ecb237fee5ef3a5c5db76e3212e3206a0bd92f769e1427fed338b8",
+      "size": 2007331155
+    },
+    "3": {
+      "file": "2018-04-12_batchdata_updated_struct_errorcorrect.mat",
+      "sha256": "62c30e413b63e6144720e016deed3661fac8468641794a5807b123fe84717998",
+      "size": 3236690412
+    }
+  },
+  "extraction": {
+    "new": 134,
+    "reused": 0,
+    "failed": [],
+    "seconds": 238.68204426765442,
+    "low_ram_cells": 0,
+    "cache_files": 134,
+    "cache_mb": 419.8838634490967
+  },
+  "check_counts": {
+    "PASS": 49,
+    "WARN": 7
+  },
+  "checks": [
+    {
+      "name": "Phase 1 file records found for 3 raw files",
+      "status": "PASS",
+      "detail": "records: ['2017-05-12_batchdata_updated_struct_errorcorrect.mat', '2017-06-30_batchdata_updated_struct_errorcorrect.mat', '2018-04-12_batchdata_updated_struct_errorcorrect.mat']"
+    },
+    {
+      "name": "SHA-256 batch 1 matches Phase 1",
+      "status": "PASS",
+      "detail": "2017-05-12_batchdata_updated_struct_errorcorrect.mat 9d928ab978f0e3c7..."
+    },
+    {
+      "name": "size batch 1 matches Phase 1",
+      "status": "PASS",
+      "detail": "3025320241 vs 3025320241"
+    },
+    {
+      "name": "SHA-256 batch 2 matches Phase 1",
+      "status": "PASS",
+      "detail": "2017-06-30_batchdata_updated_struct_errorcorrect.mat 63ab200d09ecb237..."
+    },
+    {
+      "name": "size batch 2 matches Phase 1",
+      "status": "PASS",
+      "detail": "2007331155 vs 2007331155"
+    },
+    {
+      "name": "SHA-256 batch 3 matches Phase 1",
+      "status": "PASS",
+      "detail": "2018-04-12_batchdata_updated_struct_errorcorrect.mat 62c30e413b63e614..."
+    },
+    {
+      "name": "size batch 3 matches Phase 1",
+      "status": "PASS",
+      "detail": "3236690412 vs 3236690412"
+    },
+    {
+      "name": "cells per file match Phase 1 (46/48/46)",
+      "status": "PASS",
+      "detail": "{1: 46, 2: 48, 3: 46}"
+    },
+    {
+      "name": "registry has 140 rows",
+      "status": "PASS",
+      "detail": "140"
+    },
+    {
+      "name": "Phase 1 inventory cell ids equal raw cell ids",
+      "status": "PASS",
+      "detail": "140 rows"
+    },
+    {
+      "name": "Phase 1 inventory cycle_life equals raw cycle_life",
+      "status": "PASS",
+      "detail": "cycle_life_field"
+    },
+    {
+      "name": "124 kept cells",
+      "status": "PASS",
+      "detail": "124"
+    },
+    {
+      "name": "kept per batch 41/43/40",
+      "status": "PASS",
+      "detail": "{1: 41, 2: 43, 3: 40}"
+    },
+    {
+      "name": "5 sensitivity cells (batch 1)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "batch-2 policy strings of continuations are truncated versions of the batch-1 string",
+      "status": "WARN",
+      "detail": "informational; batch-1 strings are used for stitched cells"
+    },
+    {
+      "name": "cycle_life NaN for b3c23 and b3c32",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Vdlin identical in all cells/files (max abs diff)",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "Vdlin has 1000 points from 3.5 to 2.0 V, decreasing",
+      "status": "PASS",
+      "detail": "n=1000, first=3.5000, last=2.0000"
+    },
+    {
+      "name": "69 unique normalised policy strings among kept cells",
+      "status": "WARN",
+      "detail": "68"
+    },
+    {
+      "name": "all required cells present in cache",
+      "status": "PASS",
+      "detail": "failed: []"
+    },
+    {
+      "name": "5 stitched cells built",
+      "status": "PASS",
+      "detail": "['b1c0', 'b1c1', 'b1c2', 'b1c3', 'b1c4']"
+    },
+    {
+      "name": "b1c0: added cycles = 662",
+      "status": "PASS",
+      "detail": "got 662"
+    },
+    {
+      "name": "b1c0: stitched life = 1852",
+      "status": "PASS",
+      "detail": "got 1852"
+    },
+    {
+      "name": "b1c0: stitched life = n_total + 1",
+      "status": "PASS",
+      "detail": "life 1852, n_total+1 = 1852"
+    },
+    {
+      "name": "b1c1: added cycles = 981",
+      "status": "PASS",
+      "detail": "got 981"
+    },
+    {
+      "name": "b1c1: stitched life = 2160",
+      "status": "PASS",
+      "detail": "got 2160"
+    },
+    {
+      "name": "b1c1: stitched life = n_total + 1",
+      "status": "PASS",
+      "detail": "life 2160, n_total+1 = 2160"
+    },
+    {
+      "name": "b1c2: added cycles = 1060",
+      "status": "PASS",
+      "detail": "got 1060"
+    },
+    {
+      "name": "b1c2: stitched life = 2237",
+      "status": "PASS",
+      "detail": "got 2237"
+    },
+    {
+      "name": "b1c2: stitched life = n_total + 1",
+      "status": "PASS",
+      "detail": "life 2237, n_total+1 = 2237"
+    },
+    {
+      "name": "b1c3: added cycles = 208",
+      "status": "PASS",
+      "detail": "got 208"
+    },
+    {
+      "name": "b1c3: stitched life = 1434",
+      "status": "PASS",
+      "detail": "got 1434"
+    },
+    {
+      "name": "b1c3: stitched life = n_total + 1",
+      "status": "PASS",
+      "detail": "life 1434, n_total+1 = 1434"
+    },
+    {
+      "name": "b1c4: added cycles = 482",
+      "status": "PASS",
+      "detail": "got 482"
+    },
+    {
+      "name": "b1c4: stitched life = 1709",
+      "status": "PASS",
+      "detail": "got 1709"
+    },
+    {
+      "name": "b1c4: stitched life = n_total + 1",
+      "status": "PASS",
+      "detail": "life 1709, n_total+1 = 1709"
+    },
+    {
+      "name": "summary length equals cycle entries (all extracted cells)",
+      "status": "PASS",
+      "detail": "mismatches: []"
+    },
+    {
+      "name": "cycle numbers consecutive from 1, no duplicates",
+      "status": "PASS",
+      "detail": "bad cells: []"
+    },
+    {
+      "name": "Qdlin length 1000 on all non-placeholder cycles",
+      "status": "PASS",
+      "detail": "0 cycles"
+    },
+    {
+      "name": "Qdlin finite on all non-placeholder cycles",
+      "status": "PASS",
+      "detail": "0 cycles"
+    },
+    {
+      "name": "Qdlin monotone within 5e-3 Ah",
+      "status": "WARN",
+      "detail": "289 cycles in 44 cells"
+    },
+    {
+      "name": "Qdlin[0] within -0.002..0.001 Ah (Phase 1: -0.0001..-0.0011)",
+      "status": "WARN",
+      "detail": "min -4.48787, max 30.73155"
+    },
+    {
+      "name": "qd_end equals summary QDischarge (max abs diff <= 1e-5)",
+      "status": "WARN",
+      "detail": "max 1.07, 176 cycles above 1e-5"
+    },
+    {
+      "name": "qc_end equals summary QCharge (max abs diff <= 1e-5)",
+      "status": "WARN",
+      "detail": "max 1.07, 136 cycles above 1e-5"
+    },
+    {
+      "name": "placeholders only at batch-1 position 0 (one per batch-1 cell)",
+      "status": "PASS",
+      "detail": "46 placeholders, batches [1], positions [0], expected 46"
+    },
+    {
+      "name": "every batch-1 cell starts with a placeholder",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "no raw-length mismatches inside cycles",
+      "status": "PASS",
+      "detail": "0 cycles"
+    },
+    {
+      "name": "Vdlin identical across files (recheck)",
+      "status": "PASS",
+      "detail": "0.0"
+    },
+    {
+      "name": "cycle_life_final consistent with data (b1/b3/stitched: last+1; b2: first QD<=0.88)",
+      "status": "PASS",
+      "detail": "0 bad: []"
+    },
+    {
+      "name": "stitched cells end between 0.880 and 0.883 Ah",
+      "status": "PASS",
+      "detail": "{'b1c0': 0.8828, 'b1c1': 0.88, 'b1c2': 0.8807, 'b1c3': 0.8801, 'b1c4': 0.88}"
+    },
+    {
+      "name": "batch 1/3 kept cells end between 0.880 and 0.883 Ah",
+      "status": "WARN",
+      "detail": "2 outside: [('b1c17', 0.8832), ('b1c37', 0.8834)]"
+    },
+    {
+      "name": "124 kept / 5 sensitivity / 5 continuation / 6 noisy",
+      "status": "PASS",
+      "detail": "{'kept': 124, 'excluded_noisy': 6, 'sensitivity': 5, 'excluded_continuation': 5}"
+    },
+    {
+      "name": "kept per batch 41/43/40",
+      "status": "PASS",
+      "detail": "{1: 41, 2: 43, 3: 40}"
+    },
+    {
+      "name": "table has 129 cells",
+      "status": "PASS",
+      "detail": "129"
+    },
+    {
+      "name": "total cycles by batch and overall",
+      "status": "PASS",
+      "detail": "{1: 42204, 2: 21527, 3: 41240} total 104971"
+    },
+    {
+      "name": "known QD spikes present and flagged (b1c0, b1c18, b2c12, b2c44)",
+      "status": "PASS",
+      "detail": "{'b1c0': (1.539, True), 'b1c18': (2.884, True), 'b2c12': (1.489, True), 'b2c44': (1.545, True)}"
+    }
+  ],
+  "errors": [],
+  "findings": {
+    "inspect": [
+      "b1c0 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 1, 1]",
+      "b1c0 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 47, 1]",
+      "b1c0 policy: dtype=uint16, shape=(15, 1), first=[51, 95, 54, 67, 45, 56, 48, 80]",
+      "b1c1 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 2, 1]",
+      "b1c1 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 48, 1]",
+      "b1c1 policy: dtype=uint16, shape=(15, 1), first=[51, 95, 54, 67, 45, 56, 48, 80]",
+      "b1c2 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 3, 1]",
+      "b1c2 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 49, 1]",
+      "b1c2 policy: dtype=uint16, shape=(15, 1), first=[51, 95, 54, 67, 45, 56, 48, 80]",
+      "b2c0 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 1, 1]",
+      "b2c0 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 49, 1]",
+      "b2c0 policy: dtype=uint16, shape=(10, 1), first=[49, 67, 95, 52, 80, 69, 82, 95]",
+      "b2c1 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 2, 1]",
+      "b2c1 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 50, 1]",
+      "b2c1 policy: dtype=uint16, shape=(11, 1), first=[50, 67, 95, 49, 48, 80, 69, 82]",
+      "b2c2 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 3, 1]",
+      "b2c2 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 51, 1]",
+      "b2c2 policy: dtype=uint16, shape=(10, 1), first=[50, 67, 95, 50, 80, 69, 82, 95]",
+      "b3c0 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 1, 1]",
+      "b3c0 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 47, 1]",
+      "b3c0 policy: dtype=uint16, shape=(24, 1), first=[53, 67, 95, 54, 55, 80, 69, 82]",
+      "b3c1 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 2, 1]",
+      "b3c1 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 48, 1]",
+      "b3c1 policy: dtype=uint16, shape=(26, 1), first=[53, 95, 51, 67, 95, 53, 52, 80]",
+      "b3c2 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 3, 1]",
+      "b3c2 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 49, 1]",
+      "b3c2 policy: dtype=uint16, shape=(28, 1), first=[53, 95, 54, 67, 95, 49, 57, 80]"
+    ],
+    "vdlin_maxdiff": 0.0,
+    "policy_numeric_fraction_kept": 0.0,
+    "policy_numeric_example": [
+      "None",
+      15,
+      "uint16"
+    ],
+    "unique_policy_strings_kept": 68,
+    "unique_triples_kept": null,
+    "policy_message": "policy is NOT numeric for all kept cells (numeric fraction 0.00); unique normalised strings = 68 (paper: 72)",
+    "qdlin0_range": [
+      -4.487868309020996,
+      30.731548309326172
+    ],
+    "max_dqd": 1.0694818,
+    "max_dqc": 1.0685501883100998,
+    "b2_qd_last_range": [
+      0.82503945,
+      0.82751918
+    ],
+    "cycles_by_batch": {
+      "1": 42204,
+      "2": 21527,
+      "3": 41240
+    },
+    "cycles_total": 104971,
+    "nonplaceholder_by_batch": {
+      "1": 42158,
+      "2": 21527,
+      "3": 41240
+    },
+    "recipe_summary": [
+      {
+        "recipe": "a: interp onto Vdlin, subtract first",
+        "max_abs_err": 0.09691031495287061,
+        "median_cycle_max_err": 0.0046559221562226805,
+        "mean_abs_err": 0.000358871513656449
+      },
+      {
+        "recipe": "b: interp onto Vdlin, no subtraction",
+        "max_abs_err": 0.09691351600357057,
+        "median_cycle_max_err": 0.004665367010422639,
+        "mean_abs_err": 0.00039075417737508613
+      },
+      {
+        "recipe": "c: subtract Qd at 3.5 V crossing, then interp",
+        "max_abs_err": 0.09691031495287061,
+        "median_cycle_max_err": 0.0046559221562226805,
+        "mean_abs_err": 0.0003512064362612904
+      },
+      {
+        "recipe": "d (extra): (a) with monotone V",
+        "max_abs_err": 0.005564087487319069,
+        "median_cycle_max_err": 0.0035254755448066444,
+        "mean_abs_err": 0.0003486058921599664
+      }
+    ],
+    "recipe_best": "d (extra): (a) with monotone V",
+    "diag_top_cycles": {
+      "4": 2,
+      "5": 2,
+      "12": 2,
+      "32": 2,
+      "31": 2,
+      "28": 2,
+      "29": 2,
+      "26": 2,
+      "27": 2,
+      "8": 1,
+      "9": 1,
+      "3": 1
+    }
+  },
+  "flag_lists": {
+    "flag_qdqc_gap": {
+      "b1c0": "387,391,405,408,433,444,472,488,523-525,551-552,565,578,610-611,635-636,638-639,647,674,697,702,705-706,748,755,757,760,767,770-771,795,814,835,848,1520,1717,1727",
+      "b1c1": "850",
+      "b1c2": "1487",
+      "b1c3": "879",
+      "b1c4": "1573",
+      "b1c5": "909",
+      "b1c18": "8-40",
+      "b1c24": "902",
+      "b1c41": "887",
+      "b2c0": "73,250",
+      "b2c2": "248",
+      "b2c3": "250",
+      "b2c4": "247",
+      "b2c5": "249",
+      "b2c6": "258",
+      "b2c10": "251",
+      "b2c11": "250",
+      "b2c12": "253",
+      "b2c13": "246",
+      "b2c17": "113,116",
+      "b2c20": "249",
+      "b2c22": "247",
+      "b2c23": "248",
+      "b2c28": "250",
+      "b2c29": "247",
+      "b2c36": "248",
+      "b2c37": "247",
+      "b2c39": "248",
+      "b2c41": "251",
+      "b2c42": "247",
+      "b2c44": "248"
+    },
+    "flag_qd_spike": {
+      "b1c0": "12,611,639,770,832",
+      "b1c2": "1487",
+      "b1c5": "909",
+      "b1c18": "40",
+      "b2c3": "250",
+      "b2c4": "247",
+      "b2c6": "258",
+      "b2c10": "251",
+      "b2c11": "250",
+      "b2c12": "253",
+      "b2c20": "249",
+      "b2c22": "247",
+      "b2c28": "250",
+      "b2c37": "247",
+      "b2c42": "247",
+      "b2c44": "248"
+    },
+    "flag_diag_suspect": {
+      "b1c0": "12",
+      "b1c18": "2-52",
+      "b2c3": "26-29,31-32",
+      "b2c6": "4-5,200,297-299",
+      "b2c27": "119",
+      "b2c40": "307,410,501,517-518",
+      "b3c24": "819-822",
+      "b3c38": "1921-1934"
+    }
+  },
+  "junctions": [
+    {
+      "cell_id": "b1c0",
+      "continuation": "b2c7",
+      "junction_pos": 1189,
+      "n_b1": 1189,
+      "n_b2": 662,
+      "qd_last_seg0": 1.0262098,
+      "qd_first_seg1": 1.0219246,
+      "step_ah": -0.004285199999999989,
+      "step_pp_nominal": -0.38956363636363533,
+      "med_abs_dqd_prev20": 0.0003326999999999636,
+      "step_over_med": 12.880072137061791,
+      "cycle_life_field": 1190.0,
+      "cycle_life_stitched": 1852.0,
+      "n_total": 1851
+    },
+    {
+      "cell_id": "b1c1",
+      "continuation": "b2c8",
+      "junction_pos": 1178,
+      "n_b1": 1178,
+      "n_b2": 981,
+      "qd_last_seg0": 1.0382246,
+      "qd_first_seg1": 1.0245416,
+      "step_ah": -0.01368299999999989,
+      "step_pp_nominal": -1.2439090909090809,
+      "med_abs_dqd_prev20": 0.0002906999999999771,
+      "step_over_med": 47.069143446855755,
+      "cycle_life_field": 1179.0,
+      "cycle_life_stitched": 2160.0,
+      "n_total": 2159
+    },
+    {
+      "cell_id": "b1c2",
+      "continuation": "b2c9",
+      "junction_pos": 1176,
+      "n_b1": 1176,
+      "n_b2": 1060,
+      "qd_last_seg0": 1.0432786,
+      "qd_first_seg1": 1.0295508,
+      "step_ah": -0.013727800000000068,
+      "step_pp_nominal": -1.2479818181818243,
+      "med_abs_dqd_prev20": 0.00036575000000005353,
+      "step_over_med": 37.533287764861406,
+      "cycle_life_field": 1177.0,
+      "cycle_life_stitched": 2237.0,
+      "n_total": 2236
+    },
+    {
+      "cell_id": "b1c3",
+      "continuation": "b2c15",
+      "junction_pos": 1225,
+      "n_b1": 1225,
+      "n_b2": 208,
+      "qd_last_seg0": 0.97092122,
+      "qd_first_seg1": 0.97206396,
+      "step_ah": 0.00114273999999992,
+      "step_pp_nominal": 0.10388545454544727,
+      "med_abs_dqd_prev20": 0.00045501999999997267,
+      "step_over_med": 2.511406092039885,
+      "cycle_life_field": 1226.0,
+      "cycle_life_stitched": 1434.0,
+      "n_total": 1433
+    },
+    {
+      "cell_id": "b1c4",
+      "continuation": "b2c16",
+      "junction_pos": 1226,
+      "n_b1": 1226,
+      "n_b2": 482,
+      "qd_last_seg0": 1.0219597,
+      "qd_first_seg1": 1.0074891,
+      "step_ah": -0.014470600000000111,
+      "step_pp_nominal": -1.315509090909101,
+      "med_abs_dqd_prev20": 0.00034679999999998046,
+      "step_over_med": 41.726066897349845,
+      "cycle_life_field": 1227.0,
+      "cycle_life_stitched": 1709.0,
+      "n_total": 1708
+    }
+  ]
+}

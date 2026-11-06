@@ -1,0 +1,124 @@
+{
+  "kept_cells": 124,
+  "n_unique_policies": 69,
+  "paper_reports_unique": 72,
+  "n_policies_shared_by_more_than_one_cell": 26,
+  "largest_group_size": 8,
+  "largest_group_policy": [
+    "5.3C(54%)-4C-newstructure"
+  ],
+  "unique_policies_per_batch": {
+    "1": 22,
+    "2": 41,
+    "3": 8
+  },
+  "continuation_pairs": [
+    {
+      "b1_cell": "b1c0",
+      "b2_cell": "b2c7",
+      "same_policy": false,
+      "same_barcode": true,
+      "b1_last_qd": 1.0262098,
+      "b2_first_qd": 1.0219246,
+      "b1_cycles": 1189,
+      "b2_cycles": 662,
+      "b1_last_cycle_no": 1189.0,
+      "b2_first_cycle_no": 1.0
+    },
+    {
+      "b1_cell": "b1c1",
+      "b2_cell": "b2c8",
+      "same_policy": false,
+      "same_barcode": true,
+      "b1_last_qd": 1.0382246,
+      "b2_first_qd": 1.0245416,
+      "b1_cycles": 1178,
+      "b2_cycles": 981,
+      "b1_last_cycle_no": 1178.0,
+      "b2_first_cycle_no": 1.0
+    },
+    {
+      "b1_cell": "b1c2",
+      "b2_cell": "b2c9",
+      "same_policy": false,
+      "same_barcode": true,
+      "b1_last_qd": 1.0432786,
+      "b2_first_qd": 1.0295508,
+      "b1_cycles": 1176,
+      "b2_cycles": 1060,
+      "b1_last_cycle_no": 1176.0,
+      "b2_first_cycle_no": 1.0
+    },
+    {
+      "b1_cell": "b1c3",
+      "b2_cell": "b2c15",
+      "same_policy": false,
+      "same_barcode": true,
+      "b1_last_qd": 0.97092122,
+      "b2_first_qd": 0.97206396,
+      "b1_cycles": 1225,
+      "b2_cycles": 208,
+      "b1_last_cycle_no": 1225.0,
+      "b2_first_cycle_no": 1.0
+    },
+    {
+      "b1_cell": "b1c4",
+      "b2_cell": "b2c16",
+      "same_policy": false,
+      "same_barcode": true,
+      "b1_last_qd": 1.0219597,
+      "b2_first_qd": 1.0074891,
+      "b1_cycles": 1226,
+      "b2_cycles": 482,
+      "b1_last_cycle_no": 1226.0,
+      "b2_first_cycle_no": 1.0
+    }
+  ],
+  "positional_preview_counts": {
+    "primary_test": 43,
+    "train": 41,
+    "secondary_test": 40
+  },
+  "primary_test_cells_with_policy_in_train": {
+    "count": 22,
+    "of": 43,
+    "cell_ids": [
+      "b1c0",
+      "b1c2",
+      "b1c4",
+      "b1c6",
+      "b1c14",
+      "b1c16",
+      "b1c18",
+      "b1c20",
+      "b1c25",
+      "b1c27",
+      "b1c29",
+      "b1c31",
+      "b1c33",
+      "b1c35",
+      "b1c37",
+      "b1c39",
+      "b1c41",
+      "b1c43",
+      "b1c45",
+      "b2c24",
+      "b2c26",
+      "b2c47"
+    ]
+  },
+  "secondary_test_cells_with_policy_in_train_or_primary": {
+    "count": 0,
+    "of": 40,
+    "cell_ids": []
+  },
+  "development_vs_batch3": {
+    "development_cells": 84,
+    "development_policies": 61,
+    "batch3_cells": 40,
+    "batch3_policies": 8,
+    "batch3_cells_sharing_policy_with_development": 0,
+    "policies_in_common": 0,
+    "batch3_cell_ids_overlapping": []
+  }
+}

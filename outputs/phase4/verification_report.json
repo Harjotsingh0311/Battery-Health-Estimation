@@ -1,0 +1,1068 @@
+{
+  "runtime_min": 48.03157522678375,
+  "checks": [
+    {
+      "name": "available RAM >= 2 GB",
+      "status": "PASS",
+      "detail": "3.4 GB free; close other apps if low"
+    },
+    {
+      "name": "grid_index(3.5) equals round((3.5-V)/0.0015015)",
+      "status": "PASS",
+      "detail": "0 vs 0"
+    },
+    {
+      "name": "grid_index(3.1) equals round((3.5-V)/0.0015015)",
+      "status": "PASS",
+      "detail": "266 vs 266"
+    },
+    {
+      "name": "grid_index(3.05) equals round((3.5-V)/0.0015015)",
+      "status": "PASS",
+      "detail": "300 vs 300"
+    },
+    {
+      "name": "grid_index(3.0) equals round((3.5-V)/0.0015015)",
+      "status": "PASS",
+      "detail": "333 vs 333"
+    },
+    {
+      "name": "grid_index(2.8) equals round((3.5-V)/0.0015015)",
+      "status": "PASS",
+      "detail": "466 vs 466"
+    },
+    {
+      "name": "grid_index(2.4) equals round((3.5-V)/0.0015015)",
+      "status": "PASS",
+      "detail": "733 vs 733"
+    },
+    {
+      "name": "grid_index(2.0) equals round((3.5-V)/0.0015015)",
+      "status": "PASS",
+      "detail": "999 vs 999"
+    },
+    {
+      "name": "labels_table_v2 has 104,971 rows",
+      "status": "PASS",
+      "detail": "104971"
+    },
+    {
+      "name": "cycles_table aligned by row_id",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cycles_table has qd_sum",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cycles_table has qc_sum",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cycles_table has qd_cv_tail",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cycles_table cycle_number matches labels",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "row_id usable as qdlin row index",
+      "status": "PASS",
+      "detail": "identity=True"
+    },
+    {
+      "name": "qdlin shape (104971, 1000)",
+      "status": "PASS",
+      "detail": "(104971, 1000)"
+    },
+    {
+      "name": "sha256 data/processed/splits/locked_test_cells.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "sha256 data/processed/splits/protocol_D.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "sha256 data/processed/splits/protocol_D_inner.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "sha256 data/processed/splits/protocol_P.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "sha256 data/processed/splits/protocol_S.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "at least one phase-3 hash verified",
+      "status": "PASS",
+      "detail": "5 of 5 verified"
+    },
+    {
+      "name": "protocol_D.csv covered by artifact_hashes.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "protocol_D_inner.csv covered by artifact_hashes.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "kept_cells_groups_strata.csv covered by artifact_hashes.json",
+      "status": "WARN",
+      "detail": ""
+    },
+    {
+      "name": "84 development cells in protocol_D.csv",
+      "status": "PASS",
+      "detail": "84"
+    },
+    {
+      "name": "5 sensitivity cells identified",
+      "status": "PASS",
+      "detail": "['b1c10', 'b1c12', 'b1c13', 'b1c22', 'b1c8']"
+    },
+    {
+      "name": "protocol_D has no batch-3 / sensitivity cell",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "no batch-3 cell in development rows",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "no sensitivity cell in development rows",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "soh_nom == qd_sum / 1.1",
+      "status": "PASS",
+      "detail": "max abs diff 0.00e+00"
+    },
+    {
+      "name": "scored development rows about 55,960",
+      "status": "PASS",
+      "detail": "55963"
+    },
+    {
+      "name": "cycle life known for all development cells",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "3 repeats x 6 outer folds",
+      "status": "PASS",
+      "detail": "(3, 6)"
+    },
+    {
+      "name": "r0 f0: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "70 train, 14 test"
+    },
+    {
+      "name": "r0 f0: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [18, 17, 18, 17]"
+    },
+    {
+      "name": "r0 f0: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r0 f1: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "70 train, 14 test"
+    },
+    {
+      "name": "r0 f1: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [18, 17, 17, 18]"
+    },
+    {
+      "name": "r0 f1: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r0 f2: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "70 train, 14 test"
+    },
+    {
+      "name": "r0 f2: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [18, 17, 17, 18]"
+    },
+    {
+      "name": "r0 f2: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r0 f3: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "69 train, 15 test"
+    },
+    {
+      "name": "r0 f3: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [18, 17, 17, 17]"
+    },
+    {
+      "name": "r0 f3: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r0 f4: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "70 train, 14 test"
+    },
+    {
+      "name": "r0 f4: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [18, 17, 17, 18]"
+    },
+    {
+      "name": "r0 f4: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r0 f5: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "71 train, 13 test"
+    },
+    {
+      "name": "r0 f5: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [17, 17, 16, 21]"
+    },
+    {
+      "name": "r0 f5: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "repeat 0: every cell held out exactly once",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "r1 f0: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "70 train, 14 test"
+    },
+    {
+      "name": "r1 f0: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [18, 18, 17, 17]"
+    },
+    {
+      "name": "r1 f0: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r1 f1: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "70 train, 14 test"
+    },
+    {
+      "name": "r1 f1: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [17, 19, 17, 17]"
+    },
+    {
+      "name": "r1 f1: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r1 f2: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "71 train, 13 test"
+    },
+    {
+      "name": "r1 f2: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [18, 17, 19, 17]"
+    },
+    {
+      "name": "r1 f2: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r1 f3: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "67 train, 17 test"
+    },
+    {
+      "name": "r1 f3: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [17, 17, 17, 16]"
+    },
+    {
+      "name": "r1 f3: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r1 f4: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "71 train, 13 test"
+    },
+    {
+      "name": "r1 f4: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [18, 18, 17, 18]"
+    },
+    {
+      "name": "r1 f4: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r1 f5: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "71 train, 13 test"
+    },
+    {
+      "name": "r1 f5: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [17, 18, 18, 18]"
+    },
+    {
+      "name": "r1 f5: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "repeat 1: every cell held out exactly once",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "r2 f0: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "70 train, 14 test"
+    },
+    {
+      "name": "r2 f0: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [18, 17, 17, 18]"
+    },
+    {
+      "name": "r2 f0: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r2 f1: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "70 train, 14 test"
+    },
+    {
+      "name": "r2 f1: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [18, 18, 17, 17]"
+    },
+    {
+      "name": "r2 f1: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r2 f2: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "70 train, 14 test"
+    },
+    {
+      "name": "r2 f2: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [18, 18, 17, 17]"
+    },
+    {
+      "name": "r2 f2: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r2 f3: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "70 train, 14 test"
+    },
+    {
+      "name": "r2 f3: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [17, 18, 17, 18]"
+    },
+    {
+      "name": "r2 f3: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r2 f4: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "70 train, 14 test"
+    },
+    {
+      "name": "r2 f4: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [19, 17, 17, 17]"
+    },
+    {
+      "name": "r2 f4: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "r2 f5: train/test disjoint and cover 84 cells",
+      "status": "PASS",
+      "detail": "70 train, 14 test"
+    },
+    {
+      "name": "r2 f5: 4 non-empty inner folds",
+      "status": "PASS",
+      "detail": "4 folds, sizes [18, 17, 18, 17]"
+    },
+    {
+      "name": "r2 f5: inner folds partition the outer-training cells",
+      "status": "PASS",
+      "detail": "4 inner folds"
+    },
+    {
+      "name": "repeat 2: every cell held out exactly once",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "q0 known for every development row",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "W310: DQ width equals i_close - i_open + 1",
+      "status": "PASS",
+      "detail": "267 vs 267"
+    },
+    {
+      "name": "W310: DQ[0] == 0 for all rows",
+      "status": "PASS",
+      "detail": "max |DQ[0]| = 0.00e+00"
+    },
+    {
+      "name": "W305: DQ width equals i_close - i_open + 1",
+      "status": "PASS",
+      "detail": "301 vs 301"
+    },
+    {
+      "name": "W305: DQ[0] == 0 for all rows",
+      "status": "PASS",
+      "detail": "max |DQ[0]| = 0.00e+00"
+    },
+    {
+      "name": "W300: DQ width equals i_close - i_open + 1",
+      "status": "PASS",
+      "detail": "334 vs 334"
+    },
+    {
+      "name": "W300: DQ[0] == 0 for all rows",
+      "status": "PASS",
+      "detail": "max |DQ[0]| = 0.00e+00"
+    },
+    {
+      "name": "W280: DQ width equals i_close - i_open + 1",
+      "status": "PASS",
+      "detail": "467 vs 467"
+    },
+    {
+      "name": "W280: DQ[0] == 0 for all rows",
+      "status": "PASS",
+      "detail": "max |DQ[0]| = 0.00e+00"
+    },
+    {
+      "name": "W240: DQ width equals i_close - i_open + 1",
+      "status": "PASS",
+      "detail": "734 vs 734"
+    },
+    {
+      "name": "W240: DQ[0] == 0 for all rows",
+      "status": "PASS",
+      "detail": "max |DQ[0]| = 0.00e+00"
+    },
+    {
+      "name": "WFULL: DQ width equals i_close - i_open + 1",
+      "status": "PASS",
+      "detail": "1000 vs 1000"
+    },
+    {
+      "name": "WFULL: DQ[0] == 0 for all rows",
+      "status": "PASS",
+      "detail": "max |DQ[0]| = 0.00e+00"
+    },
+    {
+      "name": "every window keeps the same row set (all development scored rows)",
+      "status": "PASS",
+      "detail": "{'W310': 55963, 'W305': 55963, 'W300': 55963, 'W280': 55963, 'W240': 55963, 'WFULL': 55963}"
+    },
+    {
+      "name": "assert_allowed B0a",
+      "status": "PASS",
+      "detail": "['cycle_number'] with roles ['primary', 'ablation']"
+    },
+    {
+      "name": "assert_allowed B0b",
+      "status": "PASS",
+      "detail": "['cycle_number'] with roles ['primary', 'ablation']"
+    },
+    {
+      "name": "assert_allowed B1",
+      "status": "PASS",
+      "detail": "['q0'] with roles ['primary', 'ablation']"
+    },
+    {
+      "name": "B1: derived columns not in allow-list (built from delta-Q windows)",
+      "status": "WARN",
+      "detail": "3 columns, e.g. ['log10_var_dq', 'min_dq', 'skew_dq']; checked only through their allow-listed sources ['q0']"
+    },
+    {
+      "name": "assert_allowed B2",
+      "status": "PASS",
+      "detail": "['qd_lag1'] with roles ['oracle']"
+    },
+    {
+      "name": "assert_allowed B3",
+      "status": "PASS",
+      "detail": "['window_capacity', 'q0'] with roles ['primary', 'oracle']"
+    },
+    {
+      "name": "assert_allowed B4",
+      "status": "PASS",
+      "detail": "['q0'] with roles ['primary', 'ablation']"
+    },
+    {
+      "name": "B4: derived columns not in allow-list (built from delta-Q windows)",
+      "status": "WARN",
+      "detail": "32 columns, e.g. ['dq_00', 'dq_01', 'dq_02']; checked only through their allow-listed sources ['q0']"
+    },
+    {
+      "name": "assert_allowed B5",
+      "status": "PASS",
+      "detail": "['qc_sum'] with roles ['banned']"
+    },
+    {
+      "name": "harness: perfect predictor gives zero error",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "harness: +0.01 offset gives 1.0 pp MAE and +1.0 pp bias",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "harness: bootstrap CI of a constant is degenerate",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "harness: stage metric on dummy",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "at most 30 configs per model and fold",
+      "status": "PASS",
+      "detail": "max 12"
+    },
+    {
+      "name": "B2 has an earlier valid cycle for every scored row",
+      "status": "PASS",
+      "detail": "0 rows without one (filled with 1.0)"
+    },
+    {
+      "name": "B5 inputs finite",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "B0a ALL r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B0a ALL r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B0a ALL r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B0b ALL r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B0b ALL r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B0b ALL r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W310 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W310 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W310 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W305 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W305 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W305 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W300 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W300 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W300 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W280 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W280 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W280 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W240 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W240 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 W240 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 WFULL r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 WFULL r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B1 WFULL r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W310 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W310 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W310 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W305 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W305 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W305 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W300 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W300 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W300 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W280 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W280 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W280 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W240 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W240 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 W240 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 WFULL r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 WFULL r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B3 WFULL r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W310 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W310 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W310 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W305 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W305 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W305 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W300 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W300 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W300 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W280 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W280 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W280 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W240 r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W240 r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 W240 r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 WFULL r0: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 WFULL r1: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "B4 WFULL r2: each row of each held-out cell predicted exactly once",
+      "status": "PASS",
+      "detail": "covered 55963/55963"
+    },
+    {
+      "name": "W310: all models finite on the identical row set (55963 rows)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "W305: all models finite on the identical row set (55963 rows)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "W300: all models finite on the identical row set (55963 rows)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "W280: all models finite on the identical row set (55963 rows)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "W240: all models finite on the identical row set (55963 rows)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "WFULL: all models finite on the identical row set (55963 rows)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "label-shuffle canary B3 (W300, repeat 0): MAE >= best B0",
+      "status": "PASS",
+      "detail": "3.639 pp vs best B0 2.643 pp"
+    },
+    {
+      "name": "label-shuffle canary B4 (W300, repeat 0): MAE >= best B0",
+      "status": "PASS",
+      "detail": "3.630 pp vs best B0 2.643 pp"
+    },
+    {
+      "name": "scalar canary W310 R2 close to Phase 3b",
+      "status": "PASS",
+      "detail": "0.702 vs 0.711"
+    },
+    {
+      "name": "scalar canary W300 R2 close to Phase 3b",
+      "status": "PASS",
+      "detail": "0.769 vs 0.775"
+    },
+    {
+      "name": "scalar canary W240 R2 close to Phase 3b",
+      "status": "PASS",
+      "detail": "0.917 vs 0.917"
+    },
+    {
+      "name": "scalar canary WFULL R2 close to Phase 3b",
+      "status": "PASS",
+      "detail": "0.916 vs 0.918"
+    },
+    {
+      "name": "no window reaches R2 0.98 with the scalar",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "scaler mean/std equal statistics recomputed from training cells only",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "no held-out-cell row in any training matrix (outer and inner folds)",
+      "status": "PASS",
+      "detail": "0 violations"
+    },
+    {
+      "name": "all collected predictions finite on their row sets",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "B2 unchanged up to cycle k when future qd_sum is perturbed",
+      "status": "PASS",
+      "detail": "cell b1c2, k=1118"
+    },
+    {
+      "name": "gate_hash.txt matches week2_gate.json",
+      "status": "PASS",
+      "detail": "40df2fb82096e994"
+    },
+    {
+      "name": "artifact exists: baseline_results.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "artifact exists: baseline_by_cell.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "artifact exists: baseline_by_stage.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "artifact exists: baseline_by_batch.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "artifact exists: bootstrap_ci.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "artifact exists: week2_gate.json",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "artifact exists: gate_hash.txt",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "artifact exists: model_inputs.csv",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "artifact exists: tuning_log.csv",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "errors": [],
+  "counts": {
+    "PASS": 205,
+    "WARN": 3,
+    "FAIL": 0
+  },
+  "row_counts": {
+    "development_scored_rows": 55963,
+    "development_cells": 84,
+    "rows_per_window": {
+      "W310": 55963,
+      "W305": 55963,
+      "W300": 55963,
+      "W280": 55963,
+      "W240": 55963,
+      "WFULL": 55963
+    },
+    "cells_per_batch": {
+      "1": 41,
+      "2": 43
+    }
+  },
+  "gate_sha256": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901"
+}

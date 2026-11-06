@@ -1,0 +1,29 @@
+flag,kind,scope,n_cycles,n_cells,pct_of_cycles
+flag_placeholder,causal,ALL,46,46,0.04382162692553181
+flag_placeholder,causal,b1,46,46,0.10899440811297507
+flag_placeholder,causal,b2,0,0,0.0
+flag_placeholder,causal,b3,0,0,0.0
+flag_qdlin_bad,causal,ALL,289,44,0.2753141343799716
+flag_qdlin_bad,causal,b1,46,24,0.10899440811297507
+flag_qdlin_bad,causal,b2,239,16,1.1102336600548148
+flag_qdlin_bad,causal,b3,4,4,0.009699321047526674
+flag_diag_suspect,causal,ALL,88,8,0.08383267759666956
+flag_diag_suspect,causal,b1,52,2,0.12321107004075443
+flag_diag_suspect,causal,b2,18,4,0.08361592418822873
+flag_diag_suspect,causal,b3,18,2,0.04364694471387003
+flag_ir_nonpos,causal,ALL,22,16,0.02095816939916739
+flag_ir_nonpos,causal,b1,22,16,0.05212776040185765
+flag_ir_nonpos,causal,b2,0,0,0.0
+flag_ir_nonpos,causal,b3,0,0,0.0
+flag_qd_mismatch,causal,ALL,176,21,0.1676653551933391
+flag_qd_mismatch,causal,b1,145,11,0.3435693299213345
+flag_qd_mismatch,causal,b2,29,8,0.13471454452547962
+flag_qd_mismatch,causal,b3,2,2,0.004849660523763337
+flag_qdqc_gap,offline (label use only),ALL,105,31,0.10002762667784436
+flag_qdqc_gap,offline (label use only),b1,81,9,0.19192493602502134
+flag_qdqc_gap,offline (label use only),b2,24,22,0.11148789891763831
+flag_qdqc_gap,offline (label use only),b3,0,0,0.0
+flag_qd_spike,offline (label use only),ALL,20,16,0.019052881271970353
+flag_qd_spike,offline (label use only),b1,8,4,0.018955549237039144
+flag_qd_spike,offline (label use only),b2,12,12,0.05574394945881916
+flag_qd_spike,offline (label use only),b3,0,0,0.0

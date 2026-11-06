@@ -1,0 +1,77 @@
+{
+  "baseline_results_sha256": "9c2468b27bd2bda0baa341b1b5033f878158ba3b9c76b4a44cd8386bdc7a5088",
+  "config": {
+    "BOOT": 5000,
+    "GATE_IMPROVEMENT": 0.15,
+    "NOMINAL_AH": 1.1,
+    "N_JOBS": 10,
+    "SEED": 42,
+    "TRAIN_STRIDE": 5
+  },
+  "row_counts": {
+    "cells_per_batch": {
+      "1": 41,
+      "2": 43
+    },
+    "development_cells": 84,
+    "development_scored_rows": 55963,
+    "rows_per_window": {
+      "W240": 55963,
+      "W280": 55963,
+      "W300": 55963,
+      "W305": 55963,
+      "W310": 55963,
+      "WFULL": 55963
+    }
+  },
+  "targets": {
+    "W240": {
+      "B0_variant": "B0b",
+      "B2_pp": 0.049018,
+      "B5_pp": 0.04878,
+      "best_baseline": "B4",
+      "best_cell_macro_mae_pp": 0.655142,
+      "m1_target_pp": 0.556871
+    },
+    "W280": {
+      "B0_variant": "B0b",
+      "B2_pp": 0.049018,
+      "B5_pp": 0.04878,
+      "best_baseline": "B4",
+      "best_cell_macro_mae_pp": 0.798061,
+      "m1_target_pp": 0.678352
+    },
+    "W300": {
+      "B0_variant": "B0b",
+      "B2_pp": 0.049018,
+      "B5_pp": 0.04878,
+      "best_baseline": "B4",
+      "best_cell_macro_mae_pp": 0.894697,
+      "m1_target_pp": 0.760492
+    },
+    "W305": {
+      "B0_variant": "B0b",
+      "B2_pp": 0.049018,
+      "B5_pp": 0.04878,
+      "best_baseline": "B4",
+      "best_cell_macro_mae_pp": 0.946529,
+      "m1_target_pp": 0.80455
+    },
+    "W310": {
+      "B0_variant": "B0b",
+      "B2_pp": 0.049018,
+      "B5_pp": 0.04878,
+      "best_baseline": "B4",
+      "best_cell_macro_mae_pp": 1.086775,
+      "m1_target_pp": 0.923759
+    },
+    "WFULL": {
+      "B0_variant": "B0b",
+      "B2_pp": 0.049018,
+      "B5_pp": 0.04878,
+      "best_baseline": "B4",
+      "best_cell_macro_mae_pp": 0.62573,
+      "m1_target_pp": 0.531871
+    }
+  }
+}

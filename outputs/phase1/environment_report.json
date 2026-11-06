@@ -1,0 +1,160 @@
+{
+  "python": {
+    "version": "3.13.13",
+    "executable": "c:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\.venv\\Scripts\\python.exe"
+  },
+  "environment": {
+    "python_version": "3.13.13",
+    "python_executable": "c:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\.venv\\Scripts\\python.exe",
+    "venv_expected": "c:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\.venv",
+    "os": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "cpu_count": 12,
+    "ram_total_gb": 15.71,
+    "ram_available_gb": 0.49,
+    "disk_free_gb": 38.5,
+    "disk_total_gb": 475.67,
+    "packages": {
+      "torch": "2.14.1+cu130",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scipy": "1.18.1",
+      "h5py": "3.16.0",
+      "scikit-learn": "1.9.1",
+      "matplotlib": "3.11.2",
+      "pyarrow": "26.0.0",
+      "psutil": "7.2.2",
+      "tqdm": "4.70.1"
+    },
+    "n_installed_distributions": 73
+  },
+  "packages": {
+    "torch": "2.14.1+cu130",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scipy": "1.18.1",
+    "h5py": "3.16.0",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "pyarrow": "26.0.0",
+    "psutil": "7.2.2",
+    "tqdm": "4.70.1"
+  },
+  "gpu": {
+    "torch_version": "2.14.1+cu130",
+    "torch_cuda_version": "13.0",
+    "cuda_available": true,
+    "cudnn_version": 92400,
+    "cudnn_benchmark": false,
+    "device_name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "capability": [
+      8,
+      6
+    ],
+    "total_vram_gb": 6.0,
+    "arch_list": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120"
+    ],
+    "bf16_supported": true,
+    "arch_coverage": {
+      "exact": true,
+      "same_major_cubin": true,
+      "ptx_fallback": false
+    }
+  },
+  "nvidia_smi": {
+    "ok": true,
+    "query": "name,driver_version,memory.total,memory.used,compute_cap",
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+        "driver_version": "595.71",
+        "memory.total": "6144 MiB",
+        "memory.used": "0 MiB",
+        "compute_cap": "8.6"
+      }
+    ]
+  },
+  "gpu_verdict": "GPU VERDICT: READY - NVIDIA GeForce RTX 3050 6GB Laptop GPU, sm_86, 6.0 GB, torch 2.14.1+cu130 (cuda 13.0); smoke tests passed, 0 warning(s)",
+  "smoke_tests": {
+    "params": {
+      "count": 2977,
+      "breakdown": [
+        [
+          "conv1",
+          "Conv1d",
+          80
+        ],
+        [
+          "bn1",
+          "BatchNorm1d",
+          16
+        ],
+        [
+          "conv2",
+          "Conv1d",
+          656
+        ],
+        [
+          "bn2",
+          "BatchNorm1d",
+          32
+        ],
+        [
+          "conv3",
+          "Conv1d",
+          1568
+        ],
+        [
+          "bn3",
+          "BatchNorm1d",
+          64
+        ],
+        [
+          "fc1",
+          "Linear",
+          544
+        ],
+        [
+          "fc2",
+          "Linear",
+          17
+        ]
+      ]
+    },
+    "matmul": {
+      "n": 4096,
+      "ms": 126.21196999680251,
+      "tflops": 1.0889533970152112,
+      "finite": true
+    },
+    "parity_max_abs_diff": 2.9802322387695312e-08,
+    "train_fp32": {
+      "mode": "fp32",
+      "steps": 100,
+      "first_loss": 0.6586880683898926,
+      "last_loss": 0.044882990419864655,
+      "last10_mean_loss": 0.04693111553788185,
+      "ms_per_step": 17.34540000325069,
+      "peak_mem_mb": 19.87890625
+    },
+    "train_bf16": {
+      "mode": "bf16",
+      "steps": 100,
+      "first_loss": 0.6587837934494019,
+      "last_loss": 0.0451369509100914,
+      "last10_mean_loss": 0.04685966931283474,
+      "ms_per_step": 19.780650007305667,
+      "peak_mem_mb": 18.26171875
+    },
+    "repeatability": {
+      "max_param_diff": 0.0,
+      "max_loss_diff": 0.0
+    }
+  }
+}

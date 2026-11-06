@@ -1,0 +1,146 @@
+{
+  "schema": "column -> role/available_at",
+  "roles": [
+    "primary",
+    "ablation",
+    "oracle",
+    "banned",
+    "label"
+  ],
+  "default_allowed_roles_for_assert_allowed": [
+    "primary",
+    "ablation"
+  ],
+  "banned_correlation_with_qd_sum": {
+    "qc_sum": 0.9998266754597394,
+    "qc_end": 0.9998266756466274
+  },
+  "columns": [
+    {
+      "column": "dq_window",
+      "role": "primary",
+      "available_at": "window close",
+      "note": "build_delta_q(Qdlin, Qref, i_open, i_close)"
+    },
+    {
+      "column": "q0",
+      "role": "primary",
+      "available_at": "after reference cycle",
+      "note": "median qd_sum over reference cycles"
+    },
+    {
+      "column": "qref",
+      "role": "primary",
+      "available_at": "after reference cycle",
+      "note": "median Qdlin over reference cycles"
+    },
+    {
+      "column": "cycle_number",
+      "role": "ablation",
+      "available_at": "window close",
+      "note": "index ablation"
+    },
+    {
+      "column": "ir",
+      "role": "ablation",
+      "available_at": "end of charge",
+      "note": "internal resistance; ablation only"
+    },
+    {
+      "column": "chargetime",
+      "role": "ablation",
+      "available_at": "end of charge",
+      "note": "ablation only"
+    },
+    {
+      "column": "tavg",
+      "role": "ablation",
+      "available_at": "end of discharge",
+      "note": "cycle summary; not available at window close"
+    },
+    {
+      "column": "tmin",
+      "role": "ablation",
+      "available_at": "end of discharge",
+      "note": "cycle summary; not available at window close"
+    },
+    {
+      "column": "tmax",
+      "role": "ablation",
+      "available_at": "end of discharge",
+      "note": "cycle summary; not available at window close"
+    },
+    {
+      "column": "qd_sum",
+      "role": "label",
+      "available_at": "end of discharge",
+      "note": "summary discharge capacity; SOH label source"
+    },
+    {
+      "column": "qd_end",
+      "role": "label",
+      "available_at": "end of discharge",
+      "note": "end-of-discharge capacity; label cross-check"
+    },
+    {
+      "column": "soh_nom",
+      "role": "label",
+      "available_at": "end of discharge",
+      "note": "qd_sum / 1.1"
+    },
+    {
+      "column": "soh_rel",
+      "role": "label",
+      "available_at": "end of discharge",
+      "note": "qd_sum / q0"
+    },
+    {
+      "column": "soh_nom_repaired",
+      "role": "label",
+      "available_at": "end of discharge",
+      "note": "offline training use only"
+    },
+    {
+      "column": "qc_sum",
+      "role": "banned",
+      "available_at": "end of charge",
+      "note": "charge capacity is a near-label proxy (baseline B5)"
+    },
+    {
+      "column": "qc_end",
+      "role": "banned",
+      "available_at": "end of charge",
+      "note": "charge capacity is a near-label proxy (baseline B5)"
+    },
+    {
+      "column": "qd_lag1",
+      "role": "oracle",
+      "available_at": "end of previous discharge",
+      "note": "reference baseline only; not capacity-free"
+    },
+    {
+      "column": "window_capacity",
+      "role": "oracle",
+      "available_at": "window close",
+      "note": "Qdlin[close]-Qdlin[open]; scalar canary"
+    },
+    {
+      "column": "cell_id",
+      "role": "banned",
+      "available_at": "any",
+      "note": "identifier"
+    },
+    {
+      "column": "batch",
+      "role": "banned",
+      "available_at": "any",
+      "note": "batch identity leaks the test split"
+    },
+    {
+      "column": "policy_norm",
+      "role": "banned",
+      "available_at": "any",
+      "note": "grouping key only"
+    }
+  ]
+}

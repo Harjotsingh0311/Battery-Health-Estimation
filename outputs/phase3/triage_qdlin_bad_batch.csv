@@ -1,0 +1,4 @@
+batch,rows,cells,le_life,le_life_ge20,nonfinite,nonmono,q0out,also_qd_mismatch,also_diag_suspect
+1,46,24,46,41,0,46,1,0,0
+2,239,16,238,237,0,239,2,3,3
+3,4,4,4,4,0,4,0,0,0

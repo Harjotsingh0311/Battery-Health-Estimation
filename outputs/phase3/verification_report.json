@@ -1,0 +1,577 @@
+{
+  "runtime_s": 65.4032690525055,
+  "seed": 42,
+  "n_checks": 111,
+  "n_pass": 109,
+  "n_warn": 2,
+  "n_fail": 0,
+  "checks": [
+    {
+      "name": "outputs/phase2 folder present",
+      "status": "PASS",
+      "detail": "c:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\outputs\\phase2"
+    },
+    {
+      "name": "cycles_table row count",
+      "status": "PASS",
+      "detail": "104971 (expected 104971)"
+    },
+    {
+      "name": "cycles_table cell count",
+      "status": "PASS",
+      "detail": "129 (expected 129)"
+    },
+    {
+      "name": "qdlin shape/dtype",
+      "status": "PASS",
+      "detail": "(104971, 1000) float32"
+    },
+    {
+      "name": "t_knots shape",
+      "status": "PASS",
+      "detail": "(104971, 16)"
+    },
+    {
+      "name": "row_id equals npy row order",
+      "status": "PASS",
+      "detail": "row_id == arange(n)"
+    },
+    {
+      "name": "qd_sum finite for all non-placeholder rows",
+      "status": "PASS",
+      "detail": "0 non-finite; placeholder rows 46"
+    },
+    {
+      "name": "all table cells are in the registry",
+      "status": "PASS",
+      "detail": "129/129"
+    },
+    {
+      "name": "kept cell count",
+      "status": "PASS",
+      "detail": "124 (expected 124)"
+    },
+    {
+      "name": "sensitivity cell count",
+      "status": "PASS",
+      "detail": "['b1c10', 'b1c12', 'b1c13', 'b1c22', 'b1c8']"
+    },
+    {
+      "name": "sensitivity ids as expected",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "kept cells per batch 41/43/40",
+      "status": "PASS",
+      "detail": "{1: 41, 2: 43, 3: 40}"
+    },
+    {
+      "name": "grid index of 3.5/3.0/2.0 V",
+      "status": "PASS",
+      "detail": "0, 333, 999"
+    },
+    {
+      "name": "batch column agrees with cell_id prefix",
+      "status": "PASS",
+      "detail": "cycles.batch vs cell_id"
+    },
+    {
+      "name": "flag_qdlin_bad total 289 rows / 44 cells",
+      "status": "PASS",
+      "detail": "289 rows / 44 cells"
+    },
+    {
+      "name": "flag_qdlin_bad per batch 46/239/4",
+      "status": "PASS",
+      "detail": "{1: 46, 2: 239, 3: 4}"
+    },
+    {
+      "name": "every flag_qdlin_bad row explained by a recomputed sub-condition",
+      "status": "PASS",
+      "detail": "0 unexplained rows"
+    },
+    {
+      "name": "Qdlin[0] reaches garbage values over all rows (range about -4.5 .. +30.7)",
+      "status": "PASS",
+      "detail": "min -4.488, max 30.732"
+    },
+    {
+      "name": "batch-2 246-258 event cells close to 21",
+      "status": "PASS",
+      "detail": "21 cells (expected about 21)"
+    },
+    {
+      "name": "diagnostic-cycle statement produced",
+      "status": "PASS",
+      "detail": "No C/10 diagnostic cycles at cycle numbers 1,2,3,100,101 (current and sample count normal)."
+    },
+    {
+      "name": "placeholder column equals flag_placeholder",
+      "status": "PASS",
+      "detail": "differences: 0"
+    },
+    {
+      "name": "streamed qdlin_ok agrees with ~flag_qdlin_bad",
+      "status": "WARN",
+      "detail": "14 disagreeing rows"
+    },
+    {
+      "name": "kept rows with cycle_number > life exist only in batch 2",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "post_junction rows belong to the five stitched cells",
+      "status": "PASS",
+      "detail": "['b1c0', 'b1c1', 'b1c2', 'b1c3', 'b1c4']"
+    },
+    {
+      "name": "registry order covers all table cells",
+      "status": "PASS",
+      "detail": "129/129"
+    },
+    {
+      "name": "every cell has REF_N reference cycles",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "Qref finite for all cells",
+      "status": "PASS",
+      "detail": "0 cells with NaN"
+    },
+    {
+      "name": "b1c18 and b1c0 have non-default references",
+      "status": "PASS",
+      "detail": "['b1c0', 'b1c18', 'b1c3', 'b1c4', 'b1c41']"
+    },
+    {
+      "name": "no reference cycle has label_suspect",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "soh_nom * 1.1 == qd_sum on scored rows (max abs diff)",
+      "status": "PASS",
+      "detail": "1.110e-16"
+    },
+    {
+      "name": "no NaN labels on scored rows",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "labels_table.parquet written",
+      "status": "PASS",
+      "detail": "(104971, 20)"
+    },
+    {
+      "name": "policy_norm present for every kept cell",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cycle_life_final finite for kept cells",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "development cells = 84",
+      "status": "PASS",
+      "detail": "84"
+    },
+    {
+      "name": "b1c0 policy equals registry batch-1 string",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "b1c1 policy equals registry batch-1 string",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "b1c2 policy equals registry batch-1 string",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "b1c3 policy equals registry batch-1 string",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "b1c4 policy equals registry batch-1 string",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "68 unique policy_norm among kept cells",
+      "status": "PASS",
+      "detail": "68"
+    },
+    {
+      "name": "registry covers 140 raw cells",
+      "status": "PASS",
+      "detail": "140"
+    },
+    {
+      "name": "tertile cut points near 493/710",
+      "status": "PASS",
+      "detail": "[493.33333333 710.33333333]"
+    },
+    {
+      "name": "Protocol D uses StratifiedGroupKFold everywhere",
+      "status": "PASS",
+      "detail": "{'StratifiedGroupKFold'}"
+    },
+    {
+      "name": "batch-3 locked test has 40 cells",
+      "status": "PASS",
+      "detail": "40"
+    },
+    {
+      "name": "124 kept cells ordered for protocol P",
+      "status": "PASS",
+      "detail": "124"
+    },
+    {
+      "name": "P sizes 43 / 41 / 40",
+      "status": "PASS",
+      "detail": "43/41/40"
+    },
+    {
+      "name": "Protocol P assigns every cell a role",
+      "status": "PASS",
+      "detail": "0 unassigned"
+    },
+    {
+      "name": "scored development rows available for window audit",
+      "status": "PASS",
+      "detail": "55965 rows, 84 cells"
+    },
+    {
+      "name": "compact block finite on scored dev rows",
+      "status": "PASS",
+      "detail": "0 non-finite"
+    },
+    {
+      "name": "every scored dev cell is held out once in repeat 0",
+      "status": "PASS",
+      "detail": "0 rows without fold"
+    },
+    {
+      "name": "L increases toward later close voltage (sanity)",
+      "status": "PASS",
+      "detail": "for open 3.5 V, L should grow as close gets lower"
+    },
+    {
+      "name": "saved minutes grow as close voltage rises",
+      "status": "WARN",
+      "detail": ""
+    },
+    {
+      "name": "window heatmaps written",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "allow-list contains the required columns",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "allow-list roles as specified",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "temperature fields are ablation-only",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assert_allowed passes an allowed set",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "assert_allowed rejects an unknown column",
+      "status": "PASS",
+      "detail": "ValueError(\"disallowed input columns: unknown=['fake_column'] wrong_role=[]\")"
+    },
+    {
+      "name": "assert_allowed rejects a banned column",
+      "status": "PASS",
+      "detail": "ValueError(\"disallowed input columns: unknown=[] wrong_role=['qc_sum']\")"
+    },
+    {
+      "name": "no cell_id in two roles (or twice) within any fold",
+      "status": "PASS",
+      "detail": "{'protocol_D': 0, 'protocol_D_inner': 0, 'protocol_S': 0, 'protocol_P': 0}"
+    },
+    {
+      "name": "protocol D outer folds: no policy_norm on both sides",
+      "status": "PASS",
+      "detail": "0 shared groups"
+    },
+    {
+      "name": "protocol D inner folds: no policy_norm on both sides",
+      "status": "PASS",
+      "detail": "0 shared groups"
+    },
+    {
+      "name": "inner folds only contain outer-training cells",
+      "status": "PASS",
+      "detail": "0 stray cells"
+    },
+    {
+      "name": "each development cell is held out exactly once per repeat",
+      "status": "PASS",
+      "detail": "252 (repeat, cell) pairs"
+    },
+    {
+      "name": "18 outer training sets x 4 inner folds",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "continuation cell ids appear in no split",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "sensitivity cells appear in no split",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "each stitched cell has exactly one policy group",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "stitched cells never split across roles",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "no batch-3 cell in any development fold",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "locked test list = 40 batch-3 kept cells, hash verifies",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "protocol S b3 locked_test equals locked list",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "protocol D covers exactly the 84 development cells",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "protocol P covers exactly the 124 kept cells",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "every development cell has scored rows",
+      "status": "PASS",
+      "detail": "no scored rows: []"
+    },
+    {
+      "name": "causality baseline reference exists for b1c0",
+      "status": "PASS",
+      "detail": "ref_last=13.0"
+    },
+    {
+      "name": "recomputed Q0/ref_last equal section 4 for b1c0",
+      "status": "PASS",
+      "detail": "1.0744922 vs 1.0744922"
+    },
+    {
+      "name": "causality b1c0 k=13: Q0, Qref, window capacity, delta-Q unchanged",
+      "status": "PASS",
+      "detail": "n_ref=5, ref_last=13.0, cap 0.833805/0.833805"
+    },
+    {
+      "name": "causality b1c0 k=63: Q0, Qref, window capacity, delta-Q unchanged",
+      "status": "PASS",
+      "detail": "n_ref=5, ref_last=13.0, cap 0.844611/0.844611"
+    },
+    {
+      "name": "causality b1c0 k=313: Q0, Qref, window capacity, delta-Q unchanged",
+      "status": "PASS",
+      "detail": "n_ref=5, ref_last=13.0, cap 0.813576/0.813576"
+    },
+    {
+      "name": "b1c0: reference unavailable for k=12 < ref_last",
+      "status": "PASS",
+      "detail": "only 4 usable reference cycles"
+    },
+    {
+      "name": "causality baseline reference exists for b2c0",
+      "status": "PASS",
+      "detail": "ref_last=12.0"
+    },
+    {
+      "name": "recomputed Q0/ref_last equal section 4 for b2c0",
+      "status": "PASS",
+      "detail": "1.0730482 vs 1.0730482"
+    },
+    {
+      "name": "causality b2c0 k=12: Q0, Qref, window capacity, delta-Q unchanged",
+      "status": "PASS",
+      "detail": "n_ref=5, ref_last=12.0, cap 0.819830/0.819830"
+    },
+    {
+      "name": "causality b2c0 k=62: Q0, Qref, window capacity, delta-Q unchanged",
+      "status": "PASS",
+      "detail": "n_ref=5, ref_last=12.0, cap 0.743564/0.743564"
+    },
+    {
+      "name": "causality b2c0 k=312: Q0, Qref, window capacity, delta-Q unchanged",
+      "status": "PASS",
+      "detail": "n_ref=5, ref_last=12.0, cap 0.420079/0.420079"
+    },
+    {
+      "name": "b2c0: reference unavailable for k=11 < ref_last",
+      "status": "PASS",
+      "detail": "only 4 usable reference cycles"
+    },
+    {
+      "name": "causality baseline reference exists for b3c0",
+      "status": "PASS",
+      "detail": "ref_last=12.0"
+    },
+    {
+      "name": "recomputed Q0/ref_last equal section 4 for b3c0",
+      "status": "PASS",
+      "detail": "1.0704191 vs 1.0704191"
+    },
+    {
+      "name": "causality b3c0 k=12: Q0, Qref, window capacity, delta-Q unchanged",
+      "status": "PASS",
+      "detail": "n_ref=5, ref_last=12.0, cap 0.839759/0.839759"
+    },
+    {
+      "name": "causality b3c0 k=62: Q0, Qref, window capacity, delta-Q unchanged",
+      "status": "PASS",
+      "detail": "n_ref=5, ref_last=12.0, cap 0.834163/0.834163"
+    },
+    {
+      "name": "causality b3c0 k=312: Q0, Qref, window capacity, delta-Q unchanged",
+      "status": "PASS",
+      "detail": "n_ref=5, ref_last=12.0, cap 0.797479/0.797479"
+    },
+    {
+      "name": "b3c0: reference unavailable for k=11 < ref_last",
+      "status": "PASS",
+      "detail": "only 4 usable reference cycles"
+    },
+    {
+      "name": "label identity: soh_nom * 1.1 == qd_sum on all scored rows (<= 1e-12 Ah, i.e. float64 round-off)",
+      "status": "PASS",
+      "detail": "max abs diff 1.110e-16"
+    },
+    {
+      "name": "shuffle_labels_within_cell is defined (not run)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "repaired labels differ only on label_suspect rows",
+      "status": "PASS",
+      "detail": "107 changed rows"
+    },
+    {
+      "name": "scored rows never include label_suspect",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "scored rows respect score_start and in_life",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "post-EOL rows per cell within 20-37",
+      "status": "PASS",
+      "detail": "outside: []"
+    },
+    {
+      "name": "post-EOL rows are excluded from scored",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "soh_common.py imports from disk",
+      "status": "PASS",
+      "detail": "c:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\src\\soh_common.py"
+    },
+    {
+      "name": "soh_common constants match notebook config",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "grid_index: 3.5/3.0/2.0 -> 0/333/999",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "window_slice(3.5, 3.0) spans 334 points",
+      "status": "PASS",
+      "detail": "slice(0, 334, None)"
+    },
+    {
+      "name": "window_slice rejects close above open",
+      "status": "PASS",
+      "detail": "ValueError('close voltage must be below open voltage')"
+    },
+    {
+      "name": "load_tables returns the Phase 2 shapes",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "build_delta_q identical in notebook and on-disk module",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "build_delta_q starts at 0 and has window width",
+      "status": "PASS",
+      "detail": "(334,)"
+    },
+    {
+      "name": "build_delta_q 32-point subsample",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "artifact_hashes.json covers every split file and the locked list",
+      "status": "PASS",
+      "detail": "5 files (4 protocol csv + locked list)"
+    }
+  ],
+  "errors": [],
+  "config": {
+    "SEED": 42,
+    "NOMINAL_AH": 1.1,
+    "EOL_AH": 0.88,
+    "REF_FIRST_CYCLE": 8,
+    "REF_N": 5,
+    "SCORE_GAP": 8,
+    "MIN_SCORE_CYCLE": 20,
+    "CANARY_R2": 0.98,
+    "LATE_WINDOW_L": 0.6
+  }
+}

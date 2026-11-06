@@ -1,0 +1,209 @@
+PHASE 3 REPORT
+==============================================================================
+runtime: 1.1 min | seed 42 | rows 104971 | cells 129 (kept 124, sensitivity 5)
+
+[2] TRIAGE HIGHLIGHTS
+  flag_qdlin_bad: 289 rows / 44 cells; per batch {1: 46, 2: 239, 3: 4}; <=life & >=20: 282; nonfinite 0, nonmono 289, q0-out 3; overlap qd_mismatch 3, diag_suspect 3
+  Qdlin[0] range all rows -4.488..30.732; after excluding flag_qdlin_bad -4.4879..0.0001
+  |qd_end-qd_sum|: >1e-2: 166, >1.0: 27 of 104925
+  |qc_end-qc_sum|: >1e-2: 128, >1.0: 27 of 104925
+  batch-2 246-258 event: 21 cells; most shared cycles [[247, 5], [248, 5], [250, 4]]
+  diagnostics: No C/10 diagnostic cycles at cycle numbers 1,2,3,100,101 (current and sample count normal).
+  reference window 8-12 flagged in 9 cells: b1c0, b1c1, b1c2, b1c3, b1c4, b1c10, b1c11, b1c18, b1c41
+
+[3] MASK COUNTS (rows)
+           rows  placeholder  in_life  qdlin_ok  causal_ok  label_suspect  post_junction
+  batch                                                                                 
+  1       42204           46    42158     42104      41965             83           3393
+  2       21527            0    20348     21282      21247             24              0
+  3       41240            0    41240     41236      41216              0              0
+  all    104971           46   103746    104622     104428            107           3393
+
+[4] Q0 / SCORE START
+  Q0 per batch (kept): b1 median 1.0817 range 1.0581-1.0981; b2 median 1.0750 range 1.0487-1.0872; b3 median 1.0684 range 1.0500-1.0765
+  score_start: median 20, max 66; cells with score_start > 20: 5
+  scored rows: 100795 (development 55965); lost mask counts {'candidate rows (in_life, cycle>=score_start)': 101291, 'lost: not qdlin_ok': 294, 'lost: not causal_ok': 426, 'lost: label_suspect': 73, 'lost: any mask (union)': 496, 'scored': 100795, 'rows before score_start (in_life)': 2455}
+  cells with non-default reference (5): b1c0 [8 9 10 11 13]; b1c3 [8 9 10 11 13]; b1c4 [8 9 10 11 13]; b1c18 [54 55 56 57 58]; b1c41 [8 9 10 12 13]
+
+[5] POLICY GROUPS
+  {'kept124': 68, 'dev84': 61, 'batch3': 8, 'shared_dev_b3': 1, 'raw_all': 69}; life tertile cuts (dev only) [493.3333333333333, 710.3333333333333]
+
+[6] SPLITS
+  D: 18 outer sets (test cells 13-17), 72 inner folds; policy overlap train/test: outer 0, inner 0
+  S: b1/test n=41; b1/train n=43; b2/test n=43; b2/train n=41; b3/locked_test n=40; b3/train n=84
+  S policy overlap (train vs test): b1: 2 shared policy strings; b2: 2 shared policy strings; b3: 1 shared policy strings
+  P: {'test_primary': {'n': 43, 'cells_sharing_policy_with_train': 22, 'policy_groups': 39}, 'test_secondary': {'n': 40, 'cells_sharing_policy_with_train': 4, 'policy_groups': 8}}
+
+[7] WINDOW AUDIT
+  windows 69: oracle 0, late 63, open 6; best canary R2 0.9264 at 3.2->2.4 V
+  full 3.5->2.0: L 0.949, R2 -0.9267, MAE 2.35 pp
+  10 lowest-L windows that are not oracle:
+     open_v  close_v  width_pts     L  canary_r2  canary_mae_pp  minutes_saved_median
+      3.500    3.300        134 0.011      0.318          2.982                13.683
+      3.500    3.200        201 0.036      0.475          2.630                13.300
+      3.400    3.200        134 0.036      0.484          2.610                13.300
+      3.500    3.100        267 0.378      0.711          1.838                 7.886
+      3.400    3.100        200 0.378      0.712          1.836                 7.886
+      3.300    3.100        134 0.378      0.713          1.831                 7.886
+      3.400    3.000        267 0.681      0.775          1.597                 3.680
+      3.500    3.000        334 0.681      0.775          1.598                 3.680
+      3.300    3.000        201 0.681      0.777          1.593                 3.680
+      3.200    3.000        134 0.681      0.785          1.550                 3.680
+
+[8-10] CHECKS
+  FAIL (0)
+  WARN (2)
+    - streamed qdlin_ok agrees with ~flag_qdlin_bad: 14 disagreeing rows
+    - saved minutes grow as close voltage rises
+  PASS (109)
+    - outputs/phase2 folder present
+    - cycles_table row count
+    - cycles_table cell count
+    - qdlin shape/dtype
+    - t_knots shape
+    - row_id equals npy row order
+    - qd_sum finite for all non-placeholder rows
+    - all table cells are in the registry
+    - kept cell count
+    - sensitivity cell count
+    - sensitivity ids as expected
+    - kept cells per batch 41/43/40
+    - grid index of 3.5/3.0/2.0 V
+    - batch column agrees with cell_id prefix
+    - flag_qdlin_bad total 289 rows / 44 cells
+    - flag_qdlin_bad per batch 46/239/4
+    - every flag_qdlin_bad row explained by a recomputed sub-condition
+    - Qdlin[0] reaches garbage values over all rows (range about -4.5 .. +30.7)
+    - batch-2 246-258 event cells close to 21
+    - diagnostic-cycle statement produced
+    - placeholder column equals flag_placeholder
+    - kept rows with cycle_number > life exist only in batch 2
+    - post_junction rows belong to the five stitched cells
+    - registry order covers all table cells
+    - every cell has REF_N reference cycles
+    - Qref finite for all cells
+    - b1c18 and b1c0 have non-default references
+    - no reference cycle has label_suspect
+    - soh_nom * 1.1 == qd_sum on scored rows (max abs diff)
+    - no NaN labels on scored rows
+    - labels_table.parquet written
+    - policy_norm present for every kept cell
+    - cycle_life_final finite for kept cells
+    - development cells = 84
+    - b1c0 policy equals registry batch-1 string
+    - b1c1 policy equals registry batch-1 string
+    - b1c2 policy equals registry batch-1 string
+    - b1c3 policy equals registry batch-1 string
+    - b1c4 policy equals registry batch-1 string
+    - 68 unique policy_norm among kept cells
+    - registry covers 140 raw cells
+    - tertile cut points near 493/710
+    - Protocol D uses StratifiedGroupKFold everywhere
+    - batch-3 locked test has 40 cells
+    - 124 kept cells ordered for protocol P
+    - P sizes 43 / 41 / 40
+    - Protocol P assigns every cell a role
+    - scored development rows available for window audit
+    - compact block finite on scored dev rows
+    - every scored dev cell is held out once in repeat 0
+    - L increases toward later close voltage (sanity)
+    - window heatmaps written
+    - allow-list contains the required columns
+    - allow-list roles as specified
+    - temperature fields are ablation-only
+    - assert_allowed passes an allowed set
+    - assert_allowed rejects an unknown column
+    - assert_allowed rejects a banned column
+    - no cell_id in two roles (or twice) within any fold
+    - protocol D outer folds: no policy_norm on both sides
+    - protocol D inner folds: no policy_norm on both sides
+    - inner folds only contain outer-training cells
+    - each development cell is held out exactly once per repeat
+    - 18 outer training sets x 4 inner folds
+    - continuation cell ids appear in no split
+    - sensitivity cells appear in no split
+    - each stitched cell has exactly one policy group
+    - stitched cells never split across roles
+    - no batch-3 cell in any development fold
+    - locked test list = 40 batch-3 kept cells, hash verifies
+    - protocol S b3 locked_test equals locked list
+    - protocol D covers exactly the 84 development cells
+    - protocol P covers exactly the 124 kept cells
+    - every development cell has scored rows
+    - causality baseline reference exists for b1c0
+    - recomputed Q0/ref_last equal section 4 for b1c0
+    - causality b1c0 k=13: Q0, Qref, window capacity, delta-Q unchanged
+    - causality b1c0 k=63: Q0, Qref, window capacity, delta-Q unchanged
+    - causality b1c0 k=313: Q0, Qref, window capacity, delta-Q unchanged
+    - b1c0: reference unavailable for k=12 < ref_last
+    - causality baseline reference exists for b2c0
+    - recomputed Q0/ref_last equal section 4 for b2c0
+    - causality b2c0 k=12: Q0, Qref, window capacity, delta-Q unchanged
+    - causality b2c0 k=62: Q0, Qref, window capacity, delta-Q unchanged
+    - causality b2c0 k=312: Q0, Qref, window capacity, delta-Q unchanged
+    - b2c0: reference unavailable for k=11 < ref_last
+    - causality baseline reference exists for b3c0
+    - recomputed Q0/ref_last equal section 4 for b3c0
+    - causality b3c0 k=12: Q0, Qref, window capacity, delta-Q unchanged
+    - causality b3c0 k=62: Q0, Qref, window capacity, delta-Q unchanged
+    - causality b3c0 k=312: Q0, Qref, window capacity, delta-Q unchanged
+    - b3c0: reference unavailable for k=11 < ref_last
+    - label identity: soh_nom * 1.1 == qd_sum on all scored rows (<= 1e-12 Ah, i.e. float64 round-off)
+    - shuffle_labels_within_cell is defined (not run)
+    - repaired labels differ only on label_suspect rows
+    - scored rows never include label_suspect
+    - scored rows respect score_start and in_life
+    - post-EOL rows per cell within 20-37
+    - post-EOL rows are excluded from scored
+    - soh_common.py imports from disk
+    - soh_common constants match notebook config
+    - grid_index: 3.5/3.0/2.0 -> 0/333/999
+    - window_slice(3.5, 3.0) spans 334 points
+    - window_slice rejects close above open
+    - load_tables returns the Phase 2 shapes
+    - build_delta_q identical in notebook and on-disk module
+    - build_delta_q starts at 0 and has window width
+    - build_delta_q 32-point subsample
+    - artifact_hashes.json covers every split file and the locked list
+
+ERRORS (0)
+
+ARTIFACTS
+  data/processed/labels_table.parquet                            3690.8 KiB
+  data/processed/cell_reference.csv                                 6.3 KiB
+  data/processed/qref_f32.npy                                     504.0 KiB
+  data/processed/qref_cell_ids.csv                                  1.3 KiB
+  src/soh_common.py                                                 6.3 KiB
+  data/processed/splits/locked_test_cells.json                      0.7 KiB
+  data/processed/splits/protocol_D.csv                             32.0 KiB
+  data/processed/splits/protocol_D_inner.csv                       90.2 KiB
+  data/processed/splits/protocol_P.csv                              2.6 KiB
+  data/processed/splits/protocol_S.csv                              4.7 KiB
+  outputs/phase3/artifact_hashes.json                               0.6 KiB
+  outputs/phase3/causality_test.csv                                 0.1 KiB
+  outputs/phase3/decomposition_in_life.csv                          2.3 KiB
+  outputs/phase3/feature_allowlist.json                             3.6 KiB
+  outputs/phase3/input_hashes.json                                  0.4 KiB
+  outputs/phase3/kept_cells_groups_strata.csv                       7.6 KiB
+  outputs/phase3/labels_scored_loss_by_batch.csv                    0.1 KiB
+  outputs/phase3/policy_group_sizes.csv                             1.1 KiB
+  outputs/phase3/post_eol_batch2.csv                                3.9 KiB
+  outputs/phase3/qd_vs_qc.csv                                       1.1 KiB
+  outputs/phase3/split_report.csv                                   1.3 KiB
+  outputs/phase3/triage_b2_event_cells.csv                          1.2 KiB
+  outputs/phase3/triage_b2_event_cycle_hist.csv                     0.3 KiB
+  outputs/phase3/triage_b2_event_rows.csv                           1.4 KiB
+  outputs/phase3/triage_diag_cycles.csv                             1.3 KiB
+  outputs/phase3/triage_end_vs_summary_hist.csv                     0.4 KiB
+  outputs/phase3/triage_end_vs_summary_top_cells.csv                1.0 KiB
+  outputs/phase3/triage_mask_counts.csv                             0.2 KiB
+  outputs/phase3/triage_q0_qlast_quantiles.csv                      1.0 KiB
+  outputs/phase3/triage_qdlin_bad_batch.csv                         0.2 KiB
+  outputs/phase3/triage_qdlin_bad_cells.csv                         2.3 KiB
+  outputs/phase3/triage_qdlin_ok_disagreement.csv                   1.1 KiB
+  outputs/phase3/triage_ref_window_audit.csv                        4.1 KiB
+  outputs/phase3/window_audit.csv                                  11.2 KiB
+  outputs/phase3/figures/window_canary_r2_heatmap.png              68.0 KiB
+  outputs/phase3/figures/window_L_heatmap.png                      76.4 KiB
+  outputs/phase3/figures/window_minutes_saved_heatmap.png          52.6 KiB
+  outputs/phase3/phase3_report.txt, outputs/phase3/verification_report.json (this report)

@@ -1,0 +1,15 @@
+row_id,cell_id,cycle_number,qdlin_ok,flag_qdlin_bad,nonfinite,nonmono,q0out,q0v,min_diff
+11,b1c0,12,False,False,False,False,True,-0.1763598,-3.7670135e-05
+2505,b1c1,655,False,False,False,False,True,-0.1333438,-9.775162e-06
+6401,b1c3,156,False,False,False,False,True,-2.9571712,-0.0009200573
+22873,b1c21,166,False,False,False,False,True,-2.9667273,1.2993813e-05
+31376,b1c31,146,False,False,False,False,True,-0.07386939,5.9604645e-07
+34275,b1c34,684,False,False,False,False,True,-4.4878683,1.835823e-05
+35880,b1c37,143,False,False,False,False,True,-1.0908872,9.059906e-06
+37765,b1c40,141,False,False,False,False,True,-0.12400025,-0.00013762712
+46401,b2c12,253,False,False,False,False,True,-1.5988601,5.0365925e-06
+46885,b2c13,246,False,False,False,False,True,-0.1966054,1.7642975e-05
+60081,b2c40,499,False,False,False,False,True,-0.0134067405,-6.067753e-05
+60103,b2c40,521,False,False,False,False,True,-0.012048494,5.7816505e-06
+61791,b2c44,248,False,False,False,False,True,-1.9788487,-7.0035458e-06
+62965,b2c46,429,False,False,False,False,True,-0.010449227,2.6464462e-05

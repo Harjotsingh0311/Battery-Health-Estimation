@@ -1,0 +1,8 @@
+model,columns,roles,allowlist_roles,assert_allowed,derived_not_in_allowlist
+B0a,cycle_number,primary;ablation,cycle_number:ablation,OK,
+B0b,cycle_number,primary;ablation,cycle_number:ablation,OK,
+B1,log10_var_dq;min_dq;skew_dq;q0,primary;ablation,q0:primary,OK,log10_var_dq;min_dq;skew_dq
+B2,qd_lag1,oracle,qd_lag1:oracle,OK,
+B3,window_capacity;q0,primary;oracle,window_capacity:oracle;q0:primary,OK,
+B4,dq_00;dq_01;dq_02;dq_03;dq_04;dq_05;dq_06;dq_07;dq_08;dq_09;dq_10;dq_11;dq_12;dq_13;dq_14;dq_15;dq_16;dq_17;dq_18;dq_19;dq_20;dq_21;dq_22;dq_23;dq_24;dq_25;dq_26;dq_27;dq_28;dq_29;dq_30;dq_31;q0,primary;ablation,q0:primary,OK,dq_00;dq_01;dq_02;dq_03;dq_04;dq_05;dq_06;dq_07;dq_08;dq_09;dq_10;dq_11;dq_12;dq_13;dq_14;dq_15;dq_16;dq_17;dq_18;dq_19;dq_20;dq_21;dq_22;dq_23;dq_24;dq_25;dq_26;dq_27;dq_28;dq_29;dq_30;dq_31
+B5,qc_sum,banned,qc_sum:banned,OK,

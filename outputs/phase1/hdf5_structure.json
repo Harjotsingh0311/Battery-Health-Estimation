@@ -1,0 +1,3858 @@
+{
+  "structure": {
+    "1": {
+      "file": "2017-05-12_batchdata_updated_struct_errorcorrect.mat",
+      "top_level_keys": [
+        "#refs#",
+        "#subsystem#",
+        "batch",
+        "batch_date"
+      ],
+      "batch_fields": {
+        "Vdlin": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "barcode": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "channel_id": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "cycle_life": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "cycles": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "policy": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "policy_readable": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "summary": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        }
+      },
+      "n_cells": 46,
+      "first_cell_summary": {
+        "IR": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1189
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "QCharge": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1189
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "QDischarge": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1189
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "Tavg": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1189
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "Tmax": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1189
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "Tmin": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1189
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "chargetime": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1189
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "cycle": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1189
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        }
+      },
+      "first_cell_cycles": {
+        "I": {
+          "kind": "dataset",
+          "shape": [
+            1189,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              2
+            ],
+            "dtype": "uint64"
+          }
+        },
+        "Qc": {
+          "kind": "dataset",
+          "shape": [
+            1189,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              2
+            ],
+            "dtype": "uint64"
+          }
+        },
+        "Qd": {
+          "kind": "dataset",
+          "shape": [
+            1189,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              2
+            ],
+            "dtype": "uint64"
+          }
+        },
+        "Qdlin": {
+          "kind": "dataset",
+          "shape": [
+            1189,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              2
+            ],
+            "dtype": "uint64"
+          }
+        },
+        "T": {
+          "kind": "dataset",
+          "shape": [
+            1189,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              2
+            ],
+            "dtype": "uint64"
+          }
+        },
+        "Tdlin": {
+          "kind": "dataset",
+          "shape": [
+            1189,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              2
+            ],
+            "dtype": "uint64"
+          }
+        },
+        "V": {
+          "kind": "dataset",
+          "shape": [
+            1189,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              2
+            ],
+            "dtype": "uint64"
+          }
+        },
+        "discharge_dQdV": {
+          "kind": "dataset",
+          "shape": [
+            1189,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              2
+            ],
+            "dtype": "uint64"
+          }
+        },
+        "t": {
+          "kind": "dataset",
+          "shape": [
+            1189,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              2
+            ],
+            "dtype": "uint64"
+          }
+        }
+      },
+      "vdlin": {
+        "location": "batch/Vdlin (object references [46, 1], one per entry)",
+        "all_entries_identical": true,
+        "max_dev_between_entries": 0.0,
+        "length": 1000,
+        "min": 2.0,
+        "max": 3.5,
+        "first": 3.5,
+        "last": 2.0,
+        "strictly_monotonic": true,
+        "direction": "decreasing",
+        "mean_spacing": -0.0015015015015015015,
+        "mean_abs_spacing": 0.0015015015015015015
+      }
+    },
+    "2": {
+      "file": "2017-06-30_batchdata_updated_struct_errorcorrect.mat",
+      "top_level_keys": [
+        "#refs#",
+        "#subsystem#",
+        "batch",
+        "batch_date"
+      ],
+      "batch_fields": {
+        "Vdlin": {
+          "kind": "dataset",
+          "shape": [
+            48,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "barcode": {
+          "kind": "dataset",
+          "shape": [
+            48,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "channel_id": {
+          "kind": "dataset",
+          "shape": [
+            48,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "cycle_life": {
+          "kind": "dataset",
+          "shape": [
+            48,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "cycles": {
+          "kind": "dataset",
+          "shape": [
+            48,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "policy": {
+          "kind": "dataset",
+          "shape": [
+            48,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "policy_readable": {
+          "kind": "dataset",
+          "shape": [
+            48,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "summary": {
+          "kind": "dataset",
+          "shape": [
+            48,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        }
+      },
+      "n_cells": 48,
+      "first_cell_summary": {
+        "IR": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            326
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "QCharge": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            326
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "QDischarge": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            326
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "Tavg": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            326
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "Tmax": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            326
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "Tmin": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            326
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "chargetime": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            326
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "cycle": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            326
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        }
+      },
+      "first_cell_cycles": {
+        "I": {
+          "kind": "dataset",
+          "shape": [
+            326,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              1308
+            ],
+            "dtype": "float64"
+          }
+        },
+        "Qc": {
+          "kind": "dataset",
+          "shape": [
+            326,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              1308
+            ],
+            "dtype": "float64"
+          }
+        },
+        "Qd": {
+          "kind": "dataset",
+          "shape": [
+            326,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              1308
+            ],
+            "dtype": "float64"
+          }
+        },
+        "Qdlin": {
+          "kind": "dataset",
+          "shape": [
+            326,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              1000
+            ],
+            "dtype": "float64"
+          }
+        },
+        "T": {
+          "kind": "dataset",
+          "shape": [
+            326,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              1308
+            ],
+            "dtype": "float64"
+          }
+        },
+        "Tdlin": {
+          "kind": "dataset",
+          "shape": [
+            326,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              1000
+            ],
+            "dtype": "float64"
+          }
+        },
+        "V": {
+          "kind": "dataset",
+          "shape": [
+            326,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              1308
+            ],
+            "dtype": "float64"
+          }
+        },
+        "discharge_dQdV": {
+          "kind": "dataset",
+          "shape": [
+            326,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              1000
+            ],
+            "dtype": "float64"
+          }
+        },
+        "t": {
+          "kind": "dataset",
+          "shape": [
+            326,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              1308
+            ],
+            "dtype": "float64"
+          }
+        }
+      },
+      "vdlin": {
+        "location": "batch/Vdlin (object references [48, 1], one per entry)",
+        "all_entries_identical": true,
+        "max_dev_between_entries": 0.0,
+        "length": 1000,
+        "min": 2.0,
+        "max": 3.5,
+        "first": 3.5,
+        "last": 2.0,
+        "strictly_monotonic": true,
+        "direction": "decreasing",
+        "mean_spacing": -0.0015015015015015015,
+        "mean_abs_spacing": 0.0015015015015015015
+      }
+    },
+    "3": {
+      "file": "2018-04-12_batchdata_updated_struct_errorcorrect.mat",
+      "top_level_keys": [
+        "#refs#",
+        "#subsystem#",
+        "batch",
+        "batch_date"
+      ],
+      "batch_fields": {
+        "Vdlin": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "barcode": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "channel_id": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "cycle_life": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "cycles": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "policy": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "policy_readable": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        },
+        "summary": {
+          "kind": "dataset",
+          "shape": [
+            46,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true
+        }
+      },
+      "n_cells": 46,
+      "first_cell_summary": {
+        "IR": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1008
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "QCharge": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1008
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "QDischarge": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1008
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "Tavg": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1008
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "Tmax": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1008
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "Tmin": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1008
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "chargetime": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1008
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        },
+        "cycle": {
+          "kind": "dataset",
+          "shape": [
+            1,
+            1008
+          ],
+          "dtype": "float64",
+          "is_reference": false
+        }
+      },
+      "first_cell_cycles": {
+        "I": {
+          "kind": "dataset",
+          "shape": [
+            1008,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              762
+            ],
+            "dtype": "float64"
+          }
+        },
+        "Qc": {
+          "kind": "dataset",
+          "shape": [
+            1008,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              762
+            ],
+            "dtype": "float64"
+          }
+        },
+        "Qd": {
+          "kind": "dataset",
+          "shape": [
+            1008,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              762
+            ],
+            "dtype": "float64"
+          }
+        },
+        "Qdlin": {
+          "kind": "dataset",
+          "shape": [
+            1008,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              1000
+            ],
+            "dtype": "float64"
+          }
+        },
+        "T": {
+          "kind": "dataset",
+          "shape": [
+            1008,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              762
+            ],
+            "dtype": "float64"
+          }
+        },
+        "Tdlin": {
+          "kind": "dataset",
+          "shape": [
+            1008,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              1000
+            ],
+            "dtype": "float64"
+          }
+        },
+        "V": {
+          "kind": "dataset",
+          "shape": [
+            1008,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              762
+            ],
+            "dtype": "float64"
+          }
+        },
+        "discharge_dQdV": {
+          "kind": "dataset",
+          "shape": [
+            1008,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              1000
+            ],
+            "dtype": "float64"
+          }
+        },
+        "t": {
+          "kind": "dataset",
+          "shape": [
+            1008,
+            1
+          ],
+          "dtype": "object",
+          "is_reference": true,
+          "first_cycle_entry": {
+            "shape": [
+              1,
+              762
+            ],
+            "dtype": "float64"
+          }
+        }
+      },
+      "vdlin": {
+        "location": "batch/Vdlin (object references [46, 1], one per entry)",
+        "all_entries_identical": true,
+        "max_dev_between_entries": 0.0,
+        "length": 1000,
+        "min": 2.0,
+        "max": 3.5,
+        "first": 3.5,
+        "last": 2.0,
+        "strictly_monotonic": true,
+        "direction": "decreasing",
+        "mean_spacing": -0.0015015015015015015,
+        "mean_abs_spacing": 0.0015015015015015015
+      }
+    }
+  },
+  "vdlin_comparison": {
+    "1_vs_2": {
+      "comparable": true,
+      "same_length": true,
+      "max_abs_diff": 0.0
+    },
+    "1_vs_3": {
+      "comparable": true,
+      "same_length": true,
+      "max_abs_diff": 0.0
+    },
+    "2_vs_3": {
+      "comparable": true,
+      "same_length": true,
+      "max_abs_diff": 0.0
+    }
+  },
+  "channel_peek": {
+    "b1c0": {
+      "batch": 1,
+      "idx": 0,
+      "n_cycle_entries": 1189,
+      "positions": [
+        0,
+        1,
+        2,
+        10,
+        100,
+        594,
+        1188
+      ],
+      "cycles": {
+        "0": {
+          "summary_cycle": 1.0,
+          "summary_qd": 0.0,
+          "channels": {
+            "I": {
+              "shape": [
+                2
+              ],
+              "dtype": "uint64",
+              "min": 0.0,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                2
+              ],
+              "dtype": "uint64",
+              "min": 0.0,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                2
+              ],
+              "dtype": "uint64",
+              "min": 0.0,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                2
+              ],
+              "dtype": "uint64",
+              "min": 0.0,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                2
+              ],
+              "dtype": "uint64",
+              "min": 0.0,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                2
+              ],
+              "dtype": "uint64",
+              "min": 0.0,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                2
+              ],
+              "dtype": "uint64",
+              "min": 0.0,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                2
+              ],
+              "dtype": "uint64",
+              "min": 0.0,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                2
+              ],
+              "dtype": "uint64",
+              "min": 0.0,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 2,
+            "qdlin_first": 0.0,
+            "qdlin_last": 0.0,
+            "qdlin_first_over_summary_qd": null,
+            "qdlin_last_over_summary_qd": null,
+            "n_points": 2,
+            "frac_positive_current": 0.0,
+            "discharge_points": 0,
+            "t_first": 0.0,
+            "t_last": 0.0,
+            "dt_mean": 0.0,
+            "dt_median": 0.0,
+            "dt_min": 0.0,
+            "dt_max": 0.0,
+            "dt_std": 0.0
+          }
+        },
+        "1": {
+          "summary_cycle": 2.0,
+          "summary_qd": 1.0706892,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1087
+              ],
+              "dtype": "float64",
+              "min": -4.001016181818181,
+              "max": 3.6011358181818176,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1087
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0710422,
+              "first": 0.0,
+              "last": 1.0710422,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1087
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0706892,
+              "first": 0.0,
+              "last": 1.0706892,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.00035743169172071344,
+              "max": 1.0543875929332305,
+              "first": -0.00035743169172071344,
+              "last": 1.0543875929332305,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1087
+              ],
+              "dtype": "float64",
+              "min": 29.56613,
+              "max": 35.652016,
+              "first": 31.632496,
+              "last": 31.712118,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 29.585137926270974,
+              "max": 35.32954722055909,
+              "first": 29.585882115781974,
+              "last": 35.32250200158067,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1087
+              ],
+              "dtype": "float64",
+              "min": 1.9995413,
+              "max": 3.6003742,
+              "first": 2.0264158,
+              "last": 2.0250397,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -6.683809709591905,
+              "max": 0.0,
+              "first": -0.01269011993883918,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1087
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 54.37482666666668,
+              "first": 0.0,
+              "last": 54.37482666666668,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.00035743169172071344,
+            "qdlin_last": 1.0543875929332305,
+            "qdlin_first_over_summary_qd": -0.00033383328394525084,
+            "qdlin_last_over_summary_qd": 0.9847746600350789,
+            "n_points": 1087,
+            "frac_positive_current": 0.42778288868445263,
+            "discharge_points": 340,
+            "discharge_v_min": 1.9995413,
+            "discharge_v_max": 3.5780163,
+            "discharge_i_median": -3.9999877272727273,
+            "discharge_i_min": -4.001016181818181,
+            "discharge_i_max": -0.6236995363636363,
+            "t_first": 0.0,
+            "t_last": 54.37482666666668,
+            "dt_mean": 0.05006890116635974,
+            "dt_median": 0.08330833333333043,
+            "dt_min": 1.6666666482478831e-06,
+            "dt_max": 0.08435166666668081,
+            "dt_std": 0.03905530191672111
+          }
+        },
+        "2": {
+          "summary_cycle": 3.0,
+          "summary_qd": 1.0719005,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1117
+              ],
+              "dtype": "float64",
+              "min": -4.001593545454545,
+              "max": 3.6014079999999997,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1117
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0716741,
+              "first": 0.0,
+              "last": 1.0716741,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1117
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0719005,
+              "first": 0.0,
+              "last": 1.0719005,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.0003798085051063239,
+              "max": 1.0560251252499453,
+              "first": -0.0003798085051063239,
+              "last": 1.055986341926187,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1117
+              ],
+              "dtype": "float64",
+              "min": 29.604385,
+              "max": 35.692978,
+              "first": 31.712118,
+              "last": 31.620401,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 29.600520957323525,
+              "max": 35.41315214101874,
+              "first": 29.645995720295176,
+              "last": 35.406539999992404,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1117
+              ],
+              "dtype": "float64",
+              "min": 1.999567,
+              "max": 3.6003733,
+              "first": 2.0264654,
+              "last": 2.024291,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -6.757069774218003,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1117
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 54.37497499999999,
+              "first": 0.0,
+              "last": 54.37497499999999,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.0003798085051063239,
+            "qdlin_last": 1.055986341926187,
+            "qdlin_first_over_summary_qd": -0.0003543318667230064,
+            "qdlin_last_over_summary_qd": 0.9851533252631071,
+            "n_points": 1117,
+            "frac_positive_current": 0.41629364368845123,
+            "discharge_points": 349,
+            "discharge_v_min": 1.999567,
+            "discharge_v_max": 3.5781403,
+            "discharge_i_median": -3.999991818181818,
+            "discharge_i_min": -4.001593545454545,
+            "discharge_i_max": -0.6173272545454545,
+            "t_first": 0.0,
+            "t_last": 54.37497499999999,
+            "dt_mean": 0.0487230958781362,
+            "dt_median": 0.08330333333333328,
+            "dt_min": 1.6666666482478831e-06,
+            "dt_max": 0.084376666666655,
+            "dt_std": 0.03938272182564186
+          }
+        },
+        "10": {
+          "summary_cycle": 11.0,
+          "summary_qd": 1.0747814,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1133
+              ],
+              "dtype": "float64",
+              "min": -4.000779454545454,
+              "max": 3.601011818181818,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1133
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0746447,
+              "first": 0.0,
+              "last": 1.0746447,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1133
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0747814,
+              "first": 0.0,
+              "last": 1.0747814,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.0002526315911106783,
+              "max": 1.0591615773616208,
+              "first": -0.0002526315911106783,
+              "last": 1.0591615773616208,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1133
+              ],
+              "dtype": "float64",
+              "min": 29.509727,
+              "max": 35.486984,
+              "first": 31.76309,
+              "last": 31.613361,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 29.54843305456934,
+              "max": 35.18403746191922,
+              "first": 29.5893515605852,
+              "last": 35.18229700000027,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1133
+              ],
+              "dtype": "float64",
+              "min": 1.9957495,
+              "max": 3.6003819,
+              "first": 2.0226192,
+              "last": 2.0208702,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -6.688280837949258,
+              "max": 0.0,
+              "first": 0.0,
+              "last": -0.09468713922155081,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1133
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 54.37455166666671,
+              "first": 0.0,
+              "last": 54.37455166666671,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.0002526315911106783,
+            "qdlin_last": 1.0591615773616208,
+            "qdlin_first_over_summary_qd": -0.0002350539292089334,
+            "qdlin_last_over_summary_qd": 0.9854669771561182,
+            "n_points": 1133,
+            "frac_positive_current": 0.4227714033539276,
+            "discharge_points": 351,
+            "discharge_v_min": 1.9957495,
+            "discharge_v_max": 3.5797577,
+            "discharge_i_median": -3.9999770909090904,
+            "discharge_i_min": -4.000779454545454,
+            "discharge_i_max": -0.6395495999999999,
+            "t_first": 0.0,
+            "t_last": 54.37455166666671,
+            "dt_mean": 0.04803405624263844,
+            "dt_median": 0.08328000000001445,
+            "dt_min": 1.6666666198261737e-06,
+            "dt_max": 0.08442166666657869,
+            "dt_std": 0.03949288674874848
+          }
+        },
+        "100": {
+          "summary_cycle": 101.0,
+          "summary_qd": 1.0758415,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1127
+              ],
+              "dtype": "float64",
+              "min": -4.001929545454545,
+              "max": 3.601242454545454,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1127
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0753505,
+              "first": 0.0,
+              "last": 1.0753505,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1127
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0758415,
+              "first": 0.0,
+              "last": 1.0758415,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.00016906324173456024,
+              "max": 1.0594963125894803,
+              "first": -0.00016906324173456024,
+              "last": 1.0594963125894803,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1127
+              ],
+              "dtype": "float64",
+              "min": 29.237028,
+              "max": 35.36285,
+              "first": 31.422028,
+              "last": 31.460016,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 29.23547110422545,
+              "max": 35.00243180562932,
+              "first": 29.254210996020873,
+              "last": 35.00137299250278,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1127
+              ],
+              "dtype": "float64",
+              "min": 1.9988489,
+              "max": 3.6003809,
+              "first": 2.0201836,
+              "last": 2.0189705,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -6.5780064965688165,
+              "max": 0.0,
+              "first": 0.0,
+              "last": -0.9664753850258442,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1127
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 54.376270000000176,
+              "first": 0.0,
+              "last": 54.376270000000176,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.00016906324173456024,
+            "qdlin_last": 1.0594963125894803,
+            "qdlin_first_over_summary_qd": -0.00015714512010789718,
+            "qdlin_last_over_summary_qd": 0.9848070673881612,
+            "n_points": 1127,
+            "frac_positive_current": 0.42058562555456963,
+            "discharge_points": 357,
+            "discharge_v_min": 1.9988489,
+            "discharge_v_max": 3.5792761,
+            "discharge_i_median": -3.9999410909090902,
+            "discharge_i_min": -4.001929545454545,
+            "discharge_i_max": -0.5441015454545454,
+            "t_first": 0.0,
+            "t_last": 54.376270000000176,
+            "dt_mean": 0.04829153641207831,
+            "dt_median": 0.08329083333325649,
+            "dt_min": 1.6666657742803181e-06,
+            "dt_max": 0.08436499999952574,
+            "dt_std": 0.039397181877131565
+          }
+        },
+        "594": {
+          "summary_cycle": 595.0,
+          "summary_qd": 1.0562239,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1105
+              ],
+              "dtype": "float64",
+              "min": -4.000906545454545,
+              "max": 3.601312636363636,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1105
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0531956,
+              "first": 0.0,
+              "last": 1.0531956,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1105
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0562239,
+              "first": 0.0,
+              "last": 1.0562239,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.00038901926442745324,
+              "max": 1.0345924807703812,
+              "first": -0.00038901926442745324,
+              "last": 1.0345924807703812,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1105
+              ],
+              "dtype": "float64",
+              "min": 29.10495,
+              "max": 36.293823,
+              "first": 31.988676,
+              "last": 31.979908,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 29.100265786961735,
+              "max": 35.41485827396258,
+              "first": 29.18157755520297,
+              "last": 35.408259896762836,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1105
+              ],
+              "dtype": "float64",
+              "min": 1.9995794,
+              "max": 3.6004229,
+              "first": 2.0178423,
+              "last": 2.0167074,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -6.246643417920962,
+              "max": 0.0,
+              "first": -0.011714215008895969,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1105
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 53.1915599999999,
+              "first": 0.0,
+              "last": 53.1915599999999,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.00038901926442745324,
+            "qdlin_last": 1.0345924807703812,
+            "qdlin_first_over_summary_qd": -0.000368311363175415,
+            "qdlin_last_over_summary_qd": 0.979520043780851,
+            "n_points": 1105,
+            "frac_positive_current": 0.4072398190045249,
+            "discharge_points": 364,
+            "discharge_v_min": 1.9995794,
+            "discharge_v_max": 3.5786781,
+            "discharge_i_median": -3.999988181818181,
+            "discharge_i_min": -4.000906545454545,
+            "discharge_i_max": -0.5398230090909091,
+            "t_first": 0.0,
+            "t_last": 53.1915599999999,
+            "dt_mean": 0.04818076086956513,
+            "dt_median": 0.0832674999999643,
+            "dt_min": 1.6666664990339086e-06,
+            "dt_max": 0.08450666666661455,
+            "dt_std": 0.03921139838612816
+          }
+        },
+        "1188": {
+          "summary_cycle": 1189.0,
+          "summary_qd": 1.0262098,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1034
+              ],
+              "dtype": "float64",
+              "min": -4.002304545454545,
+              "max": 3.6016411818181817,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1034
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0260537,
+              "first": 0.0,
+              "last": 1.0260537,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1034
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0262098,
+              "first": 0.0,
+              "last": 1.0262098,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.000440773566350184,
+              "max": 1.0038535267554292,
+              "first": -0.000440773566350184,
+              "last": 1.0038535267554292,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1034
+              ],
+              "dtype": "float64",
+              "min": 29.681129,
+              "max": 36.561554,
+              "first": 32.326172,
+              "last": 32.254002,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 29.682871330110615,
+              "max": 35.61046901062617,
+              "first": 29.757190927836145,
+              "last": 35.60319513129865,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1034
+              ],
+              "dtype": "float64",
+              "min": 1.9995451,
+              "max": 3.6003942,
+              "first": 2.0174961,
+              "last": 2.0162764,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -6.055880708302143,
+              "max": 0.0,
+              "first": -0.010761423221270711,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1034
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 49.99108999999977,
+              "first": 0.0,
+              "last": 49.99108999999977,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.000440773566350184,
+            "qdlin_last": 1.0038535267554292,
+            "qdlin_first_over_summary_qd": -0.0004295160369255722,
+            "qdlin_last_over_summary_qd": 0.9782147147254189,
+            "n_points": 1034,
+            "frac_positive_current": 0.41392649903288203,
+            "discharge_points": 332,
+            "discharge_v_min": 1.9995451,
+            "discharge_v_max": 3.5786324,
+            "discharge_i_median": -3.9999667272727266,
+            "discharge_i_min": -4.002304545454545,
+            "discharge_i_max": -0.5531744545454544,
+            "t_first": 0.0,
+            "t_last": 49.99108999999977,
+            "dt_mean": 0.04839408518877035,
+            "dt_median": 0.083281666665183,
+            "dt_min": 1.6666657742803181e-06,
+            "dt_max": 0.08439166666745734,
+            "dt_std": 0.03900852982414963
+          }
+        }
+      }
+    },
+    "b2c0": {
+      "batch": 2,
+      "idx": 0,
+      "n_cycle_entries": 326,
+      "positions": [
+        0,
+        1,
+        2,
+        10,
+        100,
+        163,
+        325
+      ],
+      "cycles": {
+        "0": {
+          "summary_cycle": 1.0,
+          "summary_qd": 1.0680572,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1308
+              ],
+              "dtype": "float64",
+              "min": -4.000431818181818,
+              "max": 6.035010636363635,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1308
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0675609,
+              "first": 0.0,
+              "last": 1.0675609,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1308
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0680572,
+              "first": 0.0,
+              "last": 1.0680572,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.00046503738485040617,
+              "max": 1.0529656235707339,
+              "first": -0.00046503738485040617,
+              "last": 1.0529603215109673,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1308
+              ],
+              "dtype": "float64",
+              "min": 28.999689,
+              "max": 31.487127,
+              "first": 30.076599,
+              "last": 29.833899,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 29.260734337042752,
+              "max": 31.280600856081836,
+              "first": 29.29294580646865,
+              "last": 31.080165010978757,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1308
+              ],
+              "dtype": "float64",
+              "min": 1.9964194,
+              "max": 3.6003652,
+              "first": 2.401875,
+              "last": 2.4560676,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -7.189959962604947,
+              "max": 0.0,
+              "first": -0.012820233718934582,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1308
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 60.181804999999926,
+              "first": 0.0,
+              "last": 60.181804999999926,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.00046503738485040617,
+            "qdlin_last": 1.0529603215109673,
+            "qdlin_first_over_summary_qd": -0.00043540494352774944,
+            "qdlin_last_over_summary_qd": 0.9858651030216053,
+            "n_points": 1308,
+            "frac_positive_current": 0.3761467889908257,
+            "discharge_points": 349,
+            "discharge_v_min": 1.9964194,
+            "discharge_v_max": 3.5786357,
+            "discharge_i_median": -3.9999900909090904,
+            "discharge_i_min": -4.000431818181818,
+            "discharge_i_max": -0.5900582363636364,
+            "t_first": 0.0,
+            "t_last": 60.181804999999926,
+            "dt_mean": 0.04604575745983162,
+            "dt_median": 0.07938666666668581,
+            "dt_min": 1.6666664990339086e-06,
+            "dt_max": 0.08461000000000496,
+            "dt_std": 0.038682752135453864
+          }
+        },
+        "1": {
+          "summary_cycle": 2.0,
+          "summary_qd": 1.0700541,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1263
+              ],
+              "dtype": "float64",
+              "min": -4.000465636363636,
+              "max": 6.033727454545454,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1263
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0698104,
+              "first": 0.0,
+              "last": 1.0698104,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1263
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0700541,
+              "first": 0.0,
+              "last": 1.0700541,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.0004883653644255656,
+              "max": 1.0540948743048657,
+              "first": -0.0004883653644255656,
+              "last": 1.0540948743048657,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1263
+              ],
+              "dtype": "float64",
+              "min": 26.734909,
+              "max": 31.66193,
+              "first": 29.833899,
+              "last": 28.419994,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 27.259974686233686,
+              "max": 29.475636955810312,
+              "first": 27.259974686233686,
+              "last": 29.473348984727927,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1263
+              ],
+              "dtype": "float64",
+              "min": 1.9995952,
+              "max": 3.600307,
+              "first": 2.456265,
+              "last": 2.4562097,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -7.12224374783692,
+              "max": 0.0,
+              "first": 0.0,
+              "last": -0.22864929314239116,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1263
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 60.112861666666625,
+              "first": 0.0,
+              "last": 60.112861666666625,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.0004883653644255656,
+            "qdlin_last": 1.0540948743048657,
+            "qdlin_first_over_summary_qd": -0.00045639315285607115,
+            "qdlin_last_over_summary_qd": 0.9850855898826665,
+            "n_points": 1263,
+            "frac_positive_current": 0.3555027711797308,
+            "discharge_points": 355,
+            "discharge_v_min": 1.9996085,
+            "discharge_v_max": 3.5778069,
+            "discharge_i_median": -3.9999658181818174,
+            "discharge_i_min": -4.000465636363636,
+            "discharge_i_max": -0.8117302999999999,
+            "t_first": 0.0,
+            "t_last": 60.112861666666625,
+            "dt_mean": 0.04763301241415739,
+            "dt_median": 0.08322416666669685,
+            "dt_min": 1.6666664990339086e-06,
+            "dt_max": 0.08461999999999392,
+            "dt_std": 0.03869136306005527
+          }
+        },
+        "2": {
+          "summary_cycle": 3.0,
+          "summary_qd": 1.0719095,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1275
+              ],
+              "dtype": "float64",
+              "min": -4.000523272727272,
+              "max": 6.039376727272727,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1275
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.071287,
+              "first": 0.0,
+              "last": 1.071287,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1275
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0719095,
+              "first": 0.0,
+              "last": 1.0719095,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.00019313416102554262,
+              "max": 1.0563441593874,
+              "first": -0.00019313416102554262,
+              "last": 1.0563441593874,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1275
+              ],
+              "dtype": "float64",
+              "min": 28.086988,
+              "max": 31.111683,
+              "first": 28.419994,
+              "last": 30.129168,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 29.460199086508222,
+              "max": 30.946737947546666,
+              "first": 29.537236492934355,
+              "last": 30.907251,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1275
+              ],
+              "dtype": "float64",
+              "min": 1.9996095,
+              "max": 3.6002917,
+              "first": 2.4562345,
+              "last": 2.4513268,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -7.535397367585631,
+              "max": 0.0,
+              "first": 0.0,
+              "last": -0.7866471122328986,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1275
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 60.15781666666662,
+              "first": 0.0,
+              "last": 60.15781666666662,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.00019313416102554262,
+            "qdlin_last": 1.0563441593874,
+            "qdlin_first_over_summary_qd": -0.00018017767453832866,
+            "qdlin_last_over_summary_qd": 0.9854788668142225,
+            "n_points": 1275,
+            "frac_positive_current": 0.3780392156862745,
+            "discharge_points": 352,
+            "discharge_v_min": 1.9996266,
+            "discharge_v_max": 3.5779185,
+            "discharge_i_median": -3.999994454545454,
+            "discharge_i_min": -4.000523272727272,
+            "discharge_i_max": -0.6930307909090908,
+            "t_first": 0.0,
+            "t_last": 60.15781666666662,
+            "dt_mean": 0.04721963631606485,
+            "dt_median": 0.08322000000007534,
+            "dt_min": 1.6666664990339086e-06,
+            "dt_max": 0.08457833333329035,
+            "dt_std": 0.03855732490157465
+          }
+        },
+        "10": {
+          "summary_cycle": 11.0,
+          "summary_qd": 1.0720562,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1290
+              ],
+              "dtype": "float64",
+              "min": -4.000411909090909,
+              "max": 6.035173545454545,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1290
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0717062,
+              "first": 0.0,
+              "last": 1.0717062,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1290
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0720562,
+              "first": 0.0,
+              "last": 1.0720562,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.0003803985489664927,
+              "max": 1.0550049993192487,
+              "first": -0.0003803985489664927,
+              "last": 1.0550049993192487,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1290
+              ],
+              "dtype": "float64",
+              "min": 27.259531,
+              "max": 31.480631,
+              "first": 27.825947,
+              "last": 28.797394,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 28.399350708755005,
+              "max": 31.1799943731553,
+              "first": 28.425908384171862,
+              "last": 31.17809699999999,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1290
+              ],
+              "dtype": "float64",
+              "min": 1.9996028,
+              "max": 3.6002908,
+              "first": 2.4167771,
+              "last": 2.4077249,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -6.78079488150524,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1290
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 60.17492833333333,
+              "first": 0.0,
+              "last": 60.17492833333333,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.0003803985489664927,
+            "qdlin_last": 1.0550049993192487,
+            "qdlin_first_over_summary_qd": -0.0003548307905560293,
+            "qdlin_last_over_summary_qd": 0.9840948630484565,
+            "n_points": 1290,
+            "frac_positive_current": 0.37829457364341085,
+            "discharge_points": 345,
+            "discharge_v_min": 1.9996028,
+            "discharge_v_max": 3.5789695,
+            "discharge_i_median": -3.9999900909090904,
+            "discharge_i_min": -4.000411909090909,
+            "discharge_i_max": -0.5753335090909091,
+            "t_first": 0.0,
+            "t_last": 60.17492833333333,
+            "dt_mean": 0.04668341996379622,
+            "dt_median": 0.08313500000004126,
+            "dt_min": 1.6666664990339086e-06,
+            "dt_max": 0.08448499999988712,
+            "dt_std": 0.038560629253746925
+          }
+        },
+        "100": {
+          "summary_cycle": 101.0,
+          "summary_qd": 1.0405895,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1364
+              ],
+              "dtype": "float64",
+              "min": -4.000470818181817,
+              "max": 6.01103,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1364
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0407138,
+              "first": 0.0,
+              "last": 1.0407138,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1364
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0405895,
+              "first": 0.0,
+              "last": 1.0405895,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.0004201207821467737,
+              "max": 0.993193990331344,
+              "first": -0.0004201207821467737,
+              "last": 0.993193990331344,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1364
+              ],
+              "dtype": "float64",
+              "min": 27.72871,
+              "max": 33.941334,
+              "first": 29.571941,
+              "last": 27.72871,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 27.974479627082186,
+              "max": 33.48842723556052,
+              "first": 28.309387987396235,
+              "last": 33.48476838668934,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1364
+              ],
+              "dtype": "float64",
+              "min": 1.9995599,
+              "max": 3.60039,
+              "first": 2.3709435,
+              "last": 2.369266,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -5.188344889340037,
+              "max": 0.0,
+              "first": -0.00018911972084325284,
+              "last": -0.46588849095669216,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1364
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 60.087573333333424,
+              "first": 0.0,
+              "last": 60.087573333333424,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.0004201207821467737,
+            "qdlin_last": 0.993193990331344,
+            "qdlin_first_over_summary_qd": -0.00040373344354019874,
+            "qdlin_last_over_summary_qd": 0.95445321169524,
+            "n_points": 1364,
+            "frac_positive_current": 0.39222873900293254,
+            "discharge_points": 364,
+            "discharge_v_min": 1.9995599,
+            "discharge_v_max": 3.579288,
+            "discharge_i_median": -3.9999985454545453,
+            "discharge_i_min": -4.000470818181817,
+            "discharge_i_max": -0.5043341909090908,
+            "t_first": 0.0,
+            "t_last": 60.087573333333424,
+            "dt_mean": 0.04408479334800691,
+            "dt_median": 0.0336366666667649,
+            "dt_min": 1.6666664990339086e-06,
+            "dt_max": 0.08438166666649849,
+            "dt_std": 0.03802556490758919
+          }
+        },
+        "163": {
+          "summary_cycle": 164.0,
+          "summary_qd": 1.0018402,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1485
+              ],
+              "dtype": "float64",
+              "min": -4.000447454545455,
+              "max": 6.003674636363636,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1485
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0023844,
+              "first": 0.0,
+              "last": 1.0023844,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1485
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 1.0018402,
+              "first": 0.0,
+              "last": 1.0018402,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.0004902298963007057,
+              "max": 0.9137875474437387,
+              "first": -0.0004902298963007057,
+              "last": 0.9137875474437387,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1485
+              ],
+              "dtype": "float64",
+              "min": 27.943911,
+              "max": 33.116306,
+              "first": 29.565094,
+              "last": 27.96047,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 27.974049577750414,
+              "max": 30.562771353369133,
+              "first": 29.534167653517454,
+              "last": 30.56109000000267,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1485
+              ],
+              "dtype": "float64",
+              "min": 1.9996142,
+              "max": 3.6004004,
+              "first": 2.3344722,
+              "last": 2.3458133,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -4.729552333937105,
+              "max": 0.0,
+              "first": -0.01020393527067656,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1485
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 60.05820666666744,
+              "first": 0.0,
+              "last": 60.05820666666744,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.0004902298963007057,
+            "qdlin_last": 0.9137875474437387,
+            "qdlin_first_over_summary_qd": -0.0004893294322794251,
+            "qdlin_last_over_summary_qd": 0.9121090843067974,
+            "n_points": 1485,
+            "frac_positive_current": 0.432996632996633,
+            "discharge_points": 367,
+            "discharge_v_min": 1.9996161,
+            "discharge_v_max": 3.5778975,
+            "discharge_i_median": -3.9999142727272723,
+            "discharge_i_min": -4.000447454545455,
+            "discharge_i_max": -0.5005931818181818,
+            "t_first": 0.0,
+            "t_last": 60.05820666666744,
+            "dt_mean": 0.040470489667565654,
+            "dt_median": 0.02191416666658652,
+            "dt_min": 1.6666657742803181e-06,
+            "dt_max": 0.08453499999983727,
+            "dt_std": 0.03730280423987812
+          }
+        },
+        "325": {
+          "summary_cycle": 326.0,
+          "summary_qd": 0.8264913,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1596
+              ],
+              "dtype": "float64",
+              "min": -4.000462181818182,
+              "max": 6.0041115454545455,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1596
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 0.82896769,
+              "first": 0.0,
+              "last": 0.82896769,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1596
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 0.8264913,
+              "first": 0.0,
+              "last": 0.8264913,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.0011457277983899243,
+              "max": 0.696644896235979,
+              "first": -0.0011457277983899243,
+              "last": 0.696644896235979,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1596
+              ],
+              "dtype": "float64",
+              "min": 28.848446,
+              "max": 33.602219,
+              "first": 28.963293,
+              "last": 29.052588,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 28.849820588457174,
+              "max": 32.26245231294915,
+              "first": 28.909718988338625,
+              "last": 32.256713999961576,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1596
+              ],
+              "dtype": "float64",
+              "min": 1.9995837,
+              "max": 3.6004157,
+              "first": 2.6347222,
+              "last": 2.6290765,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -3.295003117392956,
+              "max": 0.0,
+              "first": -0.0005155303862931612,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1596
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 55.26845166666705,
+              "first": 0.0,
+              "last": 55.26845166666705,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.0011457277983899243,
+            "qdlin_last": 0.696644896235979,
+            "qdlin_first_over_summary_qd": -0.0013862551225765163,
+            "qdlin_last_over_summary_qd": 0.8428944094583681,
+            "n_points": 1596,
+            "frac_positive_current": 0.5093984962406015,
+            "discharge_points": 342,
+            "discharge_v_min": 1.9995837,
+            "discharge_v_max": 3.5776954,
+            "discharge_i_median": -3.9999023636363633,
+            "discharge_i_min": -4.000462181818182,
+            "discharge_i_max": -0.5035278999999999,
+            "t_first": 0.0,
+            "t_last": 55.26845166666705,
+            "dt_mean": 0.03465106687565332,
+            "dt_median": 0.020084999999865794,
+            "dt_min": 1.6666662574493785e-06,
+            "dt_max": 0.08451666666660529,
+            "dt_std": 0.033353455673591034
+          }
+        }
+      }
+    },
+    "b3c0": {
+      "batch": 3,
+      "idx": 0,
+      "n_cycle_entries": 1008,
+      "positions": [
+        0,
+        1,
+        2,
+        10,
+        100,
+        504,
+        1007
+      ],
+      "cycles": {
+        "0": {
+          "summary_cycle": 1.0,
+          "summary_qd": 1.0665728,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                762
+              ],
+              "dtype": "float64",
+              "min": -4.0007175454545445,
+              "max": 5.005600636363636,
+              "first": 0.5427585909090908,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                762
+              ],
+              "dtype": "float64",
+              "min": 4.4836606e-06,
+              "max": 1.0660903,
+              "first": 4.4836606e-06,
+              "last": 1.0660903,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                762
+              ],
+              "dtype": "float64",
+              "min": 6.0038155e-07,
+              "max": 1.0665728,
+              "first": 6.0038155e-07,
+              "last": 1.0665728,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.00019164013720407257,
+              "max": 1.0519900327427896,
+              "first": -0.00019164013720407257,
+              "last": 1.0519900327427896,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                762
+              ],
+              "dtype": "float64",
+              "min": 30.830271980372153,
+              "max": 33.433834,
+              "first": 32.08330214381175,
+              "last": 32.093285,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 30.830376085540678,
+              "max": 33.24957523251069,
+              "first": 30.876554082840222,
+              "last": 33.24932607658748,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                762
+              ],
+              "dtype": "float64",
+              "min": 1.9998269,
+              "max": 3.6000857,
+              "first": 2.1232638,
+              "last": 2.0950084,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -6.517765526884414,
+              "max": 0.0,
+              "first": -0.003792347313115572,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                762
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 47.2119266666666,
+              "first": 0.0,
+              "last": 47.2119266666666,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.00019164013720407257,
+            "qdlin_last": 1.0519900327427896,
+            "qdlin_first_over_summary_qd": -0.0001796784403315672,
+            "qdlin_last_over_summary_qd": 0.9863274525121862,
+            "n_points": 762,
+            "frac_positive_current": 0.4094488188976378,
+            "discharge_points": 285,
+            "discharge_v_min": 1.9998269,
+            "discharge_v_max": 3.5825152,
+            "discharge_i_median": -4.00001309090909,
+            "discharge_i_min": -4.0007175454545445,
+            "discharge_i_max": -0.5218719909090909,
+            "t_first": 0.0,
+            "t_last": 47.2119266666666,
+            "dt_mean": 0.06203932544897056,
+            "dt_median": 0.08343333333323244,
+            "dt_min": 0.000509999999970508,
+            "dt_max": 0.08404000000009582,
+            "dt_std": 0.033333641957361416
+          }
+        },
+        "1": {
+          "summary_cycle": 2.0,
+          "summary_qd": 1.0674551,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                764
+              ],
+              "dtype": "float64",
+              "min": -4.000910454545454,
+              "max": 5.004973,
+              "first": 0.39175900909090905,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                764
+              ],
+              "dtype": "float64",
+              "min": 2.5592726e-06,
+              "max": 1.0669638,
+              "first": 2.5592726e-06,
+              "last": 1.0669638,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                764
+              ],
+              "dtype": "float64",
+              "min": 6.1840041e-07,
+              "max": 1.0674551,
+              "first": 6.1840041e-07,
+              "last": 1.0674551,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.0001720010844621873,
+              "max": 1.0526440828488164,
+              "first": -0.0001720010844621873,
+              "last": 1.0526440828488164,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                764
+              ],
+              "dtype": "float64",
+              "min": 30.779943,
+              "max": 33.40396401926802,
+              "first": 32.095115420451435,
+              "last": 32.09942143100604,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 30.779600638889917,
+              "max": 33.18645689436284,
+              "first": 30.80814896799035,
+              "last": 33.15933466867302,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                764
+              ],
+              "dtype": "float64",
+              "min": 1.9998136,
+              "max": 3.6001191,
+              "first": 2.1120076,
+              "last": 2.0927577,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -6.4910217819512,
+              "max": 0.0,
+              "first": 0.0,
+              "last": -2.549737515017397,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                764
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 47.08555166666653,
+              "first": 0.0,
+              "last": 47.08555166666653,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.0001720010844621873,
+            "qdlin_last": 1.0526440828488164,
+            "qdlin_first_over_summary_qd": -0.00016113191502123815,
+            "qdlin_last_over_summary_qd": 0.9861249272674947,
+            "n_points": 764,
+            "frac_positive_current": 0.4109947643979058,
+            "discharge_points": 284,
+            "discharge_v_min": 1.9998136,
+            "discharge_v_max": 3.5845513,
+            "discharge_i_median": -4.000113454545454,
+            "discharge_i_min": -4.000910454545454,
+            "discharge_i_max": -0.5442729818181817,
+            "t_first": 0.0,
+            "t_last": 47.08555166666653,
+            "dt_mean": 0.06171107688947121,
+            "dt_median": 0.08343333333323244,
+            "dt_min": 1.666666673116879e-05,
+            "dt_max": 0.08393666666646205,
+            "dt_std": 0.03354771658598116
+          }
+        },
+        "2": {
+          "summary_cycle": 3.0,
+          "summary_qd": 1.0682849,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                758
+              ],
+              "dtype": "float64",
+              "min": -4.000730090909091,
+              "max": 5.004664363636363,
+              "first": 0.5479257727272726,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                758
+              ],
+              "dtype": "float64",
+              "min": 5.059474e-06,
+              "max": 1.0676115,
+              "first": 5.059474e-06,
+              "last": 1.0676115,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                758
+              ],
+              "dtype": "float64",
+              "min": 5.0237162e-07,
+              "max": 1.0682849,
+              "first": 5.0237162e-07,
+              "last": 1.0682849,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.00015584830746445327,
+              "max": 1.0535460378366768,
+              "first": -0.00015584830746445327,
+              "last": 1.0535460378366768,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                758
+              ],
+              "dtype": "float64",
+              "min": 30.82474570476282,
+              "max": 33.325268,
+              "first": 32.100925,
+              "last": 32.21463769257561,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 30.825635458180333,
+              "max": 33.15235024103915,
+              "first": 30.854892966684773,
+              "last": 33.135171382488565,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                758
+              ],
+              "dtype": "float64",
+              "min": 1.999783,
+              "max": 3.6001267,
+              "first": 2.1213861,
+              "last": 2.0953317,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -6.483042928333953,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                758
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 46.80709500000012,
+              "first": 0.0,
+              "last": 46.80709500000012,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.00015584830746445327,
+            "qdlin_last": 1.0535460378366768,
+            "qdlin_first_over_summary_qd": -0.00014588646480396124,
+            "qdlin_last_over_summary_qd": 0.9862032476885864,
+            "n_points": 758,
+            "frac_positive_current": 0.41688654353562005,
+            "discharge_points": 283,
+            "discharge_v_min": 1.999783,
+            "discharge_v_max": 3.5854506,
+            "discharge_i_median": -4.000112363636363,
+            "discharge_i_min": -4.000730090909091,
+            "discharge_i_max": -0.5200932272727272,
+            "t_first": 0.0,
+            "t_last": 46.80709500000012,
+            "dt_mean": 0.06183235799207413,
+            "dt_median": 0.0834249999999912,
+            "dt_min": 0.0004849999999957319,
+            "dt_max": 0.08389666666650175,
+            "dt_std": 0.03346435931038491
+          }
+        },
+        "10": {
+          "summary_cycle": 11.0,
+          "summary_qd": 1.0704424,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                758
+              ],
+              "dtype": "float64",
+              "min": -4.000764363636363,
+              "max": 5.007258363636363,
+              "first": 0.4987265818181818,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                758
+              ],
+              "dtype": "float64",
+              "min": 1.9520223e-06,
+              "max": 1.0700408,
+              "first": 1.9520223e-06,
+              "last": 1.0700408,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                758
+              ],
+              "dtype": "float64",
+              "min": 4.4687351e-07,
+              "max": 1.0704424,
+              "first": 4.4687351e-07,
+              "last": 1.0704424,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.00018569189973854602,
+              "max": 1.0552800625356455,
+              "first": -0.00018569189973854602,
+              "last": 1.0552800625356455,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                758
+              ],
+              "dtype": "float64",
+              "min": 30.974178483947323,
+              "max": 33.275898,
+              "first": 32.28926228464103,
+              "last": 32.088585645079256,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 30.976702463594346,
+              "max": 32.960697456882514,
+              "first": 30.9932235596181,
+              "last": 32.960697456882514,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                758
+              ],
+              "dtype": "float64",
+              "min": 1.9997773,
+              "max": 3.6001296,
+              "first": 2.1219964,
+              "last": 2.0970273,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -6.489262406079095,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                758
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 46.337528333333225,
+              "first": 0.0,
+              "last": 46.337528333333225,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.00018569189973854602,
+            "qdlin_last": 1.0552800625356455,
+            "qdlin_first_over_summary_qd": -0.00017347210811020382,
+            "qdlin_last_over_summary_qd": 0.9858354476015203,
+            "n_points": 758,
+            "frac_positive_current": 0.41952506596306066,
+            "discharge_points": 282,
+            "discharge_v_min": 1.9997773,
+            "discharge_v_max": 3.5846877,
+            "discharge_i_median": -4.000069,
+            "discharge_i_min": -4.000764363636363,
+            "discharge_i_max": -0.5046118363636364,
+            "t_first": 0.0,
+            "t_last": 46.337528333333225,
+            "dt_mean": 0.061212058564508884,
+            "dt_median": 0.0834433333332214,
+            "dt_min": 5.500000018798801e-05,
+            "dt_max": 0.0838716666665249,
+            "dt_std": 0.033808195484597604
+          }
+        },
+        "100": {
+          "summary_cycle": 101.0,
+          "summary_qd": 1.0694734,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                750
+              ],
+              "dtype": "float64",
+              "min": -4.000776909090908,
+              "max": 5.006842181818181,
+              "first": 0.5467224090909091,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                750
+              ],
+              "dtype": "float64",
+              "min": 2.2529516e-06,
+              "max": 1.0691421,
+              "first": 2.2529516e-06,
+              "last": 1.0691421,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                750
+              ],
+              "dtype": "float64",
+              "min": 6.359229e-07,
+              "max": 1.0694734,
+              "first": 6.359229e-07,
+              "last": 1.0694734,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.00023658524137260743,
+              "max": 1.0514883952648306,
+              "first": -0.00023658524137260743,
+              "last": 1.0514883952648306,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                750
+              ],
+              "dtype": "float64",
+              "min": 30.739755856261258,
+              "max": 33.71414442769772,
+              "first": 32.430092433504996,
+              "last": 32.50948073888708,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 30.744073731020446,
+              "max": 33.37213774119348,
+              "first": 30.74763855096943,
+              "last": 33.37213774119348,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                750
+              ],
+              "dtype": "float64",
+              "min": 1.9997258,
+              "max": 3.6001096,
+              "first": 2.1255679,
+              "last": 2.0961261,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -6.250622166941988,
+              "max": -0.02208195897156509,
+              "first": -0.02208195897156509,
+              "last": -2.228353140822332,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                750
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 45.5878099999992,
+              "first": 0.0,
+              "last": 45.5878099999992,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.00023658524137260743,
+            "qdlin_last": 1.0514883952648306,
+            "qdlin_first_over_summary_qd": -0.0002212165738508386,
+            "qdlin_last_over_summary_qd": 0.9831833080325614,
+            "n_points": 750,
+            "frac_positive_current": 0.432,
+            "discharge_points": 285,
+            "discharge_v_min": 1.9997258,
+            "discharge_v_max": 3.582849,
+            "discharge_i_median": -3.99990909090909,
+            "discharge_i_min": -4.000776909090908,
+            "discharge_i_max": -0.5103158909090909,
+            "t_first": 0.0,
+            "t_last": 45.5878099999992,
+            "dt_mean": 0.06086489986648758,
+            "dt_median": 0.0834450000004523,
+            "dt_min": 0.0003550000003694244,
+            "dt_max": 0.0838250000000702,
+            "dt_std": 0.03375551325137736
+          }
+        },
+        "504": {
+          "summary_cycle": 505.0,
+          "summary_qd": 1.0508325,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                717
+              ],
+              "dtype": "float64",
+              "min": -4.000901727272727,
+              "max": 5.004990272727272,
+              "first": 0.3913636636363636,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                717
+              ],
+              "dtype": "float64",
+              "min": 1.8691834e-06,
+              "max": 1.050596,
+              "first": 1.8691834e-06,
+              "last": 1.050596,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                717
+              ],
+              "dtype": "float64",
+              "min": 3.5472002e-07,
+              "max": 1.0508325,
+              "first": 3.5472002e-07,
+              "last": 1.0508325,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.0003259457228315494,
+              "max": 1.0185344324436654,
+              "first": -0.0003259457228315494,
+              "last": 1.0185344324436654,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                717
+              ],
+              "dtype": "float64",
+              "min": 31.887277294621025,
+              "max": 35.07366164147287,
+              "first": 33.91560311358722,
+              "last": 33.97170689830509,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 31.887412683942134,
+              "max": 34.465444434051726,
+              "first": 31.94805898195576,
+              "last": 34.421698777903664,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                717
+              ],
+              "dtype": "float64",
+              "min": 1.9988046,
+              "max": 3.6000838,
+              "first": 2.1186728,
+              "last": 2.1041732,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -5.847863976206599,
+              "max": -0.0018058117359825137,
+              "first": -0.0018058117359825141,
+              "last": -2.6981424147245057,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                717
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 42.93603833333279,
+              "first": 0.0,
+              "last": 42.93603833333279,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.0003259457228315494,
+            "qdlin_last": 1.0185344324436654,
+            "qdlin_first_over_summary_qd": -0.0003101785706395162,
+            "qdlin_last_over_summary_qd": 0.9692643046762118,
+            "n_points": 717,
+            "frac_positive_current": 0.43654114365411434,
+            "discharge_points": 282,
+            "discharge_v_min": 1.9988046,
+            "discharge_v_max": 3.5828853,
+            "discharge_i_median": -3.9999354545454544,
+            "discharge_i_min": -4.000901727272727,
+            "discharge_i_max": -0.5356514454545455,
+            "t_first": 0.0,
+            "t_last": 42.93603833333279,
+            "dt_mean": 0.05996653398510166,
+            "dt_median": 0.08341583333288582,
+            "dt_min": 5.000000043331454e-05,
+            "dt_max": 0.08379833333116693,
+            "dt_std": 0.03375876081550636
+          }
+        },
+        "1007": {
+          "summary_cycle": 1008.0,
+          "summary_qd": 0.8804329,
+          "channels": {
+            "I": {
+              "shape": [
+                1,
+                1018
+              ],
+              "dtype": "float64",
+              "min": -4.000845818181818,
+              "max": 5.004938272727273,
+              "first": 0.44679121818181816,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "Qc": {
+              "shape": [
+                1,
+                1018
+              ],
+              "dtype": "float64",
+              "min": 1.3727846e-06,
+              "max": 0.88163567,
+              "first": 1.3727846e-06,
+              "last": 0.88163567,
+              "nan_count": 0
+            },
+            "Qd": {
+              "shape": [
+                1,
+                1018
+              ],
+              "dtype": "float64",
+              "min": 6.3020605e-07,
+              "max": 0.8804329,
+              "first": 6.3020605e-07,
+              "last": 0.8804329,
+              "nan_count": 0
+            },
+            "Qdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -0.00022291910192522257,
+              "max": 0.8054645546007526,
+              "first": -0.00022291910192522257,
+              "last": 0.8054645546007526,
+              "nan_count": 0
+            },
+            "T": {
+              "shape": [
+                1,
+                1018
+              ],
+              "dtype": "float64",
+              "min": 31.365874170645604,
+              "max": 34.763348,
+              "first": 32.91343808498096,
+              "last": 32.98313526002816,
+              "nan_count": 0
+            },
+            "Tdlin": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": 31.369133100494107,
+              "max": 33.661446406089475,
+              "first": 31.404429778414134,
+              "last": 33.659091278749784,
+              "nan_count": 0
+            },
+            "V": {
+              "shape": [
+                1,
+                1018
+              ],
+              "dtype": "float64",
+              "min": 1.9998507,
+              "max": 3.6010709,
+              "first": 2.1312375,
+              "last": 2.1086354,
+              "nan_count": 0
+            },
+            "discharge_dQdV": {
+              "shape": [
+                1,
+                1000
+              ],
+              "dtype": "float64",
+              "min": -4.10637901926646,
+              "max": 0.0,
+              "first": 0.0,
+              "last": 0.0,
+              "nan_count": 0
+            },
+            "t": {
+              "shape": [
+                1,
+                1018
+              ],
+              "dtype": "float64",
+              "min": 0.0,
+              "max": 35.45277333333312,
+              "first": 0.0,
+              "last": 35.45277333333312,
+              "nan_count": 0
+            }
+          },
+          "derived": {
+            "qdlin_len": 1000,
+            "qdlin_first": -0.00022291910192522257,
+            "qdlin_last": 0.8054645546007526,
+            "qdlin_first_over_summary_qd": -0.0002531926077787672,
+            "qdlin_last_over_summary_qd": 0.9148505861159353,
+            "n_points": 1018,
+            "frac_positive_current": 0.6011787819253438,
+            "discharge_points": 264,
+            "discharge_v_min": 1.9998507,
+            "discharge_v_max": 3.5837979,
+            "discharge_i_median": -3.99989909090909,
+            "discharge_i_min": -4.000845818181818,
+            "discharge_i_max": -0.524643390909091,
+            "t_first": 0.0,
+            "t_last": 35.45277333333312,
+            "dt_mean": 0.03486015077023905,
+            "dt_median": 0.017865000005500953,
+            "dt_min": 5.666667129844427e-05,
+            "dt_max": 0.08482166666847846,
+            "dt_std": 0.0325682428181868
+          }
+        }
+      }
+    }
+  }
+}

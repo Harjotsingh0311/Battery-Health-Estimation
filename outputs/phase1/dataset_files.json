@@ -1,0 +1,69 @@
+{
+  "raw_dir": "c:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\data\\raw\\MATR",
+  "files": [
+    {
+      "file": "2017-05-12_batchdata_updated_struct_errorcorrect.mat",
+      "suffix": ".mat",
+      "size_bytes": 3025320241,
+      "size_gb": 2.818,
+      "modified": "2026-11-01 13:38:01",
+      "batch": 1,
+      "header_start": "MATLAB 7.3 MAT-file, Platform: MACI64, C",
+      "header_ok": true,
+      "is_hdf5": true,
+      "h5py_opens": true,
+      "sha256": "9d928ab978f0e3c70b31cb833a749fedd35094d01af76475d69b40aa3497f5ba",
+      "top_level_keys": [
+        "#refs#",
+        "#subsystem#",
+        "batch",
+        "batch_date"
+      ]
+    },
+    {
+      "file": "2017-06-30_batchdata_updated_struct_errorcorrect.mat",
+      "suffix": ".mat",
+      "size_bytes": 2007331155,
+      "size_gb": 1.869,
+      "modified": "2026-11-01 13:31:04",
+      "batch": 2,
+      "header_start": "MATLAB 7.3 MAT-file, Platform: PCWIN64, ",
+      "header_ok": true,
+      "is_hdf5": true,
+      "h5py_opens": true,
+      "sha256": "63ab200d09ecb237fee5ef3a5c5db76e3212e3206a0bd92f769e1427fed338b8",
+      "top_level_keys": [
+        "#refs#",
+        "#subsystem#",
+        "batch",
+        "batch_date"
+      ]
+    },
+    {
+      "file": "2018-04-12_batchdata_updated_struct_errorcorrect.mat",
+      "suffix": ".mat",
+      "size_bytes": 3236690412,
+      "size_gb": 3.014,
+      "modified": "2026-11-01 13:38:44",
+      "batch": 3,
+      "header_start": "MATLAB 7.3 MAT-file, Platform: PCWIN64, ",
+      "header_ok": true,
+      "is_hdf5": true,
+      "h5py_opens": true,
+      "sha256": "62c30e413b63e6144720e016deed3661fac8468641794a5807b123fe84717998",
+      "top_level_keys": [
+        "#refs#",
+        "#subsystem#",
+        "batch",
+        "batch_date"
+      ]
+    }
+  ],
+  "batch_map": {
+    "2017-05-12_batchdata_updated_struct_errorcorrect.mat": 1,
+    "2017-06-30_batchdata_updated_struct_errorcorrect.mat": 2,
+    "2018-04-12_batchdata_updated_struct_errorcorrect.mat": 3
+  },
+  "extra_entries": [],
+  "sha256_computed": true
+}

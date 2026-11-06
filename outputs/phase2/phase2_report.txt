@@ -1,0 +1,144 @@
+PHASE 2 REPORT
+==============
+runtime: 4.5 min; checks PASS 49 / WARN 7 / FAIL 0; errors 0
+EXTRACTION
+  cells: new=134, reused=0, failed=0 []
+  extract time this run: 239 s; low-RAM (<2 GB) cell steps: 0
+  cache: 134 files, 420 MB
+REGISTRY
+  batch                   1   2   3  total
+  status                                  
+  excluded_continuation   0   5   0      5
+  excluded_noisy          0   0   6      6
+  kept                   41  43  40    124
+  sensitivity             5   0   0      5
+  table cells 129, rows 104971; cycles by batch {1: 42204, 2: 21527, 3: 41240}; non-placeholder by batch {1: 42158, 2: 21527, 3: 41240}
+JUNCTIONS (steps use summary QD)
+  cell_id continuation  junction_pos  n_b1  n_b2  qd_last_seg0  qd_first_seg1  step_ah  step_pp_nominal  step_over_med  cycle_life_stitched
+     b1c0         b2c7          1189  1189   662        1.0262         1.0219  -0.0043          -0.3896        12.8801               1852.0
+     b1c1         b2c8          1178  1178   981        1.0382         1.0245  -0.0137          -1.2439        47.0691               2160.0
+     b1c2         b2c9          1176  1176  1060        1.0433         1.0296  -0.0137          -1.2480        37.5333               2237.0
+     b1c3        b2c15          1225  1225   208        0.9709         0.9721   0.0011           0.1039         2.5114               1434.0
+     b1c4        b2c16          1226  1226   482        1.0220         1.0075  -0.0145          -1.3155        41.7261               1709.0
+CHECKS
+  FAIL (0)
+  WARN (7)
+    - batch-2 policy strings of continuations are truncated versions of the batch-1 string: informational; batch-1 strings are used for stitched cells
+    - 69 unique normalised policy strings among kept cells: 68
+    - Qdlin monotone within 5e-3 Ah: 289 cycles in 44 cells
+    - Qdlin[0] within -0.002..0.001 Ah (Phase 1: -0.0001..-0.0011): min -4.48787, max 30.73155
+    - qd_end equals summary QDischarge (max abs diff <= 1e-5): max 1.07, 176 cycles above 1e-5
+    - qc_end equals summary QCharge (max abs diff <= 1e-5): max 1.07, 136 cycles above 1e-5
+    - batch 1/3 kept cells end between 0.880 and 0.883 Ah: 2 outside: [('b1c17', 0.8832), ('b1c37', 0.8834)]
+  PASS (49)
+    - Phase 1 file records found for 3 raw files
+    - SHA-256 batch 1 matches Phase 1
+    - size batch 1 matches Phase 1: 3025320241 vs 3025320241
+    - SHA-256 batch 2 matches Phase 1
+    - size batch 2 matches Phase 1: 2007331155 vs 2007331155
+    - SHA-256 batch 3 matches Phase 1
+    - size batch 3 matches Phase 1: 3236690412 vs 3236690412
+    - cells per file match Phase 1 (46/48/46): {1: 46, 2: 48, 3: 46}
+    - registry has 140 rows: 140
+    - Phase 1 inventory cell ids equal raw cell ids: 140 rows
+    - Phase 1 inventory cycle_life equals raw cycle_life: cycle_life_field
+    - 124 kept cells: 124
+    - kept per batch 41/43/40: {1: 41, 2: 43, 3: 40}
+    - 5 sensitivity cells (batch 1): 
+    - cycle_life NaN for b3c23 and b3c32: 
+    - Vdlin identical in all cells/files (max abs diff): 0
+    - Vdlin has 1000 points from 3.5 to 2.0 V, decreasing: n=1000, first=3.5000, last=2.0000
+    - all required cells present in cache: failed: []
+    - 5 stitched cells built: ['b1c0', 'b1c1', 'b1c2', 'b1c3', 'b1c4']
+    - b1c0: added cycles = 662: got 662
+    - b1c0: stitched life = 1852: got 1852
+    - b1c0: stitched life = n_total + 1: life 1852, n_total+1 = 1852
+    - b1c1: added cycles = 981: got 981
+    - b1c1: stitched life = 2160: got 2160
+    - b1c1: stitched life = n_total + 1: life 2160, n_total+1 = 2160
+    - b1c2: added cycles = 1060: got 1060
+    - b1c2: stitched life = 2237: got 2237
+    - b1c2: stitched life = n_total + 1: life 2237, n_total+1 = 2237
+    - b1c3: added cycles = 208: got 208
+    - b1c3: stitched life = 1434: got 1434
+    - b1c3: stitched life = n_total + 1: life 1434, n_total+1 = 1434
+    - b1c4: added cycles = 482: got 482
+    - b1c4: stitched life = 1709: got 1709
+    - b1c4: stitched life = n_total + 1: life 1709, n_total+1 = 1709
+    - summary length equals cycle entries (all extracted cells): mismatches: []
+    - cycle numbers consecutive from 1, no duplicates: bad cells: []
+    - Qdlin length 1000 on all non-placeholder cycles: 0 cycles
+    - Qdlin finite on all non-placeholder cycles: 0 cycles
+    - placeholders only at batch-1 position 0 (one per batch-1 cell): 46 placeholders, batches [1], positions [0], expected 46
+    - every batch-1 cell starts with a placeholder: []
+    - no raw-length mismatches inside cycles: 0 cycles
+    - Vdlin identical across files (recheck): 0.0
+    - cycle_life_final consistent with data (b1/b3/stitched: last+1; b2: first QD<=0.88): 0 bad: []
+    - stitched cells end between 0.880 and 0.883 Ah
+    - 124 kept / 5 sensitivity / 5 continuation / 6 noisy
+    - kept per batch 41/43/40: {1: 41, 2: 43, 3: 40}
+    - table has 129 cells: 129
+    - total cycles by batch and overall: {1: 42204, 2: 21527, 3: 41240} total 104971
+    - known QD spikes present and flagged (b1c0, b1c18, b2c12, b2c44)
+FLAGS (cycles per scope)
+  scope              ALL   b1   b2  b3  cells(ALL)
+  flag                                            
+  flag_placeholder    46   46    0   0          46
+  flag_qdlin_bad     289   46  239   4          44
+  flag_diag_suspect   88   52   18  18           8
+  flag_ir_nonpos      22   22    0   0          16
+  flag_qd_mismatch   176  145   29   2          21
+  flag_qdqc_gap      105   81   24   0          31
+  flag_qd_spike       20    8   12   0          16
+  flag_qdqc_gap: 31 cells; b1c0[387,391,405,408,433,444,472,488,523-5...]; b1c1[850]; b1c2[1487]; b1c3[879]; b1c4[1573]; b1c5[909]; b1c18[8-40]; b1c24[902]; b1c41[887]; b2c0[73,250]; b2c2[248]; b2c3[250] ...
+  flag_qd_spike: 16 cells; b1c0[12,611,639,770,832]; b1c2[1487]; b1c5[909]; b1c18[40]; b2c3[250]; b2c4[247]; b2c6[258]; b2c10[251]; b2c11[250]; b2c12[253]; b2c20[249]; b2c22[247] ...
+  flag_diag_suspect most shared cycle numbers (cycle: n cells): {4: 2, 5: 2, 12: 2, 32: 2, 31: 2, 28: 2, 29: 2, 26: 2, 27: 2, 8: 1, 9: 1, 3: 1}
+  (offline flags use neighbours or QC: label use only; full lists in verification_report.json)
+QD DECOMPOSITION medians per batch (0 = all)
+   batch (0 = all)  n_cycles  med_win_cap_over_qd_end  med_qd_at_v35_over_qd_end  med_qd_cv_tail_over_qd_end  med_dur_to_2v_min  med_saved_min_close_3p0V  med_saved_min_close_2p5V  med_saved_min_close_2p0V
+                 0    100460                   0.9682                        0.0                      0.0315            13.8492                    3.4974                    0.5103                       0.0
+                 1     37693                   0.9682                        0.0                      0.0317            13.9714                    3.5585                    0.5088                       0.0
+                 2     21527                   0.9450                        0.0                      0.0548            13.5561                    4.0298                    0.5452                       0.0
+                 3     41240                   0.9717                        0.0                      0.0278            13.8458                    3.2773                    0.4915                       0.0
+QDLIN RECIPES (3 cells x 5 cycles, Ah)
+  a: interp onto Vdlin, subtract first: max 0.09691, median cycle max 0.004656, mean 0.0003589
+  b: interp onto Vdlin, no subtraction: max 0.09691, median cycle max 0.004665, mean 0.0003908
+  c: subtract Qd at 3.5 V crossing, then interp: max 0.09691, median cycle max 0.004656, mean 0.0003512
+  d (extra): (a) with monotone V: max 0.005564, median cycle max 0.003525, mean 0.0003486
+  best: d (extra): (a) with monotone V
+BARCODE / CHANNEL_ID / POLICY FIELDS
+  b1c0 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 1, 1]
+  b1c0 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 47, 1]
+  b1c0 policy: dtype=uint16, shape=(15, 1), first=[51, 95, 54, 67, 45, 56, 48, 80]
+  b1c1 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 2, 1]
+  b1c1 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 48, 1]
+  b1c1 policy: dtype=uint16, shape=(15, 1), first=[51, 95, 54, 67, 45, 56, 48, 80]
+  b1c2 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 3, 1]
+  b1c2 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 49, 1]
+  b1c2 policy: dtype=uint16, shape=(15, 1), first=[51, 95, 54, 67, 45, 56, 48, 80]
+  b2c0 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 1, 1]
+  b2c0 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 49, 1]
+  b2c0 policy: dtype=uint16, shape=(10, 1), first=[49, 67, 95, 52, 80, 69, 82, 95]
+  b2c1 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 2, 1]
+  b2c1 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 50, 1]
+  b2c1 policy: dtype=uint16, shape=(11, 1), first=[50, 67, 95, 49, 48, 80, 69, 82]
+  b2c2 barcode: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 3, 1]
+  b2c2 channel_id: dtype=uint32, shape=(1, 6), first=[3707764736, 2, 1, 1, 51, 1]
+  b2c2 policy: dtype=uint16, shape=(10, 1), first=[50, 67, 95, 50, 80, 69, 82, 95]
+  policy is NOT numeric for all kept cells (numeric fraction 0.00); unique normalised strings = 68 (paper: 72)
+  Vdlin max abs diff across cells/files: 0.0
+RECORDED ERRORS
+  none
+ARTIFACTS
+  data/processed/cycles_table.parquet  11.8 MB
+  data/processed/qdlin_f32.npy  400.4 MB
+  data/processed/t_knots_f32.npy  6.4 MB
+  data/processed/cell_registry_final.csv  18.8 KB
+  outputs/phase2/phase2_report.txt  9.9 KB
+  outputs/phase2/verification_report.json  17.4 KB
+  outputs/phase2/junction_steps.csv  913 B
+  outputs/phase2/flag_summary.csv  1.5 KB
+  outputs/phase2/qd_decomposition.csv  4.6 KB
+  outputs/phase2/figures/fig1_wincap_ratio_vs_life.png  43.1 KB
+  outputs/phase2/figures/fig2_qdlin_vs_vdlin.png  113.5 KB
+  outputs/phase2/figures/fig3_cycle_life_hist.png  31.3 KB

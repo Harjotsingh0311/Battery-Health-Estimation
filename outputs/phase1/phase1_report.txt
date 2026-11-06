@@ -1,0 +1,552 @@
+==============================================================================
+PHASE 1 REPORT
+==============================================================================
+generated 2026-11-01 14:26:39 | project c:\workstation\3RD YEAR\Battery-Health-Estimation
+
+------------------------------------------------------------------------------
+(1) ENVIRONMENT
+------------------------------------------------------------------------------
+python_version     3.13.13
+python_executable  c:\workstation\3RD YEAR\Battery-Health-Estimation\.venv\Scripts\python.exe
+os                 Windows-11-10.0.26300-SP0
+machine            AMD64
+cpu_count          12
+ram_total_gb       15.71
+ram_available_gb   0.49
+disk_free_gb       38.5
+packages           torch 2.14.1+cu130, numpy 2.5.4, pandas 3.1.0, scipy 1.18.1, h5py 3.16.0, scikit-learn 1.9.1, matplotlib 3.11.2, pyarrow 26.0.0, psutil 7.2.2, tqdm 4.70.1
+torchvision/torchaudio installed: None / None
+
+------------------------------------------------------------------------------
+(2) GPU
+------------------------------------------------------------------------------
+GPU VERDICT: READY - NVIDIA GeForce RTX 3050 6GB Laptop GPU, sm_86, 6.0 GB, torch 2.14.1+cu130 (cuda 13.0); smoke tests passed, 0 warning(s)
+nvidia-smi: [{'name': 'NVIDIA GeForce RTX 3050 6GB Laptop GPU', 'driver_version': '595.71', 'memory.total': '6144 MiB', 'memory.used': '0 MiB', 'compute_cap': '8.6'}]
+torch_version      2.14.1+cu130
+torch_cuda_version 13.0
+cuda_available     True
+cudnn_version      92400
+device_name        NVIDIA GeForce RTX 3050 6GB Laptop GPU
+capability         [8, 6]
+total_vram_gb      6.0
+arch_list          ['sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120']
+bf16_supported     True
+M1 trainable params: 2977 (expected 2977); conv1 80, bn1 16, conv2 656, bn2 32, conv3 1568, bn3 64, fc1 544, fc2 17
+fp32 matmul 4096^2: 126.21 ms (1.09 TFLOPS)
+CPU vs GPU forward max abs diff: 2.980e-08
+train fp32: loss 0.6587 -> 0.0449 (last-10 mean 0.0469), 17.35 ms/step, peak mem 19.88 MB
+train bf16: loss 0.6588 -> 0.0451 (last-10 mean 0.0469), 19.78 ms/step, peak mem 18.26 MB
+same-seed repeatability: max param diff 0.000e+00, max loss diff 0.000e+00
+
+------------------------------------------------------------------------------
+(3) DATASET FILES
+------------------------------------------------------------------------------
+batch 1 | 2017-05-12_batchdata_updated_struct_errorcorrect.mat | 2.818 GB | 2026-11-01 13:38:01 | header True | hdf5 True
+   sha256 9d928ab978f0e3c70b31cb833a749fedd35094d01af76475d69b40aa3497f5ba
+batch 2 | 2017-06-30_batchdata_updated_struct_errorcorrect.mat | 1.869 GB | 2026-11-01 13:31:04 | header True | hdf5 True
+   sha256 63ab200d09ecb237fee5ef3a5c5db76e3212e3206a0bd92f769e1427fed338b8
+batch 3 | 2018-04-12_batchdata_updated_struct_errorcorrect.mat | 3.014 GB | 2026-11-01 13:38:44 | header True | hdf5 True
+   sha256 62c30e413b63e6144720e016deed3661fac8468641794a5807b123fe84717998
+
+------------------------------------------------------------------------------
+(4) STRUCTURE
+------------------------------------------------------------------------------
+batch 1: top-level ['#refs#', '#subsystem#', 'batch', 'batch_date'] | cells 46
+  batch fields: Vdlin[46, 1]:object, barcode[46, 1]:object, channel_id[46, 1]:object, cycle_life[46, 1]:object, cycles[46, 1]:object, policy[46, 1]:object, policy_readable[46, 1]:object, summary[46, 1]:object
+  summary keys: IR[1, 1189], QCharge[1, 1189], QDischarge[1, 1189], Tavg[1, 1189], Tmax[1, 1189], Tmin[1, 1189], chargetime[1, 1189], cycle[1, 1189]
+  cycles keys : I[1189, 1], Qc[1189, 1], Qd[1189, 1], Qdlin[1189, 1], T[1189, 1], Tdlin[1189, 1], V[1189, 1], discharge_dQdV[1189, 1], t[1189, 1]
+  Vdlin: batch/Vdlin (object references [46, 1], one per entry)
+         len 1000, min 2, max 3.5, first 3.5, last 2, strictly monotonic True (decreasing), mean spacing -0.0015015
+batch 2: top-level ['#refs#', '#subsystem#', 'batch', 'batch_date'] | cells 48
+  batch fields: Vdlin[48, 1]:object, barcode[48, 1]:object, channel_id[48, 1]:object, cycle_life[48, 1]:object, cycles[48, 1]:object, policy[48, 1]:object, policy_readable[48, 1]:object, summary[48, 1]:object
+  summary keys: IR[1, 326], QCharge[1, 326], QDischarge[1, 326], Tavg[1, 326], Tmax[1, 326], Tmin[1, 326], chargetime[1, 326], cycle[1, 326]
+  cycles keys : I[326, 1], Qc[326, 1], Qd[326, 1], Qdlin[326, 1], T[326, 1], Tdlin[326, 1], V[326, 1], discharge_dQdV[326, 1], t[326, 1]
+  Vdlin: batch/Vdlin (object references [48, 1], one per entry)
+         len 1000, min 2, max 3.5, first 3.5, last 2, strictly monotonic True (decreasing), mean spacing -0.0015015
+batch 3: top-level ['#refs#', '#subsystem#', 'batch', 'batch_date'] | cells 46
+  batch fields: Vdlin[46, 1]:object, barcode[46, 1]:object, channel_id[46, 1]:object, cycle_life[46, 1]:object, cycles[46, 1]:object, policy[46, 1]:object, policy_readable[46, 1]:object, summary[46, 1]:object
+  summary keys: IR[1, 1008], QCharge[1, 1008], QDischarge[1, 1008], Tavg[1, 1008], Tmax[1, 1008], Tmin[1, 1008], chargetime[1, 1008], cycle[1, 1008]
+  cycles keys : I[1008, 1], Qc[1008, 1], Qd[1008, 1], Qdlin[1008, 1], T[1008, 1], Tdlin[1008, 1], V[1008, 1], discharge_dQdV[1008, 1], t[1008, 1]
+  Vdlin: batch/Vdlin (object references [46, 1], one per entry)
+         len 1000, min 2, max 3.5, first 3.5, last 2, strictly monotonic True (decreasing), mean spacing -0.0015015
+  Vdlin 1_vs_2: same_length=True, max abs diff=0
+  Vdlin 1_vs_3: same_length=True, max abs diff=0
+  Vdlin 2_vs_3: same_length=True, max abs diff=0
+  Qdlin length per cycle: [2, 1000]
+  Qdlin first / summary QD: -0.0013863 .. -0.00014589;  Qdlin last / summary QD: 0.84289 .. 0.98633
+  discharge phase (I < -0.5 A): V 1.9957..3.5855, median I -4.0001..-3.9999 A; median dt 0..0.083445 (units as stored)
+
+------------------------------------------------------------------------------
+(5) PER-BATCH CELL AND CYCLE STATISTICS
+------------------------------------------------------------------------------
+       cells  ncyc_med  ncyc_min  ncyc_max  life_med  life_min  life_max  share_80  kept
+batch                                                                                   
+1         46     857.5       533      1226     858.5       534      1227         0    41
+2         48       508       170      1060       483       148      1061    0.8958    43
+3         46      1018       540      2237      1006       541      1935         0    40
+kept (124 set): {1: 41, 2: 43, 3: 40} | flags: {'kept': 124, 'noisy': 6, 'never_80': 5, 'continuation': 5}
+policies on kept cells: 69 unique (paper 72), 26 shared, largest group 8
+positional preview {'primary_test': 43, 'train': 41, 'secondary_test': 40}; primary-test policy in train: 22/43; secondary-test policy in train/primary: 0/40
+development vs batch 3: 0/40 batch-3 cells share a policy; 0 common policies
+continuation pairs:
+b1_cell b2_cell  same_policy  same_barcode  b1_last_qd  b2_first_qd  b1_cycles  b2_cycles  b1_last_cycle_no  b2_first_cycle_no
+   b1c0    b2c7        False          True       1.026        1.022       1189        662              1189                  1
+   b1c1    b2c8        False          True       1.038        1.025       1178        981              1178                  1
+   b1c2    b2c9        False          True       1.043         1.03       1176       1060              1176                  1
+   b1c3   b2c15        False          True      0.9709       0.9721       1225        208              1225                  1
+   b1c4   b2c16        False          True       1.022        1.007       1226        482              1226                  1
+
+------------------------------------------------------------------------------
+(6) CHECKS
+------------------------------------------------------------------------------
+PASS 65 | WARN 8 | FAIL 1
+FAIL (1):
+  - [6] remaining 41 batch-1 cells all reach 80% | n=41, not reaching=['b1c0', 'b1c1', 'b1c2', 'b1c3', 'b1c4', 'b1c5', 'b1c6', 'b1c7', 'b1c9', 'b1c11', 'b1c14', 'b1c15', 'b1c16', 'b1c17', 'b1c18', 'b1c19', 'b1c20', 'b1c21', 'b1c23', 'b1c24', 'b1c25', 'b1c26', 'b1c27', 'b1c28', 'b1c29', 'b1c30', 'b1c31', 'b1c32', 'b1c33', 'b1c34', 'b1c35', 'b1c36', 'b1c37', 'b1c38', 'b1c39', 'b1c40', 'b1c41', 'b1c42', 'b1c43', 'b1c44', 'b1c45']
+WARN (8):
+  - [4] batch 1: expected cycles keys | found ['I', 'Qc', 'Qd', 'Qdlin', 'T', 'Tdlin', 'V', 'discharge_dQdV', 't']
+  - [4] batch 2: expected cycles keys | found ['I', 'Qc', 'Qd', 'Qdlin', 'T', 'Tdlin', 'V', 'discharge_dQdV', 't']
+  - [4] batch 3: expected cycles keys | found ['I', 'Qc', 'Qd', 'Qdlin', 'T', 'Tdlin', 'V', 'discharge_dQdV', 't']
+  - [6] continuation pairs share the policy string | mismatch: ['b2c7', 'b2c8', 'b2c9', 'b2c15', 'b2c16']
+  - [6] unique policy strings among 124 kept cells == 72 (paper) | 69
+  - [7] Qdlin length is 1000 in every peeked cycle | lengths seen: [2, 1000]
+  - [7] b1c0: Qdlin length equals Vdlin length | Qdlin [2, 1000] vs Vdlin 1000
+  - [7] discharge current negative and about 4.4 A (4C) | median discharge current per cycle: min -4.000, max -4.000
+PASS (65):
+  - Python version is 3.13
+  - Interpreter lies inside ROOT/.venv
+  - package installed: torch
+  - package installed: numpy
+  - package installed: pandas
+  - package installed: scipy
+  - package installed: h5py
+  - package installed: scikit-learn
+  - package installed: matplotlib
+  - package installed: pyarrow
+  - package installed: psutil
+  - package installed: tqdm
+  - torchvision not installed (no pretrained-weight helpers)
+  - torchaudio not installed (no pretrained-weight helpers)
+  - CUDA available to torch
+  - torch arch list covers device capability
+  - compute capability is 8.6 (expected for RTX 3050)
+  - bf16 supported
+  - M1 trainable parameter count == 2977
+  - fp32 matmul result finite
+  - CPU vs GPU forward parity
+  - fp32 training loss decreases (100 steps)
+  - bf16 training loss decreases (100 steps)
+  - same-seed GPU runs repeatable
+  - exactly 3 .mat files
+  - all files have suffix .mat
+  - no other entries in raw folder (e.g. shortcuts)
+  - batches 1, 2, 3 each mapped exactly once
+  - MATLAB 7.3 header: 2017-05-12
+  - h5py.is_hdf5 and opens: 2017-05-12
+  - MATLAB 7.3 header: 2017-06-30
+  - h5py.is_hdf5 and opens: 2017-06-30
+  - MATLAB 7.3 header: 2018-04-12
+  - h5py.is_hdf5 and opens: 2018-04-12
+  - batch 1: expected batch fields present
+  - batch 1: 46 cells
+  - batch 1: expected summary keys
+  - batch 1: Vdlin found
+  - batch 1: Vdlin strictly monotonic
+  - batch 1: Vdlin length 1000 (expected)
+  - batch 2: expected batch fields present
+  - batch 2: 48 cells
+  - batch 2: expected summary keys
+  - batch 2: Vdlin found
+  - batch 2: Vdlin strictly monotonic
+  - batch 2: Vdlin length 1000 (expected)
+  - batch 3: expected batch fields present
+  - batch 3: 46 cells
+  - batch 3: expected summary keys
+  - batch 3: Vdlin found
+  - batch 3: Vdlin strictly monotonic
+  - batch 3: Vdlin length 1000 (expected)
+  - total raw cells == 140
+  - Vdlin identical: batch 1 vs 2
+  - Vdlin identical: batch 1 vs 3
+  - Vdlin identical: batch 2 vs 3
+  - inventory has 140 rows
+  - every cell has a non-empty summary
+  - raw counts 46/48/46
+  - kept counts 41/43/40
+  - kept total 124
+  - 5 never_80 cells flagged, none reaches 80%
+  - positional preview sizes 43 / 41 / 40
+  - b2c0: Qdlin length equals Vdlin length
+  - b3c0: Qdlin length equals Vdlin length
+
+------------------------------------------------------------------------------
+(7) RECORDED ERRORS AND ANOMALIES
+------------------------------------------------------------------------------
+errors (302):
+  - b1c0.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c0.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c1.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c1.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c2.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c2.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c3.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c3.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c4.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c4.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c5.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c5.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c6.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c6.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c7.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c7.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c8.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c8.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c9.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c9.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c10.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c10.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c11.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c11.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c12.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c12.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c13.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c13.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c14.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c14.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c15.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c15.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c16.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c16.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c17.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c17.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c18.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c18.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c19.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c19.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c20.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c20.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c21.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c21.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c22.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c22.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c23.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c23.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c24.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c24.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c25.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c25.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c26.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c26.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c27.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c27.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c28.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c28.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c29.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c29.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c30.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c30.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c31.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c31.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c32.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c32.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c33.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c33.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c34.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c34.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c35.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c35.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c36.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c36.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c37.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c37.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c38.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c38.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c39.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c39.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c40.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c40.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c41.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c41.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c42.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c42.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c43.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c43.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c44.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c44.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c45.barcode: ValueError: chr() arg not in range(0x110000)
+  - b1c45.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c0.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c0.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c1.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c1.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c2.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c2.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c3.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c3.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c4.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c4.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c5.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c5.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c6.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c6.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c7.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c7.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c8.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c8.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c9.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c9.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c10.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c10.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c11.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c11.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c12.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c12.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c13.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c13.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c14.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c14.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c15.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c15.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c16.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c16.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c17.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c17.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c18.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c18.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c19.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c19.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c20.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c20.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c21.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c21.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c22.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c22.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c23.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c23.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c24.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c24.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c25.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c25.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c26.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c26.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c27.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c27.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c28.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c28.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c29.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c29.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c30.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c30.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c31.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c31.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c32.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c32.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c33.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c33.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c34.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c34.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c35.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c35.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c36.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c36.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c37.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c37.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c38.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c38.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c39.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c39.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c40.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c40.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c41.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c41.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c42.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c42.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c43.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c43.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c44.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c44.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c45.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c45.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c46.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c46.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b2c47.barcode: ValueError: chr() arg not in range(0x110000)
+  - b2c47.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c0.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c0.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c1.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c1.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c2.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c2.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c3.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c3.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c4.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c4.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c5.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c5.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c6.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c6.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c7.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c7.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c8.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c8.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c9.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c9.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c10.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c10.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c11.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c11.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c12.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c12.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c13.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c13.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c14.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c14.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c15.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c15.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c16.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c16.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c17.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c17.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c18.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c18.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c19.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c19.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c20.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c20.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c21.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c21.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c22.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c22.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c23.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c23.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c24.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c24.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c25.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c25.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c26.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c26.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c27.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c27.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c28.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c28.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c29.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c29.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c30.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c30.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c31.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c31.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c32.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c32.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c33.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c33.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c34.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c34.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c35.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c35.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c36.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c36.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c37.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c37.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c38.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c38.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c39.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c39.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c40.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c40.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c41.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c41.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c42.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c42.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c43.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c43.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c44.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c44.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b3c45.barcode: ValueError: chr() arg not in range(0x110000)
+  - b3c45.channel_id: ValueError: expected a scalar, got shape (1, 6)
+  - b1c0 cycle 0 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b1c0 cycle 1 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b1c0 cycle 2 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b1c0 cycle 10 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b1c0 cycle 100 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b1c0 cycle 594 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b1c0 cycle 1188 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b2c0 cycle 0 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b2c0 cycle 1 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b2c0 cycle 2 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b2c0 cycle 10 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b2c0 cycle 100 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b2c0 cycle 163 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b2c0 cycle 325 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b3c0 cycle 0 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b3c0 cycle 1 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b3c0 cycle 2 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b3c0 cycle 10 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b3c0 cycle 100 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b3c0 cycle 504 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - b3c0 cycle 1007 channel dQdV: KeyError: "Unable to synchronously open object (object 'dQdV' doesn't exist)"
+  - figure c ('b1c0', 0): ValueError: Qdlin length 2 != Vdlin length 1000
+anomalies (46):
+  - b1c0: leading qd_first == 0
+  - b1c1: leading qd_first == 0
+  - b1c2: leading qd_first == 0
+  - b1c3: leading qd_first == 0
+  - b1c4: leading qd_first == 0
+  - b1c5: leading qd_first == 0
+  - b1c6: leading qd_first == 0
+  - b1c7: leading qd_first == 0
+  - b1c8: leading qd_first == 0
+  - b1c9: leading qd_first == 0
+  - b1c10: leading qd_first == 0
+  - b1c11: leading qd_first == 0
+  - b1c12: leading qd_first == 0
+  - b1c13: leading qd_first == 0
+  - b1c14: leading qd_first == 0
+  - b1c15: leading qd_first == 0
+  - b1c16: leading qd_first == 0
+  - b1c17: leading qd_first == 0
+  - b1c18: leading qd_first == 0
+  - b1c19: leading qd_first == 0
+  - b1c20: leading qd_first == 0
+  - b1c21: leading qd_first == 0
+  - b1c22: leading qd_first == 0
+  - b1c23: leading qd_first == 0
+  - b1c24: leading qd_first == 0
+  - b1c25: leading qd_first == 0
+  - b1c26: leading qd_first == 0
+  - b1c27: leading qd_first == 0
+  - b1c28: leading qd_first == 0
+  - b1c29: leading qd_first == 0
+  - b1c30: leading qd_first == 0
+  - b1c31: leading qd_first == 0
+  - b1c32: leading qd_first == 0
+  - b1c33: leading qd_first == 0
+  - b1c34: leading qd_first == 0
+  - b1c35: leading qd_first == 0
+  - b1c36: leading qd_first == 0
+  - b1c37: leading qd_first == 0
+  - b1c38: leading qd_first == 0
+  - b1c39: leading qd_first == 0
+  - b1c40: leading qd_first == 0
+  - b1c41: leading qd_first == 0
+  - b1c42: leading qd_first == 0
+  - b1c43: leading qd_first == 0
+  - b1c44: leading qd_first == 0
+  - b1c45: leading qd_first == 0
+
+------------------------------------------------------------------------------
+(8) ARTIFACT FILES
+------------------------------------------------------------------------------
+  dataset_files.json                                2,110 bytes
+  environment_report.json                           3,897 bytes
+  figures/fig_cycle_life_hist.png                  29,667 bytes
+  figures/fig_qd_vs_cycle.png                     237,897 bytes
+  figures/fig_qdlin_vs_vdlin.png                   61,130 bytes
+  hdf5_structure.json                             107,835 bytes
+  policy_overlap_preview.json                       2,851 bytes
+  raw_cell_inventory_phase1.csv                    31,840 bytes
+  requirements_lock.txt                             1,372 bytes
+
+------------------------------------------------------------------------------
+(9) RUNTIME
+------------------------------------------------------------------------------
+total runtime: 79.8 s
+by section: 1=1.2s, 2=49.4s, 3=21.4s, 4=0.3s, 5=2.2s, 6=0.2s, 7=0.4s, 8=4.4s, 9=0.2s, 9=0.1s

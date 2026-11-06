@@ -1,0 +1,205 @@
+{
+  "runtime_s": 41.8,
+  "checks": [
+    {
+      "name": "RAM available >= 2 GB",
+      "status": "WARN",
+      "detail": "1.9 GB free of 16.9 GB"
+    },
+    {
+      "name": "labels_table has the expected columns",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "cycles_table has 104,971 rows",
+      "status": "PASS",
+      "detail": "104971"
+    },
+    {
+      "name": "array shapes match cycles_table",
+      "status": "PASS",
+      "detail": "Q (104971, 1000), t_knots (104971, 16), qref (129, 1000)"
+    },
+    {
+      "name": "cycles_table.row_id equals position",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "labels_table covers every array row",
+      "status": "PASS",
+      "detail": "104971 labelled rows vs 104971"
+    },
+    {
+      "name": "cycles_table.cell_id agrees with labels_table",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "cycles_table.cycle_number agrees with labels_table",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "scored rows = 100,795",
+      "status": "PASS",
+      "detail": "100795"
+    },
+    {
+      "name": "scored development rows = 55,965",
+      "status": "WARN",
+      "detail": "60339"
+    },
+    {
+      "name": "development cells with scored rows = 84",
+      "status": "WARN",
+      "detail": "89"
+    },
+    {
+      "name": "q0 column found in cell_reference.csv",
+      "status": "PASS",
+      "detail": "q0; rows with q0: 104971"
+    },
+    {
+      "name": "split files and locked list match phase3 artifact_hashes.json",
+      "status": "PASS",
+      "detail": "5 files, mismatching or unlisted: []"
+    },
+    {
+      "name": "notebook never writes to splits",
+      "status": "PASS",
+      "detail": "guard_write() asserts on every write"
+    },
+    {
+      "name": "each development cell is held out exactly once in repeat 0",
+      "status": "WARN",
+      "detail": "6 folds, test role 'test', 84 held-out cells vs 89 dev cells"
+    },
+    {
+      "name": "ratio_end range matches Phase 3",
+      "status": "PASS",
+      "detail": "7.73e-05..21.7"
+    },
+    {
+      "name": "reproduce R2 0.926 at 3.2->2.4",
+      "status": "PASS",
+      "detail": "0.926"
+    },
+    {
+      "name": "reproduce R2 -0.93 at 3.5->2.0",
+      "status": "PASS",
+      "detail": "-0.927"
+    },
+    {
+      "name": "reproduce corr 0.47 (batch 1)",
+      "status": "PASS",
+      "detail": "0.484"
+    },
+    {
+      "name": "reproduce corr 0.96 (batch 2)",
+      "status": "PASS",
+      "detail": "0.965"
+    },
+    {
+      "name": "scored2 is a subset of scored",
+      "status": "PASS",
+      "detail": "scored 100795 -> scored2 100793"
+    },
+    {
+      "name": "b2c40 above 2%",
+      "status": "PASS",
+      "detail": "['b2c40']"
+    },
+    {
+      "name": "soh_common.py: original bytes are an exact prefix",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "window_valid: valid row True, three corrupted rows False",
+      "status": "PASS",
+      "detail": "[True, False, False, False]"
+    },
+    {
+      "name": "window_valid is causal (tail jump after 3.1 V does not invalidate a window closing at 3.1 V)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "vectorised window validity equals window_valid()",
+      "status": "PASS",
+      "detail": "0 mismatches in 1212 spot checks"
+    },
+    {
+      "name": "labels_table_v2 keeps every original column unchanged",
+      "status": "PASS",
+      "detail": "(104971, 26)"
+    },
+    {
+      "name": "full-window R2(A) >= 0.90",
+      "status": "PASS",
+      "detail": "0.9176"
+    },
+    {
+      "name": "scored2 is a subset of scored",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "split hashes unchanged at end",
+      "status": "PASS",
+      "detail": "5 files"
+    },
+    {
+      "name": "labels_table.parquet unchanged",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "no model objects created",
+      "status": "PASS",
+      "detail": "estimators 0, ML modules []"
+    },
+    {
+      "name": "soh_common.py existing functions unchanged (AST vs start of notebook)",
+      "status": "PASS",
+      "detail": "26 nodes"
+    },
+    {
+      "name": "window_valid is defined exactly once in soh_common.py",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "no write inside splits",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "elapsed_min agrees with t_knots at knot closes (median |diff| < 0.3 min)",
+      "status": "WARN",
+      "detail": "1.313"
+    }
+  ],
+  "errors": [],
+  "counts": {
+    "scored": 100795,
+    "scored2": 100793,
+    "dev_scored": 60339,
+    "dev_scored2": 60337
+  },
+  "full_window_R2_A": 0.91762,
+  "stopped_audit": false,
+  "artifacts": {
+    "outputs\\phase3b\\window_audit_v2.csv": 21087,
+    "data\\processed\\labels_table_v2.parquet": 4951810,
+    "src\\soh_common.py": 7109,
+    "outputs\\phase3b\\figures\\heatmap_L.png": 35057,
+    "outputs\\phase3b\\figures\\heatmap_minutes_saved.png": 33716,
+    "outputs\\phase3b\\figures\\heatmap_r2_A.png": 39471,
+    "outputs\\phase3b\\figures\\r2_ABC_open35.png": 45424,
+    "outputs\\phase3b\\figures\\r2_L_elapsed_open35.png": 78380,
+    "outputs\\phase3b\\figures\\worst_tail_curves.png": 115266
+  }
+}
