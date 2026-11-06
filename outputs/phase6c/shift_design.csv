@@ -1,0 +1,4 @@
+test,n_train,n_test,n_test_stitched,n_test_excl_stitched,n_policies_test,n_twins_removed,train_life_min,train_life_max,test_life_min,test_life_max,twins_removed
+extreme_short,76,8,0,8,8,0,458.0,2237.0,148.0,457.0,
+extreme_long,75,8,5,3,5,1,148.0,1017.0,1051.0,2237.0,b1c40
+longest_tertile,49,28,5,23,17,7,148.0,704.0,713.0,2237.0,b1c18 b1c30 b1c35 b1c6 b2c24 b2c25 b2c26

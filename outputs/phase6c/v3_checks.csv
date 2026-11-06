@@ -1,0 +1,28 @@
+level,name,detail
+PASS,delta-Q check W300 row 36631,
+PASS,delta-Q check W300 row 4994,
+PASS,delta-Q check W300 row 43312,
+PASS,(a) v3 n_extra=0 initial weights identical to v2 (seed 42),
+PASS,(a) v3 n_extra=0 initial weights identical to v2 (seed 43),
+PASS,"(a) extra disabled: v3 equals v2 to 1e-12 in float64 (validation curve, training loss, train MAE, predictions)","max |diff|: val curve 0.0e+00, train loss 0.0e+00, train MAE 0.0e+00, predictions 0.0e+00"
+PASS,(a) extra disabled: scalers identical and no extra statistics created,
+PASS,"(b) parameter counts: M0 2,969; M0+idx 3,013 (= 2,969 + 44)","v2 2969, v3 no-idx 2969, v3 +idx 3013"
+PASS,(b) batched M0+idx has 34 inputs per member,"W1 (3, 34, 44)"
+PASS,(c) member 0: extra-input mean/std equal the training-row statistics,
+PASS,(c) member 1: extra-input mean/std equal the training-row statistics,
+PASS,(c) changing the extra values of rows outside the training rows leaves the statistics unchanged,
+PASS,(c) statistics differ from all-row statistics (the check is not vacuous),5.39395 vs 5.60012
+PASS,(d) row input = Q0 scaled as in v2 plus its own standardised extra value,
+PASS,(d) other rows' extra values never reach a row's input,
+PASS,(d) changing one row's own extra value changes only that row's input,"changed [[0, 5]]"
+PASS,(d) predictions of a row do not depend on other rows' extra values,
+PASS,(d) predictions react to the row's own extra value (not vacuous),
+PASS,batched forward equals single-model forward (34 inputs),2.8e-17
+PASS,M0+idx trains without NaN,
+PASS,M0+idx predictions differ from M0 (extra input is used),
+PASS,"(c) outer set (0,0): extra-input mean/std equal those of the training cells' rows","mean 5.6647, std 0.8513"
+PASS,"(c) outer set (0,0): statistics differ from those that would include the test cells (not vacuous)",
+PASS,(d) extra input = log1p of each row's own cycle_number,
+PASS,(d) the value depends on the cycle number only (same cycle in different cells / lives gives the same input),
+PASS,"(d) not a function of life, fraction of life or remaining life",
+PASS,(d) strictly increasing with cycle inside every cell (available at the time of the measurement),

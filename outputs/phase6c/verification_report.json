@@ -1,0 +1,1401 @@
+{
+  "phase": "6c",
+  "label": "POST-HOC VARIANT, NOT A GATE RESULT",
+  "created": "2026-11-05T01:41:55",
+  "root": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation",
+  "partial": false,
+  "n_pass": 255,
+  "n_warn": 0,
+  "n_fail": 0,
+  "intervals": {
+    "3 Protocol D paired intervals": 16,
+    "4 shift paired intervals": 20,
+    "4 shift paired intervals (same cells, Protocol D)": 20
+  },
+  "n_intervals": 56,
+  "checks": [
+    {
+      "level": "PASS",
+      "name": "input exists: outputs\\phase4\\week2_gate.json",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "input exists: src\\soh_deep_v2.py",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "input exists: outputs\\phase5b\\gate_verdict.json",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "input exists: outputs\\phase6b\\frozen_config.json",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "input exists: outputs\\phase6b\\ablation_results.csv",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 matches frozen value at start: gate",
+      "detail": "40df2fb82096e994..."
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 matches frozen value at start: module",
+      "detail": "fc53e37d506ebe51..."
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 matches frozen value at start: verdict",
+      "detail": "2f59f82a7c7d8940..."
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 matches frozen value at start: frozen_config",
+      "detail": "78b571c7526551c7..."
+    },
+    {
+      "level": "PASS",
+      "name": "verdict file reads W300 FAIL / W240 PASS",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.train_members present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.fit_scalers present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.predict present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.sub_idx present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.count_params present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.make_single present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.make_inputs present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "CUDA available (needed for the training sections)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "allow-list q0 (primary)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "labels_table_v2.parquet found",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "labels rows",
+      "detail": "104971"
+    },
+    {
+      "level": "PASS",
+      "name": "row_id == position",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "qdlin shape",
+      "detail": "(104971, 1000)"
+    },
+    {
+      "level": "PASS",
+      "name": "qref shape/rows",
+      "detail": "(129, 1000)"
+    },
+    {
+      "level": "PASS",
+      "name": "split roles",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "84 development cells",
+      "detail": "84"
+    },
+    {
+      "level": "PASS",
+      "name": "41 batch-1 + 43 batch-2",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no batch-3 / sensitivity cells in development",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "3 repeats x 6 outer folds",
+      "detail": "([0, 1, 2], [0, 1, 2, 3, 4, 5])"
+    },
+    {
+      "level": "PASS",
+      "name": "each dev cell in exactly one test set per repeat",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "18 outer sets with 13-17 test cells",
+      "detail": "[14, 14, 14, 15, 14, 13, 14, 14, 13, 17, 13, 13, 14, 14, 14, 14, 14, 14]"
+    },
+    {
+      "level": "PASS",
+      "name": "policy_norm found in a Phase 3 groups file",
+      "detail": "looked in outputs/phase3/*.csv and data/processed/splits/*.csv for columns cell_id + policy_norm"
+    },
+    {
+      "level": "PASS",
+      "name": "policy_norm known for all 84 development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "development rows",
+      "detail": "55963"
+    },
+    {
+      "level": "PASS",
+      "name": "(cell, cycle) unique",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in y / q0 / cycle_number",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "cycle numbers are non-negative (log and log1p defined)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "cell blocks contiguous and sorted",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "cell arrays contain no batch-3 / sensitivity cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (0,0)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (0,0)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (0,1)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (0,1)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (0,2)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (0,2)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (0,3)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (0,3)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (0,4)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (0,4)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (0,5)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (0,5)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (1,0)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (1,0)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (1,1)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (1,1)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (1,2)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (1,2)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (1,3)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (1,3)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (1,4)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (1,4)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (1,5)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (1,5)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (2,0)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (2,0)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (2,1)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (2,1)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (2,2)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (2,2)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (2,3)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (2,3)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (2,4)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (2,4)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (2,5)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (2,5)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "frozen_config.json records the frozen module and gate hashes",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "frozen common config as specified (E 120, batch 256, seeds 42-46, stride 5, abs head, Huber 1 pp, 300 trees, max_features 0.33, tree seed 42)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "frozen window config W300",
+      "detail": "lr 0.004, wd 0.0001, B4r leaf 3"
+    },
+    {
+      "level": "PASS",
+      "name": "frozen window config W240",
+      "detail": "lr 0.008, wd 0.001, B4r leaf 1"
+    },
+    {
+      "level": "PASS",
+      "name": "adapters defined",
+      "detail": "seeds [42, 43, 44, 45, 46], E=120, trees 300, tree jobs 10"
+    },
+    {
+      "level": "PASS",
+      "name": "ablation_results.csv has W300 M0:ref",
+      "detail": "1"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W300 M0:ref macro_mae",
+      "detail": "0.832337 vs 0.832337 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W300 M0:ref macro_excl_stitched",
+      "detail": "0.697297 vs 0.697297 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W300 M0:ref last20_macro_mae",
+      "detail": "1.595383 vs 1.595383 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W300 M0:ref pooled_bias",
+      "detail": "0.572722 vs 0.572722 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "ablation_results.csv has W300 B4r:ref",
+      "detail": "1"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W300 B4r:ref macro_mae",
+      "detail": "0.816469 vs 0.816469 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W300 B4r:ref macro_excl_stitched",
+      "detail": "0.739119 vs 0.739119 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W300 B4r:ref last20_macro_mae",
+      "detail": "1.498868 vs 1.498868 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W300 B4r:ref pooled_bias",
+      "detail": "0.250876 vs 0.250876 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "ablation_results.csv has W300 B4r:+log_cycle",
+      "detail": "1"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W300 B4r:+log_cycle macro_mae",
+      "detail": "0.591718 vs 0.591718 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W300 B4r:+log_cycle macro_excl_stitched",
+      "detail": "0.559306 vs 0.559306 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W300 B4r:+log_cycle last20_macro_mae",
+      "detail": "1.042580 vs 1.042580 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W300 B4r:+log_cycle pooled_bias",
+      "detail": "0.148623 vs 0.148623 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "ablation_results.csv has W240 M0:ref",
+      "detail": "1"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W240 M0:ref macro_mae",
+      "detail": "0.522396 vs 0.522396 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W240 M0:ref macro_excl_stitched",
+      "detail": "0.526350 vs 0.526350 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W240 M0:ref last20_macro_mae",
+      "detail": "0.774945 vs 0.774945 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W240 M0:ref pooled_bias",
+      "detail": "0.102766 vs 0.102766 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "ablation_results.csv has W240 B4r:ref",
+      "detail": "1"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W240 B4r:ref macro_mae",
+      "detail": "0.521209 vs 0.521209 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W240 B4r:ref macro_excl_stitched",
+      "detail": "0.499915 vs 0.499915 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W240 B4r:ref last20_macro_mae",
+      "detail": "0.801434 vs 0.801434 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W240 B4r:ref pooled_bias",
+      "detail": "0.135622 vs 0.135622 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "ablation_results.csv has W240 B4r:+log_cycle",
+      "detail": "1"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W240 B4r:+log_cycle macro_mae",
+      "detail": "0.442476 vs 0.442476 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W240 B4r:+log_cycle macro_excl_stitched",
+      "detail": "0.433678 vs 0.433678 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W240 B4r:+log_cycle last20_macro_mae",
+      "detail": "0.696045 vs 0.696045 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces ablation_results.csv W240 B4r:+log_cycle pooled_bias",
+      "detail": "0.108276 vs 0.108276 (|diff| 0.0e+00)"
+    },
+    {
+      "level": "PASS",
+      "name": "v3 patch: every replacement matched exactly once",
+      "detail": "18 replacements"
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.py untouched (sha256 unchanged after building v3)",
+      "detail": "fc53e37d506ebe51..."
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v3.py on disk equals the patched text",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v3 imported from src/",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "v3 uses exactly the same cfg keys as v2",
+      "detail": "['BATCH', 'CLIP', 'HUBER_DELTA', 'NOISE_SIGMA', 'NOMINAL_AH', 'WARMUP_FRAC', 'WD']"
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 36631",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 4994",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 43312",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(a) v3 n_extra=0 initial weights identical to v2 (seed 42)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(a) v3 n_extra=0 initial weights identical to v2 (seed 43)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(a) extra disabled: v3 equals v2 to 1e-12 in float64 (validation curve, training loss, train MAE, predictions)",
+      "detail": "max |diff|: val curve 0.0e+00, train loss 0.0e+00, train MAE 0.0e+00, predictions 0.0e+00"
+    },
+    {
+      "level": "PASS",
+      "name": "(a) extra disabled: scalers identical and no extra statistics created",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(b) parameter counts: M0 2,969; M0+idx 3,013 (= 2,969 + 44)",
+      "detail": "v2 2969, v3 no-idx 2969, v3 +idx 3013"
+    },
+    {
+      "level": "PASS",
+      "name": "(b) batched M0+idx has 34 inputs per member",
+      "detail": "W1 (3, 34, 44)"
+    },
+    {
+      "level": "PASS",
+      "name": "(c) member 0: extra-input mean/std equal the training-row statistics",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(c) member 1: extra-input mean/std equal the training-row statistics",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(c) changing the extra values of rows outside the training rows leaves the statistics unchanged",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(c) statistics differ from all-row statistics (the check is not vacuous)",
+      "detail": "5.39395 vs 5.60012"
+    },
+    {
+      "level": "PASS",
+      "name": "(d) row input = Q0 scaled as in v2 plus its own standardised extra value",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(d) other rows' extra values never reach a row's input",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(d) changing one row's own extra value changes only that row's input",
+      "detail": "changed [[0, 5]]"
+    },
+    {
+      "level": "PASS",
+      "name": "(d) predictions of a row do not depend on other rows' extra values",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(d) predictions react to the row's own extra value (not vacuous)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "batched forward equals single-model forward (34 inputs)",
+      "detail": "2.8e-17"
+    },
+    {
+      "level": "PASS",
+      "name": "M0+idx trains without NaN",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "M0+idx predictions differ from M0 (extra input is used)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(c) outer set (0,0): extra-input mean/std equal those of the training cells' rows",
+      "detail": "mean 5.6647, std 0.8513"
+    },
+    {
+      "level": "PASS",
+      "name": "(c) outer set (0,0): statistics differ from those that would include the test cells (not vacuous)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(d) extra input = log1p of each row's own cycle_number",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(d) the value depends on the cycle number only (same cycle in different cells / lives gives the same input)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(d) not a function of life, fraction of life or remaining life",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "(d) strictly increasing with cycle inside every cell (available at the time of the measurement)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 36631",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 4994",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 43312",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sub_idx gives 32 grid points",
+      "detail": "32"
+    },
+    {
+      "level": "PASS",
+      "name": "count_params M0+idx",
+      "detail": "3013 vs 3013"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/idx",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W240 row 36631",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W240 row 4994",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W240 row 43312",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sub_idx gives 32 grid points",
+      "detail": "32"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/idx",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "84 cells and 55,963 rows, 3 repeats, no NaN: all four models, both windows",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "8 or 9 cells in each extreme group",
+      "detail": "(8, 8)"
+    },
+    {
+      "level": "PASS",
+      "name": "extreme_short: train and test cells disjoint, no twin in training",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "extreme_short: no training cell shares a policy_norm with a test cell",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "extreme_short: no batch-3 / sensitivity cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "extreme_long: train and test cells disjoint, no twin in training",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "extreme_long: no training cell shares a policy_norm with a test cell",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "extreme_long: no batch-3 / sensitivity cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "life > 710 cells equal the longest life tertile of 6b (cuts 493 / 710)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "28 cells in the longest tertile",
+      "detail": "28"
+    },
+    {
+      "level": "PASS",
+      "name": "longest_tertile: train and test cells disjoint, no twin in training",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "longest_tertile: no training cell shares a policy_norm with a test cell",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "longest_tertile: no batch-3 / sensitivity cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "longest_tertile: every training cell has life <= 710",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "6b extreme holdout: same held-out cells (short, W300)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "6b extreme holdout: same held-out cells (short, W240)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "6b extreme holdout: same policy twins removed and training size (short)",
+      "detail": "twins [], n_train 76"
+    },
+    {
+      "level": "PASS",
+      "name": "6b extreme holdout: same held-out cells (long, W300)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "6b extreme holdout: same held-out cells (long, W240)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "6b extreme holdout: same policy twins removed and training size (long)",
+      "detail": "twins ['b1c40'], n_train 75"
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 36631",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 4994",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 43312",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sub_idx gives 32 grid points",
+      "detail": "32"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/idx",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/ext_idx",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300 extreme_short M0: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300 extreme_short B4r: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300 extreme_short M0+idx: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300 extreme_short B4r+idx: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300 extreme_long M0: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300 extreme_long B4r: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300 extreme_long M0+idx: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300 extreme_long B4r+idx: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "count_params M0",
+      "detail": "2969 vs 2969"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/ref",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/idx",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/hard_B4r",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/hard_idx",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300 longest_tertile M0: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300 longest_tertile M0+idx: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300 longest_tertile B4r: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300 longest_tertile B4r+idx: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W240 row 36631",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W240 row 4994",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W240 row 43312",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sub_idx gives 32 grid points",
+      "detail": "32"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/idx",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/ext_idx",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240 extreme_short M0: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240 extreme_short B4r: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240 extreme_short M0+idx: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240 extreme_short B4r+idx: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240 extreme_long M0: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240 extreme_long B4r: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240 extreme_long M0+idx: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240 extreme_long B4r+idx: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/ref",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/idx",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/hard_B4r",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/hard_idx",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240 longest_tertile M0: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240 longest_tertile M0+idx: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240 longest_tertile B4r: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240 longest_tertile B4r+idx: predictions cover exactly the test cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces 6b extreme-holdout per-cell MAE W300 extreme_short M0",
+      "detail": "max |diff| 0.0e+00"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces 6b extreme-holdout per-cell MAE W300 extreme_short B4r",
+      "detail": "max |diff| 0.0e+00"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces 6b extreme-holdout per-cell MAE W300 extreme_long M0",
+      "detail": "max |diff| 0.0e+00"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces 6b extreme-holdout per-cell MAE W300 extreme_long B4r",
+      "detail": "max |diff| 0.0e+00"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces 6b extreme-holdout per-cell MAE W240 extreme_short M0",
+      "detail": "max |diff| 0.0e+00"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces 6b extreme-holdout per-cell MAE W240 extreme_short B4r",
+      "detail": "max |diff| 0.0e+00"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces 6b extreme-holdout per-cell MAE W240 extreme_long M0",
+      "detail": "max |diff| 0.0e+00"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces 6b extreme-holdout per-cell MAE W240 extreme_long B4r",
+      "detail": "max |diff| 0.0e+00"
+    },
+    {
+      "level": "PASS",
+      "name": "figure written: fig_a_forest_idx_vs_noidx.png",
+      "detail": "144 KB"
+    },
+    {
+      "level": "PASS",
+      "name": "figure written: fig_b_signed_error_vs_life_longest_tertile.png",
+      "detail": "71 KB"
+    },
+    {
+      "level": "PASS",
+      "name": "figure written: fig_c_mae_by_test_and_model.png",
+      "detail": "39 KB"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in table: reproduction_check",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in table: protocol_d_models",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in table: protocol_d_per_cell",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in table: protocol_d_contrasts",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in table: shift_per_cell",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in table: shift_results",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in table: summary_idx_vs_noidx",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in table: summary_idx_vs_noidx (shift rows)",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "84 cells and 55,963 rows in every full-protocol result",
+      "detail": "8 arrays"
+    },
+    {
+      "level": "PASS",
+      "name": "no batch-3 / sensitivity cells in any array, set or table",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train and test cells disjoint in every set (18 Protocol D outer sets and the 3 shift tests)",
+      "detail": "also asserted per member at training time (220 deep members, 8 forests this run)"
+    },
+    {
+      "level": "PASS",
+      "name": "no policy twin of a test cell in any shift-test training set",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "longest-tertile training cells all have life <= 710",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "shift_per_cell has one row per window x model x test cell",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "all outputs written under outputs/phase6c only (plus src/soh_deep_v3.py, written in section 2)",
+      "detail": "13 files"
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 unchanged at end: gate",
+      "detail": "40df2fb82096e994..."
+    },
+    {
+      "level": "PASS",
+      "name": "mtime unchanged at end: gate",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 unchanged at end: module",
+      "detail": "fc53e37d506ebe51..."
+    },
+    {
+      "level": "PASS",
+      "name": "mtime unchanged at end: module",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 unchanged at end: verdict",
+      "detail": "2f59f82a7c7d8940..."
+    },
+    {
+      "level": "PASS",
+      "name": "mtime unchanged at end: verdict",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 unchanged at end: frozen_config",
+      "detail": "78b571c7526551c7..."
+    },
+    {
+      "level": "PASS",
+      "name": "mtime unchanged at end: frozen_config",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "verdict file untouched (W300 FAIL / W240 PASS, never recomputed)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v3.py unchanged at end",
+      "detail": "9c022dd391193de9..."
+    },
+    {
+      "level": "PASS",
+      "name": "total interval count printed",
+      "detail": "56"
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "figures/fig_a_forest_idx_vs_noidx.png",
+      "bytes": 147843
+    },
+    {
+      "file": "figures/fig_b_signed_error_vs_life_longest_tertile.png",
+      "bytes": 73129
+    },
+    {
+      "file": "figures/fig_c_mae_by_test_and_model.png",
+      "bytes": 40446
+    },
+    {
+      "file": "phase6c_report.txt",
+      "bytes": 34982
+    },
+    {
+      "file": "protocol_d_contrasts.csv",
+      "bytes": 3579
+    },
+    {
+      "file": "protocol_d_models.csv",
+      "bytes": 2428
+    },
+    {
+      "file": "protocol_d_per_cell.csv",
+      "bytes": 50892
+    },
+    {
+      "file": "reproduction_check.csv",
+      "bytes": 3368
+    },
+    {
+      "file": "shift_design.csv",
+      "bytes": 375
+    },
+    {
+      "file": "shift_per_cell.csv",
+      "bytes": 51721
+    },
+    {
+      "file": "shift_results.csv",
+      "bytes": 8602
+    },
+    {
+      "file": "summary_findings.csv",
+      "bytes": 5725
+    },
+    {
+      "file": "summary_idx_vs_noidx.csv",
+      "bytes": 9880
+    },
+    {
+      "file": "v3_checks.csv",
+      "bytes": 2197
+    }
+  ],
+  "elapsed_seconds": 380.1,
+  "hashes": {
+    "start": {
+      "gate": {
+        "sha": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "exp": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "mtime": 1793556788521767700
+      },
+      "module": {
+        "sha": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "exp": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "mtime": 1793612345170790900
+      },
+      "verdict": {
+        "sha": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "exp": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "mtime": 1793649179741168300
+      },
+      "frozen_config": {
+        "sha": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "exp": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "mtime": 1793680201671030500
+      }
+    },
+    "end": {
+      "gate": {
+        "sha": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "exp": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "mtime": 1793556788521767700
+      },
+      "module": {
+        "sha": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "exp": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "mtime": 1793612345170790900
+      },
+      "verdict": {
+        "sha": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "exp": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "mtime": 1793649179741168300
+      },
+      "frozen_config": {
+        "sha": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "exp": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+        "mtime": 1793680201671030500
+      }
+    }
+  },
+  "soh_deep_v3_sha256": "9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb",
+  "frozen_config_sha256": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU 6.4 GB VRAM, torch 2.14.1+cu130"
+}

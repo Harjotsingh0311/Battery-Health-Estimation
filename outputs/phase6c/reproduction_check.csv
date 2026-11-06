@@ -1,0 +1,25 @@
+window,model,variant_6b,metric,recomputed,ablation_results,abs_diff,source
+W300,M0,M0:ref,macro_mae,0.8323367411309208,0.8323367411309208,0.0,6b cache: abl_deep_W300_ref_7a70aa6b067792dd5e67.parquet
+W300,M0,M0:ref,macro_excl_stitched,0.6972974066415836,0.6972974066415836,0.0,6b cache: abl_deep_W300_ref_7a70aa6b067792dd5e67.parquet
+W300,M0,M0:ref,last20_macro_mae,1.5953828205115395,1.5953828205115395,0.0,6b cache: abl_deep_W300_ref_7a70aa6b067792dd5e67.parquet
+W300,M0,M0:ref,pooled_bias,0.5727222851972562,0.5727222851972562,0.0,6b cache: abl_deep_W300_ref_7a70aa6b067792dd5e67.parquet
+W300,B4r,B4r:ref,macro_mae,0.8164687101712621,0.8164687101712621,0.0,6b cache: abl_tree_W300_ref_314744ee591a60a1c141.parquet
+W300,B4r,B4r:ref,macro_excl_stitched,0.7391188655305833,0.7391188655305833,0.0,6b cache: abl_tree_W300_ref_314744ee591a60a1c141.parquet
+W300,B4r,B4r:ref,last20_macro_mae,1.498867875940684,1.498867875940684,0.0,6b cache: abl_tree_W300_ref_314744ee591a60a1c141.parquet
+W300,B4r,B4r:ref,pooled_bias,0.2508761354421261,0.2508761354421261,0.0,6b cache: abl_tree_W300_ref_314744ee591a60a1c141.parquet
+W300,B4r+idx,B4r:+log_cycle,macro_mae,0.5917181421448646,0.5917181421448646,0.0,6b cache: abl_tree_W300_+log_cycle_c3a45e6bb1b9abe9f5f2.parquet
+W300,B4r+idx,B4r:+log_cycle,macro_excl_stitched,0.5593063510797225,0.5593063510797225,0.0,6b cache: abl_tree_W300_+log_cycle_c3a45e6bb1b9abe9f5f2.parquet
+W300,B4r+idx,B4r:+log_cycle,last20_macro_mae,1.0425803951600576,1.0425803951600576,0.0,6b cache: abl_tree_W300_+log_cycle_c3a45e6bb1b9abe9f5f2.parquet
+W300,B4r+idx,B4r:+log_cycle,pooled_bias,0.14862298336413374,0.14862298336413374,0.0,6b cache: abl_tree_W300_+log_cycle_c3a45e6bb1b9abe9f5f2.parquet
+W240,M0,M0:ref,macro_mae,0.522395634754252,0.522395634754252,0.0,6b cache: abl_deep_W240_ref_def24b8253a86ca7030f.parquet
+W240,M0,M0:ref,macro_excl_stitched,0.526349787541737,0.526349787541737,0.0,6b cache: abl_deep_W240_ref_def24b8253a86ca7030f.parquet
+W240,M0,M0:ref,last20_macro_mae,0.7749452437606626,0.7749452437606626,0.0,6b cache: abl_deep_W240_ref_def24b8253a86ca7030f.parquet
+W240,M0,M0:ref,pooled_bias,0.10276610792793643,0.10276610792793643,0.0,6b cache: abl_deep_W240_ref_def24b8253a86ca7030f.parquet
+W240,B4r,B4r:ref,macro_mae,0.5212088399831404,0.5212088399831404,0.0,6b cache: abl_tree_W240_ref_47d2f55bd7e397f4a6b9.parquet
+W240,B4r,B4r:ref,macro_excl_stitched,0.4999148289465647,0.4999148289465647,0.0,6b cache: abl_tree_W240_ref_47d2f55bd7e397f4a6b9.parquet
+W240,B4r,B4r:ref,last20_macro_mae,0.8014337871095126,0.8014337871095126,0.0,6b cache: abl_tree_W240_ref_47d2f55bd7e397f4a6b9.parquet
+W240,B4r,B4r:ref,pooled_bias,0.13562165747804134,0.13562165747804134,0.0,6b cache: abl_tree_W240_ref_47d2f55bd7e397f4a6b9.parquet
+W240,B4r+idx,B4r:+log_cycle,macro_mae,0.4424757357580555,0.4424757357580555,0.0,6b cache: abl_tree_W240_+log_cycle_6b6d3b8e02da8e858baa.parquet
+W240,B4r+idx,B4r:+log_cycle,macro_excl_stitched,0.4336780891643405,0.4336780891643405,0.0,6b cache: abl_tree_W240_+log_cycle_6b6d3b8e02da8e858baa.parquet
+W240,B4r+idx,B4r:+log_cycle,last20_macro_mae,0.6960451667855452,0.6960451667855452,0.0,6b cache: abl_tree_W240_+log_cycle_6b6d3b8e02da8e858baa.parquet
+W240,B4r+idx,B4r:+log_cycle,pooled_bias,0.10827595055045945,0.10827595055045945,0.0,6b cache: abl_tree_W240_+log_cycle_6b6d3b8e02da8e858baa.parquet

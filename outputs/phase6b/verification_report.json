@@ -1,0 +1,1869 @@
+{
+  "phase": "6b",
+  "created": "2026-11-03T10:26:50",
+  "root": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation",
+  "partial": false,
+  "n_pass": 340,
+  "n_warn": 2,
+  "n_fail": 0,
+  "intervals": {
+    "2a spearman CIs": 12,
+    "2c paired intervals": 20,
+    "2d coverage CIs": 48,
+    "3 paired ablation intervals": 14
+  },
+  "n_intervals": 94,
+  "checks": [
+    {
+      "level": "PASS",
+      "name": "input exists: outputs\\phase4\\week2_gate.json",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "input exists: src\\soh_deep_v2.py",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "input exists: outputs\\phase5b\\gate_verdict.json",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "input exists: outputs\\phase5b\\tuning_log_5b.csv",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "input exists: outputs\\phase5b\\deep_results.csv",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 matches frozen value at start: gate",
+      "detail": "40df2fb82096e994..."
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 matches frozen value at start: module",
+      "detail": "fc53e37d506ebe51..."
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 matches frozen value at start: verdict",
+      "detail": "2f59f82a7c7d8940..."
+    },
+    {
+      "level": "PASS",
+      "name": "verdict file reads W300 FAIL / W240 PASS",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.train_members present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.fit_scalers present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.predict present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.sub_idx present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.count_params present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.make_single present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "soh_deep_v2.make_inputs present",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "CUDA available (needed for the training sections)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "allow-list q0 (primary)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "labels_table_v2.parquet found",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "labels rows",
+      "detail": "104971"
+    },
+    {
+      "level": "PASS",
+      "name": "row_id == position",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "qdlin shape",
+      "detail": "(104971, 1000)"
+    },
+    {
+      "level": "PASS",
+      "name": "qref shape/rows",
+      "detail": "(129, 1000)"
+    },
+    {
+      "level": "PASS",
+      "name": "split roles",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "84 development cells",
+      "detail": "84"
+    },
+    {
+      "level": "PASS",
+      "name": "41 batch-1 + 43 batch-2",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no batch-3 / sensitivity cells in development",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "3 repeats x 6 outer folds",
+      "detail": "([0, 1, 2], [0, 1, 2, 3, 4, 5])"
+    },
+    {
+      "level": "PASS",
+      "name": "each dev cell in exactly one test set per repeat",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "18 outer sets with 13-17 test cells",
+      "detail": "[14, 14, 14, 15, 14, 13, 14, 14, 13, 17, 13, 13, 14, 14, 14, 14, 14, 14]"
+    },
+    {
+      "level": "PASS",
+      "name": "policy_norm found in a Phase 3 groups file",
+      "detail": "looked in outputs/phase3/*.csv and data/processed/splits/*.csv for columns cell_id + policy_norm"
+    },
+    {
+      "level": "PASS",
+      "name": "policy_norm known for all 84 development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "development rows",
+      "detail": "55963"
+    },
+    {
+      "level": "PASS",
+      "name": "(cell, cycle) unique",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in y / q0",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "cell blocks contiguous and sorted",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "tertile groups not tiny",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "cell arrays contain no batch-3 / sensitivity cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "fold map complete",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (0,0)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (0,0)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (0,1)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (0,1)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (0,2)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (0,2)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (0,3)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (0,3)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (0,4)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (0,4)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (0,5)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (0,5)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (1,0)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (1,0)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (1,1)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (1,1)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (1,2)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (1,2)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (1,3)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (1,3)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (1,4)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (1,4)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (1,5)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (1,5)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (2,0)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (2,0)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (2,1)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (2,1)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (2,2)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (2,2)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (2,3)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (2,3)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (2,4)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (2,4)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "train/test disjoint and complete (2,5)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no b3/sensitivity (2,5)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "Phase 5b cache: final_*.parquet files (top level)",
+      "detail": "60 files"
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_02770a7413c3becc5ec4.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_047dc9988cc46bea37c2.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_0484477492f5dfaf92bf.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_0c73fa7634974d33a357.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_175d068180090b733ca0.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_18566a08acc020da6779.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_1b0f1b6eb45165996d25.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_22105d1f2511f38599a3.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_23e83b31829ec37a8f5b.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_2ba21a43ffb4a55e7f26.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_2c0f0b0dce743ef67295.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_2d766dbcb1222f92dbdb.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_39934adae5b9645813e0.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_3e82be03e8f2c4a77b6a.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_3f18f5d8592f4b8d3cee.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_414506f5f3b5078895c5.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_43bf2fdb06e6ebedaf53.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_45d9c21779c7dc7630e3.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_59c46a0e96bd79850956.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_66b46846bb0ca2ca399b.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_696299d64882f2abfc34.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_6ab0bd50d4dff81c282d.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_6c88972e298ad0335caf.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_6ccc5aef52cf79d88ed5.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_6d3b33e1bca9b8e90ae5.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_72f5f9e05f48f32cd137.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_73fbe4f5528a2bd78851.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_779b7f1f94abc8b3e506.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_7860e577581556994fdf.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_7869b5c865ed4e8a21f6.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_7d7376a3908a11de9c47.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_81a43b1d7b8d37e7d65b.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_81ee305a3d7dcde8a792.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_8488536a6663cf905d80.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_889fd582513622c6f50d.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_8bd427e0903a6e6e986c.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_8cea9ea3df20e3c8b40c.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_8f9488884c98e5ea7be0.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_95b37f995e426e70003b.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_9860d7f3c6f4178d41b0.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_989e75894d8bf4f95bb1.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_9ab47efed2b7e4e65cba.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_9d3d9cb314f6a5e13577.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_a2163ed5ae670e025604.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_abf9b22d72a87e486e01.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_bba7427cd047b3a7bf4e.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_c313d72b115be6fd36c5.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_d410741ca67784fea846.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_db34bcccc5955b19cb02.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_db61582ba5542973a155.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_db8b8d30b4b4ab13adff.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_dbc5ebd7a2efa6e673a0.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_ddff4a923cb9e9c48cf3.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_e4118083fbb8d1b0d9ab.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_eac6a1d7ec0ab22e1007.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_ed4c6b9275e0dd1aa1bf.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_f35399a0624e7bcd4207.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_f91f667cb35cce506bc0.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_feb9ac00e01f10f248b4.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schema final_ffd07c322a36f2a5a3b4.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "schemas: tuning_log_5b.csv, deep_results.csv, final_*.parquet",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_0484477492f5dfaf92bf.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_0484477492f5dfaf92bf.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_0484477492f5dfaf92bf.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_0484477492f5dfaf92bf.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_0c73fa7634974d33a357.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_0c73fa7634974d33a357.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_0c73fa7634974d33a357.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_0c73fa7634974d33a357.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_23e83b31829ec37a8f5b.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_23e83b31829ec37a8f5b.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_23e83b31829ec37a8f5b.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_23e83b31829ec37a8f5b.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_2d766dbcb1222f92dbdb.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_2d766dbcb1222f92dbdb.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_2d766dbcb1222f92dbdb.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_2d766dbcb1222f92dbdb.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_414506f5f3b5078895c5.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_414506f5f3b5078895c5.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_414506f5f3b5078895c5.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_414506f5f3b5078895c5.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_45d9c21779c7dc7630e3.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_45d9c21779c7dc7630e3.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_45d9c21779c7dc7630e3.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_45d9c21779c7dc7630e3.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_59c46a0e96bd79850956.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_59c46a0e96bd79850956.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_59c46a0e96bd79850956.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_59c46a0e96bd79850956.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_66b46846bb0ca2ca399b.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_66b46846bb0ca2ca399b.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_66b46846bb0ca2ca399b.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_66b46846bb0ca2ca399b.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_6c88972e298ad0335caf.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_6c88972e298ad0335caf.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_6c88972e298ad0335caf.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_6c88972e298ad0335caf.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_6d3b33e1bca9b8e90ae5.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_6d3b33e1bca9b8e90ae5.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_6d3b33e1bca9b8e90ae5.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_6d3b33e1bca9b8e90ae5.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_73fbe4f5528a2bd78851.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_73fbe4f5528a2bd78851.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_73fbe4f5528a2bd78851.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_73fbe4f5528a2bd78851.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_81a43b1d7b8d37e7d65b.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_81a43b1d7b8d37e7d65b.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_81a43b1d7b8d37e7d65b.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_81a43b1d7b8d37e7d65b.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_9ab47efed2b7e4e65cba.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_9ab47efed2b7e4e65cba.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_9ab47efed2b7e4e65cba.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_9ab47efed2b7e4e65cba.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_a2163ed5ae670e025604.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_a2163ed5ae670e025604.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_a2163ed5ae670e025604.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_a2163ed5ae670e025604.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_bba7427cd047b3a7bf4e.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_bba7427cd047b3a7bf4e.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_bba7427cd047b3a7bf4e.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_bba7427cd047b3a7bf4e.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_db8b8d30b4b4ab13adff.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_db8b8d30b4b4ab13adff.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_db8b8d30b4b4ab13adff.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_db8b8d30b4b4ab13adff.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_ddff4a923cb9e9c48cf3.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_ddff4a923cb9e9c48cf3.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_ddff4a923cb9e9c48cf3.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_ddff4a923cb9e9c48cf3.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_e4118083fbb8d1b0d9ab.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_e4118083fbb8d1b0d9ab.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_e4118083fbb8d1b0d9ab.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_e4118083fbb8d1b0d9ab.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_ed4c6b9275e0dd1aa1bf.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_ed4c6b9275e0dd1aa1bf.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_ed4c6b9275e0dd1aa1bf.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_ed4c6b9275e0dd1aa1bf.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_f91f667cb35cce506bc0.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_f91f667cb35cce506bc0.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_f91f667cb35cce506bc0.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_f91f667cb35cce506bc0.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_ffd07c322a36f2a5a3b4.parquet: only development cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_ffd07c322a36f2a5a3b4.parquet: every row_id is a development row",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_ffd07c322a36f2a5a3b4.parquet: cell_id agrees with labels",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "final_ffd07c322a36f2a5a3b4.parquet: no NaN predictions",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "present: W300 M0",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "coverage W300 M0: 3 repeats x 55,963 rows, seeds 42-46, folds match protocol D",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "84 cells / 55,963 rows, no NaN: W300 M0",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "present: W300 M1p",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "coverage W300 M1p: 3 repeats x 55,963 rows, seeds 42-46, folds match protocol D",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "84 cells / 55,963 rows, no NaN: W300 M1p",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "present: W300 B4r",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "coverage W300 B4r: 3 repeats x 55,963 rows, seeds 1, folds match protocol D",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "84 cells / 55,963 rows, no NaN: W300 B4r",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "present: W240 M0",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "coverage W240 M0: 3 repeats x 55,963 rows, seeds 42-46, folds match protocol D",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "84 cells / 55,963 rows, no NaN: W240 M0",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "present: W240 M1p",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "coverage W240 M1p: 3 repeats x 55,963 rows, seeds 42-46, folds match protocol D",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "84 cells / 55,963 rows, no NaN: W240 M1p",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "present: W240 B4r",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "coverage W240 B4r: 3 repeats x 55,963 rows, seeds 1, folds match protocol D",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "84 cells / 55,963 rows, no NaN: W240 B4r",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "deep_results has W240 B4r",
+      "detail": "1"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces deep_results macro_mean W240 B4r",
+      "detail": "0.520555 vs 0.520555"
+    },
+    {
+      "level": "PASS",
+      "name": "deep_results has W240 M0",
+      "detail": "1"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces deep_results macro_mean W240 M0",
+      "detail": "0.530092 vs 0.530092"
+    },
+    {
+      "level": "PASS",
+      "name": "deep_results has W240 M1p",
+      "detail": "1"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces deep_results macro_mean W240 M1p",
+      "detail": "0.598593 vs 0.598593"
+    },
+    {
+      "level": "PASS",
+      "name": "deep_results has W300 B4r",
+      "detail": "1"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces deep_results macro_mean W300 B4r",
+      "detail": "0.818046 vs 0.818046"
+    },
+    {
+      "level": "PASS",
+      "name": "deep_results has W300 M0",
+      "detail": "1"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces deep_results macro_mean W300 M0",
+      "detail": "0.836009 vs 0.836009"
+    },
+    {
+      "level": "PASS",
+      "name": "deep_results has W300 M1p",
+      "detail": "1"
+    },
+    {
+      "level": "PASS",
+      "name": "reproduces deep_results macro_mean W300 M1p",
+      "detail": "0.774053 vs 0.774053"
+    },
+    {
+      "level": "PASS",
+      "name": "M0 tuning rows for W300",
+      "detail": "432"
+    },
+    {
+      "level": "PASS",
+      "name": "M0 tuning rows for W240",
+      "detail": "432"
+    },
+    {
+      "level": "PASS",
+      "name": "D69 frozen config written",
+      "detail": "{'W300': 'lr0.004_wd0.0001', 'W240': 'lr0.008_wd0.001'} sha256 78b571c7526551c7..."
+    },
+    {
+      "level": "PASS",
+      "name": "scored rows exist within +/-30 cycles of the approximate junction b1c0",
+      "detail": "1190"
+    },
+    {
+      "level": "WARN",
+      "name": "junction b1c0: approx 1190, largest negative true step at 1190 (-0.390 pp, 6.9x median step)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "scored rows exist within +/-30 cycles of the approximate junction b1c1",
+      "detail": "1179"
+    },
+    {
+      "level": "PASS",
+      "name": "junction b1c1: approx 1179, largest negative true step at 1179 (-1.244 pp, 69.4x median step)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "scored rows exist within +/-30 cycles of the approximate junction b1c2",
+      "detail": "1177"
+    },
+    {
+      "level": "PASS",
+      "name": "junction b1c2: approx 1177, largest negative true step at 1177 (-1.248 pp, 76.5x median step)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "scored rows exist within +/-30 cycles of the approximate junction b1c3",
+      "detail": "1226"
+    },
+    {
+      "level": "WARN",
+      "name": "junction b1c3: approx 1226, largest negative true step at 1252 (-0.153 pp, 12.3x median step)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "scored rows exist within +/-30 cycles of the approximate junction b1c4",
+      "detail": "1227"
+    },
+    {
+      "level": "PASS",
+      "name": "junction b1c4: approx 1227, largest negative true step at 1227 (-1.316 pp, 90.3x median step)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "training adapters defined",
+      "detail": "seeds [42, 43, 44, 45, 46], E=120, trees 300, tree jobs 10"
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 36631",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 4994",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 43312",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sub_idx gives 32 grid points",
+      "detail": "32"
+    },
+    {
+      "level": "PASS",
+      "name": "noQ0: scaled Q0 input is exactly 0, scaler std guard gives 1.0, no NaN/inf",
+      "detail": "max|q|=0.0e+00, qs=1.0"
+    },
+    {
+      "level": "PASS",
+      "name": "count_params M0",
+      "detail": "2969 vs 2969"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/ref",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/noQ0",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/sample_weighted",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/mse",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/stride1",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/ref",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/+log_cycle",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W240 row 36631",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W240 row 4994",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W240 row 43312",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sub_idx gives 32 grid points",
+      "detail": "32"
+    },
+    {
+      "level": "PASS",
+      "name": "noQ0: scaled Q0 input is exactly 0, scaler std guard gives 1.0, no NaN/inf",
+      "detail": "max|q|=0.0e+00, qs=1.0"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/ref",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/noQ0",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/sample_weighted",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/mse",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/stride1",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/ref",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/+log_cycle",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "8 or 9 cells in each extreme group",
+      "detail": "(8, 8)"
+    },
+    {
+      "level": "PASS",
+      "name": "short: no held-out cell or policy twin in training",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "short: no training cell shares a policy_norm with a held-out cell",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "short: no batch-3 / sensitivity cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "long: no held-out cell or policy twin in training",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "long: no training cell shares a policy_norm with a held-out cell",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "long: no batch-3 / sensitivity cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 36631",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 4994",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W300 row 43312",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sub_idx gives 32 grid points",
+      "detail": "32"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/ref",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W300/ext_B4r",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300/short: predictions only for the held-out cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W300/long: predictions only for the held-out cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W240 row 36631",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W240 row 4994",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "delta-Q check W240 row 43312",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sub_idx gives 32 grid points",
+      "detail": "32"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/ref",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN/inf predictions: W240/ext_B4r",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240/short: predictions only for the held-out cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "W240/long: predictions only for the held-out cells",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "figure written: fig_a_bias_vs_life_W300.png",
+      "detail": "71 KB"
+    },
+    {
+      "level": "PASS",
+      "name": "figure written: fig_b_junction_trajectories_M0_W300.png",
+      "detail": "265 KB"
+    },
+    {
+      "level": "PASS",
+      "name": "figure written: fig_c_ablation_forest.png",
+      "detail": "68 KB"
+    },
+    {
+      "level": "PASS",
+      "name": "figure written: fig_d_alert_delay_hist.png",
+      "detail": "92 KB"
+    },
+    {
+      "level": "PASS",
+      "name": "figure written: fig_e_extreme_holdout.png",
+      "detail": "48 KB"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in headline table: per_cell_bias",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in headline table: bias_vs_life_spearman",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in headline table: bias_by_life_tertile",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in headline table: ensemble_avg_M0_B4r",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in headline table: onesided_coverage",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in headline table: onesided_coverage_by_group",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in headline table: alert_rules (rates)",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in headline table: ablation_results",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in headline table: ablation_results (paired)",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in headline table: extreme_holdout_summary",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "no NaN in headline table: extreme_holdout_cells",
+      "detail": "0 NaN cells"
+    },
+    {
+      "level": "PASS",
+      "name": "coverage numbers in [0, 1]",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "84 cells and 55,963 rows in every full-protocol result",
+      "detail": "34 arrays"
+    },
+    {
+      "level": "PASS",
+      "name": "no batch-3 / sensitivity cells in any array, frame or table",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "training members never include their own evaluation cells (all 18 outer sets and the extreme-holdout sets)",
+      "detail": "also asserted per member at training time (920 deep members, 76 forests this run) and on every cached frame by the test-cell coverage check"
+    },
+    {
+      "level": "PASS",
+      "name": "all outputs written under outputs/phase6b only",
+      "detail": "24 files"
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 unchanged at end: gate",
+      "detail": "40df2fb82096e994..."
+    },
+    {
+      "level": "PASS",
+      "name": "mtime unchanged at end: gate",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 unchanged at end: module",
+      "detail": "fc53e37d506ebe51..."
+    },
+    {
+      "level": "PASS",
+      "name": "mtime unchanged at end: module",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "sha256 unchanged at end: verdict",
+      "detail": "2f59f82a7c7d8940..."
+    },
+    {
+      "level": "PASS",
+      "name": "mtime unchanged at end: verdict",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "verdict file untouched (W300 FAIL / W240 PASS, never recomputed)",
+      "detail": ""
+    },
+    {
+      "level": "PASS",
+      "name": "total interval count printed",
+      "detail": "94"
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "ablation_results.csv",
+      "bytes": 2913
+    },
+    {
+      "file": "ablation_skipped.csv",
+      "bytes": 464
+    },
+    {
+      "file": "alert_rules.csv",
+      "bytes": 9499
+    },
+    {
+      "file": "bias_by_life_tertile.csv",
+      "bytes": 3155
+    },
+    {
+      "file": "bias_vs_life_spearman.csv",
+      "bytes": 1045
+    },
+    {
+      "file": "d69_ranking_M0.csv",
+      "bytes": 758
+    },
+    {
+      "file": "ensemble_avg_M0_B4r.csv",
+      "bytes": 3132
+    },
+    {
+      "file": "extreme_holdout_cells.csv",
+      "bytes": 7288
+    },
+    {
+      "file": "extreme_holdout_counts.csv",
+      "bytes": 162
+    },
+    {
+      "file": "extreme_holdout_summary.csv",
+      "bytes": 942
+    },
+    {
+      "file": "figures/fig_a_bias_vs_life_W300.png",
+      "bytes": 72952
+    },
+    {
+      "file": "figures/fig_b_junction_trajectories_M0_W300.png",
+      "bytes": 270863
+    },
+    {
+      "file": "figures/fig_c_ablation_forest.png",
+      "bytes": 69959
+    },
+    {
+      "file": "figures/fig_d_alert_delay_hist.png",
+      "bytes": 93788
+    },
+    {
+      "file": "figures/fig_e_extreme_holdout.png",
+      "bytes": 48752
+    },
+    {
+      "file": "frozen_config.json",
+      "bytes": 1449
+    },
+    {
+      "file": "frozen_config.sha256.txt",
+      "bytes": 66
+    },
+    {
+      "file": "junction_analysis.csv",
+      "bytes": 9090
+    },
+    {
+      "file": "junction_locations.csv",
+      "bytes": 364
+    },
+    {
+      "file": "onesided_coverage.csv",
+      "bytes": 1356
+    },
+    {
+      "file": "onesided_coverage_by_group.csv",
+      "bytes": 3689
+    },
+    {
+      "file": "onesided_coverage_per_cell.csv",
+      "bytes": 28297
+    },
+    {
+      "file": "per_cell_bias.csv",
+      "bytes": 64374
+    },
+    {
+      "file": "phase6b_report.txt",
+      "bytes": 41997
+    },
+    {
+      "file": "reproduction_check.csv",
+      "bytes": 468
+    }
+  ],
+  "elapsed_seconds": 1642.1,
+  "hashes": {
+    "start": {
+      "gate": {
+        "sha": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "exp": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "mtime": 1793556788521767700
+      },
+      "module": {
+        "sha": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "exp": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "mtime": 1793612345170790900
+      },
+      "verdict": {
+        "sha": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "exp": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "mtime": 1793649179741168300
+      }
+    },
+    "end": {
+      "gate": {
+        "sha": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "exp": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "mtime": 1793556788521767700
+      },
+      "module": {
+        "sha": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "exp": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "mtime": 1793612345170790900
+      },
+      "verdict": {
+        "sha": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "exp": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "mtime": 1793649179741168300
+      }
+    }
+  },
+  "frozen_config_sha256": "78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU 6.4 GB VRAM, torch 2.14.1+cu130"
+}

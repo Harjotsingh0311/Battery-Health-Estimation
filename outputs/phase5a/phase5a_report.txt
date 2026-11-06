@@ -1,0 +1,212 @@
+PHASE 5A REPORT
+====================================================================================================
+runtime: 43.6 min | repeat 0, outer fold 0 | inner folds only | seed 42
+GPU: torch=2.14.1+cu130, cuda=13.0, cudnn=92400, device=NVIDIA GeForce RTX 3050 6GB Laptop GPU, capability=8.6, vram_total_gb=6.44, vram_free_gb=5.41, tf32_matmul=False, tf32_cudnn=False
+parameters: M1 c=0.5/1/2/4 = 817/2977/11329/44161 | M0 = 2969
+
+TESTS
+  [PASS] 4 inner folds :: 4
+  [PASS] 4a M1(c=1) has exactly 2,977 parameters :: 2977
+  [PASS] 4a size ratios about 0.3 / 1 / 3.7 / 15 (D36) :: {0.5: 0.27, 1: 1.0, 2: 3.81, 4: 14.83}
+  [PASS] 4a M0 parameter count close to M1 :: 2969
+  [PASS] 4b M1: batched == single models in eval mode (init) :: max abs diff 1.49e-08
+  [FAIL] 4b M1: weights equal after 20 identical steps :: max abs weight diff 1.43e-03; eval output diff 1.13e-04
+  [PASS] 4b M0: batched == single models in eval mode (init) :: max abs diff 2.24e-08
+  [PASS] 4b M0: weights equal after 20 identical steps :: max abs weight diff 4.00e-08; eval output diff 2.24e-08
+  [FAIL] 4c M1 overfits 256 rows: train MAE < 0.15 pp within 800 steps :: best eval-mode train MAE 0.6399 pp (lr 0.01); last (800, 0.6436774730682373)
+  [PASS] 4d same seed gives identical predictions (exact) :: max abs diff 0.00e+00
+  [PASS] 4e predictions finite :: 
+  [PASS] 4e W300: val cells disjoint from train cells, train cells are outer-train (r0,o0) only :: [True, True, True, True, True, True, True, True]
+  [PASS] 4e W240: val cells disjoint from train cells, train cells are outer-train (r0,o0) only :: [True, True, True, True, True, True, True, True]
+  [PASS] 4f weight sum per training cell equal within 1e-6 :: max spread 5.36e-07
+  [PASS] 4g no pretrained-weight or vision/audio-library use in module and notebook :: {'src/soh_deep.py': [], 'notebook': []}
+
+BENCHMARK (members x epochs/s, ms per iteration, peak GB)
+window model      c    packing  G  ms_per_iter  member_epochs_per_s  peak_mem_gb
+  W310    M1 1.0000 sequential  4      40.1177               3.5609       0.2951
+  W310    M1 1.0000    batched  1      17.3565               2.0577       0.2750
+  W310    M1 1.0000    batched  4      13.1233              10.8857       0.3024
+  W310    M1 1.0000    batched  8      20.9699              13.6250       0.3372
+  W310    M1 1.0000    batched 18      21.4446              29.9776       0.4289
+  W310    M1 1.0000    batched 36      45.1284              28.4902       0.5891
+  W310    M1 1.0000    batched 72      83.0281              30.9706       0.9117
+  W305    M1 1.0000 sequential  4      20.0886               7.1113       0.3016
+  W305    M1 1.0000    batched  1      15.9127               2.2444       0.2772
+  W305    M1 1.0000    batched  4      10.6621              13.3986       0.3084
+  W305    M1 1.0000    batched  8      20.4463              13.9739       0.3476
+  W305    M1 1.0000    batched 18      24.1466              26.6231       0.4499
+  W305    M1 1.0000    batched 36      44.5804              28.8404       0.6338
+  W305    M1 1.0000    batched 72      90.7879              28.3235       0.9980
+  W300    M1 1.0000 sequential  4      23.2719               6.1386       0.3050
+  W300    M1 1.0000    batched  1       9.0202               3.9594       0.2797
+  W300    M1 1.0000    batched  4       9.3046              15.3534       0.3141
+  W300    M1 1.0000    batched  8      12.5903              22.6931       0.3579
+  W300    M1 1.0000    batched 18      27.8796              23.0584       0.4700
+  W300    M1 1.0000    batched 36      48.6030              26.4534       0.6748
+  W300    M1 1.0000    batched 72      95.6528              26.8830       1.0781
+  W300    M1 4.0000    batched  4      25.9444               5.5063       0.4421
+  W300    M0 1.0000    batched 72       4.8793             527.0063       0.3534
+  W280    M1 1.0000 sequential  4      27.0210               5.2869       0.3241
+  W280    M1 1.0000    batched  1       7.9067               4.5170       0.2876
+  W280    M1 1.0000    batched  4      12.8916              11.0814       0.3357
+  W280    M1 1.0000    batched  8      17.0657              16.7420       0.3993
+  W280    M1 1.0000    batched 18      37.9306              16.9483       0.5603
+  W280    M1 1.0000    batched 36      65.4277              19.6509       0.8485
+  W280    M1 1.0000    batched 72     141.3066              18.1975       1.4199
+  W240    M1 1.0000 sequential  4      18.1990               7.8497       0.3620
+  W240    M1 1.0000    batched  1      10.7420               3.3247       0.3054
+  W240    M1 1.0000    batched  4      14.6890               9.7254       0.3869
+  W240    M1 1.0000    batched  8      26.5979              10.7420       0.4818
+  W240    M1 1.0000    batched 18      55.8155              11.5175       0.7353
+  W240    M1 1.0000    batched 36     107.5193              11.9580       1.1879
+  W240    M1 1.0000    batched 72     199.5958              12.8832       2.0919
+ WFULL    M1 1.0000 sequential  4      22.1924               6.4372       0.4028
+ WFULL    M1 1.0000    batched  1       7.3688               4.8467       0.3233
+ WFULL    M1 1.0000    batched  4      18.7498               7.6191       0.4313
+ WFULL    M1 1.0000    batched  8      34.7836               8.2141       0.5661
+ WFULL    M1 1.0000    batched 18      73.2214               8.7796       0.9107
+ WFULL    M1 1.0000    batched 36     138.9784               9.2512       1.5312
+ WFULL    M1 1.0000    batched 72     259.1966               9.9208       2.7650
+packing choice: {'packing': 'batched', 'G': 72, 'member_epochs_per_s': 19.883065246168798, 'sequential_member_epochs_per_s': 6.994165012958183}; used in pilot: batched
+
+PILOT: best config per model/head/window versus comparators on the same inner folds (cell-macro MAE, pp)
+window  entry                   config    mae    gap
+  W300 M1/abs             E120 lr0.004 0.8300 0.1422
+  W300 M1/res             E120 lr0.001 0.8347 0.0796
+  W300 M0/abs             E120 lr0.004 0.8632 0.2771
+  W300 M0/res             E120 lr0.004 0.8435 0.2660
+  W300    B0b                       {} 3.6181    NaN
+  W300     B3 {"depth": 3, "lr": 0.05} 0.9986    NaN
+  W300    B3r {"depth": 3, "lr": 0.05} 0.9304    NaN
+  W300     B4              {"leaf": 5} 0.9195    NaN
+  W300    B4r              {"leaf": 5} 0.8188    NaN
+  W240 M1/abs              E60 lr0.004 0.6849 0.0346
+  W240 M1/res             E120 lr0.001 0.6687 0.0636
+  W240 M0/abs             E120 lr0.004 0.5680 0.2074
+  W240 M0/res             E120 lr0.004 0.5507 0.2050
+  W240    B0b                       {} 3.6181    NaN
+  W240     B3 {"depth": 3, "lr": 0.05} 0.7359    NaN
+  W240    B3r {"depth": 3, "lr": 0.05} 0.6640    NaN
+  W240     B4              {"leaf": 5} 0.7102    NaN
+  W240    B4r              {"leaf": 1} 0.5678    NaN
+
+SEED SD (M1 best config, 4 seeds, mean inner MAE)
+  W300: head abs E120 lr0.004 mean 0.8331 sd 0.0253
+  W240: head res E120 lr0.001 mean 0.7542 sd 0.0626
+
+SIZE SWEEP W300 (M1)
+  c=0.5: params 817, inner MAE 0.7894
+  c=1.0: params 2977, inner MAE 0.8300
+  c=2.0: params 11329, inner MAE 0.8485
+  c=4.0: params 44161, inner MAE 0.8391
+
+DECISIONS (compute_plan.json)
+  head: abs (res vs abs change -0.8%)
+  5b grid: E60 lr0.004 (0.7662); E120 lr0.001 (0.7951); E60 lr0.001 (0.7988) | any pair at edge: True, best pair at edge: True
+  feasibility (M1 / best of B4,B4r): W300 1.014, W240 1.178 | mean 1.096
+
+COMPUTE PLAN (minutes)
+              windows                                model                   grid  tune_min_per_outer  final_5seeds_min_per_outer  per_outer_total_min  all_18_outer_sets_min
+priority (W300, W240)                                   M1           3 best pairs              2.4953                      0.9727               3.4681                62.4252
+priority (W300, W240)                                   M1       full 9-pair grid              6.5503                      0.9727               7.5230               135.4138
+priority (W300, W240)                                   M0           3 best pairs              0.0564                      0.0237               0.0801                 1.4418
+priority (W300, W240)                                   M0       full 9-pair grid              0.1480                      0.0237               0.1717                 3.0910
+priority (W300, W240)       M1 size sweep c in {0.5,1,2,4} best c=1 config reused              0.0000                      6.2821               6.2821               113.0771
+priority (W300, W240) B3r + B4r (CPU, same grids as pilot)            pilot grids              7.2072                      0.0000               7.2072               129.7297
+        all 6 windows                                   M1           3 best pairs              8.2597                      3.2438              11.5035               207.0628
+        all 6 windows                                   M1       full 9-pair grid             21.6818                      3.2438              24.9256               448.6600
+        all 6 windows                                   M0           3 best pairs              0.1691                      0.0712               0.2403                 4.3255
+        all 6 windows                                   M0       full 9-pair grid              0.4440                      0.0712               0.5152                 9.2731
+        all 6 windows       M1 size sweep c in {0.5,1,2,4} best c=1 config reused              0.0000                     20.9488              20.9488               377.0779
+        all 6 windows B3r + B4r (CPU, same grids as pilot)            pilot grids             21.6216                      0.0000              21.6216               389.1892
+
+CHECKS PASS (56)
+  CUDA available :: required
+  TF32 off :: 
+  CPU-vs-GPU parity (conv+linear) :: max abs diff 4.47e-08
+  week2_gate.json sha256 == gate_hash.txt (start) :: 40df2fb82096e994...
+  gate_hash.txt equals expected frozen hash :: 
+  gate target W310 = 0.9238 present in week2_gate.json :: 
+  gate target W305 = 0.8046 present in week2_gate.json :: 
+  gate target W300 = 0.7605 present in week2_gate.json :: 
+  gate target W280 = 0.6784 present in week2_gate.json :: 
+  gate target W240 = 0.5569 present in week2_gate.json :: 
+  gate target WFULL = 0.5319 present in week2_gate.json :: 
+  src/soh_deep.py created :: 18563 bytes
+  protocol_D.csv matches artifact_hashes.json :: data/processed/splits/protocol_D.csv
+  protocol_D_inner.csv matches artifact_hashes.json :: data/processed/splits/protocol_D_inner.csv
+  no batch-3 or sensitivity cell in development cells :: []
+  development rows == 55,963 :: 55963 rows, 84 cells
+  development cells == 84 (41 b1 + 43 b2) :: 84
+  q0 available for all development cells :: 0
+  outer train/test disjoint :: 
+  outer train U test == development cells :: 
+  4 inner folds :: 4
+  inner 0: val subset of outer-train, disjoint from train, no outer-test cell :: 52 train / 18 val cells
+  inner 1: val subset of outer-train, disjoint from train, no outer-test cell :: 53 train / 17 val cells
+  inner 2: val subset of outer-train, disjoint from train, no outer-test cell :: 52 train / 18 val cells
+  inner 3: val subset of outer-train, disjoint from train, no outer-test cell :: 53 train / 17 val cells
+  inner validation folds partition the outer-train cells :: 
+  working rows contain no outer-test cell :: 43706 rows, 70 cells
+  W300: all working rows finite :: 0 dropped
+  W300: delta-Q[0] == 0 (no per-point centering) :: max |dq[0]| = 0.00e+00
+  W300: no outer-test cell in any array :: X (43706, 334)
+  W240: all working rows finite :: 0 dropped
+  W240: delta-Q[0] == 0 (no per-point centering) :: max |dq[0]| = 0.00e+00
+  W240: no outer-test cell in any array :: X (43706, 734)
+  W300 inner 0: scalers equal recomputed training-cell values :: {'s': 0.06829, 'q_mean': 1.07803, 'q_sd': 0.00727, 'y_mean': 94.24657, 'y_sd': 4.63723}
+  W300 inner 1: scalers equal recomputed training-cell values :: {'s': 0.06815, 'q_mean': 1.07762, 'q_sd': 0.00838, 'y_mean': 94.18964, 'y_sd': 4.62967}
+  W300 inner 2: scalers equal recomputed training-cell values :: {'s': 0.06855, 'q_mean': 1.07778, 'q_sd': 0.00885, 'y_mean': 94.34645, 'y_sd': 4.62032}
+  W300 inner 3: scalers equal recomputed training-cell values :: {'s': 0.06872, 'q_mean': 1.07771, 'q_sd': 0.00767, 'y_mean': 94.15233, 'y_sd': 4.66161}
+  W240 inner 0: scalers equal recomputed training-cell values :: {'s': 0.08322, 'q_mean': 1.07803, 'q_sd': 0.00727, 'y_mean': 94.24657, 'y_sd': 4.63723}
+  W240 inner 1: scalers equal recomputed training-cell values :: {'s': 0.08259, 'q_mean': 1.07762, 'q_sd': 0.00838, 'y_mean': 94.18964, 'y_sd': 4.62967}
+  W240 inner 2: scalers equal recomputed training-cell values :: {'s': 0.08337, 'q_mean': 1.07778, 'q_sd': 0.00885, 'y_mean': 94.34645, 'y_sd': 4.62032}
+  W240 inner 3: scalers equal recomputed training-cell values :: {'s': 0.08336, 'q_mean': 1.07771, 'q_sd': 0.00767, 'y_mean': 94.15233, 'y_sd': 4.66161}
+  4a M1(c=1) has exactly 2,977 parameters :: 2977
+  4a size ratios about 0.3 / 1 / 3.7 / 15 (D36) :: {0.5: 0.27, 1: 1.0, 2: 3.81, 4: 14.83}
+  4a M0 parameter count close to M1 :: 2969
+  4b M1: batched == single models in eval mode (init) :: max abs diff 1.49e-08
+  4b M0: batched == single models in eval mode (init) :: max abs diff 2.24e-08
+  4b M0: weights equal after 20 identical steps :: max abs weight diff 4.00e-08; eval output diff 2.24e-08
+  4d same seed gives identical predictions (exact) :: max abs diff 0.00e+00
+  4e predictions finite :: 
+  4e W300: val cells disjoint from train cells, train cells are outer-train (r0,o0) only :: [True, True, True, True, True, True, True, True]
+  4e W240: val cells disjoint from train cells, train cells are outer-train (r0,o0) only :: [True, True, True, True, True, True, True, True]
+  4f weight sum per training cell equal within 1e-6 :: max spread 5.36e-07
+  4g no pretrained-weight or vision/audio-library use in module and notebook :: {'src/soh_deep.py': [], 'notebook': []}
+  week2_gate.json sha256 == gate_hash.txt (end) :: unchanged
+  soh_common.py unchanged by this notebook :: read-only
+  runtime within about 40 minutes :: 43.6 min (cached steps are fast on rerun)
+
+CHECKS WARN (3)
+  available RAM >= 2 GB :: 0.6 GB
+  life column found in labels :: None
+  policy column found in kept_cells_groups_strata.csv :: ['cell_id', 'batch', 'policy_norm', 'policy_str', 'life', 'position', 'is_dev', 'tertile', 'tertile_
+
+CHECKS FAIL (5)
+  assert_allowed (soh_common) on working cells :: TypeError("assert_allowed(columns, allowlist=None, roles=('primary', 'ablation')): unmapped required
+  recompute check W300 :: TypeError("build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None): unmapped required paramet
+  recompute check W240 :: TypeError("build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None): unmapped required paramet
+  4b M1: weights equal after 20 identical steps :: max abs weight diff 1.43e-03; eval output diff 1.13e-04
+  4c M1 overfits 256 rows: train MAE < 0.15 pp within 800 steps :: best eval-mode train MAE 0.6399 pp (lr 0.01); last (800, 0.6436774730682373)
+
+ERRORS (9)
+  assert_allowed (soh_common) on working cells: TypeError("assert_allowed(columns, allowlist=None, roles=('primary', 'ablation')): unmapped required parameters ['columns']; ctx keys ['cell_ids', 'cell_list', 
+  window_slice(W310): TypeError("window_slice(open_v, close_v): unmapped required parameters ['open_v', 'close_v']; ctx keys ['name', 'w', 'win', 'window', 'window_name']")
+  window_slice(W305): TypeError("window_slice(open_v, close_v): unmapped required parameters ['open_v', 'close_v']; ctx keys ['name', 'w', 'win', 'window', 'window_name']")
+  window_slice(W300): TypeError("window_slice(open_v, close_v): unmapped required parameters ['open_v', 'close_v']; ctx keys ['name', 'w', 'win', 'window', 'window_name']")
+  window_slice(W280): TypeError("window_slice(open_v, close_v): unmapped required parameters ['open_v', 'close_v']; ctx keys ['name', 'w', 'win', 'window', 'window_name']")
+  window_slice(W240): TypeError("window_slice(open_v, close_v): unmapped required parameters ['open_v', 'close_v']; ctx keys ['name', 'w', 'win', 'window', 'window_name']")
+  window_slice(WFULL): TypeError("window_slice(open_v, close_v): unmapped required parameters ['open_v', 'close_v']; ctx keys ['name', 'w', 'win', 'window', 'window_name']")
+  recompute check W300: TypeError("build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None): unmapped required parameters ['qdlin_row', 'i_open', 'i_close']; ctx keys ['cell_ids'
+  recompute check W240: TypeError("build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None): unmapped required parameters ['qdlin_row', 'i_open', 'i_close']; ctx keys ['cell_ids'
+
+ARTIFACTS
+  outputs\phase5a\benchmark.csv  5.1 KB
+  outputs\phase5a\compute_plan.json  6.9 KB
+  outputs\phase5a\figures\benchmark_throughput.png  85.7 KB
+  outputs\phase5a\figures\pilot_heatmap_M1.png  50.8 KB
+  outputs\phase5a\figures\pilot_learning_curves.png  96.3 KB
+  outputs\phase5a\pilot_log.csv  8.6 KB
+  src\soh_deep.py  18.6 KB
+  (cache: 76 files)

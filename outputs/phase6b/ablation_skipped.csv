@@ -1,0 +1,5 @@
+variant,status,reason
+size_sweep,SKIPPED,"make_single/make_batched expose no width or channel argument; M0 is fixed at 33-44-32-1 (2,969 parameters) in the frozen module"
+temperature,SKIPPED,temperature never extracted; excluded from the primary model by design
+internal_resistance,SKIPPED,IR never extracted; excluded from the primary model by design
+policy_features,SKIPPED,policy never extracted as a model input; excluded from the primary model by design

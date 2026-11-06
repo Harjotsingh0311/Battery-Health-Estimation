@@ -1,0 +1,382 @@
+====================================================================================================
+PHASE 6b  ABLATIONS, ALERT RULES, EXTREME-LIFE HOLDOUT  (descriptive / exploratory; nothing here is a gate result)
+====================================================================================================
+generated 2026-11-03 10:26   root C:\workstation\3RD YEAR\Battery-Health-Estimation   runtime 27.4 min   GPU NVIDIA GeForce RTX 3050 6GB Laptop GPU 6.4 GB VRAM, torch 2.14.1+cu130
+gate sha256 40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901
+soh_deep_v2 sha256 (CRLF->LF) fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6
+gate_verdict sha256 2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb  (frozen: W300 FAIL, W240 PASS; never recomputed)
+frozen_config.json sha256 78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5
+development rows 55,963 | cells 84 | repeats 3 | err = pred - y (+ = over-estimated) | bootstrap: cells, 5000 draws, seed 42
+total bootstrap intervals computed in this phase: 94  {'2a spearman CIs': 12, '2c paired intervals': 20, '2d coverage CIs': 48, '3 paired ablation intervals': 14}
+
+====================================================================================================
+1. D69 FIXED CONFIG (M0, pooled inner MAE over all tuning-log rows) AND REPRODUCTION CHECK
+====================================================================================================
+window  rank  config               lr      wd  pooled_inner_mae
+------  ----  ----------------  -----  ------  ----------------
+W300       1  lr0.004_wd0.0001  0.004  0.0001          0.897133
+W300       2  lr0.004_wd0.001   0.004   0.001          0.900601
+W300       3  lr0.002_wd0.0001  0.002  0.0001          0.902514
+W300       4  lr0.008_wd0.0001  0.008  0.0001          0.907108
+W300       5  lr0.002_wd0.001   0.002   0.001          0.910396
+W300       6  lr0.008_wd0.001   0.008   0.001          0.912695
+W240       1  lr0.008_wd0.001   0.008   0.001          0.580805
+W240       2  lr0.004_wd0.0001  0.004  0.0001          0.585182
+W240       3  lr0.008_wd0.0001  0.008  0.0001          0.585199
+W240       4  lr0.004_wd0.001   0.004   0.001          0.585646
+W240       5  lr0.002_wd0.0001  0.002  0.0001          0.586076
+W240       6  lr0.002_wd0.001   0.002   0.001          0.589236
+chosen: W300 lr0.004_wd0.0001 (B4r leaf 3); W240 lr0.008_wd0.001 (B4r leaf 1)
+
+window  model  recomputed  deep_results  abs_diff
+------  -----  ----------  ------------  --------
+W240    B4r      0.520555      0.520555   1.1e-16
+W240    M0       0.530092      0.530092   3.3e-16
+W240    M1p      0.598593      0.598593   2.2e-16
+W300    B4r      0.818046      0.818046   1.1e-16
+W300    M0       0.836009      0.836009   1.1e-16
+W300    M1p      0.774053      0.774053   2.2e-16
+
+====================================================================================================
+2a. PER-CELL BIAS VS LIFE (Spearman, cell-bootstrap CI) AND LIFE TERTILES (cuts 493 / 710)
+====================================================================================================
+window  model  subset         n_cells  spearman_bias_vs_life  ci95            
+------  -----  -------------  -------  ---------------------  ----------------
+W300    M0     all84               84                 +0.499  [+0.291, +0.669]
+W300    M0     excl_stitched       79                 +0.399  [+0.179, +0.592]
+W300    M1p    all84               84                 +0.466  [+0.248, +0.645]
+W300    M1p    excl_stitched       79                 +0.367  [+0.141, +0.568]
+W300    B4r    all84               84                 +0.497  [+0.293, +0.664]
+W300    B4r    excl_stitched       79                 +0.412  [+0.197, +0.593]
+W240    M0     all84               84                 +0.208  [-0.011, +0.412]
+W240    M0     excl_stitched       79                 +0.126  [-0.096, +0.347]
+W240    M1p    all84               84                 +0.242  [+0.017, +0.446]
+W240    M1p    excl_stitched       79                 +0.132  [-0.090, +0.350]
+W240    B4r    all84               84                 +0.307  [+0.093, +0.503]
+W240    B4r    excl_stitched       79                 +0.213  [-0.006, +0.419]
+
+window  model  subset         life_tertile  n_cells  mean_signed_err  macro_mae  share_cells_bias_pos
+------  -----  -------------  ------------  -------  ---------------  ---------  --------------------
+W300    M0     all84          short              28           -0.237      0.701                 17.9%
+W300    M0     all84          mid                28           -0.024      0.760                 46.4%
+W300    M0     all84          long               28           +0.824      1.047                 75.0%
+W300    M0     excl_stitched  short              28           -0.237      0.701                 17.9%
+W300    M0     excl_stitched  mid                28           -0.024      0.760                 46.4%
+W300    M0     excl_stitched  long               23           +0.361      0.631                 69.6%
+W300    M1p    all84          short              28           -0.083      0.688                 25.0%
+W300    M1p    all84          mid                28           +0.083      0.672                 53.6%
+W300    M1p    all84          long               28           +0.749      0.962                 71.4%
+W300    M1p    excl_stitched  short              28           -0.083      0.688                 25.0%
+W300    M1p    excl_stitched  mid                28           +0.083      0.672                 53.6%
+W300    M1p    excl_stitched  long               23           +0.314      0.572                 65.2%
+W300    B4r    all84          short              28           -0.330      0.785                 14.3%
+W300    B4r    all84          mid                28           -0.180      0.801                 39.3%
+W300    B4r    all84          long               28           +0.462      0.867                 64.3%
+W300    B4r    excl_stitched  short              28           -0.330      0.785                 14.3%
+W300    B4r    excl_stitched  mid                28           -0.180      0.801                 39.3%
+W300    B4r    excl_stitched  long               23           +0.136      0.611                 56.5%
+W240    M0     all84          short              28           +0.050      0.553                 42.9%
+W240    M0     all84          mid                28           +0.074      0.611                 39.3%
+W240    M0     all84          long               28           +0.154      0.427                 60.7%
+W240    M0     excl_stitched  short              28           +0.050      0.553                 42.9%
+W240    M0     excl_stitched  mid                28           +0.074      0.611                 39.3%
+W240    M0     excl_stitched  long               23           +0.076      0.395                 52.2%
+W240    M1p    all84          short              28           +0.027      0.638                 39.3%
+W240    M1p    all84          mid                28           +0.076      0.630                 46.4%
+W240    M1p    all84          long               28           +0.224      0.528                 60.7%
+W240    M1p    excl_stitched  short              28           +0.027      0.638                 39.3%
+W240    M1p    excl_stitched  mid                28           +0.076      0.630                 46.4%
+W240    M1p    excl_stitched  long               23           +0.043      0.412                 52.2%
+W240    B4r    all84          short              28           -0.007      0.575                 21.4%
+W240    B4r    all84          mid                28           -0.031      0.562                 32.1%
+W240    B4r    all84          long               28           +0.208      0.424                 67.9%
+W240    B4r    excl_stitched  short              28           -0.007      0.575                 21.4%
+W240    B4r    excl_stitched  mid                28           -0.031      0.562                 32.1%
+W240    B4r    excl_stitched  long               23           +0.077      0.333                 60.9%
+
+====================================================================================================
+2b. JUNCTION ANALYSIS, STITCHED CELLS (step = 20 cycles after minus 20 before; error windows 100 cycles)
+====================================================================================================
+cell_id  approx  refined  step_pp  x_median  used  rule   
+-------  ------  -------  -------  --------  ----  -------
+b1c0       1190     1190   -0.390       6.9  1190  approx 
+b1c1       1179     1179   -1.244      69.4  1179  refined
+b1c2       1177     1177   -1.248      76.5  1177  refined
+b1c3       1226     1252   -0.153      12.3  1252  refined
+b1c4       1227     1227   -1.316      90.3  1227  refined
+
+window  model  cell_id  true_step_pp  pred_step_pp  err_100_before  err_100_after  err_pre  mean_err_all  frac_before  mae_pre  mae_all
+------  -----  -------  ------------  ------------  --------------  -------------  -------  ------------  -----------  -------  -------
+W300    M0     b1c0           -0.393        -0.058          +3.483         +4.323   +1.702        +3.451        0.493    1.704    3.452
+W300    M0     b1c1           -0.815        -0.076          +2.946         +3.785   +1.224        +3.418        0.358    1.227    3.420
+W300    M0     b1c2           -0.834        +0.079          +2.821         +3.734   +1.193        +3.318        0.359    1.196    3.320
+W300    M0     b1c3           -0.993        -0.147          +4.740         +6.345   +1.232        +1.889        0.652    1.263    1.917
+W300    M0     b1c4           -0.988        +0.193          +3.454         +4.850   +1.184        +2.690        0.440    1.196    2.699
+W300    M1p    b1c0           -0.393        -0.025          +2.880         +3.686   +1.466        +3.233        0.453    1.469    3.235
+W300    M1p    b1c1           -0.815        +0.170          +2.650         +3.600   +1.122        +3.178        0.353    1.126    3.180
+W300    M1p    b1c2           -0.834        +0.091          +2.411         +3.389   +0.970        +2.990        0.324    0.980    2.995
+W300    M1p    b1c3           -0.993        +0.544          +4.328         +6.344   +1.091        +1.765        0.618    1.102    1.775
+W300    M1p    b1c4           -0.988        +0.536          +2.807         +4.225   +1.144        +2.571        0.445    1.149    2.575
+W300    B4r    b1c0           -0.393        +0.190          +1.555         +2.240   +0.953        +2.458        0.388    0.976    2.473
+W300    B4r    b1c1           -0.815        +0.524          +1.795         +2.820   +0.808        +2.503        0.323    0.835    2.518
+W300    B4r    b1c2           -0.834        +0.318          +1.367         +2.502   +0.525        +2.137        0.246    0.588    2.172
+W300    B4r    b1c3           -0.993        +0.207          +2.116         +5.308   +0.237        +0.939        0.252    0.584    1.242
+W300    B4r    b1c4           -0.988        +0.901          +1.247         +2.940   +0.566        +1.771        0.320    0.603    1.797
+W240    M0     b1c0           -0.393        -0.565          +1.046         +1.108   +0.684        +0.979        0.699    0.692    0.984
+W240    M0     b1c1           -0.815        -0.611          +0.323         +0.600   +0.054        +0.465        0.116    0.131    0.517
+W240    M0     b1c2           -0.834        -0.535          +0.250         +0.557   +0.110        +0.524        0.210    0.138    0.573
+W240    M0     b1c3           -0.993        -0.710          +0.073         +0.710   +0.260        +0.345        0.753    0.308    0.387
+W240    M0     b1c4           -0.988        -1.103          +0.257         +0.048   +0.197        +0.267        0.737    0.206    0.284
+W240    M1p    b1c0           -0.393        -0.052          +1.373         +1.158   +0.959        +1.440        0.666    0.961    1.441
+W240    M1p    b1c1           -0.815        -0.530          +1.216         +1.416   +0.523        +1.130        0.463    0.538    1.138
+W240    M1p    b1c2           -0.834        -0.539          +1.307         +1.570   +0.556        +1.304        0.426    0.574    1.314
+W240    M1p    b1c3           -0.993        -0.277          +1.091         +2.455   +0.474        +0.750        0.632    0.476    0.752
+W240    M1p    b1c4           -0.988        -1.140          +0.866         +0.771   +0.359        +0.654        0.549    0.372    0.663
+W240    B4r    b1c0           -0.393        -0.158          +1.139         +1.316   +0.698        +1.131        0.617    0.711    1.140
+W240    B4r    b1c1           -0.815        -0.372          +0.705         +1.111   +0.234        +0.806        0.290    0.292    0.837
+W240    B4r    b1c2           -0.834        -0.113          +0.606         +1.125   +0.263        +0.902        0.292    0.329    0.936
+W240    B4r    b1c3           -0.993        -0.278          +1.138         +1.988   +0.478        +0.720        0.664    0.523    0.759
+W240    B4r    b1c4           -0.988        -0.560          +0.334         +0.590   +0.245        +0.499        0.491    0.297    0.537
+
+====================================================================================================
+2c. EXPLORATORY: per-row average of M0 ensemble and B4r (negative diff = average better; not a gate result)
+====================================================================================================
+window  subset         contrast           n_cells  avg_macro_mae  other_macro_mae    diff  ci95            
+------  -------------  -----------------  -------  -------------  ---------------  ------  ----------------
+W300    all84          avg(M0,B4r) - M0        84          0.778            0.836  -0.058  [-0.100, -0.014]
+W300    all84          avg(M0,B4r) - B4r       84          0.778            0.818  -0.040  [-0.080, +0.001]
+W300    excl_stitched  avg(M0,B4r) - M0        79          0.671            0.701  -0.030  [-0.069, +0.010]
+W300    excl_stitched  avg(M0,B4r) - B4r       79          0.671            0.740  -0.069  [-0.105, -0.037]
+W300    life_short     avg(M0,B4r) - M0        28          0.695            0.701  -0.006  [-0.078, +0.052]
+W300    life_short     avg(M0,B4r) - B4r       28          0.695            0.785  -0.091  [-0.135, -0.049]
+W300    life_mid       avg(M0,B4r) - M0        28          0.751            0.760  -0.009  [-0.063, +0.066]
+W300    life_mid       avg(M0,B4r) - B4r       28          0.751            0.801  -0.050  [-0.124, +0.006]
+W300    life_long      avg(M0,B4r) - M0        28          0.890            1.047  -0.158  [-0.236, -0.078]
+W300    life_long      avg(M0,B4r) - B4r       28          0.890            0.867  +0.022  [-0.061, +0.111]
+W240    all84          avg(M0,B4r) - M0        84          0.502            0.530  -0.028  [-0.054, -0.003]
+W240    all84          avg(M0,B4r) - B4r       84          0.502            0.521  -0.019  [-0.045, +0.007]
+W240    excl_stitched  avg(M0,B4r) - M0        79          0.490            0.527  -0.037  [-0.063, -0.011]
+W240    excl_stitched  avg(M0,B4r) - B4r       79          0.490            0.500  -0.010  [-0.037, +0.016]
+W240    life_short     avg(M0,B4r) - M0        28          0.543            0.553  -0.009  [-0.053, +0.035]
+W240    life_short     avg(M0,B4r) - B4r       28          0.543            0.575  -0.032  [-0.076, +0.009]
+W240    life_mid       avg(M0,B4r) - M0        28          0.574            0.611  -0.036  [-0.076, +0.002]
+W240    life_mid       avg(M0,B4r) - B4r       28          0.574            0.562  +0.012  [-0.025, +0.053]
+W240    life_long      avg(M0,B4r) - M0        28          0.388            0.427  -0.040  [-0.089, +0.010]
+W240    life_long      avg(M0,B4r) - B4r       28          0.388            0.424  -0.037  [-0.091, +0.010]
+
+====================================================================================================
+2d. ONE-SIDED 90% CONFORMAL LOWER BOUND (APPROXIMATE: calibration folds' models saw the test fold's cells)
+====================================================================================================
+window  model  variant  macro_cov  ci95            pooled_cov  min_cell_cov  share_cells_below_0p80  mean_q_pp
+------  -----  -------  ---------  --------------  ----------  ------------  ----------------------  ---------
+W300    M0     raw          0.946  [0.906, 0.978]       0.871         0.086                    7.1%      2.839
+W300    M0     ema          0.947  [0.907, 0.979]       0.872         0.081                    7.1%      3.026
+W300    B4r    raw          0.936  [0.900, 0.966]       0.876         0.213                   10.7%      1.943
+W300    B4r    ema          0.934  [0.897, 0.965]       0.875         0.189                   11.9%      2.071
+W240    M0     raw          0.892  [0.844, 0.935]       0.889         0.072                   19.0%      0.995
+W240    M0     ema          0.888  [0.838, 0.933]       0.888         0.036                   20.2%      1.013
+W240    B4r    raw          0.902  [0.861, 0.940]       0.882         0.013                   21.4%      1.016
+W240    B4r    ema          0.900  [0.856, 0.939]       0.883         0.005                   21.4%      1.033
+
+window  model  variant  group_type    group     n_cells  macro_cov  ci95          
+------  -----  -------  ------------  --------  -------  ---------  --------------
+W300    M0     raw      life_tertile  short          28      0.993  [0.986, 0.999]
+W300    M0     raw      life_tertile  mid            28      0.982  [0.954, 0.998]
+W300    M0     raw      life_tertile  long           28      0.863  [0.752, 0.950]
+W300    M0     raw      stitched      other          79      0.983  [0.970, 0.993]
+W300    M0     raw      stitched      stitched        5      0.360  [0.110, 0.631]
+W300    M0     ema      life_tertile  short          28      0.993  [0.982, 1.000]
+W300    M0     ema      life_tertile  mid            28      0.985  [0.961, 0.998]
+W300    M0     ema      life_tertile  long           28      0.864  [0.752, 0.952]
+W300    M0     ema      stitched      other          79      0.984  [0.973, 0.993]
+W300    M0     ema      stitched      stitched        5      0.356  [0.103, 0.618]
+W300    B4r    raw      life_tertile  short          28      0.977  [0.944, 0.998]
+W300    B4r    raw      life_tertile  mid            28      0.966  [0.932, 0.991]
+W300    B4r    raw      life_tertile  long           28      0.866  [0.775, 0.942]
+W300    B4r    raw      stitched      other          79      0.967  [0.948, 0.982]
+W300    B4r    raw      stitched      stitched        5      0.454  [0.268, 0.670]
+W300    B4r    ema      life_tertile  short          28      0.972  [0.933, 0.997]
+W300    B4r    ema      life_tertile  mid            28      0.964  [0.925, 0.993]
+W300    B4r    ema      life_tertile  long           28      0.865  [0.771, 0.942]
+W300    B4r    ema      stitched      other          79      0.964  [0.942, 0.982]
+W300    B4r    ema      stitched      stitched        5      0.461  [0.244, 0.707]
+W240    M0     raw      life_tertile  short          28      0.918  [0.836, 0.978]
+W240    M0     raw      life_tertile  mid            28      0.859  [0.752, 0.947]
+W240    M0     raw      life_tertile  long           28      0.898  [0.833, 0.953]
+W240    M0     raw      stitched      other          79      0.895  [0.844, 0.940]
+W240    M0     raw      stitched      stitched        5      0.837  [0.759, 0.913]
+W240    M0     ema      life_tertile  short          28      0.914  [0.828, 0.977]
+W240    M0     ema      life_tertile  mid            28      0.852  [0.739, 0.943]
+W240    M0     ema      life_tertile  long           28      0.898  [0.831, 0.955]
+W240    M0     ema      stitched      other          79      0.889  [0.835, 0.936]
+W240    M0     ema      stitched      stitched        5      0.862  [0.789, 0.929]
+W240    B4r    raw      life_tertile  short          28      0.931  [0.848, 0.986]
+W240    B4r    raw      life_tertile  mid            28      0.887  [0.803, 0.957]
+W240    B4r    raw      life_tertile  long           28      0.889  [0.830, 0.941]
+W240    B4r    raw      stitched      other          79      0.917  [0.875, 0.954]
+W240    B4r    raw      stitched      stitched        5      0.663  [0.564, 0.775]
+W240    B4r    ema      life_tertile  short          28      0.930  [0.846, 0.987]
+W240    B4r    ema      life_tertile  mid            28      0.877  [0.784, 0.953]
+W240    B4r    ema      life_tertile  long           28      0.892  [0.833, 0.943]
+W240    B4r    ema      stitched      other          79      0.913  [0.869, 0.952]
+W240    B4r    ema      stitched      stitched        5      0.682  [0.578, 0.791]
+
+ALERT RULES: A = estimate <= threshold, B = lower bound <= threshold. delay = estimated - true crossing (negative = early); early alarm = more than 5% of life early.
+Right-censoring: scoring stops at end of life, so detections that would come after the last scored row are counted as MISSED, not late. Delay statistics use detected events only.
+85% truth = first scored cycle with true SOH <= 85; 80% truth = cycle_life. EMA alpha and conformal q use the other folds only. Nothing is chosen on test cells.
+window  model  variant  threshold  rule           subset        n_events  missed_rate  early_alarm_rate  med_cyc  mabs_cyc  med_%life  mabs_%life
+------  -----  -------  ---------  -------------  ------------  --------  -----------  ----------------  -------  --------  ---------  ----------
+W300    M0     raw             85  A_estimate     non_stitched       237         1.3%              3.8%       -2        14       -0.4         2.4
+W300    M0     raw             85  A_estimate     stitched            15        40.0%              0.0%     +123       137       +7.2         8.1
+W300    M0     raw             85  B_lower_bound  non_stitched       237         0.0%             57.0%      -31        37       -5.6         6.7
+W300    M0     raw             85  B_lower_bound  stitched            15         6.7%              0.0%     +100        85       +4.7         4.4
+W300    M0     raw             80  A_estimate     non_stitched       237        63.7%              1.3%       -4         8       -0.9         1.4
+W300    M0     raw             80  A_estimate     stitched            15       100.0%              0.0%        -         -          -           -
+W300    M0     raw             80  B_lower_bound  non_stitched       237         7.2%             30.0%      -22        24       -4.2         4.4
+W300    M0     raw             80  B_lower_bound  stitched            15       100.0%              0.0%        -         -          -           -
+W300    M0     ema             85  A_estimate     non_stitched       237         1.7%              2.1%       +2        14       +0.4         2.3
+W300    M0     ema             85  A_estimate     stitched            15       100.0%              0.0%        -         -          -           -
+W300    M0     ema             85  B_lower_bound  non_stitched       237         0.0%             62.0%      -36        48       -6.3         8.4
+W300    M0     ema             85  B_lower_bound  stitched            15         6.7%              0.0%     +127       128       +6.8         6.9
+W300    M0     ema             80  A_estimate     non_stitched       237        82.3%              0.0%       -6         6       -1.0         1.2
+W300    M0     ema             80  A_estimate     stitched            15       100.0%              0.0%        -         -          -           -
+W300    M0     ema             80  B_lower_bound  non_stitched       237        13.1%             19.8%      -20        22       -3.8         3.9
+W300    M0     ema             80  B_lower_bound  stitched            15       100.0%              0.0%        -         -          -           -
+W300    B4r    raw             85  A_estimate     non_stitched       237         0.0%             11.8%       -5        15       -0.8         2.8
+W300    B4r    raw             85  A_estimate     stitched            15        33.3%              0.0%     +109       103       +6.8         5.8
+W300    B4r    raw             85  B_lower_bound  non_stitched       237         0.0%             60.8%      -37        41       -6.2         7.4
+W300    B4r    raw             85  B_lower_bound  stitched            15         0.0%              0.0%      +77        74       +3.8         3.9
+W300    B4r    raw             80  A_estimate     non_stitched       237        95.8%              0.8%      -12        10       -2.7         2.9
+W300    B4r    raw             80  A_estimate     stitched            15       100.0%              0.0%        -         -          -           -
+W300    B4r    raw             80  B_lower_bound  non_stitched       237        11.8%             23.6%      -21        23       -3.8         4.4
+W300    B4r    raw             80  B_lower_bound  stitched            15        80.0%              0.0%      -61        61       -2.7         2.7
+W300    B4r    ema             85  A_estimate     non_stitched       237         0.0%              3.4%       +1        13       +0.2         2.2
+W300    B4r    ema             85  A_estimate     stitched            15        80.0%              0.0%      +82        82       +3.7         3.7
+W300    B4r    ema             85  B_lower_bound  non_stitched       237         0.0%             44.7%      -28        30       -4.7         5.3
+W300    B4r    ema             85  B_lower_bound  stitched            15         0.0%              0.0%     +117       120       +6.8         6.4
+W300    B4r    ema             80  A_estimate     non_stitched       237        98.7%              0.0%       -8         8       -2.4         2.5
+W300    B4r    ema             80  A_estimate     stitched            15       100.0%              0.0%        -         -          -           -
+W300    B4r    ema             80  B_lower_bound  non_stitched       237        17.3%             10.1%      -18        19       -3.1         3.4
+W300    B4r    ema             80  B_lower_bound  stitched            15        80.0%              0.0%      -34        39       -1.5         1.8
+W240    M0     raw             85  A_estimate     non_stitched       237         1.3%              0.0%       -2         7       -0.4         1.2
+W240    M0     raw             85  A_estimate     stitched            15         0.0%              0.0%       +7        38       +0.4         1.9
+W240    M0     raw             85  B_lower_bound  non_stitched       237         0.4%              8.0%      -16        18       -2.9         3.2
+W240    M0     raw             85  B_lower_bound  stitched            15         0.0%              6.7%      -40        41       -2.6         2.2
+W240    M0     raw             80  A_estimate     non_stitched       237        52.3%              0.0%       -2         3       -0.4         0.5
+W240    M0     raw             80  A_estimate     stitched            15       100.0%              0.0%        -         -          -           -
+W240    M0     raw             80  B_lower_bound  non_stitched       237         7.6%              0.8%      -12        13       -2.2         2.2
+W240    M0     raw             80  B_lower_bound  stitched            15        53.3%              0.0%      -28        27       -2.0         1.7
+W240    M0     ema             85  A_estimate     non_stitched       237         1.3%              0.0%       +0         7       +0.0         1.1
+W240    M0     ema             85  A_estimate     stitched            15         0.0%              0.0%      +26        45       +1.8         2.4
+W240    M0     ema             85  B_lower_bound  non_stitched       237         0.4%              6.8%      -15        17       -2.6         2.9
+W240    M0     ema             85  B_lower_bound  stitched            15         0.0%              0.0%      -32        33       -1.9         1.8
+W240    M0     ema             80  A_estimate     non_stitched       237        66.2%              0.0%       -2         2       -0.3         0.4
+W240    M0     ema             80  A_estimate     stitched            15       100.0%              0.0%        -         -          -           -
+W240    M0     ema             80  B_lower_bound  non_stitched       237         8.0%              0.8%      -11        12       -2.0         2.0
+W240    M0     ema             80  B_lower_bound  stitched            15        53.3%              0.0%      -20        21       -1.2         1.3
+W240    B4r    raw             85  A_estimate     non_stitched       237         1.3%              0.4%       -3         7       -0.6         1.2
+W240    B4r    raw             85  A_estimate     stitched            15         0.0%              0.0%      +74        71       +4.4         3.8
+W240    B4r    raw             85  B_lower_bound  non_stitched       237         0.0%             22.4%      -23        24       -3.9         4.2
+W240    B4r    raw             85  B_lower_bound  stitched            15         0.0%              0.0%      -14        27       -0.6         1.5
+W240    B4r    raw             80  A_estimate     non_stitched       237        85.7%              0.0%       -2         2       -0.4         0.5
+W240    B4r    raw             80  A_estimate     stitched            15       100.0%              0.0%        -         -          -           -
+W240    B4r    raw             80  B_lower_bound  non_stitched       237         4.6%              3.4%      -16        16       -2.8         2.8
+W240    B4r    raw             80  B_lower_bound  stitched            15       100.0%              0.0%        -         -          -           -
+W240    B4r    ema             85  A_estimate     non_stitched       237         1.3%              0.0%       +1         6       +0.2         1.0
+W240    B4r    ema             85  A_estimate     stitched            15         0.0%              0.0%      +94        87       +4.6         4.6
+W240    B4r    ema             85  B_lower_bound  non_stitched       237         0.0%              9.7%      -19        20       -3.3         3.6
+W240    B4r    ema             85  B_lower_bound  stitched            15         0.0%              0.0%       -5        21       -0.2         1.2
+W240    B4r    ema             80  A_estimate     non_stitched       237        97.0%              0.0%       -1         2       -0.3         0.3
+W240    B4r    ema             80  A_estimate     stitched            15       100.0%              0.0%        -         -          -           -
+W240    B4r    ema             80  B_lower_bound  non_stitched       237         5.5%              1.3%      -14        14       -2.4         2.4
+W240    B4r    ema             80  B_lower_bound  stitched            15       100.0%              0.0%        -         -          -           -
+
+====================================================================================================
+3. TRAINING ABLATIONS (DESCRIPTIVE; 14 paired intervals; some will exclude zero by chance)
+====================================================================================================
+window  variant             base          macro_mae  diff_vs_base  ci95              macro_excl_stitched  last20_macro_mae  pooled_bias
+------  ------------------  ------------  ---------  ------------  ----------------  -------------------  ----------------  -----------
+W300    M0:5b_nested                          0.836             -                                  0.701             1.595       +0.569
+W300    M0:ref              M0:5b_nested      0.832        -0.004  [-0.010, +0.002]                0.697             1.595       +0.573
+W300    M0:noQ0             M0:ref            1.125        +0.292  [+0.160, +0.439]                1.017             1.705       +0.567
+W300    M0:sample_weighted  M0:ref            0.874        +0.041  [+0.002, +0.079]                0.756             1.576       +0.382
+W300    M0:mse              M0:ref            0.865        +0.032  [+0.001, +0.065]                0.742             1.589       +0.425
+W300    M0:stride1          M0:ref            0.872        +0.040  [-0.001, +0.082]                0.744             1.625       +0.508
+W300    B4r:5b_saved                          0.818             -                                  0.740             1.504       +0.253
+W300    B4r:ref             B4r:5b_saved      0.816        -0.002  [-0.003, +0.000]                0.739             1.499       +0.251
+W300    B4r:+log_cycle      B4r:ref           0.592        -0.225  [-0.292, -0.153]                0.559             1.043       +0.149
+W240    M0:5b_nested                          0.530             -                                  0.527             0.791       +0.130
+W240    M0:ref              M0:5b_nested      0.522        -0.008  [-0.018, +0.003]                0.526             0.775       +0.103
+W240    M0:noQ0             M0:ref            0.915        +0.392  [+0.244, +0.564]                0.929             1.139       +0.180
+W240    M0:sample_weighted  M0:ref            0.534        +0.011  [+0.000, +0.023]                0.543             0.787       +0.055
+W240    M0:mse              M0:ref            0.524        +0.002  [-0.008, +0.012]                0.528             0.782       +0.088
+W240    M0:stride1          M0:ref            0.544        +0.021  [-0.012, +0.057]                0.540             0.808       +0.116
+W240    B4r:5b_saved                          0.521             -                                  0.500             0.800       +0.132
+W240    B4r:ref             B4r:5b_saved      0.521        +0.001  [-0.000, +0.002]                0.500             0.801       +0.136
+W240    B4r:+log_cycle      B4r:ref           0.442        -0.079  [-0.109, -0.048]                0.434             0.696       +0.108
+
+SKIPPED variants:
+variant              status   reason                                                                                                                         
+-------------------  -------  -------------------------------------------------------------------------------------------------------------------------------
+size_sweep           SKIPPED  make_single/make_batched expose no width or channel argument; M0 is fixed at 33-44-32-1 (2,969 parameters) in the frozen module
+temperature          SKIPPED  temperature never extracted; excluded from the primary model by design                                                         
+internal_resistance  SKIPPED  IR never extracted; excluded from the primary model by design                                                                  
+policy_features      SKIPPED  policy never extracted as a model input; excluded from the primary model by design                                             
+mse = Huber delta 1e6 pp (equals 0.5*x^2 for |x| <= delta, the same gradient scale as Huber's quadratic zone). B4r:+log_cycle is run on the tree model B4r (fixed leaf by the D69-style rule, no nested tuning), not on M0.
+
+====================================================================================================
+4. EXTREME-LIFE HOLDOUT (mode: separate; policy twins of held-out cells removed from training)
+====================================================================================================
+group  n_held  n_policies_held  n_twins_removed  n_train  train_life_min  train_life_max
+-----  ------  ---------------  ---------------  -------  --------------  --------------
+short       8                8                0       76             458            2237
+long        8                5                1       75             148            1017
+
+window  group  n_held  mean_life  mean_dist_from_train  max_dist_from_train  M0_extreme  M0_D5b  M0_Dref  B4r_extreme  B4r_D5b  B4r_Dref  M0_ratio_vs_D5b  B4r_ratio_vs_D5b
+------  -----  ------  ---------  --------------------  -------------------  ----------  ------  -------  -----------  -------  --------  ---------------  ----------------
+W240    long        8       1571                   554                 1220       1.282   0.573    0.502        1.222    0.694     0.703            2.236             1.762
+W240    short       8        372                    86                  310       0.872   0.864    0.857        0.910    0.877     0.878            1.009             1.037
+W300    long        8       1571                   554                 1220       2.452   2.257    2.257        2.033    1.579     1.575            1.087             1.287
+W300    short       8        372                    86                  310       0.959   0.950    0.942        1.271    1.087     1.092            1.009             1.169
+
+window  group  cell_id  stitched  life  dist_from_train_range  side   M0_extreme_mae  M0_D5b_mae  B4r_extreme_mae  B4r_D5b_mae
+------  -----  -------  --------  ----  ---------------------  -----  --------------  ----------  ---------------  -----------
+W300    short  b2c0     False      300                    158  below           0.864       0.919            1.588        1.085
+W300    short  b2c1     False      148                    310  below           2.034       1.892            2.651        2.491
+W300    short  b2c2     False      438                     20  below           0.838       0.808            0.956        0.926
+W300    short  b2c3     False      335                    123  below           0.771       0.802            1.444        0.975
+W300    short  b2c4     False      444                     14  below           0.506       0.534            0.977        0.875
+W300    short  b2c41    False      429                     29  below           0.369       0.333            0.408        0.386
+W300    short  b2c44    False      457                      1  below           1.175       1.232            1.129        1.036
+W300    short  b2c46    False      429                     29  below           1.113       1.080            1.019        0.923
+W300    long   b1c0     True      1852                    835  above           3.463       3.453            2.916        2.474
+W300    long   b1c1     True      2160                   1143  above           3.568       3.420            3.039        2.519
+W300    long   b1c2     True      2237                   1220  above           3.551       3.320            2.828        2.173
+W300    long   b1c3     True      1434                    417  above           2.191       1.917            1.825        1.255
+W300    long   b1c4     True      1709                    692  above           2.965       2.700            2.568        1.800
+W300    long   b1c41    False     1051                     34  above           1.090       0.955            0.965        0.674
+W300    long   b1c5     False     1074                     57  above           1.820       1.621            1.503        1.030
+W300    long   b1c9     False     1054                     37  above           0.969       0.667            0.617        0.707
+W240    short  b2c0     False      300                    158  below           0.337       0.345            0.422        0.352
+W240    short  b2c1     False      148                    310  below           3.412       3.293            3.766        3.786
+W240    short  b2c2     False      438                     20  below           0.248       0.320            0.374        0.341
+W240    short  b2c3     False      335                    123  below           0.296       0.380            0.333        0.246
+W240    short  b2c4     False      444                     14  below           0.475       0.482            0.352        0.333
+W240    short  b2c41    False      429                     29  below           0.435       0.377            0.395        0.382
+W240    short  b2c44    False      457                      1  below           0.860       0.820            0.731        0.704
+W240    short  b2c46    False      429                     29  below           0.909       0.892            0.906        0.875
+W240    long   b1c0     True      1852                    835  above           1.463       0.984            1.853        1.140
+W240    long   b1c1     True      2160                   1143  above           1.590       0.571            1.634        0.841
+W240    long   b1c2     True      2237                   1220  above           1.988       0.650            1.722        0.939
+W240    long   b1c3     True      1434                    417  above           1.269       0.390            1.221        0.759
+W240    long   b1c4     True      1709                    692  above           1.523       0.289            1.437        0.540
+W240    long   b1c41    False     1051                     34  above           0.571       0.445            0.521        0.384
+W240    long   b1c5     False     1074                     57  above           1.167       0.900            0.987        0.717
+W240    long   b1c9     False     1054                     37  above           0.686       0.358            0.401        0.228
+
+====================================================================================================
+5. CHECKS
+====================================================================================================
+so far: {'PASS': 340, 'WARN': 2, 'FAIL': 0}
+  [WARN] junction b1c0: approx 1190, largest negative true step at 1190 (-0.390 pp, 6.9x median step) | 
+  [WARN] junction b1c3: approx 1226, largest negative true step at 1252 (-0.153 pp, 12.3x median step) | 

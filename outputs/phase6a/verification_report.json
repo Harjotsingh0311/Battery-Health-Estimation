@@ -1,0 +1,3066 @@
+{
+  "phase": "6a",
+  "created": "2026-11-03T09:23:14",
+  "root": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation",
+  "partial": false,
+  "n_pass": 580,
+  "n_warn": 0,
+  "n_fail": 0,
+  "n_info": 6,
+  "checks": [
+    {
+      "name": "frozen file exists: outputs\\phase4\\week2_gate.json",
+      "level": "PASS",
+      "detail": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\outputs\\phase4\\week2_gate.json"
+    },
+    {
+      "name": "frozen file exists: src\\soh_deep_v2.py",
+      "level": "PASS",
+      "detail": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\src\\soh_deep_v2.py"
+    },
+    {
+      "name": "gate_verdict.json found",
+      "level": "PASS",
+      "detail": "outputs\\phase5b\\gate_verdict.json, outputs\\phase5b\\smoke\\gate_verdict.json"
+    },
+    {
+      "name": "sha256 matches frozen value at start: week2_gate.json",
+      "level": "PASS",
+      "detail": "40df2fb82096e994..."
+    },
+    {
+      "name": "sha256 matches frozen value at start: soh_deep_v2.py (CRLF->LF)",
+      "level": "PASS",
+      "detail": "fc53e37d506ebe51..."
+    },
+    {
+      "name": "sha256 matches frozen value at start: gate_verdict.json",
+      "level": "PASS",
+      "detail": "2f59f82a7c7d8940..."
+    },
+    {
+      "name": "GPU/CUDA (informational, not needed: nothing is trained)",
+      "level": "PASS",
+      "detail": "torch 2.14.1+cu130, cuda available=True, device=NVIDIA GeForce RTX 3050 6GB Laptop GPU"
+    },
+    {
+      "name": "input exists: outputs\\phase5b\\deep_results.csv",
+      "level": "PASS",
+      "detail": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\outputs\\phase5b\\deep_results.csv"
+    },
+    {
+      "name": "input exists: outputs\\phase5b\\deep_by_cell.csv",
+      "level": "PASS",
+      "detail": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\outputs\\phase5b\\deep_by_cell.csv"
+    },
+    {
+      "name": "input exists: outputs\\phase5b\\selected_configs.csv",
+      "level": "PASS",
+      "detail": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\outputs\\phase5b\\selected_configs.csv"
+    },
+    {
+      "name": "input exists: data\\processed\\labels_table_v2.parquet",
+      "level": "PASS",
+      "detail": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\data\\processed\\labels_table_v2.parquet"
+    },
+    {
+      "name": "input exists: data\\processed\\cycles_table.parquet",
+      "level": "PASS",
+      "detail": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\data\\processed\\cycles_table.parquet"
+    },
+    {
+      "name": "input exists: outputs\\phase3\\kept_cells_groups_strata.csv",
+      "level": "PASS",
+      "detail": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\outputs\\phase3\\kept_cells_groups_strata.csv"
+    },
+    {
+      "name": "input exists: data\\processed\\splits\\protocol_D.csv",
+      "level": "PASS",
+      "detail": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\data\\processed\\splits\\protocol_D.csv"
+    },
+    {
+      "name": "Phase 5b cache: final_*.parquet files (top level)",
+      "level": "PASS",
+      "detail": "60 files; subfolders ignored"
+    },
+    {
+      "name": "schema final_02770a7413c3becc5ec4.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_047dc9988cc46bea37c2.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_0484477492f5dfaf92bf.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_0c73fa7634974d33a357.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_175d068180090b733ca0.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_18566a08acc020da6779.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_1b0f1b6eb45165996d25.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_22105d1f2511f38599a3.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_23e83b31829ec37a8f5b.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_2ba21a43ffb4a55e7f26.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_2c0f0b0dce743ef67295.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_2d766dbcb1222f92dbdb.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_39934adae5b9645813e0.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_3e82be03e8f2c4a77b6a.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_3f18f5d8592f4b8d3cee.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_414506f5f3b5078895c5.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_43bf2fdb06e6ebedaf53.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_45d9c21779c7dc7630e3.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_59c46a0e96bd79850956.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_66b46846bb0ca2ca399b.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_696299d64882f2abfc34.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_6ab0bd50d4dff81c282d.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_6c88972e298ad0335caf.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_6ccc5aef52cf79d88ed5.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_6d3b33e1bca9b8e90ae5.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_72f5f9e05f48f32cd137.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_73fbe4f5528a2bd78851.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_779b7f1f94abc8b3e506.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_7860e577581556994fdf.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_7869b5c865ed4e8a21f6.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_7d7376a3908a11de9c47.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_81a43b1d7b8d37e7d65b.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_81ee305a3d7dcde8a792.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_8488536a6663cf905d80.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_889fd582513622c6f50d.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_8bd427e0903a6e6e986c.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_8cea9ea3df20e3c8b40c.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_8f9488884c98e5ea7be0.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_95b37f995e426e70003b.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_9860d7f3c6f4178d41b0.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_989e75894d8bf4f95bb1.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_9ab47efed2b7e4e65cba.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_9d3d9cb314f6a5e13577.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_a2163ed5ae670e025604.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_abf9b22d72a87e486e01.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_bba7427cd047b3a7bf4e.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_c313d72b115be6fd36c5.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_d410741ca67784fea846.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_db34bcccc5955b19cb02.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_db61582ba5542973a155.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_db8b8d30b4b4ab13adff.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_dbc5ebd7a2efa6e673a0.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_ddff4a923cb9e9c48cf3.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_e4118083fbb8d1b0d9ab.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_eac6a1d7ec0ab22e1007.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_ed4c6b9275e0dd1aa1bf.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_f35399a0624e7bcd4207.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_f91f667cb35cce506bc0.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_feb9ac00e01f10f248b4.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "schema final_ffd07c322a36f2a5a3b4.parquet",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "labels_table_v2 schema",
+      "level": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "splits schema",
+      "level": "PASS",
+      "detail": "['repeat', 'outer_fold', 'cell_id', 'role', 'seed', 'tertile']"
+    },
+    {
+      "name": "84 development cells (41 batch-1 + 43 batch-2)",
+      "level": "PASS",
+      "detail": "(84, 41, 43)"
+    },
+    {
+      "name": "no batch-3 / sensitivity cells in splits",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "3 repeats x 6 outer folds",
+      "level": "PASS",
+      "detail": "([0, 1, 2], [0, 1, 2, 3, 4, 5])"
+    },
+    {
+      "name": "development rows D = scored2 & 84 cells",
+      "level": "PASS",
+      "detail": "55,963 rows (expected 55,963)"
+    },
+    {
+      "name": "row_id unique in D",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "no NaN in y / cycle_number",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "D covers all 84 cells",
+      "level": "PASS",
+      "detail": "84"
+    },
+    {
+      "name": "labels 'batch' column values (batch is derived from the cell_id prefix)",
+      "level": "INFO",
+      "detail": "['1', '2']"
+    },
+    {
+      "name": "cycle_number unique within cell (EMA ordering well defined)",
+      "level": "PASS",
+      "detail": "0 duplicated (cell, cycle)"
+    },
+    {
+      "name": "cell arrays contain no batch-3 / sensitivity cells",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "life table schema",
+      "level": "PASS",
+      "detail": "['cell_id', 'batch', 'policy_norm', 'policy_str', 'life', 'position', 'is_dev', 'tertile', 'tertile_label']"
+    },
+    {
+      "name": "life available for all 84 cells",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "life tertile cuts close to ~493 / ~710",
+      "level": "PASS",
+      "detail": "493.3 / 710.3"
+    },
+    {
+      "name": "rows beyond stated life (kept in tenth 10)",
+      "level": "INFO",
+      "detail": "0"
+    },
+    {
+      "name": "cycles_table flag columns (flagged cycles, dev cells)",
+      "level": "INFO",
+      "detail": "{'flag_placeholder': 41, 'flag_qdlin_bad': 285, 'flag_diag_suspect': 70, 'flag_ir_nonpos': 21, 'flag_qd_mismatch': 173, 'flag_qdqc_gap': 105, 'flag_qd_spike': 20}"
+    },
+    {
+      "name": "every dev cell in exactly one test fold per repeat",
+      "level": "PASS",
+      "detail": "252 (repeat, cell) pairs"
+    },
+    {
+      "name": "fold map complete",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "train/test disjoint and complete in every (repeat, fold)",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_02770a7413c3becc5ec4.parquet: only development cells",
+      "level": "PASS",
+      "detail": "82,350 rows"
+    },
+    {
+      "name": "final_02770a7413c3becc5ec4.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_02770a7413c3becc5ec4.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_02770a7413c3becc5ec4.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_02770a7413c3becc5ec4.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_02770a7413c3becc5ec4.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_02770a7413c3becc5ec4.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_047dc9988cc46bea37c2.parquet: only development cells",
+      "level": "PASS",
+      "detail": "167,889 rows"
+    },
+    {
+      "name": "final_047dc9988cc46bea37c2.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_047dc9988cc46bea37c2.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_047dc9988cc46bea37c2.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_047dc9988cc46bea37c2.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_047dc9988cc46bea37c2.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_047dc9988cc46bea37c2.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_0484477492f5dfaf92bf.parquet: only development cells",
+      "level": "PASS",
+      "detail": "39,760 rows"
+    },
+    {
+      "name": "final_0484477492f5dfaf92bf.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_0484477492f5dfaf92bf.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_0484477492f5dfaf92bf.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_0484477492f5dfaf92bf.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_0c73fa7634974d33a357.parquet: only development cells",
+      "level": "PASS",
+      "detail": "193,020 rows"
+    },
+    {
+      "name": "final_0c73fa7634974d33a357.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_0c73fa7634974d33a357.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_0c73fa7634974d33a357.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_0c73fa7634974d33a357.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_0c73fa7634974d33a357.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_175d068180090b733ca0.parquet: only development cells",
+      "level": "PASS",
+      "detail": "37,140 rows"
+    },
+    {
+      "name": "final_175d068180090b733ca0.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_175d068180090b733ca0.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_175d068180090b733ca0.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_175d068180090b733ca0.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_18566a08acc020da6779.parquet: only development cells",
+      "level": "PASS",
+      "detail": "80,081 rows"
+    },
+    {
+      "name": "final_18566a08acc020da6779.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_18566a08acc020da6779.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_18566a08acc020da6779.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_18566a08acc020da6779.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_18566a08acc020da6779.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_18566a08acc020da6779.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_1b0f1b6eb45165996d25.parquet: only development cells",
+      "level": "PASS",
+      "detail": "222,355 rows"
+    },
+    {
+      "name": "final_1b0f1b6eb45165996d25.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_1b0f1b6eb45165996d25.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_1b0f1b6eb45165996d25.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_1b0f1b6eb45165996d25.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_1b0f1b6eb45165996d25.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_1b0f1b6eb45165996d25.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_22105d1f2511f38599a3.parquet: only development cells",
+      "level": "PASS",
+      "detail": "234,575 rows"
+    },
+    {
+      "name": "final_22105d1f2511f38599a3.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_22105d1f2511f38599a3.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_22105d1f2511f38599a3.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_22105d1f2511f38599a3.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_22105d1f2511f38599a3.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_23e83b31829ec37a8f5b.parquet: only development cells",
+      "level": "PASS",
+      "detail": "228,000 rows"
+    },
+    {
+      "name": "final_23e83b31829ec37a8f5b.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_23e83b31829ec37a8f5b.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_23e83b31829ec37a8f5b.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_23e83b31829ec37a8f5b.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_23e83b31829ec37a8f5b.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_23e83b31829ec37a8f5b.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_2ba21a43ffb4a55e7f26.parquet: only development cells",
+      "level": "PASS",
+      "detail": "260,790 rows"
+    },
+    {
+      "name": "final_2ba21a43ffb4a55e7f26.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_2ba21a43ffb4a55e7f26.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_2ba21a43ffb4a55e7f26.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_2ba21a43ffb4a55e7f26.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_2ba21a43ffb4a55e7f26.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_2ba21a43ffb4a55e7f26.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_2c0f0b0dce743ef67295.parquet: only development cells",
+      "level": "PASS",
+      "detail": "130,100 rows"
+    },
+    {
+      "name": "final_2c0f0b0dce743ef67295.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_2c0f0b0dce743ef67295.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_2c0f0b0dce743ef67295.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_2c0f0b0dce743ef67295.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_2c0f0b0dce743ef67295.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_2d766dbcb1222f92dbdb.parquet: only development cells",
+      "level": "PASS",
+      "detail": "64,909 rows"
+    },
+    {
+      "name": "final_2d766dbcb1222f92dbdb.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_2d766dbcb1222f92dbdb.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_2d766dbcb1222f92dbdb.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_2d766dbcb1222f92dbdb.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_2d766dbcb1222f92dbdb.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_2d766dbcb1222f92dbdb.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_39934adae5b9645813e0.parquet: only development cells",
+      "level": "PASS",
+      "detail": "222,540 rows"
+    },
+    {
+      "name": "final_39934adae5b9645813e0.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_39934adae5b9645813e0.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_39934adae5b9645813e0.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_39934adae5b9645813e0.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_39934adae5b9645813e0.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_39934adae5b9645813e0.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_3e82be03e8f2c4a77b6a.parquet: only development cells",
+      "level": "PASS",
+      "detail": "91,615 rows"
+    },
+    {
+      "name": "final_3e82be03e8f2c4a77b6a.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_3e82be03e8f2c4a77b6a.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_3e82be03e8f2c4a77b6a.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_3e82be03e8f2c4a77b6a.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_3e82be03e8f2c4a77b6a.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_3f18f5d8592f4b8d3cee.parquet: only development cells",
+      "level": "PASS",
+      "detail": "126,460 rows"
+    },
+    {
+      "name": "final_3f18f5d8592f4b8d3cee.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_3f18f5d8592f4b8d3cee.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_3f18f5d8592f4b8d3cee.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_3f18f5d8592f4b8d3cee.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_414506f5f3b5078895c5.parquet: only development cells",
+      "level": "PASS",
+      "detail": "435,265 rows"
+    },
+    {
+      "name": "final_414506f5f3b5078895c5.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_414506f5f3b5078895c5.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_414506f5f3b5078895c5.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_414506f5f3b5078895c5.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_414506f5f3b5078895c5.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_414506f5f3b5078895c5.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_43bf2fdb06e6ebedaf53.parquet: only development cells",
+      "level": "PASS",
+      "detail": "18,364 rows"
+    },
+    {
+      "name": "final_43bf2fdb06e6ebedaf53.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_43bf2fdb06e6ebedaf53.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_43bf2fdb06e6ebedaf53.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_43bf2fdb06e6ebedaf53.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_45d9c21779c7dc7630e3.parquet: only development cells",
+      "level": "PASS",
+      "detail": "506,805 rows"
+    },
+    {
+      "name": "final_45d9c21779c7dc7630e3.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_45d9c21779c7dc7630e3.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_45d9c21779c7dc7630e3.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_45d9c21779c7dc7630e3.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_45d9c21779c7dc7630e3.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_45d9c21779c7dc7630e3.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_59c46a0e96bd79850956.parquet: only development cells",
+      "level": "PASS",
+      "detail": "332,640 rows"
+    },
+    {
+      "name": "final_59c46a0e96bd79850956.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_59c46a0e96bd79850956.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_59c46a0e96bd79850956.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_59c46a0e96bd79850956.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_59c46a0e96bd79850956.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_59c46a0e96bd79850956.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_66b46846bb0ca2ca399b.parquet: only development cells",
+      "level": "PASS",
+      "detail": "46,393 rows"
+    },
+    {
+      "name": "final_66b46846bb0ca2ca399b.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_66b46846bb0ca2ca399b.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_66b46846bb0ca2ca399b.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_66b46846bb0ca2ca399b.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_66b46846bb0ca2ca399b.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_696299d64882f2abfc34.parquet: only development cells",
+      "level": "PASS",
+      "detail": "149,525 rows"
+    },
+    {
+      "name": "final_696299d64882f2abfc34.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_696299d64882f2abfc34.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_696299d64882f2abfc34.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_696299d64882f2abfc34.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_696299d64882f2abfc34.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_696299d64882f2abfc34.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_6ab0bd50d4dff81c282d.parquet: only development cells",
+      "level": "PASS",
+      "detail": "38,946 rows"
+    },
+    {
+      "name": "final_6ab0bd50d4dff81c282d.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_6ab0bd50d4dff81c282d.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_6ab0bd50d4dff81c282d.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_6ab0bd50d4dff81c282d.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_6ab0bd50d4dff81c282d.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_6c88972e298ad0335caf.parquet: only development cells",
+      "level": "PASS",
+      "detail": "227,525 rows"
+    },
+    {
+      "name": "final_6c88972e298ad0335caf.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_6c88972e298ad0335caf.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_6c88972e298ad0335caf.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_6c88972e298ad0335caf.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_6c88972e298ad0335caf.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_6c88972e298ad0335caf.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_6ccc5aef52cf79d88ed5.parquet: only development cells",
+      "level": "PASS",
+      "detail": "44,500 rows"
+    },
+    {
+      "name": "final_6ccc5aef52cf79d88ed5.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_6ccc5aef52cf79d88ed5.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_6ccc5aef52cf79d88ed5.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_6ccc5aef52cf79d88ed5.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_6d3b33e1bca9b8e90ae5.parquet: only development cells",
+      "level": "PASS",
+      "detail": "29,518 rows"
+    },
+    {
+      "name": "final_6d3b33e1bca9b8e90ae5.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_6d3b33e1bca9b8e90ae5.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_6d3b33e1bca9b8e90ae5.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_6d3b33e1bca9b8e90ae5.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_6d3b33e1bca9b8e90ae5.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_72f5f9e05f48f32cd137.parquet: only development cells",
+      "level": "PASS",
+      "detail": "175,240 rows"
+    },
+    {
+      "name": "final_72f5f9e05f48f32cd137.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_72f5f9e05f48f32cd137.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_72f5f9e05f48f32cd137.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_72f5f9e05f48f32cd137.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_72f5f9e05f48f32cd137.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_72f5f9e05f48f32cd137.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_73fbe4f5528a2bd78851.parquet: only development cells",
+      "level": "PASS",
+      "detail": "107,755 rows"
+    },
+    {
+      "name": "final_73fbe4f5528a2bd78851.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_73fbe4f5528a2bd78851.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_73fbe4f5528a2bd78851.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_73fbe4f5528a2bd78851.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_73fbe4f5528a2bd78851.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_779b7f1f94abc8b3e506.parquet: only development cells",
+      "level": "PASS",
+      "detail": "243,265 rows"
+    },
+    {
+      "name": "final_779b7f1f94abc8b3e506.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_779b7f1f94abc8b3e506.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_779b7f1f94abc8b3e506.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_779b7f1f94abc8b3e506.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_779b7f1f94abc8b3e506.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_7860e577581556994fdf.parquet: only development cells",
+      "level": "PASS",
+      "detail": "85,875 rows"
+    },
+    {
+      "name": "final_7860e577581556994fdf.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_7860e577581556994fdf.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_7860e577581556994fdf.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_7860e577581556994fdf.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_7869b5c865ed4e8a21f6.parquet: only development cells",
+      "level": "PASS",
+      "detail": "167,889 rows"
+    },
+    {
+      "name": "final_7869b5c865ed4e8a21f6.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_7869b5c865ed4e8a21f6.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_7869b5c865ed4e8a21f6.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_7869b5c865ed4e8a21f6.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_7869b5c865ed4e8a21f6.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_7869b5c865ed4e8a21f6.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_7d7376a3908a11de9c47.parquet: only development cells",
+      "level": "PASS",
+      "detail": "167,889 rows"
+    },
+    {
+      "name": "final_7d7376a3908a11de9c47.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_7d7376a3908a11de9c47.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_7d7376a3908a11de9c47.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_7d7376a3908a11de9c47.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_7d7376a3908a11de9c47.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_7d7376a3908a11de9c47.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_81a43b1d7b8d37e7d65b.parquet: only development cells",
+      "level": "PASS",
+      "detail": "96,080 rows"
+    },
+    {
+      "name": "final_81a43b1d7b8d37e7d65b.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_81a43b1d7b8d37e7d65b.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_81a43b1d7b8d37e7d65b.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_81a43b1d7b8d37e7d65b.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_81a43b1d7b8d37e7d65b.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_81ee305a3d7dcde8a792.parquet: only development cells",
+      "level": "PASS",
+      "detail": "8,900 rows"
+    },
+    {
+      "name": "final_81ee305a3d7dcde8a792.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_81ee305a3d7dcde8a792.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_81ee305a3d7dcde8a792.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_81ee305a3d7dcde8a792.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_8488536a6663cf905d80.parquet: only development cells",
+      "level": "PASS",
+      "detail": "167,889 rows"
+    },
+    {
+      "name": "final_8488536a6663cf905d80.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_8488536a6663cf905d80.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_8488536a6663cf905d80.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_8488536a6663cf905d80.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_8488536a6663cf905d80.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_8488536a6663cf905d80.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_889fd582513622c6f50d.parquet: only development cells",
+      "level": "PASS",
+      "detail": "101,160 rows"
+    },
+    {
+      "name": "final_889fd582513622c6f50d.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_889fd582513622c6f50d.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_889fd582513622c6f50d.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_889fd582513622c6f50d.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_889fd582513622c6f50d.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_8bd427e0903a6e6e986c.parquet: only development cells",
+      "level": "PASS",
+      "detail": "87,808 rows"
+    },
+    {
+      "name": "final_8bd427e0903a6e6e986c.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_8bd427e0903a6e6e986c.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_8bd427e0903a6e6e986c.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_8bd427e0903a6e6e986c.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_8bd427e0903a6e6e986c.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_8bd427e0903a6e6e986c.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_8cea9ea3df20e3c8b40c.parquet: only development cells",
+      "level": "PASS",
+      "detail": "169,195 rows"
+    },
+    {
+      "name": "final_8cea9ea3df20e3c8b40c.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_8cea9ea3df20e3c8b40c.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_8cea9ea3df20e3c8b40c.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_8cea9ea3df20e3c8b40c.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_8cea9ea3df20e3c8b40c.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_8f9488884c98e5ea7be0.parquet: only development cells",
+      "level": "PASS",
+      "detail": "129,810 rows"
+    },
+    {
+      "name": "final_8f9488884c98e5ea7be0.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_8f9488884c98e5ea7be0.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_8f9488884c98e5ea7be0.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_8f9488884c98e5ea7be0.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_8f9488884c98e5ea7be0.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_95b37f995e426e70003b.parquet: only development cells",
+      "level": "PASS",
+      "detail": "134,160 rows"
+    },
+    {
+      "name": "final_95b37f995e426e70003b.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_95b37f995e426e70003b.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_95b37f995e426e70003b.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_95b37f995e426e70003b.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_95b37f995e426e70003b.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_9860d7f3c6f4178d41b0.parquet: only development cells",
+      "level": "PASS",
+      "detail": "242,535 rows"
+    },
+    {
+      "name": "final_9860d7f3c6f4178d41b0.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_9860d7f3c6f4178d41b0.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_9860d7f3c6f4178d41b0.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_9860d7f3c6f4178d41b0.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_9860d7f3c6f4178d41b0.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_9860d7f3c6f4178d41b0.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_989e75894d8bf4f95bb1.parquet: only development cells",
+      "level": "PASS",
+      "detail": "37,895 rows"
+    },
+    {
+      "name": "final_989e75894d8bf4f95bb1.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_989e75894d8bf4f95bb1.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_989e75894d8bf4f95bb1.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_989e75894d8bf4f95bb1.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_9ab47efed2b7e4e65cba.parquet: only development cells",
+      "level": "PASS",
+      "detail": "376,900 rows"
+    },
+    {
+      "name": "final_9ab47efed2b7e4e65cba.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_9ab47efed2b7e4e65cba.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_9ab47efed2b7e4e65cba.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_9ab47efed2b7e4e65cba.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_9ab47efed2b7e4e65cba.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_9ab47efed2b7e4e65cba.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_9d3d9cb314f6a5e13577.parquet: only development cells",
+      "level": "PASS",
+      "detail": "8,411 rows"
+    },
+    {
+      "name": "final_9d3d9cb314f6a5e13577.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_9d3d9cb314f6a5e13577.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_9d3d9cb314f6a5e13577.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_9d3d9cb314f6a5e13577.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_a2163ed5ae670e025604.parquet: only development cells",
+      "level": "PASS",
+      "detail": "44,895 rows"
+    },
+    {
+      "name": "final_a2163ed5ae670e025604.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_a2163ed5ae670e025604.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_a2163ed5ae670e025604.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_a2163ed5ae670e025604.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_abf9b22d72a87e486e01.parquet: only development cells",
+      "level": "PASS",
+      "detail": "233,285 rows"
+    },
+    {
+      "name": "final_abf9b22d72a87e486e01.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_abf9b22d72a87e486e01.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_abf9b22d72a87e486e01.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_abf9b22d72a87e486e01.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_abf9b22d72a87e486e01.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_bba7427cd047b3a7bf4e.parquet: only development cells",
+      "level": "PASS",
+      "detail": "12,603 rows"
+    },
+    {
+      "name": "final_bba7427cd047b3a7bf4e.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_bba7427cd047b3a7bf4e.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_bba7427cd047b3a7bf4e.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_bba7427cd047b3a7bf4e.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_c313d72b115be6fd36c5.parquet: only development cells",
+      "level": "PASS",
+      "detail": "47,063 rows"
+    },
+    {
+      "name": "final_c313d72b115be6fd36c5.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_c313d72b115be6fd36c5.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_c313d72b115be6fd36c5.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_c313d72b115be6fd36c5.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_c313d72b115be6fd36c5.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_d410741ca67784fea846.parquet: only development cells",
+      "level": "PASS",
+      "detail": "167,889 rows"
+    },
+    {
+      "name": "final_d410741ca67784fea846.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_d410741ca67784fea846.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_d410741ca67784fea846.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_d410741ca67784fea846.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_d410741ca67784fea846.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_d410741ca67784fea846.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_db34bcccc5955b19cb02.parquet: only development cells",
+      "level": "PASS",
+      "detail": "190,630 rows"
+    },
+    {
+      "name": "final_db34bcccc5955b19cb02.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_db34bcccc5955b19cb02.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_db34bcccc5955b19cb02.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_db34bcccc5955b19cb02.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_db34bcccc5955b19cb02.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_db61582ba5542973a155.parquet: only development cells",
+      "level": "PASS",
+      "detail": "120,043 rows"
+    },
+    {
+      "name": "final_db61582ba5542973a155.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_db61582ba5542973a155.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_db61582ba5542973a155.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_db61582ba5542973a155.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_db61582ba5542973a155.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_db61582ba5542973a155.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_db8b8d30b4b4ab13adff.parquet: only development cells",
+      "level": "PASS",
+      "detail": "56,587 rows"
+    },
+    {
+      "name": "final_db8b8d30b4b4ab13adff.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_db8b8d30b4b4ab13adff.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_db8b8d30b4b4ab13adff.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_db8b8d30b4b4ab13adff.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_db8b8d30b4b4ab13adff.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_db8b8d30b4b4ab13adff.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_dbc5ebd7a2efa6e673a0.parquet: only development cells",
+      "level": "PASS",
+      "detail": "30,065 rows"
+    },
+    {
+      "name": "final_dbc5ebd7a2efa6e673a0.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_dbc5ebd7a2efa6e673a0.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_dbc5ebd7a2efa6e673a0.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_dbc5ebd7a2efa6e673a0.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_dbc5ebd7a2efa6e673a0.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_dbc5ebd7a2efa6e673a0.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_ddff4a923cb9e9c48cf3.parquet: only development cells",
+      "level": "PASS",
+      "detail": "404,180 rows"
+    },
+    {
+      "name": "final_ddff4a923cb9e9c48cf3.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_ddff4a923cb9e9c48cf3.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_ddff4a923cb9e9c48cf3.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_ddff4a923cb9e9c48cf3.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_ddff4a923cb9e9c48cf3.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_ddff4a923cb9e9c48cf3.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_e4118083fbb8d1b0d9ab.parquet: only development cells",
+      "level": "PASS",
+      "detail": "134,325 rows"
+    },
+    {
+      "name": "final_e4118083fbb8d1b0d9ab.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_e4118083fbb8d1b0d9ab.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_e4118083fbb8d1b0d9ab.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_e4118083fbb8d1b0d9ab.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_e4118083fbb8d1b0d9ab.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_eac6a1d7ec0ab22e1007.parquet: only development cells",
+      "level": "PASS",
+      "detail": "121,210 rows"
+    },
+    {
+      "name": "final_eac6a1d7ec0ab22e1007.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_eac6a1d7ec0ab22e1007.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_eac6a1d7ec0ab22e1007.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_eac6a1d7ec0ab22e1007.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_eac6a1d7ec0ab22e1007.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_ed4c6b9275e0dd1aa1bf.parquet: only development cells",
+      "level": "PASS",
+      "detail": "125,768 rows"
+    },
+    {
+      "name": "final_ed4c6b9275e0dd1aa1bf.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_ed4c6b9275e0dd1aa1bf.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_ed4c6b9275e0dd1aa1bf.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_ed4c6b9275e0dd1aa1bf.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_ed4c6b9275e0dd1aa1bf.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_ed4c6b9275e0dd1aa1bf.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_f35399a0624e7bcd4207.parquet: only development cells",
+      "level": "PASS",
+      "detail": "167,889 rows"
+    },
+    {
+      "name": "final_f35399a0624e7bcd4207.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_f35399a0624e7bcd4207.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_f35399a0624e7bcd4207.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_f35399a0624e7bcd4207.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_f35399a0624e7bcd4207.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_f35399a0624e7bcd4207.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_f91f667cb35cce506bc0.parquet: only development cells",
+      "level": "PASS",
+      "detail": "99,180 rows"
+    },
+    {
+      "name": "final_f91f667cb35cce506bc0.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_f91f667cb35cce506bc0.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_f91f667cb35cce506bc0.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_f91f667cb35cce506bc0.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_f91f667cb35cce506bc0.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_feb9ac00e01f10f248b4.parquet: only development cells",
+      "level": "PASS",
+      "detail": "123,445 rows"
+    },
+    {
+      "name": "final_feb9ac00e01f10f248b4.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_feb9ac00e01f10f248b4.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_feb9ac00e01f10f248b4.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_feb9ac00e01f10f248b4.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_feb9ac00e01f10f248b4.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_feb9ac00e01f10f248b4.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_ffd07c322a36f2a5a3b4.parquet: only development cells",
+      "level": "PASS",
+      "detail": "131,450 rows"
+    },
+    {
+      "name": "final_ffd07c322a36f2a5a3b4.parquet: every row_id is a development row",
+      "level": "PASS",
+      "detail": "0"
+    },
+    {
+      "name": "final_ffd07c322a36f2a5a3b4.parquet: cell_id agrees with labels",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_ffd07c322a36f2a5a3b4.parquet: no NaN predictions",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final_ffd07c322a36f2a5a3b4.parquet: repeat 0 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_ffd07c322a36f2a5a3b4.parquet: repeat 1 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "final_ffd07c322a36f2a5a3b4.parquet: repeat 2 known",
+      "level": "PASS",
+      "detail": "[0, 1, 2]"
+    },
+    {
+      "name": "no unexpected window/model groups in cache",
+      "level": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "present: W310 M0",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W310 M0: 3 repeats x 55,963 rows, seeds 42-46, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42, 43, 44, 45, 46], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W310 M0",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W305 M0",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W305 M0: 3 repeats x 55,963 rows, seeds 42-46, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42, 43, 44, 45, 46], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W305 M0",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W300 M0",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W300 M0: 3 repeats x 55,963 rows, seeds 42-46, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42, 43, 44, 45, 46], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W300 M0",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W280 M0",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W280 M0: 3 repeats x 55,963 rows, seeds 42-46, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42, 43, 44, 45, 46], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W280 M0",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W240 M0",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W240 M0: 3 repeats x 55,963 rows, seeds 42-46, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42, 43, 44, 45, 46], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W240 M0",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: WFULL M0",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage WFULL M0: 3 repeats x 55,963 rows, seeds 42-46, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42, 43, 44, 45, 46], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble WFULL M0",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W300 M1p",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W300 M1p: 3 repeats x 55,963 rows, seeds 42-46, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42, 43, 44, 45, 46], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W300 M1p",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W240 M1p",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W240 M1p: 3 repeats x 55,963 rows, seeds 42-46, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42, 43, 44, 45, 46], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W240 M1p",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W310 B3r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W310 B3r: 3 repeats x 55,963 rows, seeds 1, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W310 B3r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W305 B3r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W305 B3r: 3 repeats x 55,963 rows, seeds 1, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W305 B3r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W300 B3r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W300 B3r: 3 repeats x 55,963 rows, seeds 1, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W300 B3r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W280 B3r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W280 B3r: 3 repeats x 55,963 rows, seeds 1, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W280 B3r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W240 B3r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W240 B3r: 3 repeats x 55,963 rows, seeds 1, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W240 B3r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: WFULL B3r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage WFULL B3r: 3 repeats x 55,963 rows, seeds 1, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble WFULL B3r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W310 B4r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W310 B4r: 3 repeats x 55,963 rows, seeds 1, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W310 B4r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W305 B4r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W305 B4r: 3 repeats x 55,963 rows, seeds 1, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W305 B4r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W300 B4r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W300 B4r: 3 repeats x 55,963 rows, seeds 1, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W300 B4r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W280 B4r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W280 B4r: 3 repeats x 55,963 rows, seeds 1, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W280 B4r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: W240 B4r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage W240 B4r: 3 repeats x 55,963 rows, seeds 1, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble W240 B4r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "present: WFULL B4r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "coverage WFULL B4r: 3 repeats x 55,963 rows, seeds 1, outer_fold matches splits",
+      "level": "PASS",
+      "detail": "seeds=[42], rows=[55963, 55963, 55963], fold_mismatch=0"
+    },
+    {
+      "name": "no NaN in ensemble WFULL B4r",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "20 window/model groups loaded (M1p only W300, W240)",
+      "level": "PASS",
+      "detail": "20"
+    },
+    {
+      "name": "deep_results.csv has window, model, macro_mean",
+      "level": "PASS",
+      "detail": "['window', 'model', 'macro_mean', 'macro_sd', 'n_repeats', 'single_seed_macro', 'seed_sd', 'pooled_mae', 'rmspe_pct', 'bias', 'cell_median', 'cell_p90', 'macro_excl_stitched', 'median_excl_stitched', 'p90_excl_stitched', 'last20_macro', 'worst5']"
+    },
+    {
+      "name": "selected_configs.csv",
+      "level": "INFO",
+      "detail": "360 rows"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W240 B3r",
+      "level": "PASS",
+      "detail": "recomputed 0.851662 vs 0.851662 (|diff| 2.22e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W240 B4r",
+      "level": "PASS",
+      "detail": "recomputed 0.520555 vs 0.520555 (|diff| 1.11e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W240 M0",
+      "level": "PASS",
+      "detail": "recomputed 0.530092 vs 0.530092 (|diff| 3.33e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W240 M1p",
+      "level": "PASS",
+      "detail": "recomputed 0.598593 vs 0.598593 (|diff| 2.22e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W280 B3r",
+      "level": "PASS",
+      "detail": "recomputed 1.150927 vs 1.150927 (|diff| 2.22e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W280 B4r",
+      "level": "PASS",
+      "detail": "recomputed 0.705376 vs 0.705376 (|diff| 0.00e+00)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W280 M0",
+      "level": "PASS",
+      "detail": "recomputed 0.739753 vs 0.739753 (|diff| 1.11e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W300 B3r",
+      "level": "PASS",
+      "detail": "recomputed 1.242403 vs 1.242403 (|diff| 2.22e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W300 B4r",
+      "level": "PASS",
+      "detail": "recomputed 0.818046 vs 0.818046 (|diff| 1.11e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W300 M0",
+      "level": "PASS",
+      "detail": "recomputed 0.836009 vs 0.836009 (|diff| 1.11e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W300 M1p",
+      "level": "PASS",
+      "detail": "recomputed 0.774053 vs 0.774053 (|diff| 2.22e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W305 B3r",
+      "level": "PASS",
+      "detail": "recomputed 1.356435 vs 1.356435 (|diff| 0.00e+00)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W305 B4r",
+      "level": "PASS",
+      "detail": "recomputed 0.873603 vs 0.873603 (|diff| 0.00e+00)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W305 M0",
+      "level": "PASS",
+      "detail": "recomputed 0.884542 vs 0.884542 (|diff| 2.22e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W310 B3r",
+      "level": "PASS",
+      "detail": "recomputed 1.504024 vs 1.504024 (|diff| 2.22e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W310 B4r",
+      "level": "PASS",
+      "detail": "recomputed 1.018541 vs 1.018541 (|diff| 2.22e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean W310 M0",
+      "level": "PASS",
+      "detail": "recomputed 0.926616 vs 0.926616 (|diff| 2.22e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean WFULL B3r",
+      "level": "PASS",
+      "detail": "recomputed 0.868570 vs 0.868570 (|diff| 0.00e+00)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean WFULL B4r",
+      "level": "PASS",
+      "detail": "recomputed 0.490736 vs 0.490736 (|diff| 1.11e-16)"
+    },
+    {
+      "name": "reproduces deep_results macro_mean WFULL M0",
+      "level": "PASS",
+      "detail": "recomputed 0.522603 vs 0.522603 (|diff| 1.11e-16)"
+    },
+    {
+      "name": "deep models (M0, M1p) all present in deep_results.csv",
+      "level": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "comparators (B3r, B4r) present in deep_results.csv",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "W300 M0 macro 0.836 and W240 M0 macro 0.530 (stated in the frozen verdict)",
+      "level": "PASS",
+      "detail": "0.8360 / 0.5301"
+    },
+    {
+      "name": "per-cell MAE agrees with deep_by_cell.csv['mae']",
+      "level": "PASS",
+      "detail": "max |diff| 8.88e-16 over 20 groups"
+    },
+    {
+      "name": "life vs first scored cycle with true SOH <= 80",
+      "level": "INFO",
+      "detail": "median diff +0.0 cycles; 43 cells never reach 80 in scored rows"
+    },
+    {
+      "name": "cells with no true crossing of 85 in scored rows (excluded from the 85% alert)",
+      "level": "INFO",
+      "detail": "0"
+    },
+    {
+      "name": "figure written: fig_a_mae_by_tenth.png",
+      "level": "PASS",
+      "detail": "101 KB"
+    },
+    {
+      "name": "figure written: fig_b_bias_vs_life_M0_W300.png",
+      "level": "PASS",
+      "detail": "45 KB"
+    },
+    {
+      "name": "figure written: fig_c_signed_error_by_tenth_M0_W300.png",
+      "level": "PASS",
+      "detail": "48 KB"
+    },
+    {
+      "name": "figure written: fig_d_heatmaps_W300.png",
+      "level": "PASS",
+      "detail": "63 KB"
+    },
+    {
+      "name": "figure written: fig_e_coverage_by_pred_soh_bin.png",
+      "level": "PASS",
+      "detail": "99 KB"
+    },
+    {
+      "name": "figure written: fig_f_eol_delay_hist_M0.png",
+      "level": "PASS",
+      "detail": "45 KB"
+    },
+    {
+      "name": "figure written: fig_g_worst_cell_trajectories_M0_W300.png",
+      "level": "PASS",
+      "detail": "236 KB"
+    },
+    {
+      "name": "no NaN in headline table: bias_decomposition (overall)",
+      "level": "PASS",
+      "detail": "0 NaN cells"
+    },
+    {
+      "name": "no NaN in headline table: stage_errors (populated groups)",
+      "level": "PASS",
+      "detail": "0 NaN cells"
+    },
+    {
+      "name": "no NaN in headline table: worst_cells",
+      "level": "PASS",
+      "detail": "0 NaN cells"
+    },
+    {
+      "name": "no NaN in headline table: sensitivity_subsets",
+      "level": "PASS",
+      "detail": "0 NaN cells"
+    },
+    {
+      "name": "no NaN in headline table: sensitivity_paired",
+      "level": "PASS",
+      "detail": "0 NaN cells"
+    },
+    {
+      "name": "no NaN in headline table: event_metrics (smoothing)",
+      "level": "PASS",
+      "detail": "0 NaN cells"
+    },
+    {
+      "name": "no NaN in headline table: conformal_coverage",
+      "level": "PASS",
+      "detail": "0 NaN cells"
+    },
+    {
+      "name": "coverage numbers in [0,1]",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "84 cells in overall tables",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "no batch-3 / sensitivity cells anywhere",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "all outputs written under outputs/phase6a only",
+      "level": "PASS",
+      "detail": "17 files"
+    },
+    {
+      "name": "sha256 unchanged at end: week2_gate.json",
+      "level": "PASS",
+      "detail": "40df2fb82096e994..."
+    },
+    {
+      "name": "sha256 unchanged at end: soh_deep_v2.py",
+      "level": "PASS",
+      "detail": "fc53e37d506ebe51..."
+    },
+    {
+      "name": "sha256 unchanged at end: gate_verdict.json",
+      "level": "PASS",
+      "detail": "2f59f82a7c7d8940..."
+    },
+    {
+      "name": "verdict file not touched (mtime unchanged)",
+      "level": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "frozen gate and module not touched (mtime unchanged)",
+      "level": "PASS",
+      "detail": ""
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "bias_decomposition.csv",
+      "bytes": 17124
+    },
+    {
+      "file": "cache/ensemble_arrays.npz",
+      "bytes": 13593631
+    },
+    {
+      "file": "conformal_by_group.csv",
+      "bytes": 69435
+    },
+    {
+      "file": "conformal_coverage.csv",
+      "bytes": 3715
+    },
+    {
+      "file": "event_metrics.csv",
+      "bytes": 18583
+    },
+    {
+      "file": "figures/fig_a_mae_by_tenth.png",
+      "bytes": 103008
+    },
+    {
+      "file": "figures/fig_b_bias_vs_life_M0_W300.png",
+      "bytes": 45864
+    },
+    {
+      "file": "figures/fig_c_signed_error_by_tenth_M0_W300.png",
+      "bytes": 49461
+    },
+    {
+      "file": "figures/fig_d_heatmaps_W300.png",
+      "bytes": 64540
+    },
+    {
+      "file": "figures/fig_e_coverage_by_pred_soh_bin.png",
+      "bytes": 101715
+    },
+    {
+      "file": "figures/fig_f_eol_delay_hist_M0.png",
+      "bytes": 46249
+    },
+    {
+      "file": "figures/fig_g_worst_cell_trajectories_M0_W300.png",
+      "bytes": 241199
+    },
+    {
+      "file": "knee_onsets.csv",
+      "bytes": 4892
+    },
+    {
+      "file": "phase6a_report.txt",
+      "bytes": 44901
+    },
+    {
+      "file": "sensitivity_paired.csv",
+      "bytes": 1542
+    },
+    {
+      "file": "sensitivity_subsets.csv",
+      "bytes": 7862
+    },
+    {
+      "file": "stage_errors.csv",
+      "bytes": 37524
+    },
+    {
+      "file": "worst_cells.csv",
+      "bytes": 8320
+    }
+  ],
+  "elapsed_seconds": 46.5,
+  "hashes": {
+    "start": {
+      "gate": {
+        "path": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\outputs\\phase4\\week2_gate.json",
+        "raw": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "lf": "16a6969dd1ffe89e55ccf1ad9f24c4ca74f8b9f4de56b30a04b9b01d7b3e3bfa",
+        "ok": true,
+        "mtime_ns": 1793556788521767700
+      },
+      "module": {
+        "path": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\src\\soh_deep_v2.py",
+        "raw": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "lf": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "ok": true,
+        "mtime_ns": 1793612345170790900
+      },
+      "verdict": {
+        "path": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\outputs\\phase5b\\gate_verdict.json",
+        "raw": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "lf": "b56eab3f571ddfb728c5a12df2352344ff9a4f5351bd6c5b48871a7c0a86a381",
+        "ok": true,
+        "mtime_ns": 1793649179741168300
+      }
+    },
+    "end": {
+      "gate": {
+        "path": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\outputs\\phase4\\week2_gate.json",
+        "raw": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+        "lf": "16a6969dd1ffe89e55ccf1ad9f24c4ca74f8b9f4de56b30a04b9b01d7b3e3bfa",
+        "ok": true,
+        "mtime_ns": 1793556788521767700
+      },
+      "module": {
+        "path": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\src\\soh_deep_v2.py",
+        "raw": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "lf": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+        "ok": true,
+        "mtime_ns": 1793612345170790900
+      },
+      "verdict": {
+        "path": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\outputs\\phase5b\\gate_verdict.json",
+        "raw": "2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb",
+        "lf": "b56eab3f571ddfb728c5a12df2352344ff9a4f5351bd6c5b48871a7c0a86a381",
+        "ok": true,
+        "mtime_ns": 1793649179741168300
+      }
+    }
+  },
+  "verdict_frozen": "W300 FAIL (M0 0.836 vs 0.760); W240 PASS (M0 0.530 vs 0.557)"
+}

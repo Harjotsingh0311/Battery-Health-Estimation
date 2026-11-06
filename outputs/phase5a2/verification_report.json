@@ -1,0 +1,365 @@
+{
+ "module_hash": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+ "config": "full",
+ "verification": {
+  "dq": [
+   {
+    "window": "W300",
+    "cells": [
+     "b2c22",
+     "b1c18",
+     "b2c31"
+    ],
+    "max_abs_diff": 0.0,
+    "max_abs_first": 0.0,
+    "width": 334,
+    "finite": true
+   },
+   {
+    "window": "W240",
+    "cells": [
+     "b1c18",
+     "b2c26",
+     "b2c37"
+    ],
+    "max_abs_diff": 0.0,
+    "max_abs_first": 0.0,
+    "width": 734,
+    "finite": true
+   }
+  ],
+  "allowed": [
+   "primary"
+  ],
+  "parity": [
+   {
+    "kind": "M0",
+    "dtype": "torch.float64",
+    "max_param_diff": 5.551115123125783e-17,
+    "max_eval_diff": 1.4210854715202004e-14
+   },
+   {
+    "kind": "M1",
+    "dtype": "torch.float64",
+    "max_param_diff": 2.886304077687196e-10,
+    "max_eval_diff": 4.6482284687954234e-10
+   },
+   {
+    "kind": "M1p",
+    "dtype": "torch.float64",
+    "max_param_diff": 3.5943081844180824e-11,
+    "max_eval_diff": 7.176481631177012e-11
+   },
+   {
+    "kind": "M0",
+    "dtype": "torch.float32",
+    "max_param_diff": 2.9802322387695312e-08,
+    "max_eval_diff": 7.62939453125e-06
+   },
+   {
+    "kind": "M1",
+    "dtype": "torch.float32",
+    "max_param_diff": 0.012133307754993439,
+    "max_eval_diff": 0.03534698486328125
+   },
+   {
+    "kind": "M1p",
+    "dtype": "torch.float32",
+    "max_param_diff": 0.008947208523750305,
+    "max_eval_diff": 0.00899505615234375
+   }
+  ],
+  "counts": [
+   {
+    "kind": "M0",
+    "params": 2969,
+    "expected": 2969,
+    "batched3": 8907
+   },
+   {
+    "kind": "M1",
+    "params": 2977,
+    "expected": 2977,
+    "batched3": 8931
+   },
+   {
+    "kind": "M1p",
+    "params": 3049,
+    "expected": 3049,
+    "batched3": 9147
+   }
+  ],
+  "seed": [
+   {
+    "kind": "M0",
+    "identical": true,
+    "differs_other_seed": true
+   },
+   {
+    "kind": "M1",
+    "identical": true,
+    "differs_other_seed": true
+   },
+   {
+    "kind": "M1p",
+    "identical": true,
+    "differs_other_seed": true
+   }
+  ]
+ },
+ "checks": [
+  {
+   "scope": "setup",
+   "name": "gate sha256 == gate_hash.txt (start)",
+   "status": "PASS",
+   "detail": "40df2fb82096e994"
+  },
+  {
+   "scope": "setup",
+   "name": "gate sha256 == frozen Phase 4 hash (start)",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "scope": "setup",
+   "name": "split hash protocol_D.csv",
+   "status": "PASS",
+   "detail": "deaba544ec4dec54"
+  },
+  {
+   "scope": "setup",
+   "name": "split hash protocol_D_inner.csv",
+   "status": "PASS",
+   "detail": "42a0c69a6db36ad4"
+  },
+  {
+   "scope": "setup",
+   "name": "module hash on disk == embedded",
+   "status": "PASS",
+   "detail": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6"
+  },
+  {
+   "scope": "setup",
+   "name": "module imported from disk copy",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "scope": "setup",
+   "name": "CUDA available",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "scope": "setup",
+   "name": "RAM available >= 2 GB",
+   "status": "PASS",
+   "detail": "2.6 GB"
+  },
+  {
+   "scope": "full",
+   "name": "outer set (0, 0): 13-17 outer-test cells",
+   "status": "PASS",
+   "detail": "14 (train 70)"
+  },
+  {
+   "scope": "full",
+   "name": "outer set (0, 0): train/test disjoint",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "scope": "full",
+   "name": "outer set (0, 0): 4 inner folds",
+   "status": "PASS",
+   "detail": "[np.int64(0), np.int64(1), np.int64(2), np.int64(3)]"
+  },
+  {
+   "scope": "full",
+   "name": "outer set (0, 0): inner validation folds partition the outer-train cells",
+   "status": "PASS",
+   "detail": "70 vs 70"
+  },
+  {
+   "scope": "full",
+   "name": "outer set (0, 1): 13-17 outer-test cells",
+   "status": "PASS",
+   "detail": "14 (train 70)"
+  },
+  {
+   "scope": "full",
+   "name": "outer set (0, 1): train/test disjoint",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "scope": "full",
+   "name": "outer set (0, 1): 4 inner folds",
+   "status": "PASS",
+   "detail": "[np.int64(0), np.int64(1), np.int64(2), np.int64(3)]"
+  },
+  {
+   "scope": "full",
+   "name": "outer set (0, 1): inner validation folds partition the outer-train cells",
+   "status": "PASS",
+   "detail": "70 vs 70"
+  },
+  {
+   "scope": "full",
+   "name": "outer set (0, 2): 13-17 outer-test cells",
+   "status": "PASS",
+   "detail": "14 (train 70)"
+  },
+  {
+   "scope": "full",
+   "name": "outer set (0, 2): train/test disjoint",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "scope": "full",
+   "name": "outer set (0, 2): 4 inner folds",
+   "status": "PASS",
+   "detail": "[np.int64(0), np.int64(1), np.int64(2), np.int64(3)]"
+  },
+  {
+   "scope": "full",
+   "name": "outer set (0, 2): inner validation folds partition the outer-train cells",
+   "status": "PASS",
+   "detail": "70 vs 70"
+  },
+  {
+   "scope": "full",
+   "name": "W300 geometry",
+   "status": "PASS",
+   "detail": "i_open=0 i_close=333 width=334"
+  },
+  {
+   "scope": "full",
+   "name": "W240 geometry",
+   "status": "PASS",
+   "detail": "i_open=0 i_close=733 width=734"
+  },
+  {
+   "scope": "full",
+   "name": "W300 delta-Q block vs single-vector (3 cells)",
+   "status": "PASS",
+   "detail": "max diff 0.00e+00"
+  },
+  {
+   "scope": "full",
+   "name": "W300 delta-Q[0]==0, length==width, finite",
+   "status": "PASS",
+   "detail": "first=0.0 len=334 finite=True"
+  },
+  {
+   "scope": "full",
+   "name": "W240 delta-Q block vs single-vector (3 cells)",
+   "status": "PASS",
+   "detail": "max diff 0.00e+00"
+  },
+  {
+   "scope": "full",
+   "name": "W240 delta-Q[0]==0, length==width, finite",
+   "status": "PASS",
+   "detail": "first=0.0 len=734 finite=True"
+  },
+  {
+   "scope": "full",
+   "name": "assert_allowed(['q0'])",
+   "status": "PASS",
+   "detail": "passed with roles ['primary']"
+  },
+  {
+   "scope": "full",
+   "name": "parity M0 float64",
+   "status": "PASS",
+   "detail": "param 5.55e-17 eval 1.42e-14"
+  },
+  {
+   "scope": "full",
+   "name": "parity M1 float64",
+   "status": "PASS",
+   "detail": "param 2.89e-10 eval 4.65e-10"
+  },
+  {
+   "scope": "full",
+   "name": "parity M1p float64",
+   "status": "PASS",
+   "detail": "param 3.59e-11 eval 7.18e-11"
+  },
+  {
+   "scope": "full",
+   "name": "parity M0 float32",
+   "status": "PASS",
+   "detail": "param 2.98e-08 eval 7.63e-06"
+  },
+  {
+   "scope": "full",
+   "name": "parity M1 float32",
+   "status": "WARN",
+   "detail": "param 1.21e-02 eval 3.53e-02"
+  },
+  {
+   "scope": "full",
+   "name": "parity M1p float32",
+   "status": "WARN",
+   "detail": "param 8.95e-03 eval 9.00e-03"
+  },
+  {
+   "scope": "full",
+   "name": "param count M0",
+   "status": "PASS",
+   "detail": "2969 (expected 2969), batched G=3: 8907"
+  },
+  {
+   "scope": "full",
+   "name": "param count M1",
+   "status": "PASS",
+   "detail": "2977 (expected 2977), batched G=3: 8931"
+  },
+  {
+   "scope": "full",
+   "name": "param count M1p",
+   "status": "PASS",
+   "detail": "3049 (expected 3049), batched G=3: 9147"
+  },
+  {
+   "scope": "full",
+   "name": "same seed identical predictions M0",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "scope": "full",
+   "name": "same seed identical predictions M1",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "scope": "full",
+   "name": "same seed identical predictions M1p",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "scope": "full",
+   "name": "slow run W240 M1-abs lr=0.004",
+   "status": "WARN",
+   "detail": "760.8s > 3x median 167.3s"
+  },
+  {
+   "scope": "full",
+   "name": "gate sha256 unchanged and == gate_hash.txt (end)",
+   "status": "PASS",
+   "detail": "40df2fb82096e994"
+  },
+  {
+   "scope": "full",
+   "name": "soh_deep_v2.py hash still matches (end)",
+   "status": "PASS",
+   "detail": ""
+  }
+ ],
+ "errors": []
+}

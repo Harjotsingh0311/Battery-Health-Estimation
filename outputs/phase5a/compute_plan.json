@@ -1,0 +1,231 @@
+{
+  "head": {
+    "choice": "abs",
+    "mean_best_mae_abs": 0.7574753229357614,
+    "mean_best_mae_res": 0.7517009258550533,
+    "res_relative_change": -0.0076232147845135545,
+    "rule": "res if mean best M1 MAE (res) is at least 2% lower than abs"
+  },
+  "grid_5b": {
+    "pairs": [
+      {
+        "E": 60,
+        "lr": 0.004,
+        "mean_inner_mae": 0.7662266440589702
+      },
+      {
+        "E": 120,
+        "lr": 0.001,
+        "mean_inner_mae": 0.7951107635508963
+      },
+      {
+        "E": 60,
+        "lr": 0.001,
+        "mean_inner_mae": 0.798803188944745
+      }
+    ],
+    "edge_info": [
+      {
+        "E": 60,
+        "lr": 0.004,
+        "edges": [
+          "lr"
+        ]
+      },
+      {
+        "E": 120,
+        "lr": 0.001,
+        "edges": [
+          "E",
+          "lr"
+        ]
+      },
+      {
+        "E": 60,
+        "lr": 0.001,
+        "edges": [
+          "lr"
+        ]
+      }
+    ],
+    "any_pair_at_grid_edge": true,
+    "best_pair_at_grid_edge": true,
+    "ranked_by": "mean over both windows of M1 inner MAE with the chosen head"
+  },
+  "pilot_feasibility": {
+    "per_window": {
+      "W300": {
+        "m1_best": 0.830011554930721,
+        "best_B4_B4r": 0.8188183680442155,
+        "ratio": 1.0136699264737319
+      },
+      "W240": {
+        "m1_best": 0.6686827646804892,
+        "best_B4_B4r": 0.5677710976406765,
+        "ratio": 1.1777330115237326
+      },
+      "mean_ratio": 1.0957014689987323
+    },
+    "note": "report only; inner folds, not the week-2 gate (gate target is 0.85 x best baseline on outer-test)"
+  },
+  "packing": {
+    "benchmark_choice": {
+      "packing": "batched",
+      "G": 72,
+      "member_epochs_per_s": 19.883065246168798,
+      "sequential_member_epochs_per_s": 6.994165012958183
+    },
+    "pilot_used": "batched"
+  },
+  "seed_sd": {
+    "W300": {
+      "head": "abs",
+      "E": 120,
+      "lr": 0.004,
+      "maes": [
+        0.830011554930721,
+        0.8034802507711597,
+        0.8337122411239959,
+        0.8652498904405062
+      ],
+      "mean": 0.8331134843165956,
+      "sd": 0.02530387061662454
+    },
+    "W240": {
+      "head": "res",
+      "E": 120,
+      "lr": 0.001,
+      "maes": [
+        0.6686827646804892,
+        0.7481159286115041,
+        0.8102412550586513,
+        0.7897037813251464
+      ],
+      "mean": 0.7541859324189477,
+      "sd": 0.06258688208322408
+    }
+  },
+  "compute_plan": {
+    "options": [
+      {
+        "windows": "priority (W300, W240)",
+        "model": "M1",
+        "grid": "3 best pairs",
+        "tune_min_per_outer": 2.49533718560789,
+        "final_5seeds_min_per_outer": 0.972729515597166,
+        "per_outer_total_min": 3.468066701205056,
+        "all_18_outer_sets_min": 62.42520062169101
+      },
+      {
+        "windows": "priority (W300, W240)",
+        "model": "M1",
+        "grid": "full 9-pair grid",
+        "tune_min_per_outer": 6.5502601122207125,
+        "final_5seeds_min_per_outer": 0.972729515597166,
+        "per_outer_total_min": 7.5229896278178785,
+        "all_18_outer_sets_min": 135.4138133007218
+      },
+      {
+        "windows": "priority (W300, W240)",
+        "model": "M0",
+        "grid": "3 best pairs",
+        "tune_min_per_outer": 0.056383166670991434,
+        "final_5seeds_min_per_outer": 0.02371888021015265,
+        "per_outer_total_min": 0.08010204688114408,
+        "all_18_outer_sets_min": 1.4418368438605935
+      },
+      {
+        "windows": "priority (W300, W240)",
+        "model": "M0",
+        "grid": "full 9-pair grid",
+        "tune_min_per_outer": 0.1480058125113525,
+        "final_5seeds_min_per_outer": 0.02371888021015265,
+        "per_outer_total_min": 0.17172469272150515,
+        "all_18_outer_sets_min": 3.091044468987093
+      },
+      {
+        "windows": "priority (W300, W240)",
+        "model": "M1 size sweep c in {0.5,1,2,4}",
+        "grid": "best c=1 config reused",
+        "tune_min_per_outer": 0.0,
+        "final_5seeds_min_per_outer": 6.282061845557388,
+        "per_outer_total_min": 6.282061845557388,
+        "all_18_outer_sets_min": 113.07711322003298
+      },
+      {
+        "windows": "priority (W300, W240)",
+        "model": "B3r + B4r (CPU, same grids as pilot)",
+        "grid": "pilot grids",
+        "tune_min_per_outer": 7.207207058784035,
+        "final_5seeds_min_per_outer": 0.0,
+        "per_outer_total_min": 7.207207058784035,
+        "all_18_outer_sets_min": 129.72972705811262
+      },
+      {
+        "windows": "all 6 windows",
+        "model": "M1",
+        "grid": "3 best pairs",
+        "tune_min_per_outer": 8.259731442684174,
+        "final_5seeds_min_per_outer": 3.2437581718204456,
+        "per_outer_total_min": 11.50348961450462,
+        "all_18_outer_sets_min": 207.06281306108315
+      },
+      {
+        "windows": "all 6 windows",
+        "model": "M1",
+        "grid": "full 9-pair grid",
+        "tune_min_per_outer": 21.68179503704596,
+        "final_5seeds_min_per_outer": 3.2437581718204456,
+        "per_outer_total_min": 24.925553208866404,
+        "all_18_outer_sets_min": 448.6599577595953
+      },
+      {
+        "windows": "all 6 windows",
+        "model": "M0",
+        "grid": "3 best pairs",
+        "tune_min_per_outer": 0.1691495000129743,
+        "final_5seeds_min_per_outer": 0.07115664063045794,
+        "per_outer_total_min": 0.24030614064343225,
+        "all_18_outer_sets_min": 4.325510531581781
+      },
+      {
+        "windows": "all 6 windows",
+        "model": "M0",
+        "grid": "full 9-pair grid",
+        "tune_min_per_outer": 0.44401743753405754,
+        "final_5seeds_min_per_outer": 0.07115664063045794,
+        "per_outer_total_min": 0.5151740781645154,
+        "all_18_outer_sets_min": 9.273133406961279
+      },
+      {
+        "windows": "all 6 windows",
+        "model": "M1 size sweep c in {0.5,1,2,4}",
+        "grid": "best c=1 config reused",
+        "tune_min_per_outer": 0.0,
+        "final_5seeds_min_per_outer": 20.948772624523798,
+        "per_outer_total_min": 20.948772624523798,
+        "all_18_outer_sets_min": 377.07790724142836
+      },
+      {
+        "windows": "all 6 windows",
+        "model": "B3r + B4r (CPU, same grids as pilot)",
+        "grid": "pilot grids",
+        "tune_min_per_outer": 21.621621176352104,
+        "final_5seeds_min_per_outer": 0.0,
+        "per_outer_total_min": 21.621621176352104,
+        "all_18_outer_sets_min": 389.1891811743379
+      }
+    ],
+    "assumptions": {
+      "ipe_inner": 26,
+      "ipe_final": 35,
+      "final_seeds": 5,
+      "tuning_members": 4,
+      "final_E": 60,
+      "outer_sets": 18,
+      "packing": "batched",
+      "head": "abs",
+      "note": "windows run in sequence; times are single-GPU minutes"
+    }
+  }
+}

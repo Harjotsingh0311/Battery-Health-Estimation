@@ -1,0 +1,234 @@
+{
+  "created": "2026-11-03T01:22:59",
+  "config": "full",
+  "primary_model": "M0",
+  "boot": 5000,
+  "seed": 42,
+  "gate_sha256": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+  "module_sha256": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+  "rule": "PASS iff ensemble cell-macro MAE <= m1_target_pp AND upper 95% bound of paired diff (M0 - frozen best baseline) < 0",
+  "headline": "W300",
+  "companion": "W240",
+  "windows": {
+    "W240": {
+      "role": "companion",
+      "m0_ensemble_cell_macro_mae_pp": 0.5300923154710487,
+      "target_m1_pp": 0.556871,
+      "best_baseline": "B4",
+      "best_baseline_cell_macro_mae_pp": 0.655142,
+      "paired_diff_vs_best_baseline": {
+        "point": -0.12504986706863364,
+        "lo": -0.20699712022214203,
+        "hi": -0.049107083171751456
+      },
+      "pass_mae": true,
+      "pass_ci": true,
+      "PASS": true,
+      "m0_vs_better_comparator": {
+        "comparator": "B4r",
+        "ratio": 1.0183205081927593,
+        "ratio_ci": [
+          0.9219962652986264,
+          1.1300361878080611
+        ],
+        "diff": 0.009536840837803899,
+        "diff_ci": [
+          -0.043475582249674495,
+          0.061217884396245856
+        ],
+        "note": "no pass/fail"
+      },
+      "m1p_exploratory_vs_better_comparator": {
+        "comparator": "B4r",
+        "ratio": 1.1499115944117488,
+        "ratio_ci": [
+          1.0636044428028006,
+          1.247120182598982
+        ],
+        "diff": 0.07803730118203435,
+        "diff_ci": [
+          0.03399770855202038,
+          0.12200450952983868
+        ],
+        "note": "no pass/fail (exploratory)"
+      },
+      "m1p_exploratory_vs_frozen_best": {
+        "diff": -0.05654940672440313,
+        "ci": [
+          -0.12138551020774588,
+          0.004455681859506851
+        ],
+        "note": "exploratory"
+      }
+    },
+    "W280": {
+      "role": "descriptive",
+      "m0_ensemble_cell_macro_mae_pp": 0.73975299301217,
+      "target_m1_pp": 0.678352,
+      "best_baseline": "B4",
+      "best_baseline_cell_macro_mae_pp": 0.798061,
+      "paired_diff_vs_best_baseline": {
+        "point": -0.05830816968624272,
+        "lo": -0.13921179250562346,
+        "hi": 0.022903372910217136
+      },
+      "pass_mae": false,
+      "pass_ci": false,
+      "PASS": false,
+      "m0_vs_better_comparator": {
+        "comparator": "B4r",
+        "ratio": 1.0487359487715584,
+        "ratio_ci": [
+          0.9574931138011888,
+          1.1418716160737927
+        ],
+        "diff": 0.03437716044088923,
+        "diff_ci": [
+          -0.03024286636157398,
+          0.09866715078573882
+        ],
+        "note": "no pass/fail"
+      }
+    },
+    "W300": {
+      "role": "headline",
+      "m0_ensemble_cell_macro_mae_pp": 0.8360091897695184,
+      "target_m1_pp": 0.760492,
+      "best_baseline": "B4",
+      "best_baseline_cell_macro_mae_pp": 0.894697,
+      "paired_diff_vs_best_baseline": {
+        "point": -0.05868777054794191,
+        "lo": -0.1574600668756169,
+        "hi": 0.031743949838797594
+      },
+      "pass_mae": false,
+      "pass_ci": false,
+      "PASS": false,
+      "m0_vs_better_comparator": {
+        "comparator": "B4r",
+        "ratio": 1.0219581093961123,
+        "ratio_ci": [
+          0.9271151893430828,
+          1.1114690297996852
+        ],
+        "diff": 0.017962753146468634,
+        "diff_ci": [
+          -0.06013970816901029,
+          0.09419952989535967
+        ],
+        "note": "no pass/fail"
+      },
+      "m1p_exploratory_vs_better_comparator": {
+        "comparator": "B4r",
+        "ratio": 0.9462212021947068,
+        "ratio_ci": [
+          0.8574845197510538,
+          1.0282265145023446
+        ],
+        "diff": -0.0439935539104915,
+        "diff_ci": [
+          -0.11171820586744859,
+          0.025069534905279342
+        ],
+        "note": "no pass/fail (exploratory)"
+      },
+      "m1p_exploratory_vs_frozen_best": {
+        "diff": -0.12064407760490206,
+        "ci": [
+          -0.20796202467735678,
+          -0.03805466436727972
+        ],
+        "note": "exploratory"
+      }
+    },
+    "W305": {
+      "role": "descriptive",
+      "m0_ensemble_cell_macro_mae_pp": 0.884542018638483,
+      "target_m1_pp": 0.80455,
+      "best_baseline": "B4",
+      "best_baseline_cell_macro_mae_pp": 0.946529,
+      "paired_diff_vs_best_baseline": {
+        "point": -0.061986846440882,
+        "lo": -0.15805099191358296,
+        "hi": 0.02634108966956854
+      },
+      "pass_mae": false,
+      "pass_ci": false,
+      "PASS": false,
+      "m0_vs_better_comparator": {
+        "comparator": "B4r",
+        "ratio": 1.0125219854408425,
+        "ratio_ci": [
+          0.9234059512267497,
+          1.1017904468784283
+        ],
+        "diff": 0.01093924125942015,
+        "diff_ci": [
+          -0.06659173455044717,
+          0.08934119947891908
+        ],
+        "note": "no pass/fail"
+      }
+    },
+    "W310": {
+      "role": "descriptive",
+      "m0_ensemble_cell_macro_mae_pp": 0.9266161286007041,
+      "target_m1_pp": 0.923759,
+      "best_baseline": "B4",
+      "best_baseline_cell_macro_mae_pp": 1.086775,
+      "paired_diff_vs_best_baseline": {
+        "point": -0.16015932774850214,
+        "lo": -0.27205863334772756,
+        "hi": -0.06326332056593213
+      },
+      "pass_mae": false,
+      "pass_ci": true,
+      "PASS": false,
+      "m0_vs_better_comparator": {
+        "comparator": "B4r",
+        "ratio": 0.9097486353488041,
+        "ratio_ci": [
+          0.8170978711576696,
+          0.9959342699871294
+        ],
+        "diff": -0.09192469970780191,
+        "diff_ci": [
+          -0.19445937690002593,
+          -0.003921172101263198
+        ],
+        "note": "no pass/fail"
+      }
+    },
+    "WFULL": {
+      "role": "descriptive",
+      "m0_ensemble_cell_macro_mae_pp": 0.5226032314814856,
+      "target_m1_pp": 0.531871,
+      "best_baseline": "B4",
+      "best_baseline_cell_macro_mae_pp": 0.62573,
+      "paired_diff_vs_best_baseline": {
+        "point": -0.10312707407406985,
+        "lo": -0.18283135474149317,
+        "hi": -0.028554378150586535
+      },
+      "pass_mae": true,
+      "pass_ci": true,
+      "PASS": true,
+      "m0_vs_better_comparator": {
+        "comparator": "B4r",
+        "ratio": 1.0649370652534667,
+        "ratio_ci": [
+          0.960436380140525,
+          1.1822014980716047
+        ],
+        "diff": 0.03186697247344729,
+        "diff_ci": [
+          -0.021006578968879138,
+          0.08446567920072966
+        ],
+        "note": "no pass/fail"
+      }
+    }
+  },
+  "headline_PASS": false,
+  "companion_PASS": true
+}

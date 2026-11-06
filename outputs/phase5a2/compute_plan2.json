@@ -1,0 +1,101 @@
+{
+  "module_hash": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+  "cfg": "full",
+  "notes": [
+    "selection uses mean ensemble MAE over all windows and outer sets; best lr per model"
+  ],
+  "family_best": {
+    "M0": {
+      "head": "abs",
+      "lr": 0.004,
+      "ens_mae": 0.7063882155225027,
+      "single_mae": 0.7178044755241496
+    },
+    "M1": {
+      "head": "abs",
+      "lr": 0.004,
+      "ens_mae": 0.7577880064018759,
+      "single_mae": 0.7755039722737587
+    },
+    "M1p": {
+      "head": "abs",
+      "lr": 0.004,
+      "ens_mae": 0.7342075475250659,
+      "single_mae": 0.7445677156566398
+    }
+  },
+  "primary_model": "M0",
+  "primary_head": "abs",
+  "primary_within_3pct_tiebreak_used": false,
+  "lr_detail": {
+    "lower_lr": 0.004,
+    "diff": 0.011494457198309105,
+    "se": 0.006786403126825143,
+    "within_one_se": false
+  },
+  "lr_phase5b": 0.004,
+  "ensemble_gain": {
+    "M0": {
+      "single": 0.7178044755241496,
+      "ens": 0.7063882155225027,
+      "gain_pp": 0.01141626000164686,
+      "gain_pct": 1.59044146295
+    },
+    "M1": {
+      "single": 0.7755039722737587,
+      "ens": 0.7577880064018759,
+      "gain_pp": 0.017715965871882733,
+      "gain_pct": 2.2844455354548288
+    },
+    "M1p": {
+      "single": 0.7445677156566398,
+      "ens": 0.7342075475250659,
+      "gain_pp": 0.010360168131573921,
+      "gain_pct": 1.391433970842694
+    }
+  },
+  "m1p_vs_m1": {
+    "mean_gain_pp": 0.023580458876809967,
+    "se": 0.0033636550054620493,
+    "m1p_beats_m1_by_gt_1se": true
+  },
+  "ratios": {
+    "W300": {
+      "primary_ens_mae": 0.8717652437232882,
+      "B4": {
+        "config": "min_samples_leaf=5",
+        "mae": 0.9586347152872327,
+        "ratio": 0.9093820929091683,
+        "le_0_85": false
+      },
+      "B4r": {
+        "config": "min_samples_leaf=5",
+        "mae": 0.8677034685904664,
+        "ratio": 1.0046810636119963,
+        "le_0_85": false
+      }
+    },
+    "W240": {
+      "primary_ens_mae": 0.5410111873217173,
+      "B4": {
+        "config": "min_samples_leaf=1",
+        "mae": 0.6797891172754299,
+        "ratio": 0.7958514980205486,
+        "le_0_85": true
+      },
+      "B4r": {
+        "config": "min_samples_leaf=1",
+        "mae": 0.5600874810669766,
+        "ratio": 0.9659405103843445,
+        "le_0_85": false
+      }
+    }
+  },
+  "compute_estimate": {
+    "sec_per_member_fit": 1.6003582999989399,
+    "comparator_fit_sec_sum_of_selected": 6.109392033351469,
+    "assumptions": "18 outer sets x 5 fits (4 inner + 1 outer-train) x 5 seeds x 2 windows; comparators: one fit of each selected config per fit; seeds5b is an assumption, not a spec value",
+    "deep_minutes": 24.005374499984097,
+    "comparator_minutes": 9.164088050027203
+  }
+}

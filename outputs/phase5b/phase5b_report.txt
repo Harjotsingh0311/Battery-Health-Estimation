@@ -1,0 +1,239 @@
+PHASE 5B REPORT
+config: full  runtime: 526.4 min  seed 42  boot 5000
+soh_deep_v2 sha256: fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6
+week2_gate sha256: 40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901
+GPU: NVIDIA GeForce RTX 3050 6GB Laptop GPU 6.4 GB, torch 2.14.1+cu130
+RAM available: 4.9 GB
+
+== W310 (5.9 min) ==
+model  macro_mean  macro_sd  single_seed_macro  seed_sd  pooled_mae  rmspe_pct  bias  cell_median  cell_p90  macro_excl_stitched
+  B3r       1.504     0.005              1.504      NaN       1.707      2.884 0.545        1.323     2.556                1.393
+  B4r       1.019     0.014              1.019      NaN       1.070      2.023 0.217        0.851     1.605                0.962
+   M0       0.927     0.017              0.948    0.013       1.105      2.139 0.500        0.772     1.613                0.824
+frozen (cell-macro): B0b 2.644, B1 1.495, B2 0.049, B3 1.504, B4 1.087, B5 0.049
+
+== W305 (8.6 min) ==
+model  macro_mean  macro_sd  single_seed_macro  seed_sd  pooled_mae  rmspe_pct  bias  cell_median  cell_p90  macro_excl_stitched
+  B3r       1.356     0.007              1.356      NaN       1.569      2.657 0.530        1.178     2.452                1.239
+  B4r       0.874     0.006              0.874      NaN       0.960      1.828 0.230        0.707     1.354                0.806
+   M0       0.885     0.014              0.901    0.014       1.098      2.109 0.559        0.664     1.769                0.767
+frozen (cell-macro): B0b 2.644, B1 1.370, B2 0.049, B3 1.363, B4 0.947, B5 0.049
+
+== W300 (10.2 min) ==
+model  macro_mean  macro_sd  single_seed_macro  seed_sd  pooled_mae  rmspe_pct  bias  cell_median  cell_p90  macro_excl_stitched
+  B3r       1.242     0.011              1.242      NaN       1.457      2.516 0.513        1.052     2.189                1.120
+  B4r       0.818     0.003              0.818      NaN       0.931      1.809 0.253        0.668     1.300                0.740
+   M0       0.836     0.025              0.850    0.012       1.077      2.170 0.569        0.580     1.526                0.701
+  M1p       0.774     0.013              0.796    0.013       0.983      2.039 0.567        0.529     1.523                0.649
+frozen (cell-macro): B0b 2.644, B1 1.268, B2 0.049, B3 1.242, B4 0.895, B5 0.049
+
+== W280 (12.4 min) ==
+model  macro_mean  macro_sd  single_seed_macro  seed_sd  pooled_mae  rmspe_pct  bias  cell_median  cell_p90  macro_excl_stitched
+  B3r       1.151     0.051              1.151      NaN       1.269      2.170 0.383        0.851     2.099                1.047
+  B4r       0.705     0.003              0.705      NaN       0.772      1.448 0.231        0.502     1.293                0.639
+   M0       0.740     0.004              0.754    0.010       0.797      1.474 0.325        0.543     1.346                0.683
+frozen (cell-macro): B0b 2.644, B1 1.204, B2 0.049, B3 1.137, B4 0.798, B5 0.049
+
+== W240 (13.5 min) ==
+model  macro_mean  macro_sd  single_seed_macro  seed_sd  pooled_mae  rmspe_pct  bias  cell_median  cell_p90  macro_excl_stitched
+  B3r       0.852     0.033              0.852      NaN       0.930      1.520 0.267        0.690     1.684                0.777
+  B4r       0.521     0.010              0.521      NaN       0.514      0.881 0.132        0.390     1.021                0.500
+   M0       0.530     0.011              0.543    0.009       0.507      0.827 0.130        0.401     0.901                0.527
+  M1p       0.599     0.001              0.612    0.014       0.616      1.030 0.207        0.470     1.156                0.569
+frozen (cell-macro): B0b 2.644, B1 1.246, B2 0.049, B3 0.847, B4 0.655, B5 0.049
+
+== WFULL (13.9 min) ==
+model  macro_mean  macro_sd  single_seed_macro  seed_sd  pooled_mae  rmspe_pct  bias  cell_median  cell_p90  macro_excl_stitched
+  B3r       0.869     0.022              0.869      NaN       0.953      1.563 0.285        0.699     1.759                0.792
+  B4r       0.491     0.005              0.491      NaN       0.466      0.805 0.105        0.362     0.948                0.483
+   M0       0.523     0.014              0.538    0.013       0.491      0.813 0.102        0.396     0.905                0.527
+frozen (cell-macro): B0b 2.644, B1 1.199, B2 0.049, B3 0.868, B4 0.626, B5 0.049
+
+== paired intervals (95% cluster bootstrap) ==
+window            a               b  point     lo     hi  ratio  n_cells
+  W240           M0       frozen:B4 -0.125 -0.207 -0.049  0.809       84
+  W240           M0             B4r  0.010 -0.043  0.061  1.018       84
+  W240          M1p              M0  0.069  0.022  0.118  1.129       84
+  W240          M1p       frozen:B4 -0.057 -0.121  0.004  0.914       84
+  W240          M1p             B4r  0.078  0.034  0.122  1.150       84
+  W240  M0 ensemble  M0 single-seed -0.013 -0.016 -0.010  0.977       84
+  W240 M1p ensemble M1p single-seed -0.013 -0.017 -0.010  0.978       84
+  W280           M0       frozen:B4 -0.058 -0.139  0.023  0.927       84
+  W280           M0             B4r  0.034 -0.030  0.099  1.049       84
+  W280  M0 ensemble  M0 single-seed -0.014 -0.017 -0.012  0.981       84
+  W300           M0       frozen:B4 -0.059 -0.157  0.032  0.934       84
+  W300           M0             B4r  0.018 -0.060  0.094  1.022       84
+  W300          M1p              M0 -0.062 -0.106 -0.009  0.926       84
+  W300          M1p       frozen:B4 -0.121 -0.208 -0.038  0.865       84
+  W300          M1p             B4r -0.044 -0.112  0.025  0.946       84
+  W300  M0 ensemble  M0 single-seed -0.014 -0.017 -0.011  0.984       84
+  W300 M1p ensemble M1p single-seed -0.022 -0.026 -0.018  0.972       84
+  W305           M0       frozen:B4 -0.062 -0.158  0.026  0.935       84
+  W305           M0             B4r  0.011 -0.067  0.089  1.013       84
+  W305  M0 ensemble  M0 single-seed -0.016 -0.020 -0.013  0.982       84
+  W310           M0       frozen:B4 -0.160 -0.272 -0.063  0.853       84
+  W310           M0             B4r -0.092 -0.194 -0.004  0.910       84
+  W310  M0 ensemble  M0 single-seed -0.021 -0.026 -0.017  0.978       84
+ WFULL           M0       frozen:B4 -0.103 -0.183 -0.029  0.835       84
+ WFULL           M0             B4r  0.032 -0.021  0.084  1.065       84
+ WFULL  M0 ensemble  M0 single-seed -0.015 -0.019 -0.012  0.971       84
+
+== gate verdict ==
+headline W300 PASS=False  companion W240 PASS=True
+  W240 [companion]: M0 0.530 target 0.557 pass_mae=True pass_ci=True PASS=True
+  W280 [descriptive]: M0 0.740 target 0.678 pass_mae=False pass_ci=False PASS=False
+  W300 [headline]: M0 0.836 target 0.760 pass_mae=False pass_ci=False PASS=False
+  W305 [descriptive]: M0 0.885 target 0.805 pass_mae=False pass_ci=False PASS=False
+  W310 [descriptive]: M0 0.927 target 0.924 pass_mae=False pass_ci=True PASS=False
+  WFULL [descriptive]: M0 0.523 target 0.532 pass_mae=True pass_ci=True PASS=True
+
+== selected configs (count) ==
+window  model  config          
+W240    B3r    d2_lr0.05           18
+        B4r    leaf1               14
+               leaf2                3
+               leaf3                1
+        M0     lr0.002_wd0.0001     2
+               lr0.002_wd0.001      1
+               lr0.004_wd0.0001     3
+               lr0.004_wd0.001      4
+               lr0.008_wd0.0001     3
+               lr0.008_wd0.001      5
+        M1p    lr0.004_wd0.0001     7
+               lr0.008_wd0.0001    11
+W280    B3r    d2_lr0.05           18
+        B4r    leaf1                9
+               leaf2                9
+        M0     lr0.002_wd0.0001     1
+               lr0.004_wd0.0001     4
+               lr0.004_wd0.001      3
+               lr0.008_wd0.0001     5
+               lr0.008_wd0.001      5
+W300    B3r    d2_lr0.05           18
+        B4r    leaf2                5
+               leaf3                6
+               leaf5                7
+        M0     lr0.002_wd0.0001     2
+               lr0.002_wd0.001      1
+               lr0.004_wd0.0001     8
+               lr0.004_wd0.001      5
+               lr0.008_wd0.0001     2
+        M1p    lr0.004_wd0.0001     9
+               lr0.008_wd0.0001     9
+W305    B3r    d2_lr0.05           18
+        B4r    leaf2               13
+               leaf3                4
+               leaf5                1
+        M0     lr0.002_wd0.0001     1
+               lr0.002_wd0.001      3
+               lr0.004_wd0.0001     3
+               lr0.004_wd0.001      4
+               lr0.008_wd0.0001     5
+               lr0.008_wd0.001      2
+W310    B3r    d2_lr0.05           18
+        B4r    leaf1                3
+               leaf2                9
+               leaf3                5
+               leaf5                1
+        M0     lr0.002_wd0.001      1
+               lr0.004_wd0.0001     5
+               lr0.004_wd0.001      2
+               lr0.008_wd0.0001     5
+               lr0.008_wd0.001      5
+WFULL   B3r    d2_lr0.05           18
+        B4r    leaf1               16
+               leaf2                2
+        M0     lr0.002_wd0.0001     3
+               lr0.002_wd0.001      2
+               lr0.004_wd0.0001     3
+               lr0.004_wd0.001      2
+               lr0.008_wd0.0001     3
+               lr0.008_wd0.001      5
+
+== slowest runs ==
+scope                      name      seconds  peak_gb
+ tune W240/M1p/lr0.004_wd0.0001 13995.131567 1.683234
+ tune W240/M1p/lr0.008_wd0.0001  1259.374086 1.683234
+final W240/M1p/lr0.008_wd0.0001  1046.534661 1.683173
+ tune            W280/B4r/leaf2   737.205203 0.172415
+ tune            W280/B4r/leaf3   701.341240 0.172415
+
+== checks ==
+PASS: 12601
+WARN: 40
+   no frozen per-tenth baseline file found in phase4 B4 line omitted from tenth-of-life figure
+   slow run W300/M0/lr0.002_wd0.0001: 26s > 3x median 6s
+   slow run W300/M0/lr0.008_wd0.0001: 23s > 3x median 1s
+   slow run W300/M1p/lr0.004_wd0.0001: 520s > 3x median 1s
+   slow run W300/M1p/lr0.008_wd0.0001: 447s > 3x median 1s
+   slow run W300/B3r/d2_lr0.05: 17s > 3x median 1s
+   slow run W300/B3r/d2_lr0.05: 4s > 3x median 0s
+   slow run W300/B4r/leaf1: 81s > 3x median 1s
+   slow run W300/B4r/leaf5: 16s > 3x median 0s
+   slow run W240/M1p/lr0.004_wd0.0001: 13995s > 3x median 520s
+   slow run W240/B4r/leaf1: 48s > 3x median 14s
+   slow run W310/M0/lr0.008_wd0.0001: 121s > 3x median 25s
+   slow run W310/M0/lr0.002_wd0.001: 122s > 3x median 26s
+   slow run W310/M0/lr0.004_wd0.001: 112s > 3x median 27s
+   slow run W310/B3r/d2_lr0.05: 74s > 3x median 21s
+   slow run W310/B3r/d2_lr0.1: 71s > 3x median 22s
+   slow run W310/B3r/d3_lr0.05: 92s > 3x median 23s
+   slow run W310/B3r/d4_lr0.1: 117s > 3x median 25s
+   slow run W310/B3r/d2_lr0.05: 19s > 3x median 4s
+   slow run W310/B4r/leaf2: 266s > 3x median 82s
+   slow run W305/M0/lr0.004_wd0.001: 91s > 3x median 29s
+   slow run W305/B3r/d3_lr0.05: 87s > 3x median 26s
+   slow run W305/B3r/d4_lr0.1: 92s > 3x median 29s
+   slow run W305/B4r/leaf1: 263s > 3x median 83s
+   slow run W305/B4r/leaf2: 283s > 3x median 84s
+   slow run W305/B4r/leaf3: 408s > 3x median 85s
+   slow run W305/B4r/leaf5: 285s > 3x median 86s
+   slow run W280/B4r/leaf1: 406s > 3x median 88s
+   slow run W280/B4r/leaf2: 737s > 3x median 91s
+   slow run W280/B4r/leaf3: 701s > 3x median 95s
+   slow run W280/B4r/leaf5: 622s > 3x median 148s
+   slow run W280/B4r/leaf1: 232s > 3x median 13s
+   slow run W280/B4r/leaf2: 206s > 3x median 14s
+   slow run WFULL/M0/lr0.002_wd0.0001: 129s > 3x median 41s
+   slow run WFULL/M0/lr0.002_wd0.001: 178s > 3x median 43s
+   slow run WFULL/M0/lr0.004_wd0.0001: 169s > 3x median 44s
+   slow run WFULL/M0/lr0.004_wd0.001: 157s > 3x median 47s
+   slow run WFULL/M0/lr0.008_wd0.0001: 673s > 3x median 49s
+   slow run WFULL/B4r/leaf1: 65s > 3x median 14s
+   no frozen per-tenth baseline file found in phase4 B4 line omitted from tenth-of-life figure
+FAIL: 0
+
+== errors ==
+none
+
+== artifacts ==
+  bootstrap_5b.csv  5.4 KB
+  deep_by_batch.csv  2.1 KB
+  deep_by_cell.csv  70.2 KB
+  deep_by_stage.csv  6.0 KB
+  deep_results.csv  7.6 KB
+  figures\error_by_tenth_W300.png  57.1 KB
+  figures\forest_paired.png  82.5 KB
+  figures\heatmap_M0_W300.png  119.8 KB
+  figures\mae_vs_minutes.png  69.0 KB
+  gate_verdict.json  6.7 KB
+  gate_verdict_hash.txt  0.1 KB
+  run_log.txt  9.6 KB
+  selected_configs.csv  18.2 KB
+  smoke\bootstrap_5b.csv  1.4 KB
+  smoke\deep_by_batch.csv  0.4 KB
+  smoke\deep_by_cell.csv  2.3 KB
+  smoke\deep_by_stage.csv  1.2 KB
+  smoke\deep_results.csv  1.6 KB
+  smoke\figures\error_by_tenth_W300.png  48.5 KB
+  smoke\figures\forest_paired.png  31.6 KB
+  smoke\figures\heatmap_M0_W300.png  43.1 KB
+  smoke\figures\mae_vs_minutes.png  41.9 KB
+  smoke\gate_verdict.json  1.9 KB
+  smoke\gate_verdict_hash.txt  0.1 KB
+  smoke\phase5b_report.txt  3.0 KB
+  smoke\run_log.txt  0.5 KB
+  smoke\selected_configs.csv  0.3 KB
+  smoke\tuning_log_5b.csv  0.8 KB
+  smoke\verification_report.json  9.2 KB
+  tuning_log_5b.csv  324.4 KB

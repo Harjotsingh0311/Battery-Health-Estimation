@@ -1,0 +1,230 @@
+==============================================================================================================
+PHASE 6c  CYCLE-INDEX SHIFT TEST  (POST-HOC VARIANT, NOT A GATE RESULT; nothing here is a gate result)
+==============================================================================================================
+generated 2026-11-05 01:41   root C:\workstation\3RD YEAR\Battery-Health-Estimation   runtime 6.3 min   GPU NVIDIA GeForce RTX 3050 6GB Laptop GPU 6.4 GB VRAM, torch 2.14.1+cu130
+gate sha256 40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901
+soh_deep_v2 sha256 (CRLF->LF) fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6  (unchanged)
+soh_deep_v3 sha256 (LF) 9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb
+gate_verdict sha256 2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb  (frozen: W300 FAIL, W240 PASS; never recomputed)
+outputs/phase6b/frozen_config.json sha256 78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5  (used as is; nothing tuned)
+development rows 55,963 | cells 84 | repeats 3 | err = pred - y (+ = over-estimated) | bootstrap: cells, 5000 draws, seed 42
+total bootstrap intervals computed in this phase: 56  {'3 Protocol D paired intervals': 16, '4 shift paired intervals': 20, '4 shift paired intervals (same cells, Protocol D)': 20}
++idx = the model also sees the row's own log cycle number (MLP: standardised log1p(cycle) from the training rows, 34 inputs, 3,013 parameters; tree: log(cycle) as in 6b B4r:+log_cycle).
+no-idx numbers: M0 / B4r = 6b fixed-config references (reproduced below). Batch-3 and the 5 sensitivity cells never appear.
+
+==============================================================================================================
+1. REPRODUCTION OF THE 6b REFERENCE ROWS (must match ablation_results.csv within 1e-6)
+==============================================================================================================
+window  model    variant_6b      metric               recomputed  ablation_results  abs_diff  source                                                         
+------  -------  --------------  -------------------  ----------  ----------------  --------  ---------------------------------------------------------------
+W300    M0       M0:ref          macro_mae              0.832337          0.832337   0.0e+00  6b cache: abl_deep_W300_ref_7a70aa6b067792dd5e67.parquet       
+W300    M0       M0:ref          macro_excl_stitched    0.697297          0.697297   0.0e+00  6b cache: abl_deep_W300_ref_7a70aa6b067792dd5e67.parquet       
+W300    M0       M0:ref          last20_macro_mae       1.595383          1.595383   0.0e+00  6b cache: abl_deep_W300_ref_7a70aa6b067792dd5e67.parquet       
+W300    M0       M0:ref          pooled_bias            0.572722          0.572722   0.0e+00  6b cache: abl_deep_W300_ref_7a70aa6b067792dd5e67.parquet       
+W300    B4r      B4r:ref         macro_mae              0.816469          0.816469   0.0e+00  6b cache: abl_tree_W300_ref_314744ee591a60a1c141.parquet       
+W300    B4r      B4r:ref         macro_excl_stitched    0.739119          0.739119   0.0e+00  6b cache: abl_tree_W300_ref_314744ee591a60a1c141.parquet       
+W300    B4r      B4r:ref         last20_macro_mae       1.498868          1.498868   0.0e+00  6b cache: abl_tree_W300_ref_314744ee591a60a1c141.parquet       
+W300    B4r      B4r:ref         pooled_bias            0.250876          0.250876   0.0e+00  6b cache: abl_tree_W300_ref_314744ee591a60a1c141.parquet       
+W300    B4r+idx  B4r:+log_cycle  macro_mae              0.591718          0.591718   0.0e+00  6b cache: abl_tree_W300_+log_cycle_c3a45e6bb1b9abe9f5f2.parquet
+W300    B4r+idx  B4r:+log_cycle  macro_excl_stitched    0.559306          0.559306   0.0e+00  6b cache: abl_tree_W300_+log_cycle_c3a45e6bb1b9abe9f5f2.parquet
+W300    B4r+idx  B4r:+log_cycle  last20_macro_mae       1.042580          1.042580   0.0e+00  6b cache: abl_tree_W300_+log_cycle_c3a45e6bb1b9abe9f5f2.parquet
+W300    B4r+idx  B4r:+log_cycle  pooled_bias            0.148623          0.148623   0.0e+00  6b cache: abl_tree_W300_+log_cycle_c3a45e6bb1b9abe9f5f2.parquet
+W240    M0       M0:ref          macro_mae              0.522396          0.522396   0.0e+00  6b cache: abl_deep_W240_ref_def24b8253a86ca7030f.parquet       
+W240    M0       M0:ref          macro_excl_stitched    0.526350          0.526350   0.0e+00  6b cache: abl_deep_W240_ref_def24b8253a86ca7030f.parquet       
+W240    M0       M0:ref          last20_macro_mae       0.774945          0.774945   0.0e+00  6b cache: abl_deep_W240_ref_def24b8253a86ca7030f.parquet       
+W240    M0       M0:ref          pooled_bias            0.102766          0.102766   0.0e+00  6b cache: abl_deep_W240_ref_def24b8253a86ca7030f.parquet       
+W240    B4r      B4r:ref         macro_mae              0.521209          0.521209   0.0e+00  6b cache: abl_tree_W240_ref_47d2f55bd7e397f4a6b9.parquet       
+W240    B4r      B4r:ref         macro_excl_stitched    0.499915          0.499915   0.0e+00  6b cache: abl_tree_W240_ref_47d2f55bd7e397f4a6b9.parquet       
+W240    B4r      B4r:ref         last20_macro_mae       0.801434          0.801434   0.0e+00  6b cache: abl_tree_W240_ref_47d2f55bd7e397f4a6b9.parquet       
+W240    B4r      B4r:ref         pooled_bias            0.135622          0.135622   0.0e+00  6b cache: abl_tree_W240_ref_47d2f55bd7e397f4a6b9.parquet       
+W240    B4r+idx  B4r:+log_cycle  macro_mae              0.442476          0.442476   0.0e+00  6b cache: abl_tree_W240_+log_cycle_6b6d3b8e02da8e858baa.parquet
+W240    B4r+idx  B4r:+log_cycle  macro_excl_stitched    0.433678          0.433678   0.0e+00  6b cache: abl_tree_W240_+log_cycle_6b6d3b8e02da8e858baa.parquet
+W240    B4r+idx  B4r:+log_cycle  last20_macro_mae       0.696045          0.696045   0.0e+00  6b cache: abl_tree_W240_+log_cycle_6b6d3b8e02da8e858baa.parquet
+W240    B4r+idx  B4r:+log_cycle  pooled_bias            0.108276          0.108276   0.0e+00  6b cache: abl_tree_W240_+log_cycle_6b6d3b8e02da8e858baa.parquet
+
+==============================================================================================================
+2. soh_deep_v3.py (v2 + one optional extra scalar input; v2 untouched)
+==============================================================================================================
+sha256 9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb
+18 exact-match replacements applied to v2; diff lines: +45 / -21
+
+level  name                                                                                                            detail                                                                                   
+-----  --------------------------------------------------------------------------------------------------------------  -----------------------------------------------------------------------------------------
+PASS   delta-Q check W300 row 36631                                                                                                                                                                             
+PASS   delta-Q check W300 row 4994                                                                                                                                                                              
+PASS   delta-Q check W300 row 43312                                                                                                                                                                             
+PASS   (a) v3 n_extra=0 initial weights identical to v2 (seed 42)                                                                                                                                               
+PASS   (a) v3 n_extra=0 initial weights identical to v2 (seed 43)                                                                                                                                               
+PASS   (a) extra disabled: v3 equals v2 to 1e-12 in float64 (validation curve, training loss, train MAE, predictions)  max |diff|: val curve 0.0e+00, train loss 0.0e+00, train MAE 0.0e+00, predictions 0.0e+00
+PASS   (a) extra disabled: scalers identical and no extra statistics created                                                                                                                                    
+PASS   (b) parameter counts: M0 2,969; M0+idx 3,013 (= 2,969 + 44)                                                     v2 2969, v3 no-idx 2969, v3 +idx 3013                                                    
+PASS   (b) batched M0+idx has 34 inputs per member                                                                     W1 (3, 34, 44)                                                                           
+PASS   (c) member 0: extra-input mean/std equal the training-row statistics                                                                                                                                     
+PASS   (c) member 1: extra-input mean/std equal the training-row statistics                                                                                                                                     
+PASS   (c) changing the extra values of rows outside the training rows leaves the statistics unchanged                                                                                                          
+PASS   (c) statistics differ from all-row statistics (the check is not vacuous)                                        5.39395 vs 5.60012                                                                       
+PASS   (d) row input = Q0 scaled as in v2 plus its own standardised extra value                                                                                                                                 
+PASS   (d) other rows' extra values never reach a row's input                                                                                                                                                   
+PASS   (d) changing one row's own extra value changes only that row's input                                            changed [[0, 5]]                                                                         
+PASS   (d) predictions of a row do not depend on other rows' extra values                                                                                                                                       
+PASS   (d) predictions react to the row's own extra value (not vacuous)                                                                                                                                         
+PASS   batched forward equals single-model forward (34 inputs)                                                         2.8e-17                                                                                  
+PASS   M0+idx trains without NaN                                                                                                                                                                                
+PASS   M0+idx predictions differ from M0 (extra input is used)                                                                                                                                                  
+PASS   (c) outer set (0,0): extra-input mean/std equal those of the training cells' rows                               mean 5.6647, std 0.8513                                                                  
+PASS   (c) outer set (0,0): statistics differ from those that would include the test cells (not vacuous)                                                                                                        
+PASS   (d) extra input = log1p of each row's own cycle_number                                                                                                                                                   
+PASS   (d) the value depends on the cycle number only (same cycle in different cells / lives gives the same input)                                                                                              
+PASS   (d) not a function of life, fraction of life or remaining life                                                                                                                                           
+PASS   (d) strictly increasing with cycle inside every cell (available at the time of the measurement)                                                                                                          
+
+==============================================================================================================
+3. PROTOCOL D  (POST-HOC VARIANT, NOT A GATE RESULT); gate-target columns are for information only
+==============================================================================================================
+window  model    macro_mae  macro_excl_stitched  last20_macro_mae  pooled_bias  mae_short  mae_mid  mae_long  gate_target  minus_target  over_target
+------  -------  ---------  -------------------  ----------------  -----------  ---------  -------  --------  -----------  ------------  -----------
+W300    M0           0.832                0.697             1.595       +0.573      0.702    0.758     1.037       0.7605        +0.072        1.094
+W300    M0+idx       0.517                0.521             0.869       +0.026      0.629    0.614     0.308       0.7605        -0.244        0.680
+W300    B4r          0.816                0.739             1.499       +0.251      0.785    0.802     0.862       0.7605        +0.056        1.074
+W300    B4r+idx      0.592                0.559             1.043       +0.149      0.640    0.648     0.487       0.7605        -0.169        0.778
+W240    M0           0.522                0.526             0.775       +0.103      0.543    0.616     0.408       0.5569        -0.035        0.938
+W240    M0+idx       0.444                0.451             0.665       +0.044      0.597    0.478     0.255       0.5569        -0.113        0.796
+W240    B4r          0.521                0.500             0.801       +0.136      0.575    0.562     0.427       0.5569        -0.036        0.936
+W240    B4r+idx      0.442                0.434             0.696       +0.108      0.549    0.481     0.297       0.5569        -0.114        0.795
+
+life tertiles: cuts 493 / 710 (28 / 28 / 28 cells). Paired contrasts (negative diff = first model lower MAE), cluster bootstrap over cells:
+window  contrast                         subset         n_cells  mae_first  mae_second  ratio    diff  ci95            
+------  -------------------------------  -------------  -------  ---------  ----------  -----  ------  ----------------
+W300    MLP: +idx vs no-idx              all84               84      0.517       0.832  0.621  -0.315  [-0.477, -0.163]
+W300    MLP: +idx vs no-idx              excl_stitched       79      0.521       0.697  0.747  -0.176  [-0.264, -0.072]
+W300    tree: +idx vs no-idx             all84               84      0.592       0.816  0.725  -0.225  [-0.292, -0.153]
+W300    tree: +idx vs no-idx             excl_stitched       79      0.559       0.739  0.757  -0.180  [-0.231, -0.119]
+W300    MLP+idx vs tree+idx              all84               84      0.517       0.592  0.873  -0.075  [-0.137, -0.015]
+W300    MLP+idx vs tree+idx              excl_stitched       79      0.521       0.559  0.931  -0.038  [-0.092, +0.012]
+W300    MLP vs tree, no idx (reference)  all84               84      0.832       0.816  1.019  +0.016  [-0.065, +0.095]
+W300    MLP vs tree, no idx (reference)  excl_stitched       79      0.697       0.739  0.943  -0.042  [-0.115, +0.024]
+W240    MLP: +idx vs no-idx              all84               84      0.444       0.522  0.849  -0.079  [-0.132, -0.023]
+W240    MLP: +idx vs no-idx              excl_stitched       79      0.451       0.526  0.856  -0.076  [-0.131, -0.016]
+W240    tree: +idx vs no-idx             all84               84      0.442       0.521  0.849  -0.079  [-0.109, -0.048]
+W240    tree: +idx vs no-idx             excl_stitched       79      0.434       0.500  0.868  -0.066  [-0.096, -0.036]
+W240    MLP+idx vs tree+idx              all84               84      0.444       0.442  1.002  +0.001  [-0.040, +0.042]
+W240    MLP+idx vs tree+idx              excl_stitched       79      0.451       0.434  1.039  +0.017  [-0.024, +0.058]
+W240    MLP vs tree, no idx (reference)  all84               84      0.522       0.521  1.002  +0.001  [-0.049, +0.051]
+W240    MLP vs tree, no idx (reference)  excl_stitched       79      0.526       0.500  1.053  +0.026  [-0.023, +0.075]
+
+==============================================================================================================
+4. SLOW-AGER SHIFT TESTS (frozen config, 5 MLP seeds, policy twins of test cells removed from training)
+==============================================================================================================
+test             n_train  n_test  n_test_stitched  n_test_excl_stitched  n_twins_removed  train_life_min  train_life_max  test_life_min  test_life_max  twins_removed                           
+---------------  -------  ------  ---------------  --------------------  ---------------  --------------  --------------  -------------  -------------  ----------------------------------------
+extreme_short         76       8                0                     8                0             458            2237            148            457                                          
+extreme_long          75       8                5                     3                1             148            1017           1051           2237  b1c40                                   
+longest_tertile       49      28                5                    23                7             148             704            713           2237  b1c18 b1c30 b1c35 b1c6 b2c24 b2c25 b2c26
+
+MAE = cell-macro MAE on the test cells (pp); signed error + = over-estimated; ratio = MAE / the model's own Protocol D out-of-fold MAE on the same cells.
+window  test             subset         model    n_train  n_test  n_twins_removed    mae  mean_signed_err  pD_mae  ratio_to_pD
+------  ---------------  -------------  -------  -------  ------  ---------------  -----  ---------------  ------  -----------
+W300    extreme_short    all            M0            76       8                0  0.959           -0.140   0.942        1.018
+W300    extreme_short    excl_stitched  M0            76       8                0  0.959           -0.140   0.942        1.018
+W300    extreme_short    all            M0+idx        76       8                0  1.460           -0.287   1.220        1.196
+W300    extreme_short    excl_stitched  M0+idx        76       8                0  1.460           -0.287   1.220        1.196
+W300    extreme_short    all            B4r           76       8                0  1.271           -0.426   1.092        1.164
+W300    extreme_short    excl_stitched  B4r           76       8                0  1.271           -0.426   1.092        1.164
+W300    extreme_short    all            B4r+idx       76       8                0  1.101           +0.143   1.032        1.066
+W300    extreme_short    excl_stitched  B4r+idx       76       8                0  1.101           +0.143   1.032        1.066
+W300    extreme_long     all            M0            75       8                1  2.452           +2.439   2.257        1.087
+W300    extreme_long     excl_stitched  M0            75       3                1  1.293           +1.263   1.074        1.204
+W300    extreme_long     all            M0+idx        75       8                1  0.619           +0.409   0.401        1.542
+W300    extreme_long     excl_stitched  M0+idx        75       3                1  0.319           +0.022   0.317        1.006
+W300    extreme_long     all            B4r           75       8                1  2.033           +1.979   1.575        1.290
+W300    extreme_long     excl_stitched  B4r           75       3                1  1.028           +0.928   0.803        1.280
+W300    extreme_long     all            B4r+idx       75       8                1  1.440           +1.310   0.850        1.693
+W300    extreme_long     excl_stitched  B4r+idx       75       3                1  0.527           +0.284   0.428        1.233
+W300    longest_tertile  all            M0            49      28                7  1.393           +1.211   1.037        1.343
+W300    longest_tertile  excl_stitched  M0            49      23                7  0.966           +0.746   0.617        1.566
+W300    longest_tertile  all            M0+idx        49      28                7  1.442           -1.344   0.308        4.684
+W300    longest_tertile  excl_stitched  M0+idx        49      23                7  1.229           -1.116   0.276        4.444
+W300    longest_tertile  all            B4r           49      28                7  1.247           +1.142   0.862        1.447
+W300    longest_tertile  excl_stitched  B4r           49      23                7  0.905           +0.782   0.606        1.493
+W300    longest_tertile  all            B4r+idx       49      28                7  1.085           +0.950   0.487        2.229
+W300    longest_tertile  excl_stitched  B4r+idx       49      23                7  0.733           +0.574   0.353        2.080
+W240    extreme_short    all            M0            76       8                0  0.872           +0.220   0.857        1.017
+W240    extreme_short    excl_stitched  M0            76       8                0  0.872           +0.220   0.857        1.017
+W240    extreme_short    all            M0+idx        76       8                0  1.294           -0.521   1.112        1.164
+W240    extreme_short    excl_stitched  M0+idx        76       8                0  1.294           -0.521   1.112        1.164
+W240    extreme_short    all            B4r           76       8                0  0.910           +0.191   0.878        1.036
+W240    extreme_short    excl_stitched  B4r           76       8                0  0.910           +0.191   0.878        1.036
+W240    extreme_short    all            B4r+idx       76       8                0  0.938           +0.183   0.937        1.001
+W240    extreme_short    excl_stitched  B4r+idx       76       8                0  0.938           +0.183   0.937        1.001
+W240    extreme_long     all            M0            75       8                1  1.282           +1.272   0.502        2.553
+W240    extreme_long     excl_stitched  M0            75       3                1  0.808           +0.794   0.573        1.411
+W240    extreme_long     all            M0+idx        75       8                1  0.551           +0.436   0.293        1.880
+W240    extreme_long     excl_stitched  M0+idx        75       3                1  0.247           +0.081   0.231        1.070
+W240    extreme_long     all            B4r           75       8                1  1.222           +1.171   0.703        1.739
+W240    extreme_long     excl_stitched  B4r           75       3                1  0.636           +0.610   0.444        1.433
+W240    extreme_long     all            B4r+idx       75       8                1  1.132           +1.091   0.459        2.468
+W240    extreme_long     excl_stitched  B4r+idx       75       3                1  0.430           +0.390   0.254        1.693
+W240    longest_tertile  all            M0            49      28                7  0.833           +0.712   0.408        2.042
+W240    longest_tertile  excl_stitched  M0            49      23                7  0.612           +0.468   0.397        1.543
+W240    longest_tertile  all            M0+idx        49      28                7  0.293           +0.083   0.255        1.148
+W240    longest_tertile  excl_stitched  M0+idx        49      23                7  0.259           +0.025   0.239        1.082
+W240    longest_tertile  all            B4r           49      28                7  0.820           +0.661   0.427        1.920
+W240    longest_tertile  excl_stitched  B4r           49      23                7  0.636           +0.460   0.333        1.908
+W240    longest_tertile  all            B4r+idx       49      28                7  0.802           +0.673   0.297        2.698
+W240    longest_tertile  excl_stitched  B4r+idx       49      23                7  0.590           +0.440   0.236        2.503
+
+==============================================================================================================
+5. SUMMARY: +idx vs no-idx  (POST-HOC VARIANT, NOT A GATE RESULT)
+==============================================================================================================
+window  test             subset         family  n_cells  mae_noidx  mae_idx  ratio    diff  ci95              pD_ratio  growth_no  growth_idx
+------  ---------------  -------------  ------  -------  ---------  -------  -----  ------  ----------------  --------  ---------  ----------
+W240    protocol_D       all            MLP          84      0.522    0.444  0.849  -0.079  [-0.132, -0.023]         -          -           -
+W240    protocol_D       all            tree         84      0.521    0.442  0.849  -0.079  [-0.109, -0.048]         -          -           -
+W240    protocol_D       excl_stitched  MLP          79      0.526    0.451  0.856  -0.076  [-0.131, -0.016]         -          -           -
+W240    protocol_D       excl_stitched  tree         79      0.500    0.434  0.868  -0.066  [-0.096, -0.036]         -          -           -
+W240    extreme_short    all            MLP           8      0.872    1.294  1.485  +0.423  [-0.063, +1.007]     1.298      1.017       1.164
+W240    extreme_short    all            tree          8      0.910    0.938  1.031  +0.028  [-0.079, +0.195]     1.067      1.036       1.001
+W240    extreme_long     all            MLP           8      1.282    0.551  0.430  -0.731  [-0.972, -0.495]     0.583      2.553       1.880
+W240    extreme_long     all            tree          8      1.222    1.132  0.927  -0.090  [-0.159, -0.026]     0.653      1.739       2.468
+W240    extreme_long     excl_stitched  MLP           3      0.808    0.247  0.306  -0.561  [-0.766, -0.428]     0.404      1.411       1.070
+W240    extreme_long     excl_stitched  tree          3      0.636    0.430  0.676  -0.206  [-0.258, -0.144]     0.572      1.433       1.693
+W240    longest_tertile  all            MLP          28      0.833    0.293  0.352  -0.540  [-0.728, -0.372]     0.626      2.042       1.148
+W240    longest_tertile  all            tree         28      0.820    0.802  0.979  -0.018  [-0.042, +0.011]     0.696      1.920       2.698
+W240    longest_tertile  excl_stitched  MLP          23      0.612    0.259  0.423  -0.353  [-0.466, -0.246]     0.603      1.543       1.082
+W240    longest_tertile  excl_stitched  tree         23      0.636    0.590  0.927  -0.046  [-0.057, -0.034]     0.707      1.908       2.503
+W300    protocol_D       all            MLP          84      0.832    0.517  0.621  -0.315  [-0.477, -0.163]         -          -           -
+W300    protocol_D       all            tree         84      0.816    0.592  0.725  -0.225  [-0.292, -0.153]         -          -           -
+W300    protocol_D       excl_stitched  MLP          79      0.697    0.521  0.747  -0.176  [-0.264, -0.072]         -          -           -
+W300    protocol_D       excl_stitched  tree         79      0.739    0.559  0.757  -0.180  [-0.231, -0.119]         -          -           -
+W300    extreme_short    all            MLP           8      0.959    1.460  1.523  +0.501  [+0.033, +1.115]     1.295      1.018       1.196
+W300    extreme_short    all            tree          8      1.271    1.101  0.866  -0.171  [-0.537, +0.370]     0.945      1.164       1.066
+W300    extreme_long     all            MLP           8      2.452    0.619  0.252  -1.833  [-2.360, -1.294]     0.178      1.087       1.542
+W300    extreme_long     all            tree          8      2.033    1.440  0.708  -0.593  [-0.669, -0.479]     0.540      1.290       1.693
+W300    extreme_long     excl_stitched  MLP           3      1.293    0.319  0.246  -0.975  [-1.321, -0.659]     0.295      1.204       1.006
+W300    extreme_long     excl_stitched  tree          3      1.028    0.527  0.513  -0.501  [-0.705, -0.225]     0.533      1.280       1.233
+W300    longest_tertile  all            MLP          28      1.393    1.442  1.036  +0.049  [-0.354, +0.483]     0.297      1.343       4.684
+W300    longest_tertile  all            tree         28      1.247    1.085  0.870  -0.163  [-0.195, -0.130]     0.565      1.447       2.229
+W300    longest_tertile  excl_stitched  MLP          23      0.966    1.229  1.271  +0.262  [-0.169, +0.757]     0.448      1.566       4.444
+W300    longest_tertile  excl_stitched  tree         23      0.905    0.733  0.811  -0.171  [-0.207, -0.134]     0.582      1.493       2.080
+
+ratio < 1: +idx has lower MAE. pD_ratio = the same ratio on the same cells in Protocol D. growth = shift MAE / own Protocol D MAE on the same cells. Several rows rest on 3-8 cells; read the intervals.
+
+W240 | protocol_D | all | 84 cells | MLP: +idx/no-idx MAE ratio 0.85 (lower; diff -0.079 pp [-0.132, -0.023]) | tree: +idx/no-idx MAE ratio 0.85 (lower; diff -0.079 pp [-0.109, -0.048])
+W240 | protocol_D | excl_stitched | 79 cells | MLP: +idx/no-idx MAE ratio 0.86 (lower; diff -0.076 pp [-0.131, -0.016]) | tree: +idx/no-idx MAE ratio 0.87 (lower; diff -0.066 pp [-0.096, -0.036])
+W240 | extreme_short | all | 8 cells | MLP: +idx/no-idx MAE ratio 1.48 (no clear difference; diff +0.423 pp [-0.063, +1.007]); same cells in Protocol D ratio 1.30 (diff +0.255 [-0.020, +0.577]); error vs own Protocol D x1.16 with idx, x1.02 without | tree: +idx/no-idx MAE ratio 1.03 (no clear difference; diff +0.028 pp [-0.079, +0.195]); same cells in Protocol D ratio 1.07 (diff +0.059 [-0.052, +0.226]); error vs own Protocol D x1.00 with idx, x1.04 without
+W240 | extreme_long | all | 8 cells | MLP: +idx/no-idx MAE ratio 0.43 (lower; diff -0.731 pp [-0.972, -0.495]); same cells in Protocol D ratio 0.58 (diff -0.209 [-0.329, -0.109]); error vs own Protocol D x1.88 with idx, x2.55 without | tree: +idx/no-idx MAE ratio 0.93 (lower; diff -0.090 pp [-0.159, -0.026]); same cells in Protocol D ratio 0.65 (diff -0.244 [-0.307, -0.174]); error vs own Protocol D x2.47 with idx, x1.74 without
+W240 | extreme_long | excl_stitched | 3 cells | MLP: +idx/no-idx MAE ratio 0.31 (lower; diff -0.561 pp [-0.766, -0.428]); same cells in Protocol D ratio 0.40 (diff -0.342 [-0.578, -0.134]); error vs own Protocol D x1.07 with idx, x1.41 without | tree: +idx/no-idx MAE ratio 0.68 (lower; diff -0.206 pp [-0.258, -0.144]); same cells in Protocol D ratio 0.57 (diff -0.190 [-0.331, -0.051]); error vs own Protocol D x1.69 with idx, x1.43 without
+W240 | longest_tertile | all | 28 cells | MLP: +idx/no-idx MAE ratio 0.35 (lower; diff -0.540 pp [-0.728, -0.372]); same cells in Protocol D ratio 0.63 (diff -0.153 [-0.223, -0.085]); error vs own Protocol D x1.15 with idx, x2.04 without | tree: +idx/no-idx MAE ratio 0.98 (no clear difference; diff -0.018 pp [-0.042, +0.011]); same cells in Protocol D ratio 0.70 (diff -0.130 [-0.170, -0.088]); error vs own Protocol D x2.70 with idx, x1.92 without
+W240 | longest_tertile | excl_stitched | 23 cells | MLP: +idx/no-idx MAE ratio 0.42 (lower; diff -0.353 pp [-0.466, -0.246]); same cells in Protocol D ratio 0.60 (diff -0.157 [-0.240, -0.078]); error vs own Protocol D x1.08 with idx, x1.54 without | tree: +idx/no-idx MAE ratio 0.93 (lower; diff -0.046 pp [-0.057, -0.034]); same cells in Protocol D ratio 0.71 (diff -0.098 [-0.138, -0.060]); error vs own Protocol D x2.50 with idx, x1.91 without
+W300 | protocol_D | all | 84 cells | MLP: +idx/no-idx MAE ratio 0.62 (lower; diff -0.315 pp [-0.477, -0.163]) | tree: +idx/no-idx MAE ratio 0.72 (lower; diff -0.225 pp [-0.292, -0.153])
+W300 | protocol_D | excl_stitched | 79 cells | MLP: +idx/no-idx MAE ratio 0.75 (lower; diff -0.176 pp [-0.264, -0.072]) | tree: +idx/no-idx MAE ratio 0.76 (lower; diff -0.180 pp [-0.231, -0.119])
+W300 | extreme_short | all | 8 cells | MLP: +idx/no-idx MAE ratio 1.52 (higher; diff +0.501 pp [+0.033, +1.115]); same cells in Protocol D ratio 1.30 (diff +0.278 [-0.158, +1.029]); error vs own Protocol D x1.20 with idx, x1.02 without | tree: +idx/no-idx MAE ratio 0.87 (no clear difference; diff -0.171 pp [-0.537, +0.370]); same cells in Protocol D ratio 0.95 (diff -0.060 [-0.349, +0.412]); error vs own Protocol D x1.07 with idx, x1.16 without
+W300 | extreme_long | all | 8 cells | MLP: +idx/no-idx MAE ratio 0.25 (lower; diff -1.833 pp [-2.360, -1.294]); same cells in Protocol D ratio 0.18 (diff -1.855 [-2.504, -1.178]); error vs own Protocol D x1.54 with idx, x1.09 without | tree: +idx/no-idx MAE ratio 0.71 (lower; diff -0.593 pp [-0.669, -0.479]); same cells in Protocol D ratio 0.54 (diff -0.725 [-0.977, -0.470]); error vs own Protocol D x1.69 with idx, x1.29 without
+W300 | extreme_long | excl_stitched | 3 cells | MLP: +idx/no-idx MAE ratio 0.25 (lower; diff -0.975 pp [-1.321, -0.659]); same cells in Protocol D ratio 0.29 (diff -0.758 [-1.170, -0.345]); error vs own Protocol D x1.01 with idx, x1.20 without | tree: +idx/no-idx MAE ratio 0.51 (lower; diff -0.501 pp [-0.705, -0.225]); same cells in Protocol D ratio 0.53 (diff -0.375 [-0.547, -0.154]); error vs own Protocol D x1.23 with idx, x1.28 without
+W300 | longest_tertile | all | 28 cells | MLP: +idx/no-idx MAE ratio 1.04 (no clear difference; diff +0.049 pp [-0.354, +0.483]); same cells in Protocol D ratio 0.30 (diff -0.729 [-1.092, -0.414]); error vs own Protocol D x4.68 with idx, x1.34 without | tree: +idx/no-idx MAE ratio 0.87 (lower; diff -0.163 pp [-0.195, -0.130]); same cells in Protocol D ratio 0.56 (diff -0.375 [-0.500, -0.268]); error vs own Protocol D x2.23 with idx, x1.45 without
+W300 | longest_tertile | excl_stitched | 23 cells | MLP: +idx/no-idx MAE ratio 1.27 (no clear difference; diff +0.262 pp [-0.169, +0.757]); same cells in Protocol D ratio 0.45 (diff -0.341 [-0.478, -0.212]); error vs own Protocol D x4.44 with idx, x1.57 without | tree: +idx/no-idx MAE ratio 0.81 (lower; diff -0.171 pp [-0.207, -0.134]); same cells in Protocol D ratio 0.58 (diff -0.253 [-0.312, -0.199]); error vs own Protocol D x2.08 with idx, x1.49 without
+
+==============================================================================================================
+6. CHECKS
+==============================================================================================================
+so far: {'PASS': 255, 'WARN': 0, 'FAIL': 0}

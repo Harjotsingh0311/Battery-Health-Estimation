@@ -1,0 +1,1286 @@
+{
+ "runtime_min": 43.56230340401331,
+ "gpu": {
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "cudnn": "92400",
+  "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "capability": "8.6",
+  "vram_total_gb": 6.44,
+  "vram_free_gb": 5.41,
+  "tf32_matmul": false,
+  "tf32_cudnn": false
+ },
+ "param_counts": {
+  "M1": {
+   "0.5": 817,
+   "1": 2977,
+   "2": 11329,
+   "4": 44161
+  },
+  "M0": 2969
+ },
+ "checks": [
+  {
+   "name": "CUDA available",
+   "status": "PASS",
+   "detail": "required"
+  },
+  {
+   "name": "TF32 off",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "CPU-vs-GPU parity (conv+linear)",
+   "status": "PASS",
+   "detail": "max abs diff 4.47e-08"
+  },
+  {
+   "name": "available RAM >= 2 GB",
+   "status": "WARN",
+   "detail": "0.6 GB"
+  },
+  {
+   "name": "week2_gate.json sha256 == gate_hash.txt (start)",
+   "status": "PASS",
+   "detail": "40df2fb82096e994..."
+  },
+  {
+   "name": "gate_hash.txt equals expected frozen hash",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "gate target W310 = 0.9238 present in week2_gate.json",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "gate target W305 = 0.8046 present in week2_gate.json",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "gate target W300 = 0.7605 present in week2_gate.json",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "gate target W280 = 0.6784 present in week2_gate.json",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "gate target W240 = 0.5569 present in week2_gate.json",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "gate target WFULL = 0.5319 present in week2_gate.json",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "src/soh_deep.py created",
+   "status": "PASS",
+   "detail": "18563 bytes"
+  },
+  {
+   "name": "protocol_D.csv matches artifact_hashes.json",
+   "status": "PASS",
+   "detail": "data/processed/splits/protocol_D.csv"
+  },
+  {
+   "name": "protocol_D_inner.csv matches artifact_hashes.json",
+   "status": "PASS",
+   "detail": "data/processed/splits/protocol_D_inner.csv"
+  },
+  {
+   "name": "life column found in labels",
+   "status": "WARN",
+   "detail": "None"
+  },
+  {
+   "name": "no batch-3 or sensitivity cell in development cells",
+   "status": "PASS",
+   "detail": "[]"
+  },
+  {
+   "name": "development rows == 55,963",
+   "status": "PASS",
+   "detail": "55963 rows, 84 cells"
+  },
+  {
+   "name": "development cells == 84 (41 b1 + 43 b2)",
+   "status": "PASS",
+   "detail": "84"
+  },
+  {
+   "name": "q0 available for all development cells",
+   "status": "PASS",
+   "detail": "0"
+  },
+  {
+   "name": "outer train/test disjoint",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "outer train U test == development cells",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "4 inner folds",
+   "status": "PASS",
+   "detail": "4"
+  },
+  {
+   "name": "inner 0: val subset of outer-train, disjoint from train, no outer-test cell",
+   "status": "PASS",
+   "detail": "52 train / 18 val cells"
+  },
+  {
+   "name": "inner 1: val subset of outer-train, disjoint from train, no outer-test cell",
+   "status": "PASS",
+   "detail": "53 train / 17 val cells"
+  },
+  {
+   "name": "inner 2: val subset of outer-train, disjoint from train, no outer-test cell",
+   "status": "PASS",
+   "detail": "52 train / 18 val cells"
+  },
+  {
+   "name": "inner 3: val subset of outer-train, disjoint from train, no outer-test cell",
+   "status": "PASS",
+   "detail": "53 train / 17 val cells"
+  },
+  {
+   "name": "inner validation folds partition the outer-train cells",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "policy column found in kept_cells_groups_strata.csv",
+   "status": "WARN",
+   "detail": "['cell_id', 'batch', 'policy_norm', 'policy_str', 'life', 'position', 'is_dev', 'tertile', 'tertile_label']"
+  },
+  {
+   "name": "working rows contain no outer-test cell",
+   "status": "PASS",
+   "detail": "43706 rows, 70 cells"
+  },
+  {
+   "name": "assert_allowed (soh_common) on working cells",
+   "status": "FAIL",
+   "detail": "TypeError(\"assert_allowed(columns, allowlist=None, roles=('primary', 'ablation')): unmapped required parameters ['columns']; ctx keys ['cell_ids', 'cell_list', 'cells', 'ids']\")"
+  },
+  {
+   "name": "W300: all working rows finite",
+   "status": "PASS",
+   "detail": "0 dropped"
+  },
+  {
+   "name": "W300: delta-Q[0] == 0 (no per-point centering)",
+   "status": "PASS",
+   "detail": "max |dq[0]| = 0.00e+00"
+  },
+  {
+   "name": "W300: no outer-test cell in any array",
+   "status": "PASS",
+   "detail": "X (43706, 334)"
+  },
+  {
+   "name": "W240: all working rows finite",
+   "status": "PASS",
+   "detail": "0 dropped"
+  },
+  {
+   "name": "W240: delta-Q[0] == 0 (no per-point centering)",
+   "status": "PASS",
+   "detail": "max |dq[0]| = 0.00e+00"
+  },
+  {
+   "name": "W240: no outer-test cell in any array",
+   "status": "PASS",
+   "detail": "X (43706, 734)"
+  },
+  {
+   "name": "recompute check W300",
+   "status": "FAIL",
+   "detail": "TypeError(\"build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None): unmapped required parameters ['qdlin_row', 'i_open', 'i_close']; ctx keys ['cell_ids', 'cell_ref', 'cellref', 'cells', 'cycles', 'ids', 'idx', 'labels', 'name', 'qd', 'qdlin', 'qref', 'qref_cell_ids', 'row_idx', 'rows', 'w', 'win', 'window', 'window_name']\")"
+  },
+  {
+   "name": "recompute check W240",
+   "status": "FAIL",
+   "detail": "TypeError(\"build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None): unmapped required parameters ['qdlin_row', 'i_open', 'i_close']; ctx keys ['cell_ids', 'cell_ref', 'cellref', 'cells', 'cycles', 'ids', 'idx', 'labels', 'name', 'qd', 'qdlin', 'qref', 'qref_cell_ids', 'row_idx', 'rows', 'w', 'win', 'window', 'window_name']\")"
+  },
+  {
+   "name": "W300 inner 0: scalers equal recomputed training-cell values",
+   "status": "PASS",
+   "detail": "{'s': 0.06829, 'q_mean': 1.07803, 'q_sd': 0.00727, 'y_mean': 94.24657, 'y_sd': 4.63723}"
+  },
+  {
+   "name": "W300 inner 1: scalers equal recomputed training-cell values",
+   "status": "PASS",
+   "detail": "{'s': 0.06815, 'q_mean': 1.07762, 'q_sd': 0.00838, 'y_mean': 94.18964, 'y_sd': 4.62967}"
+  },
+  {
+   "name": "W300 inner 2: scalers equal recomputed training-cell values",
+   "status": "PASS",
+   "detail": "{'s': 0.06855, 'q_mean': 1.07778, 'q_sd': 0.00885, 'y_mean': 94.34645, 'y_sd': 4.62032}"
+  },
+  {
+   "name": "W300 inner 3: scalers equal recomputed training-cell values",
+   "status": "PASS",
+   "detail": "{'s': 0.06872, 'q_mean': 1.07771, 'q_sd': 0.00767, 'y_mean': 94.15233, 'y_sd': 4.66161}"
+  },
+  {
+   "name": "W240 inner 0: scalers equal recomputed training-cell values",
+   "status": "PASS",
+   "detail": "{'s': 0.08322, 'q_mean': 1.07803, 'q_sd': 0.00727, 'y_mean': 94.24657, 'y_sd': 4.63723}"
+  },
+  {
+   "name": "W240 inner 1: scalers equal recomputed training-cell values",
+   "status": "PASS",
+   "detail": "{'s': 0.08259, 'q_mean': 1.07762, 'q_sd': 0.00838, 'y_mean': 94.18964, 'y_sd': 4.62967}"
+  },
+  {
+   "name": "W240 inner 2: scalers equal recomputed training-cell values",
+   "status": "PASS",
+   "detail": "{'s': 0.08337, 'q_mean': 1.07778, 'q_sd': 0.00885, 'y_mean': 94.34645, 'y_sd': 4.62032}"
+  },
+  {
+   "name": "W240 inner 3: scalers equal recomputed training-cell values",
+   "status": "PASS",
+   "detail": "{'s': 0.08336, 'q_mean': 1.07771, 'q_sd': 0.00767, 'y_mean': 94.15233, 'y_sd': 4.66161}"
+  },
+  {
+   "name": "4a M1(c=1) has exactly 2,977 parameters",
+   "status": "PASS",
+   "detail": "2977"
+  },
+  {
+   "name": "4a size ratios about 0.3 / 1 / 3.7 / 15 (D36)",
+   "status": "PASS",
+   "detail": "{0.5: 0.27, 1: 1.0, 2: 3.81, 4: 14.83}"
+  },
+  {
+   "name": "4a M0 parameter count close to M1",
+   "status": "PASS",
+   "detail": "2969"
+  },
+  {
+   "name": "4b M1: batched == single models in eval mode (init)",
+   "status": "PASS",
+   "detail": "max abs diff 1.49e-08"
+  },
+  {
+   "name": "4b M1: weights equal after 20 identical steps",
+   "status": "FAIL",
+   "detail": "max abs weight diff 1.43e-03; eval output diff 1.13e-04"
+  },
+  {
+   "name": "4b M0: batched == single models in eval mode (init)",
+   "status": "PASS",
+   "detail": "max abs diff 2.24e-08"
+  },
+  {
+   "name": "4b M0: weights equal after 20 identical steps",
+   "status": "PASS",
+   "detail": "max abs weight diff 4.00e-08; eval output diff 2.24e-08"
+  },
+  {
+   "name": "4c M1 overfits 256 rows: train MAE < 0.15 pp within 800 steps",
+   "status": "FAIL",
+   "detail": "best eval-mode train MAE 0.6399 pp (lr 0.01); last (800, 0.6436774730682373)"
+  },
+  {
+   "name": "4d same seed gives identical predictions (exact)",
+   "status": "PASS",
+   "detail": "max abs diff 0.00e+00"
+  },
+  {
+   "name": "4e predictions finite",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "4e W300: val cells disjoint from train cells, train cells are outer-train (r0,o0) only",
+   "status": "PASS",
+   "detail": "[True, True, True, True, True, True, True, True]"
+  },
+  {
+   "name": "4e W240: val cells disjoint from train cells, train cells are outer-train (r0,o0) only",
+   "status": "PASS",
+   "detail": "[True, True, True, True, True, True, True, True]"
+  },
+  {
+   "name": "4f weight sum per training cell equal within 1e-6",
+   "status": "PASS",
+   "detail": "max spread 5.36e-07"
+  },
+  {
+   "name": "4g no pretrained-weight or vision/audio-library use in module and notebook",
+   "status": "PASS",
+   "detail": "{'src/soh_deep.py': [], 'notebook': []}"
+  },
+  {
+   "name": "week2_gate.json sha256 == gate_hash.txt (end)",
+   "status": "PASS",
+   "detail": "unchanged"
+  },
+  {
+   "name": "soh_common.py unchanged by this notebook",
+   "status": "PASS",
+   "detail": "read-only"
+  },
+  {
+   "name": "runtime within about 40 minutes",
+   "status": "PASS",
+   "detail": "43.6 min (cached steps are fast on rerun)"
+  }
+ ],
+ "errors": [
+  {
+   "where": "assert_allowed (soh_common) on working cells",
+   "error": "TypeError(\"assert_allowed(columns, allowlist=None, roles=('primary', 'ablation')): unmapped required parameters ['columns']; ctx keys ['cell_ids', 'cell_list', 'cells', 'ids']\")",
+   "trace": "Traceback (most recent call last):\n  File \"C:\\Users\\kulje\\AppData\\Local\\Temp\\ipykernel_50736\\3461010847.py\", line 40, in guard\n    yield\n  File \"C:\\Users\\kulje\\AppData\\Local\\Temp\\ipykernel_50736\\1807994947.py\", line 56, in <module>\n    flex_call(sc.assert_allowed, dict(cells=sorted(OUTER_TRAIN), cell_ids=sorted(OUTER_TRAIN), ids=sorted(OUTER_TRAIN), cell_list=sorted(OUTER_TRAIN)))\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\kulje\\AppData\\Local\\Temp\\ipykernel_50736\\3461010847.py\", line 69, in flex_call\n    raise TypeError(f\"{fn.__name__}{sig}: unmapped required parameters {missing}; ctx keys {sorted(ctx)}\")\nTypeError: assert_allowed(columns, allowlist=None, roles=('primary', 'ablation')): unmapped required parameters ['columns']; ctx keys ['cell_ids', 'cell_list', 'cells', 'ids']\n"
+  },
+  {
+   "where": "window_slice(W310)",
+   "error": "TypeError(\"window_slice(open_v, close_v): unmapped required parameters ['open_v', 'close_v']; ctx keys ['name', 'w', 'win', 'window', 'window_name']\")",
+   "trace": ""
+  },
+  {
+   "where": "window_slice(W305)",
+   "error": "TypeError(\"window_slice(open_v, close_v): unmapped required parameters ['open_v', 'close_v']; ctx keys ['name', 'w', 'win', 'window', 'window_name']\")",
+   "trace": ""
+  },
+  {
+   "where": "window_slice(W300)",
+   "error": "TypeError(\"window_slice(open_v, close_v): unmapped required parameters ['open_v', 'close_v']; ctx keys ['name', 'w', 'win', 'window', 'window_name']\")",
+   "trace": ""
+  },
+  {
+   "where": "window_slice(W280)",
+   "error": "TypeError(\"window_slice(open_v, close_v): unmapped required parameters ['open_v', 'close_v']; ctx keys ['name', 'w', 'win', 'window', 'window_name']\")",
+   "trace": ""
+  },
+  {
+   "where": "window_slice(W240)",
+   "error": "TypeError(\"window_slice(open_v, close_v): unmapped required parameters ['open_v', 'close_v']; ctx keys ['name', 'w', 'win', 'window', 'window_name']\")",
+   "trace": ""
+  },
+  {
+   "where": "window_slice(WFULL)",
+   "error": "TypeError(\"window_slice(open_v, close_v): unmapped required parameters ['open_v', 'close_v']; ctx keys ['name', 'w', 'win', 'window', 'window_name']\")",
+   "trace": ""
+  },
+  {
+   "where": "recompute check W300",
+   "error": "TypeError(\"build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None): unmapped required parameters ['qdlin_row', 'i_open', 'i_close']; ctx keys ['cell_ids', 'cell_ref', 'cellref', 'cells', 'cycles', 'ids', 'idx', 'labels', 'name', 'qd', 'qdlin', 'qref', 'qref_cell_ids', 'row_idx', 'rows', 'w', 'win', 'window', 'window_name']\")",
+   "trace": "Traceback (most recent call last):\n  File \"C:\\Users\\kulje\\AppData\\Local\\Temp\\ipykernel_50736\\3461010847.py\", line 40, in guard\n    yield\n  File \"C:\\Users\\kulje\\AppData\\Local\\Temp\\ipykernel_50736\\1096153130.py\", line 90, in <module>\n    recompute_check(w)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\kulje\\AppData\\Local\\Temp\\ipykernel_50736\\1096153130.py\", line 75, in recompute_check\n    r = flex_call(sc.build_delta_q, ctx)\n  File \"C:\\Users\\kulje\\AppData\\Local\\Temp\\ipykernel_50736\\3461010847.py\", line 69, in flex_call\n    raise TypeError(f\"{fn.__name__}{sig}: unmapped required parameters {missing}; ctx keys {sorted(ctx)}\")\nTypeError: build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None): unmapped required parameters ['qdlin_row', 'i_open', 'i_close']; ctx keys ['cell_ids', 'cell_ref', 'cellref', 'cells', 'cycles', 'ids', 'idx', 'labels', 'name', 'qd', 'qdlin', 'qref', 'qref_cell_ids', 'row_idx', 'rows', 'w', 'win', 'window', 'window_name']\n"
+  },
+  {
+   "where": "recompute check W240",
+   "error": "TypeError(\"build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None): unmapped required parameters ['qdlin_row', 'i_open', 'i_close']; ctx keys ['cell_ids', 'cell_ref', 'cellref', 'cells', 'cycles', 'ids', 'idx', 'labels', 'name', 'qd', 'qdlin', 'qref', 'qref_cell_ids', 'row_idx', 'rows', 'w', 'win', 'window', 'window_name']\")",
+   "trace": "Traceback (most recent call last):\n  File \"C:\\Users\\kulje\\AppData\\Local\\Temp\\ipykernel_50736\\3461010847.py\", line 40, in guard\n    yield\n  File \"C:\\Users\\kulje\\AppData\\Local\\Temp\\ipykernel_50736\\1096153130.py\", line 90, in <module>\n    recompute_check(w)\n    ~~~~~~~~~~~~~~~^^^\n  File \"C:\\Users\\kulje\\AppData\\Local\\Temp\\ipykernel_50736\\1096153130.py\", line 75, in recompute_check\n    r = flex_call(sc.build_delta_q, ctx)\n  File \"C:\\Users\\kulje\\AppData\\Local\\Temp\\ipykernel_50736\\3461010847.py\", line 69, in flex_call\n    raise TypeError(f\"{fn.__name__}{sig}: unmapped required parameters {missing}; ctx keys {sorted(ctx)}\")\nTypeError: build_delta_q(qdlin_row, qref, i_open, i_close, n_points=None): unmapped required parameters ['qdlin_row', 'i_open', 'i_close']; ctx keys ['cell_ids', 'cell_ref', 'cellref', 'cells', 'cycles', 'ids', 'idx', 'labels', 'name', 'qd', 'qdlin', 'qref', 'qref_cell_ids', 'row_idx', 'rows', 'w', 'win', 'window', 'window_name']\n"
+  }
+ ],
+ "hashes": {
+  "gate_json": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+  "gate_hash_file": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+  "soh_common": "9d198c74a222ad090d1ee28b19c2f11037c2a3ff3e41c058dfb2c59e5c4d93bc",
+  "kept_cells": "c5f86b252d534aa2560d5c107af93529007f820deb3ff53dd7377fde408f29a0",
+  "soh_deep": "932c7946ac3b86f457697bcf773a2f9f4dad77edb2f3ccf1ce5b9b5804b33f1c"
+ },
+ "benchmark": [
+  {
+   "window": "W310",
+   "width": 267,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "sequential",
+   "G": 4,
+   "sec_per_epoch": 1.1232962999783922,
+   "ms_per_iter": 40.117724999228294,
+   "epochs_per_s_member": 0.8902370639155813,
+   "member_epochs_per_s": 3.5609482556623253,
+   "peak_mem_gb": 0.2951296
+  },
+  {
+   "window": "W310",
+   "width": 267,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 1,
+   "sec_per_epoch": 0.4859814000374172,
+   "ms_per_iter": 17.3564785727649,
+   "epochs_per_s_member": 2.0576919197380947,
+   "member_epochs_per_s": 2.0576919197380947,
+   "peak_mem_gb": 0.275014656
+  },
+  {
+   "window": "W310",
+   "width": 267,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 4,
+   "sec_per_epoch": 0.36745339998742566,
+   "ms_per_iter": 13.12333571383663,
+   "epochs_per_s_member": 2.721433520642945,
+   "member_epochs_per_s": 10.88573408257178,
+   "peak_mem_gb": 0.302448128
+  },
+  {
+   "window": "W310",
+   "width": 267,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 8,
+   "sec_per_epoch": 0.5871572000032756,
+   "ms_per_iter": 20.969900000116986,
+   "epochs_per_s_member": 1.7031214127910228,
+   "member_epochs_per_s": 13.624971302328182,
+   "peak_mem_gb": 0.337179136
+  },
+  {
+   "window": "W310",
+   "width": 267,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 18,
+   "sec_per_epoch": 0.6004476999805775,
+   "ms_per_iter": 21.44456071359205,
+   "epochs_per_s_member": 1.6654239828587016,
+   "member_epochs_per_s": 29.97763169145663,
+   "peak_mem_gb": 0.428908544
+  },
+  {
+   "window": "W310",
+   "width": 267,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 36,
+   "sec_per_epoch": 1.2635942500201054,
+   "ms_per_iter": 45.12836607214662,
+   "epochs_per_s_member": 0.7913932814937142,
+   "member_epochs_per_s": 28.49015813377371,
+   "peak_mem_gb": 0.589126656
+  },
+  {
+   "window": "W310",
+   "width": 267,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 72,
+   "sec_per_epoch": 2.3247878499969374,
+   "ms_per_iter": 83.02813749989062,
+   "epochs_per_s_member": 0.43014677661934503,
+   "member_epochs_per_s": 30.97056791659284,
+   "peak_mem_gb": 0.911666176
+  },
+  {
+   "window": "W305",
+   "width": 301,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "sequential",
+   "G": 4,
+   "sec_per_epoch": 0.5624814499751665,
+   "ms_per_iter": 20.0886232133988,
+   "epochs_per_s_member": 1.7778364069502202,
+   "member_epochs_per_s": 7.111345627800881,
+   "peak_mem_gb": 0.301564416
+  },
+  {
+   "window": "W305",
+   "width": 301,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 1,
+   "sec_per_epoch": 0.44555614999262616,
+   "ms_per_iter": 15.91271964259379,
+   "epochs_per_s_member": 2.244386033088197,
+   "member_epochs_per_s": 2.244386033088197,
+   "peak_mem_gb": 0.27715328
+  },
+  {
+   "window": "W305",
+   "width": 301,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 4,
+   "sec_per_epoch": 0.29853845000616275,
+   "ms_per_iter": 10.662087500220098,
+   "epochs_per_s_member": 3.349652280901696,
+   "member_epochs_per_s": 13.398609123606784,
+   "peak_mem_gb": 0.30837504
+  },
+  {
+   "window": "W305",
+   "width": 301,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 8,
+   "sec_per_epoch": 0.572497499990277,
+   "ms_per_iter": 20.446339285367035,
+   "epochs_per_s_member": 1.746732518512279,
+   "member_epochs_per_s": 13.973860148098233,
+   "peak_mem_gb": 0.347606016
+  },
+  {
+   "window": "W305",
+   "width": 301,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 18,
+   "sec_per_epoch": 0.67610384998261,
+   "ms_per_iter": 24.1465660708075,
+   "epochs_per_s_member": 1.4790627209499265,
+   "member_epochs_per_s": 26.623128977098677,
+   "peak_mem_gb": 0.449875968
+  },
+  {
+   "window": "W305",
+   "width": 301,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 36,
+   "sec_per_epoch": 1.248250749980798,
+   "ms_per_iter": 44.58038392788564,
+   "epochs_per_s_member": 0.8011210888640629,
+   "member_epochs_per_s": 28.840359199106263,
+   "peak_mem_gb": 0.633833984
+  },
+  {
+   "window": "W305",
+   "width": 301,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 72,
+   "sec_per_epoch": 2.5420623999962118,
+   "ms_per_iter": 90.78794285700756,
+   "epochs_per_s_member": 0.39338137411634355,
+   "member_epochs_per_s": 28.32345893637674,
+   "peak_mem_gb": 0.998032896
+  },
+  {
+   "window": "W300",
+   "width": 334,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "sequential",
+   "G": 4,
+   "sec_per_epoch": 0.6516134999983478,
+   "ms_per_iter": 23.27191071422671,
+   "epochs_per_s_member": 1.5346520598522522,
+   "member_epochs_per_s": 6.138608239409009,
+   "peak_mem_gb": 0.305013248
+  },
+  {
+   "window": "W300",
+   "width": 334,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 1,
+   "sec_per_epoch": 0.2525651999749243,
+   "ms_per_iter": 9.020185713390154,
+   "epochs_per_s_member": 3.9593736591552755,
+   "member_epochs_per_s": 3.9593736591552755,
+   "peak_mem_gb": 0.279719936
+  },
+  {
+   "window": "W300",
+   "width": 334,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 4,
+   "sec_per_epoch": 0.2605286499892827,
+   "ms_per_iter": 9.304594642474383,
+   "epochs_per_s_member": 3.8383494484815266,
+   "member_epochs_per_s": 15.353397793926106,
+   "peak_mem_gb": 0.314076672
+  },
+  {
+   "window": "W300",
+   "width": 334,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 8,
+   "sec_per_epoch": 0.35252960000070743,
+   "ms_per_iter": 12.590342857168123,
+   "epochs_per_s_member": 2.8366412352267534,
+   "member_epochs_per_s": 22.693129881814027,
+   "peak_mem_gb": 0.35791872
+  },
+  {
+   "window": "W300",
+   "width": 334,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 18,
+   "sec_per_epoch": 0.7806278500065673,
+   "ms_per_iter": 27.879566071663117,
+   "epochs_per_s_member": 1.2810201429421038,
+   "member_epochs_per_s": 23.05836257295787,
+   "peak_mem_gb": 0.46999296
+  },
+  {
+   "window": "W300",
+   "width": 334,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 36,
+   "sec_per_epoch": 1.3608837500214577,
+   "ms_per_iter": 48.60299107219492,
+   "epochs_per_s_member": 0.7348166219078099,
+   "member_epochs_per_s": 26.45339838868116,
+   "peak_mem_gb": 0.674817536
+  },
+  {
+   "window": "W300",
+   "width": 334,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 72,
+   "sec_per_epoch": 2.6782774000021163,
+   "ms_per_iter": 95.65276428578987,
+   "epochs_per_s_member": 0.3733743188809381,
+   "member_epochs_per_s": 26.882950959427543,
+   "peak_mem_gb": 1.078125056
+  },
+  {
+   "window": "W300",
+   "width": 334,
+   "model": "M1",
+   "c": 4.0,
+   "packing": "batched",
+   "G": 4,
+   "sec_per_epoch": 0.7264439000282437,
+   "ms_per_iter": 25.944425001008703,
+   "epochs_per_s_member": 1.3765687893602254,
+   "member_epochs_per_s": 5.506275157440902,
+   "peak_mem_gb": 0.44210432
+  },
+  {
+   "window": "W300",
+   "width": 334,
+   "model": "M0",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 72,
+   "sec_per_epoch": 0.13662075001047924,
+   "ms_per_iter": 4.879312500374259,
+   "epochs_per_s_member": 7.319532354516403,
+   "member_epochs_per_s": 527.0063295251811,
+   "peak_mem_gb": 0.353391616
+  },
+  {
+   "window": "W280",
+   "width": 467,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "sequential",
+   "G": 4,
+   "sec_per_epoch": 0.7565876999869943,
+   "ms_per_iter": 27.020989285249794,
+   "epochs_per_s_member": 1.321723839836664,
+   "member_epochs_per_s": 5.286895359346656,
+   "peak_mem_gb": 0.324063232
+  },
+  {
+   "window": "W280",
+   "width": 467,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 1,
+   "sec_per_epoch": 0.22138825000729412,
+   "ms_per_iter": 7.9067232145462185,
+   "epochs_per_s_member": 4.516951554416519,
+   "member_epochs_per_s": 4.516951554416519,
+   "peak_mem_gb": 0.287584768
+  },
+  {
+   "window": "W280",
+   "width": 467,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 4,
+   "sec_per_epoch": 0.3609654000028968,
+   "ms_per_iter": 12.891621428674885,
+   "epochs_per_s_member": 2.7703486261895875,
+   "member_epochs_per_s": 11.08139450475835,
+   "peak_mem_gb": 0.335698944
+  },
+  {
+   "window": "W280",
+   "width": 467,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 8,
+   "sec_per_epoch": 0.4778402999800164,
+   "ms_per_iter": 17.0657249992863,
+   "epochs_per_s_member": 2.0927493977419247,
+   "member_epochs_per_s": 16.741995181935398,
+   "peak_mem_gb": 0.399284736
+  },
+  {
+   "window": "W280",
+   "width": 467,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 18,
+   "sec_per_epoch": 1.062055699992925,
+   "ms_per_iter": 37.930560714033035,
+   "epochs_per_s_member": 0.9415702020211009,
+   "member_epochs_per_s": 16.948263636379814,
+   "peak_mem_gb": 0.560318464
+  },
+  {
+   "window": "W280",
+   "width": 467,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 36,
+   "sec_per_epoch": 1.8319747500063386,
+   "ms_per_iter": 65.42766964308352,
+   "epochs_per_s_member": 0.5458590518218333,
+   "member_epochs_per_s": 19.650925865585997,
+   "peak_mem_gb": 0.84851712
+  },
+  {
+   "window": "W280",
+   "width": 467,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 72,
+   "sec_per_epoch": 3.95658565001213,
+   "ms_per_iter": 141.30663035757607,
+   "epochs_per_s_member": 0.25274317011106134,
+   "member_epochs_per_s": 18.197508247996417,
+   "peak_mem_gb": 1.419940864
+  },
+  {
+   "window": "W240",
+   "width": 734,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "sequential",
+   "G": 4,
+   "sec_per_epoch": 0.5095721999823581,
+   "ms_per_iter": 18.199007142227078,
+   "epochs_per_s_member": 1.962430446626839,
+   "member_epochs_per_s": 7.849721786507356,
+   "peak_mem_gb": 0.361967104
+  },
+  {
+   "window": "W240",
+   "width": 734,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 1,
+   "sec_per_epoch": 0.3007754000136629,
+   "ms_per_iter": 10.741978571916531,
+   "epochs_per_s_member": 3.324739988558155,
+   "member_epochs_per_s": 3.324739988558155,
+   "peak_mem_gb": 0.305429504
+  },
+  {
+   "window": "W240",
+   "width": 734,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 4,
+   "sec_per_epoch": 0.4112928999820724,
+   "ms_per_iter": 14.689032142216872,
+   "epochs_per_s_member": 2.431357312619762,
+   "member_epochs_per_s": 9.725429250479047,
+   "peak_mem_gb": 0.3869312
+  },
+  {
+   "window": "W240",
+   "width": 734,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 8,
+   "sec_per_epoch": 0.7447401999961585,
+   "ms_per_iter": 26.59786428557709,
+   "epochs_per_s_member": 1.3427501295151762,
+   "member_epochs_per_s": 10.74200103612141,
+   "peak_mem_gb": 0.48180224
+  },
+  {
+   "window": "W240",
+   "width": 734,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 18,
+   "sec_per_epoch": 1.5628350999904796,
+   "ms_per_iter": 55.81553928537427,
+   "epochs_per_s_member": 0.6398627724742628,
+   "member_epochs_per_s": 11.51752990453673,
+   "peak_mem_gb": 0.7352704
+  },
+  {
+   "window": "W240",
+   "width": 734,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 36,
+   "sec_per_epoch": 3.0105407499941066,
+   "ms_per_iter": 107.51931249978952,
+   "epochs_per_s_member": 0.3321662395707341,
+   "member_epochs_per_s": 11.957984624546429,
+   "peak_mem_gb": 1.187862016
+  },
+  {
+   "window": "W240",
+   "width": 734,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 72,
+   "sec_per_epoch": 5.588682500005234,
+   "ms_per_iter": 199.5958035716155,
+   "epochs_per_s_member": 0.17893304906819513,
+   "member_epochs_per_s": 12.88317953291005,
+   "peak_mem_gb": 2.09192192
+  },
+  {
+   "window": "WFULL",
+   "width": 1000,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "sequential",
+   "G": 4,
+   "sec_per_epoch": 0.6213867500191554,
+   "ms_per_iter": 22.192383929255552,
+   "epochs_per_s_member": 1.6093037065389197,
+   "member_epochs_per_s": 6.437214826155679,
+   "peak_mem_gb": 0.402771968
+  },
+  {
+   "window": "WFULL",
+   "width": 1000,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 1,
+   "sec_per_epoch": 0.20632774999830872,
+   "ms_per_iter": 7.368848214225311,
+   "epochs_per_s_member": 4.846657805400374,
+   "member_epochs_per_s": 4.846657805400374,
+   "peak_mem_gb": 0.323290624
+  },
+  {
+   "window": "WFULL",
+   "width": 1000,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 4,
+   "sec_per_epoch": 0.5249950499855913,
+   "ms_per_iter": 18.74982321377112,
+   "epochs_per_s_member": 1.9047798641671867,
+   "member_epochs_per_s": 7.619119456668747,
+   "peak_mem_gb": 0.431307776
+  },
+  {
+   "window": "WFULL",
+   "width": 1000,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 8,
+   "sec_per_epoch": 0.9739397999946959,
+   "ms_per_iter": 34.783564285524854,
+   "epochs_per_s_member": 1.0267575059623253,
+   "member_epochs_per_s": 8.214060047698602,
+   "peak_mem_gb": 0.566106624
+  },
+  {
+   "window": "WFULL",
+   "width": 1000,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 18,
+   "sec_per_epoch": 2.0501993999932893,
+   "ms_per_iter": 73.22140714261748,
+   "epochs_per_s_member": 0.4877574347174588,
+   "member_epochs_per_s": 8.779633824914258,
+   "peak_mem_gb": 0.910710784
+  },
+  {
+   "window": "WFULL",
+   "width": 1000,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 36,
+   "sec_per_epoch": 3.8913961999933235,
+   "ms_per_iter": 138.97843571404727,
+   "epochs_per_s_member": 0.2569771744140871,
+   "member_epochs_per_s": 9.251178278907135,
+   "peak_mem_gb": 1.53119744
+  },
+  {
+   "window": "WFULL",
+   "width": 1000,
+   "model": "M1",
+   "c": 1.0,
+   "packing": "batched",
+   "G": 72,
+   "sec_per_epoch": 7.257504700013669,
+   "ms_per_iter": 259.19659642905964,
+   "epochs_per_s_member": 0.13778840542784856,
+   "member_epochs_per_s": 9.920765190805097,
+   "peak_mem_gb": 2.76496896
+  }
+ ],
+ "pilot_best": [
+  {
+   "window": "W300",
+   "entry": "M1/abs",
+   "config": "E120 lr0.004",
+   "mae": 0.830011554930721,
+   "gap": 0.14222470327779224
+  },
+  {
+   "window": "W300",
+   "entry": "M1/res",
+   "config": "E120 lr0.001",
+   "mae": 0.8347190870296175,
+   "gap": 0.0795711294086483
+  },
+  {
+   "window": "W300",
+   "entry": "M0/abs",
+   "config": "E120 lr0.004",
+   "mae": 0.8631944930944933,
+   "gap": 0.2771193390387825
+  },
+  {
+   "window": "W300",
+   "entry": "M0/res",
+   "config": "E120 lr0.004",
+   "mae": 0.8435370638135555,
+   "gap": 0.2659629835759433
+  },
+  {
+   "window": "W300",
+   "entry": "B0b",
+   "config": "{}",
+   "mae": 3.6180944613162396,
+   "gap": NaN
+  },
+  {
+   "window": "W300",
+   "entry": "B3",
+   "config": "{\"depth\": 3, \"lr\": 0.05}",
+   "mae": 0.9986114651712408,
+   "gap": NaN
+  },
+  {
+   "window": "W300",
+   "entry": "B3r",
+   "config": "{\"depth\": 3, \"lr\": 0.05}",
+   "mae": 0.9304315499965812,
+   "gap": NaN
+  },
+  {
+   "window": "W300",
+   "entry": "B4",
+   "config": "{\"leaf\": 5}",
+   "mae": 0.9194822803373944,
+   "gap": NaN
+  },
+  {
+   "window": "W300",
+   "entry": "B4r",
+   "config": "{\"leaf\": 5}",
+   "mae": 0.8188183680442155,
+   "gap": NaN
+  },
+  {
+   "window": "W240",
+   "entry": "M1/abs",
+   "config": "E60 lr0.004",
+   "mae": 0.6849390909408016,
+   "gap": 0.034562071535849004
+  },
+  {
+   "window": "W240",
+   "entry": "M1/res",
+   "config": "E120 lr0.001",
+   "mae": 0.6686827646804892,
+   "gap": 0.06362202283717944
+  },
+  {
+   "window": "W240",
+   "entry": "M0/abs",
+   "config": "E120 lr0.004",
+   "mae": 0.5680116249320909,
+   "gap": 0.207426227851987
+  },
+  {
+   "window": "W240",
+   "entry": "M0/res",
+   "config": "E120 lr0.004",
+   "mae": 0.5507075553731184,
+   "gap": 0.20504381558193957
+  },
+  {
+   "window": "W240",
+   "entry": "B0b",
+   "config": "{}",
+   "mae": 3.6180944613162396,
+   "gap": NaN
+  },
+  {
+   "window": "W240",
+   "entry": "B3",
+   "config": "{\"depth\": 3, \"lr\": 0.05}",
+   "mae": 0.7358738517414793,
+   "gap": NaN
+  },
+  {
+   "window": "W240",
+   "entry": "B3r",
+   "config": "{\"depth\": 3, \"lr\": 0.05}",
+   "mae": 0.6639825341106447,
+   "gap": NaN
+  },
+  {
+   "window": "W240",
+   "entry": "B4",
+   "config": "{\"leaf\": 5}",
+   "mae": 0.7101542467575896,
+   "gap": NaN
+  },
+  {
+   "window": "W240",
+   "entry": "B4r",
+   "config": "{\"leaf\": 1}",
+   "mae": 0.5677710976406765,
+   "gap": NaN
+  }
+ ],
+ "seeds": {
+  "W300": {
+   "head": "abs",
+   "E": 120,
+   "lr": 0.004,
+   "maes": [
+    0.830011554930721,
+    0.8034802507711597,
+    0.8337122411239959,
+    0.8652498904405062
+   ],
+   "mean": 0.8331134843165956,
+   "sd": 0.02530387061662454
+  },
+  "W240": {
+   "head": "res",
+   "E": 120,
+   "lr": 0.001,
+   "maes": [
+    0.6686827646804892,
+    0.7481159286115041,
+    0.8102412550586513,
+    0.7897037813251464
+   ],
+   "mean": 0.7541859324189477,
+   "sd": 0.06258688208322408
+  }
+ },
+ "size": {
+  "0.5": {
+   "n_params": 817,
+   "mae": 0.7893595678369776,
+   "head": "abs",
+   "E": 120,
+   "lr": 0.004,
+   "gap": 0.07370261799590622
+  },
+  "1.0": {
+   "n_params": 2977,
+   "mae": 0.830011554930721,
+   "head": "abs",
+   "E": 120,
+   "lr": 0.004
+  },
+  "2.0": {
+   "n_params": 11329,
+   "mae": 0.8485454300912242,
+   "head": "abs",
+   "E": 120,
+   "lr": 0.004,
+   "gap": 0.14891011575119878
+  },
+  "4.0": {
+   "n_params": 44161,
+   "mae": 0.8391469908311011,
+   "head": "abs",
+   "E": 120,
+   "lr": 0.004,
+   "gap": 0.17494176026757347
+  }
+ },
+ "decisions": {
+  "head": {
+   "choice": "abs",
+   "mean_best_mae_abs": 0.7574753229357614,
+   "mean_best_mae_res": 0.7517009258550533,
+   "res_relative_change": -0.0076232147845135545,
+   "rule": "res if mean best M1 MAE (res) is at least 2% lower than abs"
+  },
+  "grid_5b": {
+   "pairs": [
+    {
+     "E": 60,
+     "lr": 0.004,
+     "mean_inner_mae": 0.7662266440589702
+    },
+    {
+     "E": 120,
+     "lr": 0.001,
+     "mean_inner_mae": 0.7951107635508963
+    },
+    {
+     "E": 60,
+     "lr": 0.001,
+     "mean_inner_mae": 0.798803188944745
+    }
+   ],
+   "edge_info": [
+    {
+     "E": 60,
+     "lr": 0.004,
+     "edges": [
+      "lr"
+     ]
+    },
+    {
+     "E": 120,
+     "lr": 0.001,
+     "edges": [
+      "E",
+      "lr"
+     ]
+    },
+    {
+     "E": 60,
+     "lr": 0.001,
+     "edges": [
+      "lr"
+     ]
+    }
+   ],
+   "any_pair_at_grid_edge": true,
+   "best_pair_at_grid_edge": true,
+   "ranked_by": "mean over both windows of M1 inner MAE with the chosen head"
+  },
+  "pilot_feasibility": {
+   "per_window": {
+    "W300": {
+     "m1_best": 0.830011554930721,
+     "best_B4_B4r": 0.8188183680442155,
+     "ratio": 1.0136699264737319
+    },
+    "W240": {
+     "m1_best": 0.6686827646804892,
+     "best_B4_B4r": 0.5677710976406765,
+     "ratio": 1.1777330115237326
+    },
+    "mean_ratio": 1.0957014689987323
+   },
+   "note": "report only; inner folds, not the week-2 gate (gate target is 0.85 x best baseline on outer-test)"
+  },
+  "packing": {
+   "benchmark_choice": {
+    "packing": "batched",
+    "G": 72,
+    "member_epochs_per_s": 19.883065246168798,
+    "sequential_member_epochs_per_s": 6.994165012958183
+   },
+   "pilot_used": "batched"
+  },
+  "seed_sd": {
+   "W300": {
+    "head": "abs",
+    "E": 120,
+    "lr": 0.004,
+    "maes": [
+     0.830011554930721,
+     0.8034802507711597,
+     0.8337122411239959,
+     0.8652498904405062
+    ],
+    "mean": 0.8331134843165956,
+    "sd": 0.02530387061662454
+   },
+   "W240": {
+    "head": "res",
+    "E": 120,
+    "lr": 0.001,
+    "maes": [
+     0.6686827646804892,
+     0.7481159286115041,
+     0.8102412550586513,
+     0.7897037813251464
+    ],
+    "mean": 0.7541859324189477,
+    "sd": 0.06258688208322408
+   }
+  }
+ },
+ "split": {
+  "repeat": 0,
+  "outer": 0,
+  "n_outer_train_cells": 70,
+  "n_outer_test_cells_never_loaded": 14,
+  "n_dev_rows": 55963
+ },
+ "artifacts": [
+  "outputs\\phase5a\\benchmark.csv",
+  "outputs\\phase5a\\compute_plan.json",
+  "outputs\\phase5a\\figures\\benchmark_throughput.png",
+  "outputs\\phase5a\\figures\\pilot_heatmap_M1.png",
+  "outputs\\phase5a\\figures\\pilot_learning_curves.png",
+  "outputs\\phase5a\\pilot_log.csv",
+  "src\\soh_deep.py"
+ ]
+}

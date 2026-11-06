@@ -1,0 +1,49 @@
+{
+  "rule": "D69: per window, the (lr, wd) of M0 with the lowest mean inner MAE pooled over all rows of outputs/phase5b/tuning_log_5b.csv for that window; B4r leaf by the same pooled rule",
+  "created": "2026-11-03T10:00:01",
+  "source_tuning_log_sha256": "462481a68fc84c6e0a12a2ae9018bb1b7f1155d50acb2c4960f755d56ce69948",
+  "module_sha256": "fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6",
+  "gate_sha256": "40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901",
+  "common": {
+    "E": 120,
+    "batch": 256,
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "stride": 5,
+    "rows": "cell-balanced, per-cell random offset (as 05b)",
+    "head": "abs",
+    "huber_delta_pp": 1.0,
+    "noise_sigma": 0.02,
+    "clip": 1.0,
+    "warmup_frac": 0.05,
+    "nominal_ah": 1.1,
+    "trees": 300,
+    "tree_max_features": 0.33,
+    "tree_seed": 42
+  },
+  "windows": {
+    "W300": {
+      "config": "lr0.004_wd0.0001",
+      "lr": 0.004,
+      "wd": 0.0001,
+      "pooled_inner_mae": 0.8971332248315983,
+      "b4r_leaf": 3,
+      "b4r_config": "leaf3",
+      "b4r_pooled_inner_mae": 0.8673704175338319
+    },
+    "W240": {
+      "config": "lr0.008_wd0.001",
+      "lr": 0.008,
+      "wd": 0.001,
+      "pooled_inner_mae": 0.5808051564963796,
+      "b4r_leaf": 1,
+      "b4r_config": "leaf1",
+      "b4r_pooled_inner_mae": 0.5650977016439801
+    }
+  }
+}
