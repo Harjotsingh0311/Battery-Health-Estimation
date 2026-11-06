@@ -1,0 +1,30 @@
+{
+ "version": "v3",
+ "file": "src/health_monitor.py",
+ "sha256": "0aa411d7a09e902646e21634becde1080ed7a0031c0f5495e72dde6bd177f9a8",
+ "previous_sha256": "0aa411d7a09e902646e21634becde1080ed7a0031c0f5495e72dde6bd177f9a8",
+ "recipe": {
+  "dup": "first",
+  "offset": "interp0"
+ },
+ "gate": {
+  "i_nom": -4.0,
+  "i_tol": 0.05,
+  "i_min_frac": 0.92,
+  "end_tol": 0.046,
+  "qc_tol": null
+ },
+ "charge_gate": "gap does NOT separate the groups (8-12: 0.0463..0.1557 Ah, 54-58: 0.0003..0.0004 Ah); charge gate SKIPPED",
+ "bin_convention": "hi_ge",
+ "smoke": false,
+ "frozen_inputs_sha256": {
+  "M0_W240.onnx": "4fe196d3f7787a4f2dcd5f20939447518afb032eb8dc724c018f891630945771",
+  "M0_W300.onnx": "4e8cd5235869301eb2694e4b56c346cdb816d06277db7a2914ed0af6580fd1d9",
+  "M0idx_W240.onnx": "50ea2ebbf287ab24a2385bdee8fbe0db4c725442cf4a3076a4daac8063ac2459",
+  "M0idx_W300.onnx": "4c94897e3f765671ad25a412c1f1b78810f660b6bf9262c43cd4d2e6ed2dcd79",
+  "onnx_scorer.py": "7f56bd5b5df08f7a37bc6104a140da2411b5290d25434a03aa8971599ec139c7",
+  "monitor_config.json": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+  "monitor_config_addendum.json": "d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632",
+  "batch3_predictions.parquet": "679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd"
+ }
+}

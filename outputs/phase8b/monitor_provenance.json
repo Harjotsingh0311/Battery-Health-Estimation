@@ -1,0 +1,19 @@
+[
+ {
+  "sha256": "b280094074df",
+  "note": "given in the v4 change request"
+ },
+ {
+  "sha256": "c3f0a5367373",
+  "note": "given in the v4 change request"
+ },
+ {
+  "sha256": "0aa411d7a09e",
+  "note": "given in the v4 change request"
+ },
+ {
+  "sha256": "a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53",
+  "version": "v4",
+  "run_id": "20261106T082437-4d73b1"
+ }
+]

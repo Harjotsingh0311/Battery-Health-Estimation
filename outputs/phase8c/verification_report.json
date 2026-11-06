@@ -1,0 +1,583 @@
+{
+  "smoke": false,
+  "allow_frozen_drift": false,
+  "runtime_s": 30.35231351852417,
+  "hash_start": {
+    "src/health_monitor.py": "a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53",
+    "src/onnx_scorer.py": "7f56bd5b5df08f7a37bc6104a140da2411b5290d25434a03aa8971599ec139c7",
+    "outputs/phase8a/models/M0_W240.onnx": "4fe196d3f7787a4f2dcd5f20939447518afb032eb8dc724c018f891630945771",
+    "outputs/phase7b/monitor_config.json": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2"
+  },
+  "hash_end": {
+    "src/health_monitor.py": "a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53",
+    "src/onnx_scorer.py": "7f56bd5b5df08f7a37bc6104a140da2411b5290d25434a03aa8971599ec139c7",
+    "outputs/phase8a/models/M0_W240.onnx": "4fe196d3f7787a4f2dcd5f20939447518afb032eb8dc724c018f891630945771",
+    "outputs/phase7b/monitor_config.json": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2"
+  },
+  "checks": [
+    {
+      "check": "hash guard start: src/health_monitor.py",
+      "status": "PASS",
+      "detail": "expected a9531dde7d93.. observed a9531dde7d93.."
+    },
+    {
+      "check": "hash guard start: src/onnx_scorer.py",
+      "status": "PASS",
+      "detail": "expected 7f56bd5b5df0.. observed 7f56bd5b5df0.."
+    },
+    {
+      "check": "hash guard start: outputs/phase8a/models/M0_W240.onnx",
+      "status": "PASS",
+      "detail": "expected 4fe196d3f778.. observed 4fe196d3f778.."
+    },
+    {
+      "check": "hash guard start: outputs/phase7b/monitor_config.json",
+      "status": "PASS",
+      "detail": "expected 638b6c3a6ad3.. observed 638b6c3a6ad3.."
+    },
+    {
+      "check": "provenance: phase8b replay was produced by the frozen health_monitor.py",
+      "status": "PASS",
+      "detail": "phase8b verification_report health_monitor_sha256=a9531dde7d93.., frozen (re-registered)=a9531dde7d93.., superseded values: brief=b280094074df.., v1=c3f0a5367373.., v2 (pre-v4)=0aa411d7a09e.."
+    },
+    {
+      "check": "labels columns present",
+      "status": "PASS",
+      "detail": "missing=[]; n_rows=104971"
+    },
+    {
+      "check": "labels (cell, cycle) unique",
+      "status": "PASS",
+      "detail": "no duplicate keys"
+    },
+    {
+      "check": "development cells",
+      "status": "PASS",
+      "detail": "84 development cells (8b expected 84)"
+    },
+    {
+      "check": "kept cells",
+      "status": "PASS",
+      "detail": "124 kept cells in kept_cells_groups_strata.csv (expected 124)"
+    },
+    {
+      "check": "flagged count vs earlier phases (289 total, 208 in b2c40)",
+      "status": "WARN",
+      "detail": "no definition reproduces the counts (pre-stated or extended search over up to 3 flag terms in 4 row universes); using the pre-stated definition A: ~qdlin_ok | label_suspect | qdlin_tail_suspect (see table)"
+    },
+    {
+      "check": "stored Qdlin shape",
+      "status": "PASS",
+      "detail": "shape=(104971, 1000)"
+    },
+    {
+      "check": "W240 dq cache shape",
+      "status": "PASS",
+      "detail": "shape=(96419, 734)"
+    },
+    {
+      "check": "row_id within Qdlin array",
+      "status": "PASS",
+      "detail": "max row_id=104970"
+    },
+    {
+      "check": "scored2 kept-cell rows == cache rows",
+      "status": "PASS",
+      "detail": "scored2 & kept rows=96419 (scored2 all cells=100793), cache rows=96419, expected 96419"
+    },
+    {
+      "check": "W240 window located in Qdlin row (row differences, my choice: PASS<=1e-6, WARN<=1e-5 Ah)",
+      "status": "PASS",
+      "detail": "dq[j] = Q[0+j] - Q[0] up to a per-cell constant; worst first-vs-last deviation 6.26e-08 Ah over 6 cells"
+    },
+    {
+      "check": "cache grid indexing aligned with the online window (w[k] = Q[k]-Q[0])",
+      "status": "PASS",
+      "detail": "cache offset a=0, b=0; online window index k is Q at grid index k; a nonzero offset would shift every feature by 0 grid step(s)"
+    },
+    {
+      "check": "grid matches M0_W240.npz",
+      "status": "PASS",
+      "detail": "len(grid)=32"
+    },
+    {
+      "check": "q0 finite and plausible (Ah)",
+      "status": "PASS",
+      "detail": "range 1.0487..1.0981"
+    },
+    {
+      "check": "offline raw computed",
+      "status": "PASS",
+      "detail": "n=96419, range 77.63..99.90 pp"
+    },
+    {
+      "check": "replay columns present",
+      "status": "PASS",
+      "detail": "missing=[]"
+    },
+    {
+      "check": "replay cycles matched to cache",
+      "status": "PASS",
+      "detail": "compared 10744 of 10926 OK rows"
+    },
+    {
+      "check": "raw/offline finite",
+      "status": "PASS",
+      "detail": "n=10744"
+    },
+    {
+      "check": "reproduces pooled 8b replay-set aggregate: median |d|",
+      "status": "PASS",
+      "detail": "row set 'excluding b1c18' (best single set; worst deviation 0.68 of tolerance): 0.03269 pp vs 8b pooled 0.03205 pp (tolerance 0.002, my choice); all-cell value 0.03463"
+    },
+    {
+      "check": "reproduces pooled 8b replay-set aggregate: p99 |d|",
+      "status": "PASS",
+      "detail": "row set 'excluding b1c18' (best single set; worst deviation 0.68 of tolerance): 0.18026 pp vs 8b pooled 0.17344 pp (tolerance 0.01, my choice); all-cell value 0.23119"
+    },
+    {
+      "check": "reproduces pooled 8b replay-set aggregate: max |d|",
+      "status": "PASS",
+      "detail": "row set 'excluding b1c18' (best single set; worst deviation 0.68 of tolerance): 6.56492 pp vs 8b pooled 6.56492 pp (tolerance 0.05, my choice); all-cell value 6.56492"
+    },
+    {
+      "check": "S2 large differences found",
+      "status": "PASS",
+      "detail": "14 cycles with |d|>0.5 pp; 4 flagged or adjacent"
+    },
+    {
+      "check": "raw files opened",
+      "status": "PASS",
+      "detail": "batches [1, 2, 3]"
+    },
+    {
+      "check": "Vdlin grid",
+      "status": "PASS",
+      "detail": "len=1000, V from 3.500 to 2.000"
+    },
+    {
+      "check": "raw file cell/cycle mapping reproduces stored Qdlin",
+      "status": "PASS",
+      "detail": "max |raw-file Qdlin - stored| = 5.96e-08 Ah on 3 clean cycles"
+    },
+    {
+      "check": "monitor API preflight (reference gate constants, builder attributes, _ref_ok)",
+      "status": "PASS",
+      "detail": "constants {'REF_START': 8, 'REF_DEADLINE': 60, 'N_REF': 5, 'REF_I_BAND': 0.1, 'REF_QD_RANGE': (0.5, 1.3), 'REF_END_TOL': 0.046, 'REF_I_NOM': -4.0, 'REF_I_TOL': 0.05, 'REF_I_MIN_FRAC': 0.92}; _ref_ok(self, b, qd_total, qc_total=None)"
+    },
+    {
+      "check": "stored Qref is constant within a cell (derivation valid)",
+      "status": "PASS",
+      "detail": "max first-vs-last spread 7.10e-08 Ah (limit 1e-4, my choice)"
+    },
+    {
+      "check": "reference emulation sanity (regular cells: same reference cycles and Q0 as stored, per 8b H18)",
+      "status": "PASS",
+      "detail": "12 of 12 regular cells have online == stored reference cycles and Q0"
+    },
+    {
+      "check": "cells whose online references differ from the stored ones",
+      "status": "PASS",
+      "detail": "['b1c18', 'b1c41']"
+    },
+    {
+      "check": "forced-reference effect b1c18",
+      "status": "PASS",
+      "detail": "median |d| 0.0904 -> 0.0151 pp (confirmed if forced median <= 0.05 pp and below replayed; post-hoc, my choice); p99 |d| 0.3430 -> 0.1690 pp"
+    },
+    {
+      "check": "forced-reference effect b1c41",
+      "status": "PASS",
+      "detail": "median |d| 0.0549 -> 0.0167 pp (confirmed if forced median <= 0.05 pp and below replayed; post-hoc, my choice); p99 |d| 0.1402 -> 0.0694 pp"
+    },
+    {
+      "check": "development rows available for the top list",
+      "status": "PASS",
+      "detail": "6442 compared rows in development cells (of 10744)"
+    },
+    {
+      "check": "S3 truth-closeness complete",
+      "status": "PASS",
+      "detail": "30 of 30 classified"
+    },
+    {
+      "check": "sample-gap time axis plausible (t minutes x 60 -> s; median step 0.1-60 s, my choice)",
+      "status": "PASS",
+      "detail": "median time step of the control cycles 3.805 s"
+    },
+    {
+      "check": "sample-gap check complete",
+      "status": "PASS",
+      "detail": "19 of 19 isolated cycles, 56 control cycles"
+    },
+    {
+      "check": "expectation E1 (pre-registered)",
+      "status": "WARN",
+      "detail": "expected >= 0.80; observed 0.286 (4/14)"
+    },
+    {
+      "check": "expectation E1p (post-hoc)",
+      "status": "WARN",
+      "detail": "expected >= 0.80; observed 0.357 (5/14); cells with differing references: ['b1c18', 'b1c41']"
+    },
+    {
+      "check": "expectation E2 (pre-registered)",
+      "status": "PASS",
+      "detail": "expected >= 10 of 14; observed 12 of 14 cells"
+    },
+    {
+      "check": "expectation E3 (pre-registered)",
+      "status": "WARN",
+      "detail": "expected p99 <= 0.10 and max <= 0.5; observed p99 0.2268, max 6.5649 (n=10720)"
+    },
+    {
+      "check": "expectation E3p (post-hoc)",
+      "status": "WARN",
+      "detail": "expected p99 <= 0.15 and share > 0.5 pp <= 0.002; observed p99 0.1826, share 0.0990% (n=9093, cells excluded: ['b1c18', 'b1c41'])"
+    },
+    {
+      "check": "expectation E5 (registered before v4 rerun)",
+      "status": "WARN",
+      "detail": "expected reference-differs False for b1c18 and b1c41; observed differs: {'b1c18': True, 'b1c41': True}"
+    },
+    {
+      "check": "expectation E6 (registered before v4 rerun)",
+      "status": "WARN",
+      "detail": "expected p99 <= 0.20 and share > 0.5 pp <= 0.002 (all 14 cells); observed p99 0.2312, share 0.1303% (n=10744, cells: ['b1c18', 'b1c20', 'b1c28', 'b1c36', 'b1c41', 'b1c5', 'b2c1', 'b2c17', 'b2c38', 'b2c47', 'b3c1', 'b3c14', 'b3c28', 'b3c38'])"
+    },
+    {
+      "check": "expectation E4p (post-hoc)",
+      "status": "WARN",
+      "detail": "expected max window difference <= 2 mAh (b1c18 top 10); observed max 6.633 mAh, median 3.693 mAh"
+    },
+    {
+      "check": "hash guard end: src/health_monitor.py",
+      "status": "PASS",
+      "detail": "expected a9531dde7d93.. observed a9531dde7d93.."
+    },
+    {
+      "check": "hash guard end: src/onnx_scorer.py",
+      "status": "PASS",
+      "detail": "expected 7f56bd5b5df0.. observed 7f56bd5b5df0.."
+    },
+    {
+      "check": "hash guard end: outputs/phase8a/models/M0_W240.onnx",
+      "status": "PASS",
+      "detail": "expected 4fe196d3f778.. observed 4fe196d3f778.."
+    },
+    {
+      "check": "hash guard end: outputs/phase7b/monitor_config.json",
+      "status": "PASS",
+      "detail": "expected 638b6c3a6ad3.. observed 638b6c3a6ad3.."
+    },
+    {
+      "check": "frozen files unchanged between start and end",
+      "status": "PASS",
+      "detail": "all four hashes identical"
+    },
+    {
+      "check": "runtime",
+      "status": "PASS",
+      "detail": "30 s (target < 600 s)"
+    },
+    {
+      "check": "report contains every printed table",
+      "status": "PASS",
+      "detail": "35 tables, missing=[]"
+    }
+  ],
+  "expectations": [
+    {
+      "id": "E1",
+      "status": "pre-registered",
+      "expected": ">= 0.80",
+      "observed": "0.286 (4/14)",
+      "consistent": false
+    },
+    {
+      "id": "E1p",
+      "status": "post-hoc",
+      "expected": ">= 0.80",
+      "observed": "0.357 (5/14); cells with differing references: ['b1c18', 'b1c41']",
+      "consistent": false
+    },
+    {
+      "id": "E2",
+      "status": "pre-registered",
+      "expected": ">= 10 of 14",
+      "observed": "12 of 14 cells",
+      "consistent": true
+    },
+    {
+      "id": "E3",
+      "status": "pre-registered",
+      "expected": "p99 <= 0.10 and max <= 0.5",
+      "observed": "p99 0.2268, max 6.5649 (n=10720)",
+      "consistent": false
+    },
+    {
+      "id": "E3p",
+      "status": "post-hoc",
+      "expected": "p99 <= 0.15 and share > 0.5 pp <= 0.002",
+      "observed": "p99 0.1826, share 0.0990% (n=9093, cells excluded: ['b1c18', 'b1c41'])",
+      "consistent": false
+    },
+    {
+      "id": "E5",
+      "status": "registered before v4 rerun",
+      "expected": "reference-differs False for b1c18 and b1c41",
+      "observed": "differs: {'b1c18': True, 'b1c41': True}",
+      "consistent": false
+    },
+    {
+      "id": "E6",
+      "status": "registered before v4 rerun",
+      "expected": "p99 <= 0.20 and share > 0.5 pp <= 0.002 (all 14 cells)",
+      "observed": "p99 0.2312, share 0.1303% (n=10744, cells: ['b1c18', 'b1c20', 'b1c28', 'b1c36', 'b1c41', 'b1c5', 'b2c1', 'b2c17', 'b2c38', 'b2c47', 'b3c1', 'b3c14', 'b3c28', 'b3c38'])",
+      "consistent": false
+    },
+    {
+      "id": "E4",
+      "status": "pre-registered",
+      "expected": ">= 0.70 of top 30 'stored/both defective'",
+      "observed": "not evaluated: classification replaced by truth-closeness in v2 (see S3a/S3b)",
+      "consistent": "n/a"
+    },
+    {
+      "id": "E4p",
+      "status": "post-hoc",
+      "expected": "max window difference <= 2 mAh (b1c18 top 10)",
+      "observed": "max 6.633 mAh, median 3.693 mAh",
+      "consistent": false
+    }
+  ],
+  "n_fail": 0,
+  "n_warn": 8,
+  "artifacts": [
+    {
+      "file": "appendix_a2_single_term_flag_counts_per_row_universe__to_loc.csv",
+      "bytes": 1025,
+      "written_this_run": true
+    },
+    {
+      "file": "appendix_a_flag_definitions_vs_earlier_phase_counts.csv",
+      "bytes": 646,
+      "written_this_run": true
+    },
+    {
+      "file": "fig_b1c36.png",
+      "bytes": 66195,
+      "written_this_run": true
+    },
+    {
+      "file": "fig_b3c38.png",
+      "bytes": 70597,
+      "written_this_run": true
+    },
+    {
+      "file": "phase8c_log.jsonl",
+      "bytes": 15574,
+      "written_this_run": true
+    },
+    {
+      "file": "phase8c_report.txt",
+      "bytes": 113138,
+      "written_this_run": true
+    },
+    {
+      "file": "s1a_coverage_per_cell.csv",
+      "bytes": 315,
+      "written_this_run": true
+    },
+    {
+      "file": "s1b__d__quantiles__pp__and_exceedance_shares.csv",
+      "bytes": 2222,
+      "written_this_run": true
+    },
+    {
+      "file": "s1c_signed_d__pp__with_95__bootstrap_interval.csv",
+      "bytes": 2089,
+      "written_this_run": true
+    },
+    {
+      "file": "s1d_by_cell_p99__d___pp__and_share_above_0_5_pp__excluding_b.csv",
+      "bytes": 620,
+      "written_this_run": true
+    },
+    {
+      "file": "s1e_pooled__d___pp__on_candidate_row_sets_vs_the_8b_pooled_a.csv",
+      "bytes": 316,
+      "written_this_run": true
+    },
+    {
+      "file": "s1z_flag_definitions_vs_earlier_phase_counts.csv",
+      "bytes": 646,
+      "written_this_run": false
+    },
+    {
+      "file": "s2a_top_40_cycles_by__d.csv",
+      "bytes": 7150,
+      "written_this_run": true
+    },
+    {
+      "file": "s2b_large_differences_vs_flags.csv",
+      "bytes": 216,
+      "written_this_run": true
+    },
+    {
+      "file": "s2c_clustering_of__d____0_5_pp_cycles.csv",
+      "bytes": 71,
+      "written_this_run": true
+    },
+    {
+      "file": "s2d_runs_of_consecutive_large_difference_cycles.csv",
+      "bytes": 256,
+      "written_this_run": true
+    },
+    {
+      "file": "s3a_raw_data_check_of_top_30_cycles_by__d.csv",
+      "bytes": 6485,
+      "written_this_run": false
+    },
+    {
+      "file": "s3a_top_30_cycles_by__d__in_development_cells__truth_closene.csv",
+      "bytes": 9311,
+      "written_this_run": true
+    },
+    {
+      "file": "s3b_classification_counts.csv",
+      "bytes": 65,
+      "written_this_run": false
+    },
+    {
+      "file": "s3b_truth_closeness_counts.csv",
+      "bytes": 146,
+      "written_this_run": true
+    },
+    {
+      "file": "s3d_b1c18_top_10_cycles_by__d___window_difference.csv",
+      "bytes": 1219,
+      "written_this_run": true
+    },
+    {
+      "file": "s3e_sample_gap_check_per_cycle.csv",
+      "bytes": 13135,
+      "written_this_run": true
+    },
+    {
+      "file": "s3e_summary_by_role.csv",
+      "bytes": 759,
+      "written_this_run": true
+    },
+    {
+      "file": "s3x_online_vs_stored_references_per_replay_cell.csv",
+      "bytes": 2217,
+      "written_this_run": true
+    },
+    {
+      "file": "s3y_forced_reference_experiment___d___pp__vs_offline.csv",
+      "bytes": 950,
+      "written_this_run": true
+    },
+    {
+      "file": "s3z_1_gate_statistics_for_b1c18.csv",
+      "bytes": 1721,
+      "written_this_run": true
+    },
+    {
+      "file": "s3z_2_typical_cell__median_over_the_other_replay_cells.csv",
+      "bytes": 362,
+      "written_this_run": true
+    },
+    {
+      "file": "s4a_b1c36_cycles_470_520.csv",
+      "bytes": 8150,
+      "written_this_run": true
+    },
+    {
+      "file": "s4a_raw_data_check_of_b1c36_dip_cycles.csv",
+      "bytes": 455,
+      "written_this_run": true
+    },
+    {
+      "file": "s4b_b3c38_five_largest_raw_jumps__cycles_1200_1450.csv",
+      "bytes": 655,
+      "written_this_run": true
+    },
+    {
+      "file": "s4b_raw_data_check_of_the_two_cycles_around_the_largest_jump.csv",
+      "bytes": 481,
+      "written_this_run": true
+    },
+    {
+      "file": "s4b_raw_data_statistics_around_the_largest_jump__cycle_1322.csv",
+      "bytes": 666,
+      "written_this_run": true
+    },
+    {
+      "file": "s4c_b1c36_summary_context__cycles_485_497.csv",
+      "bytes": 2511,
+      "written_this_run": true
+    },
+    {
+      "file": "s4c_b3c38_summary_context__cycles_1310_1335.csv",
+      "bytes": 4876,
+      "written_this_run": true
+    },
+    {
+      "file": "s5a___expectations_registered_before_the_8c_rerun_after_v4__.csv",
+      "bytes": 232,
+      "written_this_run": true
+    },
+    {
+      "file": "s5a__post_hoc_expectations__revised_after_the_first_results_.csv",
+      "bytes": 390,
+      "written_this_run": true
+    },
+    {
+      "file": "s5a_original_expectations__pre_registered_in_v1.csv",
+      "bytes": 422,
+      "written_this_run": true
+    },
+    {
+      "file": "s5a_registered_expectations.csv",
+      "bytes": 422,
+      "written_this_run": false
+    },
+    {
+      "file": "s5b_expectations__expected___observed___consistent.csv",
+      "bytes": 1081,
+      "written_this_run": true
+    },
+    {
+      "file": "s6a__d__quantiles_on_unflagged__non_adjacent_cycles.csv",
+      "bytes": 2198,
+      "written_this_run": true
+    },
+    {
+      "file": "s6b_warn85_fire_cycle__first_scored_cycle_with_raw____85_0__.csv",
+      "bytes": 629,
+      "written_this_run": true
+    },
+    {
+      "file": "s7a_conclusion_table.csv",
+      "bytes": 1255,
+      "written_this_run": true
+    },
+    {
+      "file": "s7b_checks.csv",
+      "bytes": 6275,
+      "written_this_run": true
+    },
+    {
+      "file": "s7c_artifacts.csv",
+      "bytes": 2312,
+      "written_this_run": false
+    },
+    {
+      "file": "verification_report.json",
+      "bytes": 17180,
+      "written_this_run": false
+    }
+  ]
+}

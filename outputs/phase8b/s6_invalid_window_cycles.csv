@@ -1,0 +1,4 @@
+cell_id,cycle,kind,reason
+b1c5,909,truncated or interrupted cycle,tau not reached
+b2c1,130,validity failure,step 0.0741 Ah between neighbouring grid points
+b3c38,829,truncated or interrupted cycle,tau not reached

@@ -1,0 +1,3 @@
+id,statement,rule
+E5,'online references differ from the stored ones' flag for b1c18 and b1c41 (S3x),False for both cells
+E6,all 14 replay cells pooled: p99 |d| (pp) and share of cycles above 0.5 pp,p99 <= 0.20 and share <= 0.002

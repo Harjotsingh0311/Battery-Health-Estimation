@@ -1,0 +1,10 @@
+id,status,expected,observed,consistent
+E1,pre-registered,>= 0.80,0.286 (4/14),False
+E1p,post-hoc,>= 0.80,"0.357 (5/14); cells with differing references: ['b1c18', 'b1c41']",False
+E2,pre-registered,>= 10 of 14,12 of 14 cells,True
+E3,pre-registered,p99 <= 0.10 and max <= 0.5,"p99 0.2268, max 6.5649 (n=10720)",False
+E3p,post-hoc,p99 <= 0.15 and share > 0.5 pp <= 0.002,"p99 0.1826, share 0.0990% (n=9093, cells excluded: ['b1c18', 'b1c41'])",False
+E5,registered before v4 rerun,reference-differs False for b1c18 and b1c41,"differs: {'b1c18': True, 'b1c41': True}",False
+E6,registered before v4 rerun,p99 <= 0.20 and share > 0.5 pp <= 0.002 (all 14 cells),"p99 0.2312, share 0.1303% (n=10744, cells: ['b1c18', 'b1c20', 'b1c28', 'b1c36', 'b1c41', 'b1c5', 'b2c1', 'b2c17', 'b2c38', 'b2c47', 'b3c1', 'b3c14', 'b3c28', 'b3c38'])",False
+E4,pre-registered,>= 0.70 of top 30 'stored/both defective',not evaluated: classification replaced by truth-closeness in v2 (see S3a/S3b),n/a
+E4p,post-hoc,max window difference <= 2 mAh (b1c18 top 10),"max 6.633 mAh, median 3.693 mAh",False

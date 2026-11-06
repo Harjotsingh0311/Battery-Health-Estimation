@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-11-05T19:31:54+00:00",
+  "expectations": [
+    {
+      "expected": "< 1e-3 pp",
+      "id": "H12",
+      "statement": "ONNX Runtime CPU vs PyTorch fp32, max |difference| over all 96,419 stored rows, worst of the four models"
+    },
+    {
+      "expected": "median < 1 ms and p99 < 5 ms",
+      "id": "H13",
+      "statement": "deployed M0 W240, ONNX Runtime CPU intra_op=1, batch 1"
+    },
+    {
+      "expected": "median < 5 ms",
+      "id": "H14",
+      "statement": "deployed M0 W240, ONNX Runtime CPU intra_op=1, one call with 124 rows (all cells)"
+    },
+    {
+      "expected": "|change| < 0.02 pp",
+      "id": "H15",
+      "statement": "int8 dynamic quantisation of deployed M0 W240, change in batch-3 cell-macro MAE"
+    }
+  ],
+  "smoke": false
+}

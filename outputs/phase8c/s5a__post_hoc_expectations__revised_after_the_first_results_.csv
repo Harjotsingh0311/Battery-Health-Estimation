@@ -1,0 +1,4 @@
+id,replaces,statement,rule
+E1p,E1,share of cycles with |d| > 0.5 pp that belong to cells whose online references differ from the stored ones,>= 0.80
+E3p,E3,excluding cells whose online references differ: p99 |d| (pp) and share of cycles above 0.5 pp,p99 <= 0.15 and share <= 0.002
+E4p,E4,max window difference (online vs stored Qdlin) over the 10 largest-|d| cycles of b1c18 (mAh),<= 2

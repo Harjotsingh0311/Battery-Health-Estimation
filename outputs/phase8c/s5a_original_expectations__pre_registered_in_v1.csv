@@ -1,0 +1,5 @@
+id,statement,rule
+E1,share of cycles with |d| > 0.5 pp that are offline-flagged or adjacent to a flagged cycle,>= 0.80
+E2,number of replay cells with positive median signed d (online - offline),>= 10 of 14
+E3,on cycles neither flagged nor adjacent to a flagged one: p99 |d| and max |d| (pp),p99 <= 0.10 and max <= 0.5
+E4,share of the top-30 |d| cycles classified 'stored window defective' or 'both defective',>= 0.70

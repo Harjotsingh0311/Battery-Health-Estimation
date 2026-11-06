@@ -1,0 +1,794 @@
+# Phase 8c parity diagnostics
+Frozen hash note: src/health_monitor.py was re-registered three times, b280094074df.. -> c3f0a5367373.. -> 0aa411d7a09e.. (v2) -> a9531dde7d93.. (v4).. ; the current value is the hash recorded by the phase 8b replay (outputs/phase8b/verification_report.json), which proves the replay was produced by the file now on disk.
+Flag definition used: A: ~qdlin_ok | label_suspect | qdlin_tail_suspect (chosen before any difference was computed, by reproducing the earlier-phase counts; see Appendix A).
+Expectations: E1-E4 were pre-registered before the first run; E1p, E3p, E4p are post-hoc revisions made after the first results were seen. Both sets are kept below. E5 and E6 were registered before the rerun after v4 (S5a'').
+Thresholds (my choice):
+- bootstrap B=1000, seed 0
+- flag definition: A: ~qdlin_ok | label_suspect | qdlin_tail_suspect
+- adjacent = flagged cycle at +-1
+- large difference = |d| > 0.5 pp
+- reference differs: reference cycles differ or |Q0 diff| > 1e-6 Ah (POST-HOC: the first-run extra criterion max |Qref diff| > 1e-4 Ah flagged all 14 cells and was dropped after seeing that)
+- forced-reference effect confirmed if forced median |d| <= 0.05 pp and below the replayed median (POST-HOC, replaced a p99 rule that b1c18 narrowly missed)
+- b1c18 top cycles = 10 largest |d|
+- truth-closeness band 0.1 pp
+- development cells = is_dev in kept_cells_groups_strata.csv
+- context jump rule: |change| > 3 x robust sigma (1.4826 x MAD of first differences, +-30 cycles outside the window)
+- dip = raw >= 0.5 pp below centred 5-cycle median
+- stat change > 5%
+- window-offset discovery tolerance 1e-5 Ah; first-last check PASS<=1e-6, WARN<=1e-5
+- pooled 8b aggregate tolerances 0.002 / 0.01 / 0.05 pp
+- E5/E6 registered before the rerun after v4 (S5a'')
+- sample-gap check: isolated = non-b1c18 cycles of the top-30 development list; controls = cycle -1/+1 neighbours plus 30 random cycles with |d| <= 0.1 pp (seed 0); no pre-set threshold, percentile within controls
+- temperature figures in the limitations text quoted from the v2 run (S4a, S4c)
+
+## S5a original expectations (pre-registered in v1)
+
+                                                                                    statement                        rule
+id                                                                                                                       
+E1  share of cycles with |d| > 0.5 pp that are offline-flagged or adjacent to a flagged cycle                     >= 0.80
+E2                    number of replay cells with positive median signed d (online - offline)                 >= 10 of 14
+E3          on cycles neither flagged nor adjacent to a flagged one: p99 |d| and max |d| (pp)  p99 <= 0.10 and max <= 0.5
+E4    share of the top-30 |d| cycles classified 'stored window defective' or 'both defective'                     >= 0.70
+
+## S5a' post-hoc expectations (revised after the first results were seen, v2)
+
+    replaces                                                                                                   statement                            rule
+id                                                                                                                                                      
+E1p       E1  share of cycles with |d| > 0.5 pp that belong to cells whose online references differ from the stored ones                         >= 0.80
+E3p       E3               excluding cells whose online references differ: p99 |d| (pp) and share of cycles above 0.5 pp  p99 <= 0.15 and share <= 0.002
+E4p       E4                max window difference (online vs stored Qdlin) over the 10 largest-|d| cycles of b1c18 (mAh)                            <= 2
+
+## S5a'' expectations registered before the 8c rerun after v4 (E3p and E4p unchanged)
+
+                                                                         statement                            rule
+id                                                                                                                
+E5  'online references differ from the stored ones' flag for b1c18 and b1c41 (S3x)            False for both cells
+E6       all 14 replay cells pooled: p99 |d| (pp) and share of cycles above 0.5 pp  p99 <= 0.20 and share <= 0.002
+
+## Appendix A2 single-term flag counts per row universe (to locate the earlier-phase 289 / 208)
+no combination of these terms reproduces 289 / 208; compare these counts with the earlier-phase report that stated them
+                                              flagged  in_b2c40
+term               universe                                    
+~qdlin_ok          all rows                       349       210
+                   kept cells                     344       210
+                   in_life rows                   301       208
+                   kept cells & in_life rows      301       208
+~qdlin_ok2         all rows                       355       210
+                   kept cells                     350       210
+                   in_life rows                   307       208
+                   kept cells & in_life rows      307       208
+~causal_ok         all rows                       543       210
+                   kept cells                     537       210
+                   in_life rows                   487       207
+                   kept cells & in_life rows      486       207
+label_suspect      all rows                       107         0
+                   kept cells                     107         0
+                   in_life rows                   107         0
+                   kept cells & in_life rows      107         0
+qdlin_tail_suspect all rows                       131        93
+                   kept cells                     131        93
+                   in_life rows                   131        93
+                   kept cells & in_life rows      131        93
+post_junction      all rows                      3393         0
+                   kept cells                    3393         0
+                   in_life rows                  3393         0
+                   kept cells & in_life rows     3393         0
+~in_life           all rows                      1225        31
+                   kept cells                    1220        31
+                   in_life rows                     0         0
+                   kept cells & in_life rows        0         0
+
+## S1a coverage per cell
+
+         replay_rows  status_ok  compared
+cell_id                                  
+b1c20            532        514       513
+b1c36            702        684       663
+b1c28            858        840       840
+b1c5            1072       1053      1053
+b2c1             170        150       128
+b2c38            487        468       445
+b2c17            525        506       473
+b2c47            745        726       676
+b3c28            540        521       521
+b3c14            857        838       838
+b3c1            1062       1043      1043
+b3c38           1934       1914      1900
+b1c18            689        638       625
+b1c41           1049       1031      1026
+
+## S1b |d| quantiles (pp) and exceedance shares
+d = online raw - offline raw; quantiles of |d|; shares of cycles above 0.1, 0.5, 1.0 pp
+           n    p50    p90    p99  p99_9    max  gt_0_1  gt_0_5  gt_1_0
+b1c20    513 0.0430 0.0707 0.0953 0.1017 0.1039  0.0019  0.0000  0.0000
+b1c36    663 0.0441 0.0828 0.1065 0.6762 1.1255  0.0196  0.0015  0.0015
+b1c28    840 0.0537 0.1179 0.1380 0.6739 3.4019  0.2631  0.0012  0.0012
+b1c5    1053 0.0178 0.0399 0.0622 1.1462 6.5649  0.0038  0.0019  0.0019
+b2c1     128 0.0216 0.0535 0.0794 0.0842 0.0844  0.0000  0.0000  0.0000
+b2c38    445 0.0510 0.0740 0.0902 0.1056 0.1069  0.0045  0.0000  0.0000
+b2c17    473 0.1262 0.1965 0.4251 0.9737 1.0110  0.6025  0.0106  0.0021
+b2c47    676 0.0109 0.0250 0.0480 0.3958 0.4596  0.0030  0.0000  0.0000
+b3c28    521 0.0266 0.0458 0.0547 0.0588 0.0592  0.0000  0.0000  0.0000
+b3c14    838 0.0221 0.0809 0.1045 0.2804 0.2932  0.0167  0.0000  0.0000
+b3c1    1043 0.0354 0.0515 0.0606 0.0755 0.0763  0.0000  0.0000  0.0000
+b3c38   1900 0.0448 0.1044 0.1265 0.1331 0.1387  0.1258  0.0000  0.0000
+b1c18    625 0.0904 0.2690 0.3430 0.9311 1.0389  0.4720  0.0064  0.0016
+b1c41   1026 0.0549 0.1078 0.1402 0.2951 0.6475  0.1559  0.0010  0.0000
+ALL    10744 0.0346 0.1047 0.2312 0.6126 6.5649  0.1150  0.0013  0.0006
+
+## S1c signed d (pp) with 95% bootstrap interval
+bootstrap over cycles, B=1000, seed=0 (my choice); online_above = lower bound of the median interval > 0
+           n median_d  med_lo  med_hi  mean_d mean_lo mean_hi online_above
+b1c20    513   0.0425  0.0404  0.0448  0.0376  0.0354  0.0402          yes
+b1c36    663   0.0441  0.0381  0.0512  0.0458  0.0420  0.0504          yes
+b1c28    840   0.0536  0.0405  0.0637  0.0620  0.0561  0.0712          yes
+b1c5    1053   0.0132  0.0112  0.0148  0.0077 -0.0062  0.0160          yes
+b2c1     128  -0.0086 -0.0176 -0.0021 -0.0120 -0.0170 -0.0069           no
+b2c38    445   0.0510  0.0490  0.0538  0.0465  0.0441  0.0488          yes
+b2c17    473   0.1169  0.1036  0.1318  0.0999  0.0892  0.1104          yes
+b2c47    676   0.0037  0.0023  0.0052  0.0035  0.0015  0.0059          yes
+b3c28    521   0.0265  0.0240  0.0280  0.0244  0.0230  0.0259          yes
+b3c14    838   0.0221  0.0196  0.0238  0.0328  0.0307  0.0352          yes
+b3c1    1043   0.0309  0.0286  0.0343  0.0224  0.0207  0.0240          yes
+b3c38   1900   0.0441  0.0416  0.0473  0.0461  0.0443  0.0481          yes
+b1c18    625  -0.0365 -0.0428 -0.0316  0.0106 -0.0016  0.0242           no
+b1c41   1026   0.0549  0.0468  0.0626  0.0553  0.0523  0.0584          yes
+ALL    10744   0.0295  0.0286  0.0304  0.0366  0.0348  0.0383          yes
+
+## S1d by-cell p99 |d| (pp) and share above 0.5 pp, excluding b1c18
+
+                    n    p99  gt_0_5
+b1c20             513 0.0953  0.0000
+b1c36             663 0.1065  0.0015
+b1c28             840 0.1380  0.0012
+b1c5             1053 0.0622  0.0019
+b2c1              128 0.0794  0.0000
+b2c38             445 0.0902  0.0000
+b2c17             473 0.4251  0.0106
+b2c47             676 0.0480  0.0000
+b3c28             521 0.0547  0.0000
+b3c14             838 0.1045  0.0000
+b3c1             1043 0.0606  0.0000
+b3c38            1900 0.1265  0.0000
+b1c41            1026 0.1402  0.0010
+ALL excl b1c18  10119 0.1803  0.0010
+
+Note: compared rows are scored2 cycles; 0 of 10744 compared rows are flagged by the flag definition used and 24 are flagged or adjacent to a flagged cycle, so the compared rows are flag-free by construction and a flag can only enter through adjacency.
+
+## S1e pooled |d| (pp) on candidate row sets vs the 8b pooled aggregate
+8b's row set is not stated in its report; each candidate drops whole cells from the 14-cell replay set
+                               n  median    p99    max
+all 14 replay cells        10744  0.0346 0.2312 6.5649
+excluding b1c18            10119  0.0327 0.1803 6.5649
+excluding b1c18 and b1c41   9093  0.0317 0.1826 6.5649
+8b pooled (H17)             <NA>  0.0321 0.1734 6.5649
+
+Pooled 8b aggregate: reproduced within tolerance (all three statistics) on the row set 'excluding b1c18', i.e. 8b's pooled figure most likely excludes b1c18; the 8b report does not state its row set
+
+## S2a top 40 cycles by |d|
+columns: every boolean flag of the labels table, plus own/neighbour flag state (flagged = ~qdlin_ok | label_suspect | qdlin_tail_suspect, my choice)
+   cell_id  cycle       d     raw  off_raw  in_life  qdlin_ok  causal_ok  label_suspect  post_junction  is_ref  scored  scored_incl_suspect  train_ok  qdlin_tail_suspect  qdlin_ok2  scored2  high_defect_cell  kept  flagged  adj_prev  adj_next  near_flag  in_246_258_b2
+0     b1c5    158 -6.5649 92.3054  98.8703     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+1    b1c28    687  3.4019 91.4954  88.0935     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+2     b1c5    159  1.1851 98.0660  96.8808     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+3    b1c36    142  1.1255 97.9470  96.8215     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+4    b1c18    673 -1.0389 80.9139  81.9528     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+5    b2c17    117 -1.0110 96.2462  97.2572     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False      True     False       True          False
+6    b2c17    115 -0.9320 96.3770  97.3090     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False      True       True          False
+7    b1c18    360  0.8661 94.5566  93.6905     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+8    b1c18    486  0.7045 93.1204  92.4160     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+9    b2c17    114 -0.6811 96.7055  97.3866     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False      True     False       True          False
+10   b1c41    588  0.6475 96.2502  95.6028     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+11   b1c18    206 -0.6005 95.0565  95.6570     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+12   b2c17    112 -0.5802 96.7454  97.3256     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False      True       True          False
+13   b2c17    145 -0.5247 96.5529  97.0776     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+14   b2c47    400  0.4596 92.0814  91.6218     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+15   b1c36    464  0.4467 95.3651  94.9184     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+16    b1c5    365  0.4360 97.3642  96.9282     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+17   b1c36    347  0.4242 96.5831  96.1589     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+18   b1c18    685 -0.3919 80.3283  80.7202     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+19   b2c17    144 -0.3864 96.6427  97.0291     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+20   b2c47    174  0.3651 94.4744  94.1093     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+21   b1c18    611 -0.3617 87.8962  88.2579     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+22   b2c17     67  0.3580 97.6548  97.2968     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+23    b1c5    483  0.3463 96.9920  96.6457     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+24   b1c18    468  0.3443 93.5879  93.2437     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+25   b1c18    431  0.3390 94.0754  93.7364     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+26   b1c18    503  0.3322 93.3465  93.0143     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+27   b1c18    440  0.3313 94.1325  93.8012     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+28   b2c17    110 -0.3313 96.9970  97.3283     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+29   b1c18    446  0.3311 93.8462  93.5152     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+30   b1c18    428  0.3287 93.9507  93.6220     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+31   b1c18    430  0.3281 94.0260  93.6980     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+32   b1c18    477  0.3256 93.3459  93.0203     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+33   b1c18    417  0.3241 94.1261  93.8020     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+34   b1c18    470  0.3239 93.6231  93.2991     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+35   b1c18    472  0.3232 93.6508  93.3276     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+36   b1c18    438  0.3226 94.0601  93.7374     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+37   b1c18    416  0.3206 94.2779  93.9573     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+38   b1c18    460  0.3198 93.7104  93.3906     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+39   b1c18    433  0.3177 93.9251  93.6074     True      True       True          False          False   False    True                 True      True               False       True     True             False  True    False     False     False      False          False
+
+## S2b large differences vs flags
+
+                                   count  share
+cycles with |d| > 0.5 pp              14 1.0000
+offline-flagged themselves             0 0.0000
+adjacent to a flagged cycle (+-1)      4 0.2857
+flagged or adjacent                    4 0.2857
+inside 246-258 (batch-2 cell)          0 0.0000
+
+## S2c clustering of |d| > 0.5 pp cycles
+
+                           clusters  cycles
+isolated cycle                   10      10
+run of consecutive cycles         2       4
+
+## S2d runs of consecutive large-difference cycles
+longest 30 runs
+   cell_id  start  end  length
+0    b2c17    114  115       2
+1     b1c5    158  159       2
+2    b1c18    206  206       1
+3    b1c18    360  360       1
+4    b1c18    673  673       1
+5    b1c18    486  486       1
+6    b1c36    142  142       1
+7    b1c28    687  687       1
+8    b1c41    588  588       1
+9    b2c17    112  112       1
+10   b2c17    117  117       1
+11   b2c17    145  145       1
+
+## S3x online vs stored references per replay cell
+
+          online_ref_cycles     stored_ref_cycles  q0_online  q0_stored  abs_dq0_Ah  max_abs_dqref_Ah  stored_spread_Ah  differs
+cell_id                                                                                                                         
+b1c20    [8, 9, 10, 11, 12]    [8, 9, 10, 11, 12]     1.0757     1.0757      0.0000            0.0010            0.0000    False
+b1c36    [8, 9, 10, 11, 12]    [8, 9, 10, 11, 12]     1.0815     1.0815      0.0000            0.0007            0.0000    False
+b1c28    [8, 9, 10, 11, 12]    [8, 9, 10, 11, 12]     1.0810     1.0810      0.0000            0.0007            0.0000    False
+b1c5     [8, 9, 10, 11, 12]    [8, 9, 10, 11, 12]     1.0802     1.0802      0.0000            0.0009            0.0000    False
+b2c1     [8, 9, 10, 11, 12]    [8, 9, 10, 11, 12]     1.0683     1.0683      0.0000            0.0008            0.0000    False
+b2c38    [8, 9, 10, 11, 12]    [8, 9, 10, 11, 12]     1.0739     1.0739      0.0000            0.0010            0.0000    False
+b2c17    [8, 9, 10, 11, 12]    [8, 9, 10, 11, 12]     1.0726     1.0726      0.0000            0.0035            0.0000    False
+b2c47    [8, 9, 10, 11, 12]    [8, 9, 10, 11, 12]     1.0487     1.0487      0.0000            0.0017            0.0000    False
+b3c28    [8, 9, 10, 11, 12]    [8, 9, 10, 11, 12]     1.0525     1.0525      0.0000            0.0006            0.0000    False
+b3c14    [8, 9, 10, 11, 12]    [8, 9, 10, 11, 12]     1.0763     1.0763      0.0000            0.0007            0.0000    False
+b3c1     [8, 9, 10, 11, 12]    [8, 9, 10, 11, 12]     1.0683     1.0683      0.0000            0.0007            0.0000    False
+b3c38    [8, 9, 10, 11, 12]    [8, 9, 10, 11, 12]     1.0722     1.0722      0.0000            0.0006            0.0000    False
+b1c18    [8, 9, 10, 11, 12]  [54, 55, 56, 57, 58]     1.0694     1.0690      0.0004            0.0141            0.0000     True
+b1c41    [8, 9, 10, 11, 12]    [8, 9, 10, 12, 13]     1.0827     1.0827      0.0000            0.0016            0.0000     True
+
+Post-hoc note (descriptive, not used in any classification): the first-run rule max |Qref difference| > 1e-4 Ah flagged every cell; the median max |Qref difference| of the regular cells is 0.76 mAh (interpolation scale). Cells with the same reference cycles but a Qref difference above 3x that median: b2c17 (3.5 mAh); they remain in the 'no differing reference' group.
+
+## S3y forced-reference experiment: |d| (pp) vs offline
+same cycles in both variants; control cell has matching references
+                                            n  median_abs    p90    p99    max  share_gt_0_5  median_signed
+cell_id variant                                                                                            
+b1c18   as replayed (online references)   625      0.0904 0.2690 0.3430 1.0389        0.0064        -0.0365
+        forced stored references          625      0.0151 0.0397 0.1690 0.7951        0.0064         0.0087
+b1c41   as replayed (online references)  1026      0.0549 0.1078 0.1402 0.6475        0.0010         0.0549
+        forced stored references         1026      0.0167 0.0411 0.0694 0.5778        0.0010         0.0062
+b1c20   as replayed (online references)   513      0.0430 0.0707 0.0953 0.1039        0.0000         0.0425
+        forced stored references          513      0.0232 0.0468 0.0677 0.1139        0.0000         0.0195
+
+Forced-reference residual, b1c18: after forcing the stored references the bulk agrees (median |d| 0.0151 pp) but the tail remains (p99 0.1690 pp, max 0.7951 pp, 0.64% of cycles above 0.5 pp); that tail is not explained by the references (see S3d for the window differences).
+
+## S3a top 30 cycles by |d| in development cells: truth-closeness and raw-data columns
+upstep_mV = largest upward voltage step before the estimate time; stored_min_step_Ah = largest negative step of the stored curve
+   cell_id  cycle       d  online_raw  offline_raw   truth  err_online  err_offline                closeness  upstep_mV  stored_min_step_Ah  win_maxdiff_Ah  win_argmax  online_valid  stored_valid online_reason stored_reason  mono_online  mono_stored  tail_ratio  qd_end_minus_summary  n_dis  n_dis_cell_median  med_absI  stored_vs_rawfile_Ah  stored_first_Ah
+0     b1c5    158 -6.5649     92.3054      98.8703 97.9666      5.6612       0.9037   stored closer to truth     0.0000             -0.0010          0.1433         641          True          True                                     True        False      0.9800                0.0000    421           427.0000    3.9999                0.0000          -0.0003
+1    b1c28    687  3.4019     91.4954      88.0935 91.6047      0.1093       3.5112   online closer to truth     0.0000             -0.0010          0.0551         467          True          True                                     True        False      0.9309                0.0000    427           439.0000    3.9999                0.0000          -0.0005
+2     b1c5    159  1.1851     98.0660      96.8808 97.9603      0.1057       1.0795   online closer to truth     0.0000             -0.0009          0.0564         473          True          True                                     True        False      0.9798                0.0000    435           427.0000    3.9999                0.0000          -0.0004
+3    b1c36    142  1.1255     97.9470      96.8215 98.0417      0.0947       1.2202   online closer to truth     0.0000             -0.0013          0.0540         404          True          True                                     True        False      0.9729                0.0000    441           440.0000    3.9999                0.0000          -0.0002
+4    b1c18    673 -1.0389     80.9139      81.9528 81.2570      0.3431       0.6958   online closer to truth     0.0000              0.0000          0.0044         671          True          True                                     True         True      0.9138                0.0000    454           434.0000    3.9998                0.0000          -0.0004
+5    b2c17    117 -1.0110     96.2462      97.2572 95.7886      0.4577       1.4687   online closer to truth     0.0000              0.0000          0.0195         731          True          True                                     True         True      0.9894                0.0000    511           517.0000    3.9999                0.0000          -0.0004
+6    b2c17    115 -0.9320     96.3770      97.3090 95.8637      0.5133       1.4453   online closer to truth     0.0000              0.0000          0.0192         700          True          True                                     True         True      0.9906                0.0000    512           517.0000    3.9999                0.0000          -0.0002
+7    b1c18    360  0.8661     94.5566      93.6905 93.9708      0.5858       0.2802   stored closer to truth     0.0000              0.0000          0.0066         265          True          True                                     True         True      0.9566                0.0000    426           434.0000    3.9999                0.0000          -0.0002
+8    b1c18    486  0.7045     93.1204      92.4160 92.4837      0.6367       0.0677   stored closer to truth     0.0000              0.0000          0.0065         278          True          True                                     True         True      0.9504                0.0000    425           434.0000    3.9999                0.0000          -0.0002
+9    b2c17    114 -0.6811     96.7055      97.3866 96.4000      0.3056       0.9867   online closer to truth     0.0000              0.0000          0.0133         689          True          True                                     True         True      0.9856                0.0000    516           517.0000    3.9999                0.0000          -0.0005
+10   b1c41    588  0.6475     96.2502      95.6028 95.9205      0.3298       0.3177  similar (within 0.1 pp)     0.0000              0.0000          0.0072         296          True          True                                     True         True      0.9547                0.0000    420           429.0000    3.9999                0.0000          -0.0004
+11   b1c18    206 -0.6005     95.0565      95.6570 94.9864      0.0701       0.6706   online closer to truth     0.0000              0.0000          0.0066         231          True          True                                     True         True      0.9766                0.0000    442           434.0000    3.9999                0.0000          -0.0002
+12   b2c17    112 -0.5802     96.7454      97.3256 96.5347      0.2106       0.7908   online closer to truth     0.0000              0.0000          0.0118         708          True          True                                     True         True      0.9846                0.0000    532           517.0000    3.9999                0.0000          -0.0002
+13   b2c17    145 -0.5247     96.5529      97.0776 96.0361      0.5167       1.0414   online closer to truth     0.0000              0.0000          0.0132         259          True          True                                     True         True      0.9778                0.0000    508           517.0000    3.9999                0.0000          -0.0005
+14   b2c47    400  0.4596     92.0814      91.6218 92.0996      0.0182       0.4778   online closer to truth     0.0000              0.0000          0.0064         396          True          True                                     True         True      0.9604                0.0000    468           485.0000    3.9998                0.0000          -0.0004
+15   b1c36    464  0.4467     95.3651      94.9184 95.5440      0.1789       0.6256   online closer to truth     0.0000              0.0000          0.0068         253          True          True                                     True         True      0.9387                0.0000    451           440.0000    3.9999                0.0000          -0.0003
+16    b1c5    365  0.4360     97.3642      96.9282 97.2597      0.1045       0.3315   online closer to truth     0.0000              0.0000          0.0066         656          True          True                                     True         True      0.9708                0.0000    442           427.0000    3.9999                0.0000          -0.0002
+17   b1c36    347  0.4242     96.5831      96.1589 96.9118      0.3287       0.7529   online closer to truth     0.0000              0.0000          0.0064         274          True          True                                     True         True      0.9458                0.0000    426           440.0000    3.9999                0.0000          -0.0004
+18   b1c18    685 -0.3919     80.3283      80.7202 80.3609      0.0325       0.3593   online closer to truth     0.0000              0.0000          0.0034         349          True          True                                     True         True      0.9095                0.0000    438           434.0000    3.9999                0.0000          -0.0004
+19   b2c17    144 -0.3864     96.6427      97.0291 96.3450      0.2977       0.6841   online closer to truth     0.0000              0.0000          0.0100         277          True          True                                     True         True      0.9752                0.0000    532           517.0000    3.9999                0.0000          -0.0002
+20   b2c47    174  0.3651     94.4744      94.1093 94.5565      0.0821       0.4472   online closer to truth     0.0000              0.0000          0.0068         323          True          True                                     True         True      0.9691                0.0000    486           485.0000    3.9998                0.0000          -0.0002
+21   b1c18    611 -0.3617     87.8962      88.2579 87.5280      0.3682       0.7299   online closer to truth     0.0000              0.0000          0.0039         288          True          True                                     True         True      0.9367                0.0000    446           434.0000    3.9999                0.0000          -0.0004
+22   b2c17     67  0.3580     97.6548      97.2968 97.8107      0.1559       0.5139   online closer to truth     0.0000              0.0000          0.0063         234          True          True                                     True         True      0.9749                0.0000    522           517.0000    3.9999                0.0000          -0.0004
+23    b1c5    483  0.3463     96.9920      96.6457 96.6555      0.3365       0.0098   stored closer to truth     0.0000              0.0000          0.0067         675          True          True                                     True         True      0.9680                0.0000    426           427.0000    4.0000                0.0000          -0.0003
+24   b1c18    468  0.3443     93.5879      93.2437 92.7850      0.8029       0.4587   stored closer to truth     0.0000              0.0000          0.0007          60          True          True                                     True         True      0.9601                0.0000    428           434.0000    3.9999                0.0000          -0.0002
+25   b1c18    431  0.3390     94.0754      93.7364 93.2595      0.8160       0.4769   stored closer to truth     0.0000              0.0000          0.0008         233          True          True                                     True         True      0.9616                0.0000    423           434.0000    3.9999                0.0000          -0.0002
+26   b1c18    503  0.3322     93.3465      93.0143 92.2630      1.0835       0.7513   stored closer to truth     0.0000              0.0000          0.0008         276          True          True                                     True         True      0.9642                0.0000    430           434.0000    3.9999                0.0000          -0.0002
+27   b1c18    440  0.3313     94.1325      93.8012 93.2004      0.9321       0.6008   stored closer to truth     0.0000              0.0000          0.0008         251          True          True                                     True         True      0.9631                0.0000    417           434.0000    3.9999                0.0000          -0.0002
+28   b2c17    110 -0.3313     96.9970      97.3283 96.7538      0.2431       0.5744   online closer to truth     0.0000              0.0000          0.0098         716          True          True                                     True         True      0.9804                0.0000    530           517.0000    3.9999                0.0000          -0.0004
+29   b1c18    446  0.3311     93.8462      93.5152 93.0355      0.8107       0.4797   stored closer to truth     0.0000              0.0000          0.0008         116          True          True                                     True         True      0.9615                0.0000    415           434.0000    3.9999                0.0000          -0.0002
+
+## S3b truth-closeness counts
+
+                         count  share
+closeness                            
+online closer to truth      20 0.6667
+stored closer to truth       9 0.3000
+similar (within 0.1 pp)      1 0.0333
+
+## S3d b1c18 top 10 cycles by |d|: window difference
+
+  cell_id  cycle       d  win_maxdiff_mAh  win_argmax  online_valid  stored_valid  upstep_mV  stored_min_step_Ah  tail_ratio
+0   b1c18    673 -1.0389           4.3780         671          True          True     0.0000              0.0000      0.9138
+1   b1c18    360  0.8661           6.5999         265          True          True     0.0000              0.0000      0.9566
+2   b1c18    486  0.7045           6.5429         278          True          True     0.0000              0.0000      0.9504
+3   b1c18    206 -0.6005           6.6331         231          True          True     0.0000              0.0000      0.9766
+4   b1c18    685 -0.3919           3.4365         349          True          True     0.0000              0.0000      0.9095
+5   b1c18    611 -0.3617           3.9498         288          True          True     0.0000              0.0000      0.9367
+6   b1c18    468  0.3443           0.6969          60          True          True     0.0000              0.0000      0.9601
+7   b1c18    431  0.3390           0.8369         233          True          True     0.0000              0.0000      0.9616
+8   b1c18    503  0.3322           0.8082         276          True          True     0.0000              0.0000      0.9642
+9   b1c18    440  0.3313           0.8384         251          True          True     0.0000              0.0000      0.9631
+
+## S3z-1 gate statistics for b1c18
+
+          group  cycle     QD     QC  QD_minus_QC  plateau_frac   med_I  end_gap_Ah  n_dis  upstep_mV  g_window  g_qd_range  g_end  g_current  g_plateau  passes reason
+0   cycles 8-12      8 1.0691 1.1155      -0.0463        0.9770 -4.0000     -0.0133   1191     0.0000      True        True   True       True       True    True       
+1   cycles 8-12      9 1.0694 1.1430      -0.0736        0.9739 -4.0000     -0.0133   1206     0.0000      True        True   True       True       True    True       
+2   cycles 8-12     10 1.0696 1.1704      -0.1009        0.9773 -4.0000     -0.0133   1203     0.0000      True        True   True       True       True    True       
+3   cycles 8-12     11 1.0684 1.1979      -0.1296        0.9774 -4.0000     -0.0133   1198     0.0000      True        True   True       True       True    True       
+4   cycles 8-12     12 1.0698 1.2254      -0.1557        0.9768 -4.0000     -0.0132   1201     0.0000      True        True   True       True       True    True       
+5  cycles 54-58     54 1.0688 1.0685       0.0003        0.9759 -4.0000     -0.0112    430     0.0000      True        True   True       True       True    True       
+6  cycles 54-58     55 1.0690 1.0686       0.0003        0.9733 -4.0000     -0.0111    440     0.0000      True        True   True       True       True    True       
+7  cycles 54-58     56 1.0690 1.0687       0.0003        0.9760 -4.0000     -0.0111    439     0.0000      True        True   True       True       True    True       
+8  cycles 54-58     57 1.0690 1.0687       0.0004        0.9763 -4.0000     -0.0111    440     0.0000      True        True   True       True       True    True       
+9  cycles 54-58     58 1.0686 1.0683       0.0003        0.9766 -4.0000     -0.0115    440     0.0000      True        True   True       True       True    True       
+
+## S3z-2 typical cell: median over the other replay cells
+
+                 QD     QC  QD_minus_QC  plateau_frac   med_I  end_gap_Ah    n_dis  upstep_mV  share_passing  n_cell_cycles
+group                                                                                                                      
+cycles 8-12  1.0739 1.0737       0.0002        0.9755 -4.0000     -0.0111 448.0000     0.0000         1.0000             65
+cycles 54-58 1.0756 1.0746       0.0003        0.9742 -4.0000     -0.0106 446.0000     0.0000         1.0000             65
+
+b1c18 reference-gate outcome per cycle (monitor thresholds): cycle 8: passes all gates; cycle 9: passes all gates; cycle 10: passes all gates; cycle 11: passes all gates; cycle 12: passes all gates; cycle 54: passes all gates; cycle 55: passes all gates; cycle 56: passes all gates; cycle 57: passes all gates; cycle 58: passes all gates
+
+## S3e sample-gap check per cycle
+samples pushed up to the estimate time; dt in s (t x 60); pct_* = percentage of control cycles (neighbours + random agreeing) with a smaller value
+                               n_pushed  max_abs_dV_mV  max_up_dV_mV  max_dt_s  median_dt_s  max_dt_over_median  argmax_dt  V_at_max_dt       d  pct_dt_vs_controls  pct_dV_vs_controls
+role            cell_id cycle                                                                                                                                                          
+isolated        b1c5    158         291       353.5805        0.0000    5.0143       5.0005              1.0027        149       3.0945 -6.5649             57.1429            100.0000
+                b1c28   687         262       110.9256        0.0000    5.0141       3.6255              1.3830         68       3.1430  3.4019             53.5714            100.0000
+                b1c5    159         297       130.5352        0.0000    5.0138       4.7483              1.0559        105       3.1209  1.1851             48.2143            100.0000
+                b1c36   142         304        76.6793        0.0000    5.0142       3.3497              1.4969        162       3.0842  1.1255             53.5714            100.0000
+                b2c17   117         290        12.3806        0.0000    5.0152       4.3338              1.1572        165       3.0681 -1.0110             60.7143             62.5000
+                        115         288        12.4283        0.0000    5.0146       4.6623              1.0756        208       2.9748 -0.9320             60.7143             62.5000
+                        114         286        12.1507        0.0000    5.0144       5.0000              1.0029        201       2.9898 -0.6811             58.9286             53.5714
+                b1c41   588         281        12.3424        0.0000    5.0143       4.1120              1.2194        131       3.0948  0.6475             57.1429             60.7143
+                b2c17   112         304        12.4874        0.0000    5.0143       3.3543              1.4949        218       2.9849 -0.5802             57.1429             69.6429
+                        145         287        11.9857        0.0000    5.0146       4.1087              1.2205         55       3.1592 -0.5247             60.7143             39.2857
+                b2c47   400         266        12.1508        0.0000    5.0143       4.3951              1.1409        182       2.9623  0.4596             58.9286             53.5714
+                b1c36   464         294        11.0988        0.0000    5.0143       2.6405              1.8990         39       3.1880  0.4467             58.9286              7.1429
+                b1c5    365         312        12.1431        0.0000    5.0132       2.6587              1.8856        166       3.0777  0.4360             42.8571             53.5714
+                b1c36   347         282        11.9161        0.0000    5.0113       3.9674              1.2631         77       3.1506  0.4242             17.8571             37.5000
+                b2c17   144         308        12.2652        0.0000    5.0137       2.7989              1.7913         42       3.1934 -0.3864             46.4286             58.9286
+                b2c47   174         296        12.2433        0.0000    5.0155       3.0859              1.6253         41       3.2024  0.3651             66.0714             58.9286
+                b2c17   67          304        12.0296        0.0000    5.0137       3.6193              1.3853         77       3.1515  0.3580             48.2143             48.2143
+                b1c5    483         289        11.1590        0.0000    5.0108       4.0357              1.2416         47       3.1779  0.3463             12.5000             10.7143
+                b2c17   110         302        11.8046        0.0000    5.0136       3.4110              1.4698        237       2.9037 -0.3313             46.4286             30.3571
+neighbour       b1c5    157         288        11.3687        0.0000    5.0143       5.0004              1.0028         50       3.1693 -0.0156             57.1429             14.2857
+                b1c28   686         285        12.4560        0.0000    5.0121       2.3675              2.1170        110       3.1135  0.0776             23.2143             66.0714
+                        688         276        12.1365        0.0000    5.0128       2.7282              1.8374        121       3.0923  0.1090             35.7143             51.7857
+                b1c5    160         312        11.9105        0.0000    5.0142       3.1209              1.6067        168       3.0696 -0.0181             53.5714             35.7143
+                b1c36   141         309        11.5595        0.0000    5.0145       2.9874              1.6785        152       3.0862 -0.0054             58.9286             19.6429
+                        143         297        11.3649        0.0000    5.0123       4.0214              1.2464        189       3.0364  0.0089             32.1429             12.5000
+                b2c17   118         295        12.0192        0.0000    5.0170       3.9546              1.2686        208       2.9897 -0.2412             71.4286             44.6429
+                b1c41   587         286        12.0020        0.0000    5.0142       3.7988              1.3199        104       3.1173  0.0999             55.3571             39.2857
+                        589         287        11.6891        0.5646    5.0113       3.8111              1.3149        125       3.1022  0.1221             16.0714             26.7857
+                b2c17   111         298        12.1946        0.0000    5.0172       3.6992              1.3563        223       2.9617  0.0649             73.2143             55.3571
+                        146         302        12.1947        0.0000    5.0137       3.1613              1.5860         56       3.1578 -0.0746             46.4286             57.1429
+                b2c47   399         285        12.3597        0.0000    5.0140       3.0545              1.6415        137       3.0706  0.0174             50.0000             60.7143
+                        401         279        12.3081        1.0996    5.0133       3.5545              1.4104        184       2.9966  0.0097             42.8571             58.9286
+                b1c36   463         282        12.4379        0.0000    5.0123       3.4712              1.4440        153       3.0747  0.0495             32.1429             62.5000
+                        465         282        11.0293        0.0000    5.0122       3.4003              1.4740        147       3.0796  0.0310             30.3571              1.7857
+                b1c5    364         296        11.7550        0.0000    5.0130       3.8857              1.2901         79       3.1522  0.0093             39.2857             28.5714
+                        366         301        11.4336        0.0000    5.0135       3.4964              1.4339        195       3.0353 -0.0145             44.6429             16.0714
+                b1c36   346         295        12.0211        0.0000    5.0106       3.0552              1.6400         99       3.1353  0.0359              8.9286             46.4286
+                        348         291        11.6014        0.0000    5.0114       3.3497              1.4961         71       3.1527  0.0381             19.6429             25.0000
+                b2c17   143         303        12.4807        0.0000    5.0173       3.0612              1.6390         46       3.1752 -0.0106             75.0000             67.8571
+                b2c47   173         280        13.5660        0.0000    5.0175       4.5235              1.1092        169       3.0299 -0.0108             76.7857             80.3571
+                        175         291        12.0630        0.0000    5.0166       3.5194              1.4254        110       3.1169  0.0038             69.6429             50.0000
+                b2c17   66          289        11.9601        0.0000    5.0132       5.0002              1.0026         65       3.1606  0.0320             41.0714             37.5000
+                        68          300        11.0779        0.0000    5.0120       4.1538              1.2066         63       3.1569  0.0197             21.4286              5.3571
+                b1c5    482         294        11.8236        0.0000    5.0106       3.6814              1.3611        223       2.9611  0.0050             10.7143             30.3571
+                        484         287        11.9000        0.0000    5.0121       4.4005              1.1390         68       3.1586  0.0058             28.5714             33.9286
+                b2c17   109         296        12.0096        0.0000    5.0155       4.0040              1.2526        203       3.0151 -0.1463             64.2857             41.0714
+random agreeing b1c18   92          298        11.1360        0.0000    5.0104       3.7886              1.3225         60       3.1627 -0.0824              7.1429              8.9286
+                        226         295        12.0439        0.0000    5.0121       3.0875              1.6233        191       3.0065 -0.0001             23.2143             48.2143
+                        607         266        10.7336        0.0000    5.0113       2.8917              1.7330        104       3.0963 -0.0600             17.8571              0.0000
+                b1c20   78          300        12.1670        0.0000    5.0154       3.7602              1.3338        179       3.0626  0.0100             60.7143             53.5714
+                        405         266        11.8694        0.0000    5.0139       2.8936              1.7328        137       3.0683  0.0406             48.2143             32.1429
+                b1c36   223         305        12.0096        0.0000    5.0112       2.8354              1.7674         83       3.1444  0.0451             14.2857             41.0714
+                b1c41   473         296        11.1894        0.0000    5.0094       3.4572              1.4490         91       3.1409  0.0776              5.3571             10.7143
+                        566         292        12.7153        0.0000    5.0141       3.3663              1.4895        167       3.0676  0.0591             51.7857             73.2143
+                        990         241        11.5605        0.0000    5.0040       2.9620              1.6894        165       2.9650  0.0201              0.0000             21.4286
+                b1c5    792         275        11.1036        0.0000    5.0128       4.1250              1.2152        186       3.0141  0.0391             37.5000              7.1429
+                b2c38   460         230        12.8079        0.0000    5.0154       2.3736              2.1130         88       3.0825  0.0643             62.5000             75.0000
+                b2c47   81          282        12.5008        0.0000    5.0109       5.0000              1.0022        215       2.9249  0.0019             12.5000             69.6429
+                        507         278        11.5929        0.0000    5.0121       3.1551              1.5886        173       3.0087  0.0146             23.2143             23.2143
+                        561         260        11.0607        0.2718    5.0041       4.0568              1.2335         83       3.1105  0.0027              1.7857              3.5714
+                b3c1    319         226        14.2241       -0.9651    5.0296       5.0073              1.0045         80       3.1418  0.0115             91.0714             87.5000
+                        564         221        13.9304       -1.0033    5.0256       5.0047              1.0042        105       3.1036  0.0214             87.5000             85.7143
+                        599         221        13.8368       -0.9613    5.0321       5.0040              1.0056         52       3.1674  0.0432             98.2143             83.9286
+                        723         220        12.6915       -1.0061    5.0235       5.0038              1.0039        138       3.0449  0.0254             82.1429             71.4286
+                        934         209        13.4449       -1.1434    5.0163       5.0033              1.0026         36       3.1997  0.0515             67.8571             76.7857
+                b3c14   445         220        14.2708       -0.9623    5.0301       5.0051              1.0050         71       3.1416  0.0074             96.4286             89.2857
+                        457         219        15.6736       -0.9909    5.0234       5.0056              1.0035         88       3.1211 -0.0100             80.3571             96.4286
+                        796         195        15.2120       -1.2789    5.0246       5.0027              1.0044         69       3.1159  0.0796             83.9286             92.8571
+                b3c28   410         200        15.6927       -1.3018    5.0297       5.0034              1.0053         83       3.1048  0.0088             92.8571             98.2143
+                        444         197        13.4811       -1.3447    5.0234       5.0027              1.0041         42       3.1641  0.0087             78.5714             78.5714
+                b3c38   236         229        14.7295       -0.6666    5.0272       5.0048              1.0045        144       3.0497 -0.0090             89.2857             91.0714
+                        321         228        15.5192       -0.7563    5.0251       5.0052              1.0040         63       3.1559 -0.0321             85.7143             94.6429
+                        891         222        13.6232       -0.8622    5.0299       5.0050              1.0050        132       3.0629  0.0261             94.6429             82.1429
+                        1151        221        12.4531       -0.7620    5.0160       5.0027              1.0027        115       3.0874  0.0415             66.0714             64.2857
+                        1547        219        11.5423       -0.8593    5.0076       5.0010              1.0013        142       3.0394  0.0620              3.5714             17.8571
+
+## S3e summary by role
+
+                max_abs_dV_mV          max_up_dV_mV        max_dt_s        median_dt_s        max_dt_over_median       
+                       median      max       median    max   median    max      median    max             median    max
+role                                                                                                                   
+isolated              12.2433 353.5805       0.0000 0.0000   5.0143 5.0155      3.9674 5.0005             1.2631 1.8990
+neighbour             12.0020  13.5660       0.0000 1.0996   5.0133 5.0175      3.5545 5.0004             1.4104 2.1170
+random agreeing       12.6915  15.6927      -0.6666 0.2718   5.0154 5.0321      5.0010 5.0073             1.0053 2.1130
+
+b1c5 cycle 158 sample-gap check: before the estimate time the largest time step is 5.01 s (median step 5.00 s) and the largest voltage step 353.6 mV, against control maxima of 5.03 s and 15.7 mV (n=56); the cycle is at control percentile 57 (time step) and 100 (voltage step), above the control range, so a sampling gap is not excluded.
+
+## S4a b1c36 cycles 470-520
+dip cycles (my choice: raw at least 0.5 pp below the centred 5-cycle median; else the minimum): [491, 492]
+          raw  rep_soh_nom  off_raw  flagged  adj_prev  adj_next  qdlin_ok  label_suspect  qdlin_tail_suspect  post_junction  scored2  lab_soh_nom_pp       d  dev_vs_rolling_median5    dip
+cycle                                                                                                                                                                                       
+470   95.2708      95.4412  95.2192    False     False     False      True          False               False          False     True         95.4412  0.0517                  0.0018  False
+471   95.2352      95.4019  95.1993    False     False     False      True          False               False          False     True         95.4019  0.0359                 -0.0000  False
+472   95.2352      95.3843  95.1679    False     False     False      True          False               False          False     True         95.3843  0.0673                  0.0000  False
+473   95.2223      95.3900  95.1781    False     False     False      True          False               False          False     True         95.3900  0.0442                 -0.0129  False
+474   95.2672      95.3665  95.2354    False     False     False      True          False               False          False     True         95.3665  0.0318                  0.0000  False
+475   95.3511      95.3778  95.3180    False     False     False      True          False               False          False     True         95.3778  0.0332                  0.0000  False
+476   95.4399      95.3683  95.4145    False     False     False      True          False               False          False     True         95.3683  0.0254                  0.0000  False
+477   95.4798      95.3689  95.4695    False     False     False      True          False               False          False     True         95.3689  0.0103                  0.0000  False
+478   95.5214      95.3555  95.4945    False     False     False      True          False               False          False     True         95.3555  0.0270                  0.0049  False
+479   95.5165      95.3532  95.5081    False     False     False      True          False               False          False     True         95.3532  0.0084                 -0.0049  False
+480   95.5268      95.3460  95.5130    False     False     False      True          False               False          False     True         95.3460  0.0138                  0.0053  False
+481   95.5327      95.3468  95.5155    False     False     False      True          False               False          False     True         95.3468  0.0172                  0.0162  False
+482   95.4421      95.2775  95.4219    False     False     False      True          False               False          False     True         95.2775  0.0202                  0.0000  False
+483   95.2654      95.1714  95.2345    False     False     False      True          False               False          False     True         95.1714  0.0310                  0.0000  False
+484   95.2106      95.1916  95.1783    False     False     False      True          False               False          False     True         95.1916  0.0323                  0.0000  False
+485   95.1450      95.1937  95.0966    False     False     False      True          False               False          False     True         95.1937  0.0483                  0.0000  False
+486   95.0857      95.1848  95.0574    False     False     False      True          False               False          False     True         95.1848  0.0284                  0.0000  False
+487   95.0542      95.1336  95.0176    False     False     False      True          False               False          False     True         95.1336  0.0365                  0.0000  False
+488   95.0347      95.1373  95.0020    False     False     False      True          False               False          False     True         95.1373  0.0326                  0.0000  False
+489   95.0191      95.0684  94.9439    False     False     False      True          False               False          False     True         95.0684  0.0751                  0.0000  False
+490   94.9409      95.0122  94.8369    False     False     False      True          False               False          False     True         95.0122  0.1040                  0.0000  False
+491   93.7119      94.8582  93.6847    False     False     False      True          False               False          False     True         94.8582  0.0272                 -1.0158   True
+492   92.8918      94.6948  92.9077    False     False     False      True          False               False          False     True         94.6948 -0.0159                 -1.5728   True
+493   94.7276      94.9015  94.6522    False     False     False      True          False               False          False     True         94.9015  0.0755                  0.2631  False
+494   94.4646      94.7664  94.3993    False     False     False      True          False               False          False     True         94.7664  0.0652                 -0.1712  False
+495   94.7143      94.8299  94.6382    False     False     False      True          False               False          False     True         94.8299  0.0762                  0.0785  False
+496   94.6358      94.8282  94.5688    False     False     False      True          False               False          False     True         94.8282  0.0669                  0.0000  False
+497   94.6254      94.8170  94.5708    False     False     False      True          False               False          False     True         94.8170  0.0546                 -0.0104  False
+498   94.6387      94.7877  94.5613    False     False     False      True          False               False          False     True         94.7877  0.0774                  0.0133  False
+499   94.6101      94.7808  94.5308    False     False     False      True          False               False          False     True         94.7808  0.0793                  0.0000  False
+500   94.5556      94.7264  94.4904    False     False     False      True          False               False          False     True         94.7264  0.0652                  0.0000  False
+501   94.5530      94.6908  94.4603    False     False     False      True          False               False          False     True         94.6908  0.0927                  0.0000  False
+502   94.5204      94.6729  94.4443    False     False     False      True          False               False          False     True         94.6729  0.0761                 -0.0148  False
+503   94.5352      94.6642  94.4555    False     False     False      True          False               False          False     True         94.6642  0.0796                  0.0000  False
+504   94.5114      94.6497  94.4509    False     False     False      True          False               False          False     True         94.6497  0.0605                 -0.0090  False
+505   94.5573      94.6570  94.4482    False     False     False      True          False               False          False     True         94.6570  0.1091                  0.0459  False
+506   94.3182      94.5105  94.2683    False     False     False      True          False               False          False     True         94.5105  0.0499                 -0.1460  False
+507   94.4643      94.6150  94.4019    False     False     False      True          False               False          False     True         94.6150  0.0624                  0.0462  False
+508   94.4181      94.5911  94.3494    False     False     False      True          False               False          False     True         94.5911  0.0687                  0.0411  False
+509   94.3770      94.5786  94.3207    False     False     False      True          False               False          False     True         94.5786  0.0563                  0.0000  False
+510   94.3110      94.5349  94.2518    False     False     False      True          False               False          False     True         94.5349  0.0592                  0.0000  False
+511   94.2299      94.4515  94.1756    False     False     False      True          False               False          False     True         94.4515  0.0543                  0.0000  False
+512   94.2262      94.4482  94.1446    False     False     False      True          False               False          False     True         94.4482  0.0816                  0.0000  False
+513   94.1432      94.3907  94.0660    False     False     False      True          False               False          False     True         94.3907  0.0772                  0.0000  False
+514   94.1310      94.3752  94.0399    False     False     False      True          False               False          False     True         94.3752  0.0911                  0.0000  False
+515   94.0628      94.3055  93.9977    False     False     False      True          False               False          False     True         94.3055  0.0651                  0.0000  False
+516   94.0220      94.3150  93.9657    False     False     False      True          False               False          False     True         94.3150  0.0563                  0.0000  False
+517   94.0101      94.2854  93.9376    False     False     False      True          False               False          False     True         94.2854  0.0725                  0.0000  False
+518   93.9952      94.2508  93.9008    False     False     False      True          False               False          False     True         94.2508  0.0945                  0.0000  False
+519   93.9517      94.2127  93.8569    False     False     False      True          False               False          False     True         94.2127  0.0948                  0.0000  False
+520   93.9122      94.1674  93.8308    False     False     False      True          False               False          False     True         94.1674  0.0814                  0.0000  False
+
+## S4a raw-data check of b1c36 dip cycles
+
+  cell_id  cycle  win_maxdiff_Ah  win_argmax  online_valid  stored_valid  mono_online  mono_stored  tail_ratio  qd_end_minus_summary  n_dis  n_dis_cell_median  med_absI  upstep_mV  stored_min_step_Ah
+0   b1c36    491          0.0012          58          True          True         True         True      0.9257                0.0000    441           440.0000    3.9999     0.0000              0.0000
+1   b1c36    492          0.0014          62          True          True         True         True      0.9187                0.0000    431           440.0000    3.9999     0.0000              0.0000
+
+## S4b b3c38 five largest raw jumps (cycles 1200-1450)
+
+         jump     raw  raw_prev  offline_raw  rep_soh_nom  flagged  near_flag  post_junction
+cycle                                                                                       
+1322   0.2069 92.9276   92.7206      92.8150      92.8963    False      False          False
+1234  -0.1563 92.7395   92.8958      92.7608      93.3277    False      False          False
+1325   0.1521 93.2368   93.0847      93.0981      92.8923    False      False          False
+1224   0.1518 92.9248   92.7730      92.8155      93.3736    False      False          False
+1321   0.1413 92.7206   92.5793      92.7080      92.8977    False      False          False
+
+## S4b raw-data statistics around the largest jump (cycle 1322)
+
+       n_dis  med_absI  qdischarge  flagged  adj_prev  adj_next
+cycle                                                          
+1317     306    3.9999      1.0218    False     False     False
+1318     305    3.9999      1.0218    False     False     False
+1319     306    3.9999      1.0217    False     False     False
+1320     305    3.9999      1.0216    False     False     False
+1321     304    3.9999      1.0219    False     False     False
+1322     306    3.9999      1.0219    False     False     False
+1323     305    3.9999      1.0219    False     False     False
+1324     305    3.9999      1.0218    False     False     False
+1325     304    3.9999      1.0218    False     False     False
+1326     305    3.9999      1.0218    False     False     False
+1327     306    4.0000      1.0218    False     False     False
+
+## S4b raw-data check of the two cycles around the largest jump
+
+  cell_id  cycle  win_maxdiff_Ah  win_argmax  online_valid  stored_valid  mono_online  mono_stored  tail_ratio  qd_end_minus_summary  n_dis  n_dis_cell_median  med_absI  upstep_mV  stored_min_step_Ah
+0   b3c38   1321          0.0012          68          True          True         True         True      0.9715                0.0000    304           306.0000    3.9999    -0.9222              0.0000
+1   b3c38   1322          0.0009         660          True          True         True         True      0.9723                0.0000    306           306.0000    3.9999    -0.8459              0.0000
+
+b3c38 largest jump at cycle 1322: +0.207 pp. Flagged or adjacent to a flagged cycle: no. Relative change of 5-cycle medians after vs before: n_dis +0.0%, med_absI -0.0%, qdischarge +0.0%. Raw-data statistics changing by more than 5% (my choice): none.
+
+## S4c b3c38 summary context, cycles 1310-1335
+
+         IR    Tavg    Tmax    Tmin  chargetime  IR_jump_x  Tavg_jump_x  Tmax_jump_x  Tmin_jump_x  chargetime_jump_x   flagged_jumps
+1310 0.0162 35.5920 38.8531 32.0602     10.0433    -0.4198       0.1764      -0.8835      -0.1219             0.0739                
+1311 0.0162 35.5824 38.8913 32.0488     10.0436    -0.1933      -0.3846       0.6573      -0.2577             0.9193                
+1312 0.0162 35.5638 38.7976 32.0303     10.0440    -0.1424      -0.7436      -1.6117      -0.4172             1.1088                
+1313 0.0163 35.5167 38.9266 31.9947     10.0435     0.8365      -1.8831       2.2184      -0.8033            -1.3628                
+1314 0.0162 35.5844 38.8887 32.0343     10.0440    -0.4038       2.7056      -0.6522       0.8935             1.1688                
+1315 0.0162 35.5623 38.9356 31.9766     10.0432    -0.2769      -0.8841       0.8068      -1.3020            -2.0974                
+1316 0.0163 35.5650 38.9325 32.0080     10.0433     1.4912       0.1086      -0.0532       0.7088             0.3326                
+1317 0.0162 35.5584 38.8676 31.9391     10.0437    -1.8314      -0.2648      -1.1162      -1.5549             0.9655                
+1318 0.0162 35.5328 38.8396 31.9831     10.0437     0.6720      -1.0248      -0.4807       0.9929             0.0370                
+1319 0.0162 35.5676 38.9200 32.0232     10.0436    -0.7557       1.3946       1.3809       0.9057            -0.2864                
+1320 0.0162 35.6143 39.0743 32.0127     10.0437     0.3907       1.8680       2.6528      -0.2380             0.3188                
+1321 0.0162 36.0128 39.4446 32.5463     10.0435    -2.6209      15.9417       6.3644      12.0486            -0.5498  Tavg Tmax Tmin
+1322 0.0161 36.3192 39.5736 32.8772     10.0440    -2.2250      12.2566       2.2179       7.4705             1.4599       Tavg Tmin
+1323 0.0161 36.5008 39.7259 33.0034     10.0439    -2.4663       7.2652       2.6167       2.8500            -0.3973            Tavg
+1324 0.0161 36.7216 40.0079 33.3286     10.0438     1.0218       8.8311       4.8484       7.3420            -0.3095  Tavg Tmax Tmin
+1325 0.0160 36.9477 40.1478 33.5691     10.0438    -1.7692       9.0455       2.4041       5.4302             0.0554       Tavg Tmin
+1326 0.0160 37.0470 40.2170 33.6671     10.0432    -2.0381       3.9708       1.1897       2.2120            -1.6354            Tavg
+1327 0.0160 37.0162 40.0289 33.5686     10.0429     0.0301      -1.2310      -3.2330      -2.2238            -0.9286            Tmax
+1328 0.0160 36.9450 40.1465 33.6179     10.0436     0.4018      -2.8468       2.0210       1.1133             2.0004                
+1329 0.0160 37.0692 40.1187 33.6512     10.0436    -1.3148       4.9676      -0.4781       0.7528            -0.0185            Tavg
+1330 0.0160 37.0417 40.1542 33.6295     10.0436     0.1445      -1.0997       0.6112      -0.4919             0.1016                
+1331 0.0160 37.0459 40.1452 33.6449     10.0440     0.3285       0.1653      -0.1554       0.3480             1.1365                
+1332 0.0160 37.0409 40.1904 33.6521     10.0433    -0.3838      -0.1987       0.7772       0.1642            -1.8941                
+1333 0.0160 37.0600 40.1251 33.7188     10.0435    -0.1001       0.7667      -1.1219       1.5043             0.3696                
+1334 0.0160 37.0310 40.1395 33.6727     10.0434     0.0294      -1.1606       0.2459      -1.0402            -0.1940                
+1335 0.0160 37.0336 40.1150 33.6461     10.0436    -0.1760       0.1023      -0.4209      -0.6014             0.4250                
+
+b3c38 cycles 1310-1335: jumps above 3x local variation at cycle 1321: Tavg Tmax Tmin; cycle 1322: Tavg Tmin; cycle 1323: Tavg; cycle 1324: Tavg Tmax Tmin; cycle 1325: Tavg Tmin; cycle 1326: Tavg; cycle 1327: Tmax; cycle 1329: Tavg
+
+## S4c b1c36 summary context, cycles 485-497
+
+        IR    Tavg    Tmax    Tmin  chargetime  IR_jump_x  Tavg_jump_x  Tmax_jump_x  Tmin_jump_x  chargetime_jump_x                 flagged_jumps
+485 0.0168 34.4281 36.8534 32.3107     11.5244     3.9677      -2.9918      -2.1359      -3.0628            -0.2517                       IR Tmin
+486 0.0168 34.2171 36.6370 32.0759     11.5247     3.0101      -1.5899      -1.8840      -1.7357             0.6611                            IR
+487 0.0168 34.1987 36.6266 32.0319     11.6077     1.5334      -0.1389      -0.0899      -0.3253           167.0724                    chargetime
+488 0.0169 34.0993 36.5787 31.9295     11.5246     0.9760      -0.7490      -0.4174      -0.7568          -167.3274                    chargetime
+489 0.0169 33.7025 36.1213 30.6000     11.6078     0.1393      -2.9893      -3.9810      -9.8266           167.6428          Tmax Tmin chargetime
+490 0.0172 32.7850 35.0708 30.7151     11.6081    15.2828      -6.9126      -9.1423       0.8508             0.6510                  IR Tavg Tmax
+491 0.0174 30.8234 34.2051 27.9468     11.6076     9.8419     -14.7789      -7.5349     -20.4612            -1.0369             IR Tavg Tmax Tmin
+492 0.0182 28.8593 32.9949 25.8347     11.5248    39.0553     -14.7977     -10.5319     -15.6110          -166.8475  IR Tavg Tmax Tmin chargetime
+493 0.0175 32.1315 34.6257 30.2987     11.6080   -33.4243      24.6533      14.1930      32.9942           167.4918  IR Tavg Tmax Tmin chargetime
+494 0.0176 32.1034 35.7885 28.9115     11.6078     5.4925      -0.2117      10.1200     -10.2529            -0.3725                  IR Tmax Tmin
+495 0.0172 32.6846 35.0863 30.3573     11.6080   -20.3166       4.3785      -6.1112      10.6862             0.4933             IR Tavg Tmax Tmin
+496 0.0173 32.3710 35.0018 30.1324     11.5247     6.1727      -2.3626      -0.7358      -1.6623          -167.7871                 IR chargetime
+497 0.0174 32.4122 35.1153 30.2082     11.5241     1.4226       0.3102       0.9876       0.5606            -1.0671                              
+
+b1c36 cycles 485-497: jumps above 3x local variation at cycle 485: IR Tmin; cycle 486: IR; cycle 487: chargetime; cycle 488: chargetime; cycle 489: Tmax Tmin chargetime; cycle 490: IR Tavg Tmax; cycle 491: IR Tavg Tmax Tmin; cycle 492: IR Tavg Tmax Tmin chargetime; cycle 493: IR Tavg Tmax Tmin chargetime; cycle 494: IR Tmax Tmin; cycle 495: IR Tavg Tmax Tmin; cycle 496: IR chargetime
+
+## S5b expectations: expected / observed / consistent
+an inconsistent expectation is a finding (WARN), not a failure; E1, E3, E4 were pre-registered, E1p, E3p, E4p are post-hoc, E5 and E6 were registered before the rerun after v4
+                         status                                                expected                                                                                                                                                                 observed consistent
+id                                                                                                                                                                                                                                                                         
+E1               pre-registered                                                 >= 0.80                                                                                                                                                             0.286 (4/14)      False
+E1p                    post-hoc                                                 >= 0.80                                                                                                        0.357 (5/14); cells with differing references: ['b1c18', 'b1c41']      False
+E2               pre-registered                                             >= 10 of 14                                                                                                                                                           12 of 14 cells       True
+E3               pre-registered                              p99 <= 0.10 and max <= 0.5                                                                                                                                         p99 0.2268, max 6.5649 (n=10720)      False
+E3p                    post-hoc                 p99 <= 0.15 and share > 0.5 pp <= 0.002                                                                                                   p99 0.1826, share 0.0990% (n=9093, cells excluded: ['b1c18', 'b1c41'])      False
+E5   registered before v4 rerun             reference-differs False for b1c18 and b1c41                                                                                                                                  differs: {'b1c18': True, 'b1c41': True}      False
+E6   registered before v4 rerun  p99 <= 0.20 and share > 0.5 pp <= 0.002 (all 14 cells)  p99 0.2312, share 0.1303% (n=10744, cells: ['b1c18', 'b1c20', 'b1c28', 'b1c36', 'b1c41', 'b1c5', 'b2c1', 'b2c17', 'b2c38', 'b2c47', 'b3c1', 'b3c14', 'b3c28', 'b3c38'])      False
+E4               pre-registered               >= 0.70 of top 30 'stored/both defective'                                                                                            not evaluated: classification replaced by truth-closeness in v2 (see S3a/S3b)        n/a
+E4p                    post-hoc           max window difference <= 2 mAh (b1c18 top 10)                                                                                                                                          max 6.633 mAh, median 3.693 mAh      False
+
+## S6a |d| quantiles on unflagged, non-adjacent cycles
+same columns as S1b
+           n    p50    p90    p99  p99_9    max  gt_0_1  gt_0_5  gt_1_0
+b1c20    513 0.0430 0.0707 0.0953 0.1017 0.1039  0.0019  0.0000  0.0000
+b1c36    657 0.0442 0.0828 0.1068 0.6802 1.1255  0.0183  0.0015  0.0015
+b1c28    840 0.0537 0.1179 0.1380 0.6739 3.4019  0.2631  0.0012  0.0012
+b1c5    1051 0.0178 0.0400 0.0623 1.1477 6.5649  0.0038  0.0019  0.0019
+b2c1     128 0.0216 0.0535 0.0794 0.0842 0.0844  0.0000  0.0000  0.0000
+b2c38    445 0.0510 0.0740 0.0902 0.1056 0.1069  0.0045  0.0000  0.0000
+b2c17    469 0.1253 0.1938 0.2519 0.4600 0.5247  0.5991  0.0021  0.0000
+b2c47    672 0.0109 0.0251 0.0481 0.3962 0.4596  0.0030  0.0000  0.0000
+b3c28    521 0.0266 0.0458 0.0547 0.0588 0.0592  0.0000  0.0000  0.0000
+b3c14    838 0.0221 0.0809 0.1045 0.2804 0.2932  0.0167  0.0000  0.0000
+b3c1    1043 0.0354 0.0515 0.0606 0.0755 0.0763  0.0000  0.0000  0.0000
+b3c38   1900 0.0448 0.1044 0.1265 0.1331 0.1387  0.1258  0.0000  0.0000
+b1c18    625 0.0904 0.2690 0.3430 0.9311 1.0389  0.4720  0.0064  0.0016
+b1c41   1018 0.0555 0.1078 0.1405 0.2957 0.6475  0.1572  0.0010  0.0000
+ALL    10720 0.0347 0.1047 0.2268 0.4503 6.5649  0.1148  0.0009  0.0005
+
+## S6b warn85 fire cycle (first scored cycle with raw <= 85.0), common cycles only
+all = every compared cycle; clean = only unflagged, non-adjacent cycles; diff = online - offline (cycles); NaN = never reached
+       online_all  offline_all  online_clean  offline_clean  diff_all  diff_clean
+b1c20    498.0000     498.0000      498.0000       498.0000    0.0000      0.0000
+b1c36    648.0000     647.0000      648.0000       647.0000    1.0000      1.0000
+b1c28    794.0000     793.0000      794.0000       793.0000    1.0000      1.0000
+b1c5    1034.0000    1034.0000     1034.0000      1034.0000    0.0000      0.0000
+b2c1     118.0000     118.0000      118.0000       118.0000    0.0000      0.0000
+b2c38    436.0000     435.0000      436.0000       435.0000    1.0000      1.0000
+b2c17    461.0000     460.0000      461.0000       460.0000    1.0000      1.0000
+b2c47    657.0000     657.0000      657.0000       657.0000    0.0000      0.0000
+b3c28    492.0000     492.0000      492.0000       492.0000    0.0000      0.0000
+b3c14    820.0000     819.0000      820.0000       819.0000    1.0000      1.0000
+b3c1    1011.0000    1010.0000     1011.0000      1010.0000    1.0000      1.0000
+b3c38   1799.0000    1794.0000     1799.0000      1794.0000    5.0000      5.0000
+b1c18    640.0000     642.0000      640.0000       642.0000   -2.0000     -2.0000
+b1c41    989.0000     989.0000      989.0000       989.0000    0.0000      0.0000
+
+warn85 on clean cycles: 14 cells reach 85.0 in both; online - offline fire cycle: median +0.5, equal in 6, within 2 cycles in 13, larger in 1. On all compared cycles: equal in 6 of 14.
+
+## S7a conclusion table
+
+                                                                                                                                                                                                                                                                                                                                                                        value
+item                                                                                                                                                                                                                                                                                                                                                                         
+|d|>0.5 pp cycles in cells with differing online references                                                                                                                                                                                                                                                                         5 of 14 (35.7%); cells ['b1c18', 'b1c41']
+|d|>0.5 pp cycles flagged or adjacent to a flagged cycle                                                                                                                                                                                                                                                                                                      4 of 14 (28.6%)
+top-30 development cycles: online closer to truth                                                                                                                                                                                                                                                                                                                  20 (66.7%)
+top-30 development cycles: stored closer to truth                                                                                                                                                                                                                                                                                                                   9 (30.0%)
+top-30 development cycles: similar (within 0.1 pp)                                                                                                                                                                                                                                                                                                                   1 (3.3%)
+forced stored references, b1c18                                                                                                                                                                                                                                                 median |d| 0.090 -> 0.015 pp (p99 0.343 -> 0.169 pp); effect confirmed; residual tail remains
+forced stored references, b1c41                                                                                                                                                                                                                                                                        median |d| 0.055 -> 0.017 pp (p99 0.140 -> 0.069 pp); effect confirmed
+typical signed difference (median, 95% CI)                                                                                                                                                                                                                                                                                +0.0295 pp [+0.0286, +0.0304]; online above offline
+typical |d| (median / p99 / max)                                                                                                                                                                                                                                                                                                                  0.0346 / 0.2312 / 6.5649 pp
+excluding b1c18 (p99 / share above 0.5 pp)                                                                                                                                                                                                                                                                                                                 0.1803 pp / 0.099%
+cells without differing references (p99 / share above 0.5 pp)                                                                                                                                                                                                                                                                                              0.1826 pp / 0.099%
+b1c5 cycle 158 sample-gap check                                before the estimate time the largest time step is 5.01 s (median step 5.00 s) and the largest voltage step 353.6 mV, against control maxima of 5.03 s and 15.7 mV (n=56); the cycle is at control percentile 57 (time step) and 100 (voltage step), above the control range, so a sampling gap is not excluded
+
+## Suggested limitations text
+- Online references differ from the stored ones in ['b1c18', 'b1c41']; these cells contribute 5 of the 14 cycles with |d| > 0.5 pp (36%). Parity statistics should be quoted with and without them.
+- Forced stored references in b1c18: median |d| 0.090 -> 0.015 pp (p99 0.343 -> 0.169 pp), so the reference effect on the bulk is confirmed; a tail remains (max 0.795 pp) that the references do not explain.
+- Forced stored references in b1c41: median |d| 0.055 -> 0.017 pp (p99 0.140 -> 0.069 pp), so the reference effect on the bulk is confirmed.
+- Top 30 differences in development cells, closeness to soh_nom: 20 online closer to truth, 9 stored closer to truth, 1 similar (within 0.1 pp).
+- Typical agreement: median |d| 0.0346 pp, median signed d +0.0295 pp, online above offline; excluding b1c18 p99 |d| 0.1803 pp and 0.099% of cycles above 0.5 pp.
+- Temperature (observational; two episodes in two cells, not a calibrated sensitivity, correlation not proof; M0 has no temperature input; figures from the v2 run, S4a/S4c): b3c38 cycles 1321-1329: average temperature rises from 35.6 to 37.0 C (minimum 32.0 to 33.6 C), flagged as jumps above 3x local variation, internal resistance unchanged (0.0162 to 0.0160); the estimate steps up by about 0.8 pp while the true SOH is smooth (about 0.6 pp per C). b1c36 cycles 489-493: average temperature falls from 34.4 to 28.9 C (minimum 25.8 C) with an internal-resistance jump, recovering at cycle 493; the estimate dips to 93.7 and 92.9 pp against a true 94.9 and 94.7 (about 0.2-0.3 pp per C). A measurement across all development cells would settle whether temperature drives these artifacts.
+- Unresolved isolated case, b1c5 cycle 158: online 92.3 pp, offline 98.9 pp, true 98.0 pp; the online window differs from the stored one by 0.143 Ah, largest at grid index 641 (V about 2.54 V); one cycle in 10,744, cause unresolved. Sample-gap check (S3e): before the estimate time the largest time step is 5.01 s (median step 5.00 s) and the largest voltage step 353.6 mV, against control maxima of 5.03 s and 15.7 mV (n=56); the cycle is at control percentile 57 (time step) and 100 (voltage step), above the control range, so a sampling gap is not excluded. The earlier hypothesis that upward voltage steps latched by the running minimum cause the isolated spikes is refuted (largest upward step 0.0 mV in the 20 worst cycles).
+- The compared rows are scored2 cycles, so offline-flagged cycles are mostly absent by construction; flags do not explain the tail.
+- Flag definition, reference-difference rule, closeness band (0.1 pp), jump rule (3x robust sigma), dip rule and tolerances are my choices and were not tuned on labels. E1p, E3p and E4p were written after the first results were seen; E5 and E6 were registered before the rerun after v4. The temperature figures above are quoted from the v2 run.
+
+## Appendix A flag definitions vs earlier-phase counts
+earlier phases: 289 flagged cycles, 208 of them in b2c40; the definition used is named in the report header
+                                           definition        universe  flagged  in_b2c40  matches_289_208
+0   A: ~qdlin_ok | label_suspect | qdlin_tail_suspect        all rows      444       210            False
+1   A: ~qdlin_ok | label_suspect | qdlin_tail_suspect      kept cells      439       210            False
+2   A: ~qdlin_ok | label_suspect | qdlin_tail_suspect  kept & scored2        0         0            False
+3  B: ~qdlin_ok2 | label_suspect | qdlin_tail_suspect        all rows      444       210            False
+4  B: ~qdlin_ok2 | label_suspect | qdlin_tail_suspect      kept cells      439       210            False
+5  B: ~qdlin_ok2 | label_suspect | qdlin_tail_suspect  kept & scored2        0         0            False
+6                                       C: ~qdlin_ok2        all rows      355       210            False
+7                                       C: ~qdlin_ok2      kept cells      350       210            False
+8                                       C: ~qdlin_ok2  kept & scored2        0         0            False
+
+## S7b checks
+PASS 45 / WARN 8 / FAIL 0
+                                                                                               status                                                                                                                                                                                                                                             detail
+check                                                                                                                                                                                                                                                                                                                                                   
+hash guard start: src/health_monitor.py                                                          PASS                                                                                                                                                                                                    expected a9531dde7d93.. observed a9531dde7d93..
+hash guard start: src/onnx_scorer.py                                                             PASS                                                                                                                                                                                                    expected 7f56bd5b5df0.. observed 7f56bd5b5df0..
+hash guard start: outputs/phase8a/models/M0_W240.onnx                                            PASS                                                                                                                                                                                                    expected 4fe196d3f778.. observed 4fe196d3f778..
+hash guard start: outputs/phase7b/monitor_config.json                                            PASS                                                                                                                                                                                                    expected 638b6c3a6ad3.. observed 638b6c3a6ad3..
+provenance: phase8b replay was produced by the frozen health_monitor.py                          PASS                                                    phase8b verification_report health_monitor_sha256=a9531dde7d93.., frozen (re-registered)=a9531dde7d93.., superseded values: brief=b280094074df.., v1=c3f0a5367373.., v2 (pre-v4)=0aa411d7a09e..
+labels columns present                                                                           PASS                                                                                                                                                                                                                          missing=[]; n_rows=104971
+labels (cell, cycle) unique                                                                      PASS                                                                                                                                                                                                                                  no duplicate keys
+development cells                                                                                PASS                                                                                                                                                                                                              84 development cells (8b expected 84)
+kept cells                                                                                       PASS                                                                                                                                                                                      124 kept cells in kept_cells_groups_strata.csv (expected 124)
+flagged count vs earlier phases (289 total, 208 in b2c40)                                        WARN                                      no definition reproduces the counts (pre-stated or extended search over up to 3 flag terms in 4 row universes); using the pre-stated definition A: ~qdlin_ok | label_suspect | qdlin_tail_suspect (see table)
+stored Qdlin shape                                                                               PASS                                                                                                                                                                                                                               shape=(104971, 1000)
+W240 dq cache shape                                                                              PASS                                                                                                                                                                                                                                 shape=(96419, 734)
+row_id within Qdlin array                                                                        PASS                                                                                                                                                                                                                                  max row_id=104970
+scored2 kept-cell rows == cache rows                                                             PASS                                                                                                                                                             scored2 & kept rows=96419 (scored2 all cells=100793), cache rows=96419, expected 96419
+W240 window located in Qdlin row (row differences, my choice: PASS<=1e-6, WARN<=1e-5 Ah)         PASS                                                                                                                                            dq[j] = Q[0+j] - Q[0] up to a per-cell constant; worst first-vs-last deviation 6.26e-08 Ah over 6 cells
+cache grid indexing aligned with the online window (w[k] = Q[k]-Q[0])                            PASS                                                                                                                    cache offset a=0, b=0; online window index k is Q at grid index k; a nonzero offset would shift every feature by 0 grid step(s)
+grid matches M0_W240.npz                                                                         PASS                                                                                                                                                                                                                                       len(grid)=32
+q0 finite and plausible (Ah)                                                                     PASS                                                                                                                                                                                                                               range 1.0487..1.0981
+offline raw computed                                                                             PASS                                                                                                                                                                                                                     n=96419, range 77.63..99.90 pp
+replay columns present                                                                           PASS                                                                                                                                                                                                                                         missing=[]
+replay cycles matched to cache                                                                   PASS                                                                                                                                                                                                                    compared 10744 of 10926 OK rows
+raw/offline finite                                                                               PASS                                                                                                                                                                                                                                            n=10744
+reproduces pooled 8b replay-set aggregate: median |d|                                            PASS                                                                            row set 'excluding b1c18' (best single set; worst deviation 0.68 of tolerance): 0.03269 pp vs 8b pooled 0.03205 pp (tolerance 0.002, my choice); all-cell value 0.03463
+reproduces pooled 8b replay-set aggregate: p99 |d|                                               PASS                                                                             row set 'excluding b1c18' (best single set; worst deviation 0.68 of tolerance): 0.18026 pp vs 8b pooled 0.17344 pp (tolerance 0.01, my choice); all-cell value 0.23119
+reproduces pooled 8b replay-set aggregate: max |d|                                               PASS                                                                             row set 'excluding b1c18' (best single set; worst deviation 0.68 of tolerance): 6.56492 pp vs 8b pooled 6.56492 pp (tolerance 0.05, my choice); all-cell value 6.56492
+S2 large differences found                                                                       PASS                                                                                                                                                                                                   14 cycles with |d|>0.5 pp; 4 flagged or adjacent
+raw files opened                                                                                 PASS                                                                                                                                                                                                                                  batches [1, 2, 3]
+Vdlin grid                                                                                       PASS                                                                                                                                                                                                                    len=1000, V from 3.500 to 2.000
+raw file cell/cycle mapping reproduces stored Qdlin                                              PASS                                                                                                                                                                                      max |raw-file Qdlin - stored| = 5.96e-08 Ah on 3 clean cycles
+monitor API preflight (reference gate constants, builder attributes, _ref_ok)                    PASS           constants {'REF_START': 8, 'REF_DEADLINE': 60, 'N_REF': 5, 'REF_I_BAND': 0.1, 'REF_QD_RANGE': (0.5, 1.3), 'REF_END_TOL': 0.046, 'REF_I_NOM': -4.0, 'REF_I_TOL': 0.05, 'REF_I_MIN_FRAC': 0.92}; _ref_ok(self, b, qd_total, qc_total=None)
+stored Qref is constant within a cell (derivation valid)                                         PASS                                                                                                                                                                                       max first-vs-last spread 7.10e-08 Ah (limit 1e-4, my choice)
+reference emulation sanity (regular cells: same reference cycles and Q0 as stored, per 8b H18)   PASS                                                                                                                                                                               12 of 12 regular cells have online == stored reference cycles and Q0
+cells whose online references differ from the stored ones                                        PASS                                                                                                                                                                                                                                 ['b1c18', 'b1c41']
+forced-reference effect b1c18                                                                    PASS                                                                                                        median |d| 0.0904 -> 0.0151 pp (confirmed if forced median <= 0.05 pp and below replayed; post-hoc, my choice); p99 |d| 0.3430 -> 0.1690 pp
+forced-reference effect b1c41                                                                    PASS                                                                                                        median |d| 0.0549 -> 0.0167 pp (confirmed if forced median <= 0.05 pp and below replayed; post-hoc, my choice); p99 |d| 0.1402 -> 0.0694 pp
+development rows available for the top list                                                      PASS                                                                                                                                                                                                 6442 compared rows in development cells (of 10744)
+S3 truth-closeness complete                                                                      PASS                                                                                                                                                                                                                                30 of 30 classified
+sample-gap time axis plausible (t minutes x 60 -> s; median step 0.1-60 s, my choice)            PASS                                                                                                                                                                                                     median time step of the control cycles 3.805 s
+sample-gap check complete                                                                        PASS                                                                                                                                                                                                        19 of 19 isolated cycles, 56 control cycles
+expectation E1 (pre-registered)                                                                  WARN                                                                                                                                                                                                            expected >= 0.80; observed 0.286 (4/14)
+expectation E1p (post-hoc)                                                                       WARN                                                                                                                                                       expected >= 0.80; observed 0.357 (5/14); cells with differing references: ['b1c18', 'b1c41']
+expectation E2 (pre-registered)                                                                  PASS                                                                                                                                                                                                      expected >= 10 of 14; observed 12 of 14 cells
+expectation E3 (pre-registered)                                                                  WARN                                                                                                                                                                     expected p99 <= 0.10 and max <= 0.5; observed p99 0.2268, max 6.5649 (n=10720)
+expectation E3p (post-hoc)                                                                       WARN                                                                                                                  expected p99 <= 0.15 and share > 0.5 pp <= 0.002; observed p99 0.1826, share 0.0990% (n=9093, cells excluded: ['b1c18', 'b1c41'])
+expectation E5 (registered before v4 rerun)                                                      WARN                                                                                                                                             expected reference-differs False for b1c18 and b1c41; observed differs: {'b1c18': True, 'b1c41': True}
+expectation E6 (registered before v4 rerun)                                                      WARN  expected p99 <= 0.20 and share > 0.5 pp <= 0.002 (all 14 cells); observed p99 0.2312, share 0.1303% (n=10744, cells: ['b1c18', 'b1c20', 'b1c28', 'b1c36', 'b1c41', 'b1c5', 'b2c1', 'b2c17', 'b2c38', 'b2c47', 'b3c1', 'b3c14', 'b3c28', 'b3c38'])
+expectation E4p (post-hoc)                                                                       WARN                                                                                                                                                   expected max window difference <= 2 mAh (b1c18 top 10); observed max 6.633 mAh, median 3.693 mAh
+hash guard end: src/health_monitor.py                                                            PASS                                                                                                                                                                                                    expected a9531dde7d93.. observed a9531dde7d93..
+hash guard end: src/onnx_scorer.py                                                               PASS                                                                                                                                                                                                    expected 7f56bd5b5df0.. observed 7f56bd5b5df0..
+hash guard end: outputs/phase8a/models/M0_W240.onnx                                              PASS                                                                                                                                                                                                    expected 4fe196d3f778.. observed 4fe196d3f778..
+hash guard end: outputs/phase7b/monitor_config.json                                              PASS                                                                                                                                                                                                    expected 638b6c3a6ad3.. observed 638b6c3a6ad3..
+frozen files unchanged between start and end                                                     PASS                                                                                                                                                                                                                          all four hashes identical
+runtime                                                                                          PASS                                                                                                                                                                                                                              30 s (target < 600 s)
+
+## S7c artifacts
+
+                                                                   bytes  written_this_run
+file                                                                                      
+appendix_a2_single_term_flag_counts_per_row_universe__to_loc.csv    1025              True
+appendix_a_flag_definitions_vs_earlier_phase_counts.csv              646              True
+fig_b1c36.png                                                      66195              True
+fig_b3c38.png                                                      70597              True
+phase8c_log.jsonl                                                  15574              True
+phase8c_report.txt                                                113138              True
+s1a_coverage_per_cell.csv                                            315              True
+s1b__d__quantiles__pp__and_exceedance_shares.csv                    2222              True
+s1c_signed_d__pp__with_95__bootstrap_interval.csv                   2089              True
+s1d_by_cell_p99__d___pp__and_share_above_0_5_pp__excluding_b.csv     620              True
+s1e_pooled__d___pp__on_candidate_row_sets_vs_the_8b_pooled_a.csv     316              True
+s1z_flag_definitions_vs_earlier_phase_counts.csv                     646             False
+s2a_top_40_cycles_by__d.csv                                         7150              True
+s2b_large_differences_vs_flags.csv                                   216              True
+s2c_clustering_of__d____0_5_pp_cycles.csv                             71              True
+s2d_runs_of_consecutive_large_difference_cycles.csv                  256              True
+s3a_raw_data_check_of_top_30_cycles_by__d.csv                       6485             False
+s3a_top_30_cycles_by__d__in_development_cells__truth_closene.csv    9311              True
+s3b_classification_counts.csv                                         65             False
+s3b_truth_closeness_counts.csv                                       146              True
+s3d_b1c18_top_10_cycles_by__d___window_difference.csv               1219              True
+s3e_sample_gap_check_per_cycle.csv                                 13135              True
+s3e_summary_by_role.csv                                              759              True
+s3x_online_vs_stored_references_per_replay_cell.csv                 2217              True
+s3y_forced_reference_experiment___d___pp__vs_offline.csv             950              True
+s3z_1_gate_statistics_for_b1c18.csv                                 1721              True
+s3z_2_typical_cell__median_over_the_other_replay_cells.csv           362              True
+s4a_b1c36_cycles_470_520.csv                                        8150              True
+s4a_raw_data_check_of_b1c36_dip_cycles.csv                           455              True
+s4b_b3c38_five_largest_raw_jumps__cycles_1200_1450.csv               655              True
+s4b_raw_data_check_of_the_two_cycles_around_the_largest_jump.csv     481              True
+s4b_raw_data_statistics_around_the_largest_jump__cycle_1322.csv      666              True
+s4c_b1c36_summary_context__cycles_485_497.csv                       2511              True
+s4c_b3c38_summary_context__cycles_1310_1335.csv                     4876              True
+s5a___expectations_registered_before_the_8c_rerun_after_v4__.csv     232              True
+s5a__post_hoc_expectations__revised_after_the_first_results_.csv     390              True
+s5a_original_expectations__pre_registered_in_v1.csv                  422              True
+s5a_registered_expectations.csv                                      422             False
+s5b_expectations__expected___observed___consistent.csv              1081              True
+s6a__d__quantiles_on_unflagged__non_adjacent_cycles.csv             2198              True
+s6b_warn85_fire_cycle__first_scored_cycle_with_raw____85_0__.csv     629              True
+s7a_conclusion_table.csv                                            1255              True
+s7b_checks.csv                                                      6275              True
+s7c_artifacts.csv                                                   2312             False
+verification_report.json                                           17180             False

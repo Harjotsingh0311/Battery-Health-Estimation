@@ -1,0 +1,1398 @@
+{
+  "checks": [
+    {
+      "detail": "torch.cuda.is_available() = True",
+      "name": "CUDA available (extra rows only; all latency numbers are CPU)",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W240.npz: got 29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe",
+      "name": "[start] sha256 M0_W240.npz",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W300.npz: got 06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2",
+      "name": "[start] sha256 M0_W300.npz",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0idx_W240.npz: got b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18",
+      "name": "[start] sha256 M0idx_W240.npz",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0idx_W300.npz: got 0e7430ee1586a57b38207ce95e7d73b902b230678a92c0f32a4a704e5c05e99e",
+      "name": "[start] sha256 M0idx_W300.npz",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch3_predictions.parquet: got 679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd",
+      "name": "[start] sha256 batch3_predictions.parquet",
+      "status": "PASS"
+    },
+    {
+      "detail": "soh_deep_v4.py: got 2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4",
+      "name": "[start] sha256 soh_deep_v4.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "monitor_config.json: got 638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+      "name": "[start] sha256 monitor_config",
+      "status": "PASS"
+    },
+    {
+      "detail": "monitor_config_addendum.json: got d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632",
+      "name": "[start] sha256 monitor_config_addendum",
+      "status": "PASS"
+    },
+    {
+      "detail": "self_hash 2be9ce5ded197b16",
+      "name": "soh_deep_v4 on disk is the guarded file",
+      "status": "PASS"
+    },
+    {
+      "detail": "shapes [('fc1.weight', (44, 33)), ('fc1.bias', (44,)), ('fc2.weight', (32, 44)), ('fc2.bias', (32,)), ('fc3.weight', (1, 32)), ('fc3.bias', (1,))], count_params 2969 (expected 2969)",
+      "name": "module architecture M0 33->44->32->1",
+      "status": "PASS"
+    },
+    {
+      "detail": "shapes [('fc1.weight', (44, 34)), ('fc1.bias', (44,)), ('fc2.weight', (32, 44)), ('fc2.bias', (32,)), ('fc3.weight', (1, 32)), ('fc3.bias', (1,))], count_params 3013 (expected 3013)",
+      "name": "module architecture M0+idx 34->44->32->1",
+      "status": "PASS"
+    },
+    {
+      "detail": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\data\\processed\\labels_table_v2.parquet",
+      "name": "input exists: labels_table_v2.parquet",
+      "status": "PASS"
+    },
+    {
+      "detail": "C:\\workstation\\3RD YEAR\\Battery-Health-Estimation\\data\\processed\\splits\\protocol_D.csv",
+      "name": "input exists: protocol_D.csv",
+      "status": "PASS"
+    },
+    {
+      "detail": "84",
+      "name": "84 development cells",
+      "status": "PASS"
+    },
+    {
+      "detail": "40",
+      "name": "40 batch-3 cells",
+      "status": "PASS"
+    },
+    {
+      "detail": "0 shared",
+      "name": "no cell in both sets",
+      "status": "PASS"
+    },
+    {
+      "detail": "dev 55,963, batch 3 40,456, total 96,419",
+      "name": "scored rows: dev 55,963, batch 3 40,456, total 96,419",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "name": "q0 and cycle_number finite",
+      "status": "PASS"
+    },
+    {
+      "detail": "124",
+      "name": "fleet snapshot is 124 rows (one per cell)",
+      "status": "PASS"
+    },
+    {
+      "detail": "dq_W300_b1c0103adbcf.npy shape (96419, 334) dtype float32",
+      "name": "stored DeltaQ block W300",
+      "status": "PASS"
+    },
+    {
+      "detail": "dq_W240_b1c0103adbcf.npy shape (96419, 734) dtype float32",
+      "name": "stored DeltaQ block W240",
+      "status": "PASS"
+    },
+    {
+      "detail": "columns ['model', 'window', 'seed', 'row_id', 'cell_id', 'pred_pp']",
+      "name": "predictions parquet has the needed columns",
+      "status": "PASS"
+    },
+    {
+      "detail": "shape (40456, 5), seeds [42, 43, 44, 45, 46]",
+      "name": "7a predictions complete [M0_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "shape (40456, 5), seeds [42, 43, 44, 45, 46]",
+      "name": "7a predictions complete [M0_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "shape (40456, 5), seeds [42, 43, 44, 45, 46]",
+      "name": "7a predictions complete [M0idx_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "shape (40456, 5), seeds [42, 43, 44, 45, 46]",
+      "name": "7a predictions complete [M0idx_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "40,456 rows",
+      "name": "batch-3 labels complete (descriptive reproduction only; nothing is selected with them)",
+      "status": "PASS"
+    },
+    {
+      "detail": "kind M0, head abs, L 734, window W240, n_extra 0, seeds [42, 43, 44, 45, 46], grid==sub_idx(L) True",
+      "name": "npz metadata [M0_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "kind M0, head abs, L 334, window W300, n_extra 0, seeds [42, 43, 44, 45, 46], grid==sub_idx(L) True",
+      "name": "npz metadata [M0_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "kind M0, head abs, L 734, window W240, n_extra 1, seeds [42, 43, 44, 45, 46], grid==sub_idx(L) True",
+      "name": "npz metadata [M0idx_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "kind M0, head abs, L 334, window W300, n_extra 1, seeds [42, 43, 44, 45, 46], grid==sub_idx(L) True",
+      "name": "npz metadata [M0idx_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "per-seed max 7.63e-06, median 0.00e+00; ensemble mean max 3.05e-06, median 0.00e+00 (rows 40,456)",
+      "name": "PyTorch rebuild reproduces 7a to 1e-4 pp [M0_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "per-seed max 7.63e-06, median 0.00e+00; ensemble mean max 3.05e-06, median 0.00e+00 (rows 40,456)",
+      "name": "PyTorch rebuild reproduces 7a to 1e-4 pp [M0_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "per-seed max 7.63e-06, median 0.00e+00; ensemble mean max 4.58e-06, median 0.00e+00 (rows 40,456)",
+      "name": "PyTorch rebuild reproduces 7a to 1e-4 pp [M0idx_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "per-seed max 7.63e-06, median 0.00e+00; ensemble mean max 4.58e-06, median 0.00e+00 (rows 40,456)",
+      "name": "PyTorch rebuild reproduces 7a to 1e-4 pp [M0idx_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "55 weight tensors, mismatches 0 [], parameters 14,845, non-weight constants ['const_n_members']",
+      "name": "every weight comes from the npz [M0_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "ops ['Add', 'Concat', 'Div', 'Gemm', 'Mul', 'Relu', 'Sub', 'Sum'], opset 17, ir 8, batch dim N",
+      "name": "no control flow, dynamic batch axis, opset >= 17 [M0_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "55 weight tensors, mismatches 0 [], parameters 14,845, non-weight constants ['const_n_members']",
+      "name": "every weight comes from the npz [M0_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "ops ['Add', 'Concat', 'Div', 'Gemm', 'Mul', 'Relu', 'Sub', 'Sum'], opset 17, ir 8, batch dim N",
+      "name": "no control flow, dynamic batch axis, opset >= 17 [M0_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "65 weight tensors, mismatches 0 [], parameters 15,065, non-weight constants ['const_n_members']",
+      "name": "every weight comes from the npz [M0idx_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "ops ['Add', 'Concat', 'Div', 'Gemm', 'Mul', 'Relu', 'Sub', 'Sum'], opset 17, ir 8, batch dim N",
+      "name": "no control flow, dynamic batch axis, opset >= 17 [M0idx_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "65 weight tensors, mismatches 0 [], parameters 15,065, non-weight constants ['const_n_members']",
+      "name": "every weight comes from the npz [M0idx_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "ops ['Add', 'Concat', 'Div', 'Gemm', 'Mul', 'Relu', 'Sub', 'Sum'], opset 17, ir 8, batch dim N",
+      "name": "no control flow, dynamic batch axis, opset >= 17 [M0idx_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W240_int8.onnx written",
+      "name": "optional int8 model built",
+      "status": "PASS"
+    },
+    {
+      "detail": "21 distinct files, outside-allowed 0, npz read ['M0_W240.npz', 'M0_W300.npz', 'M0idx_W240.npz', 'M0idx_W300.npz']",
+      "name": "no checkpoint other than the four npz files was opened",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 1.373e-05, p99 1.068e-05, median 3.052e-06 pp over 96,419 rows",
+      "name": "S3a ONNX Runtime CPU vs PyTorch fp32 [M0_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 1.526e-05, p99 1.068e-05, median 3.052e-06 pp over 96,419 rows",
+      "name": "S3a ONNX Runtime CPU vs PyTorch fp32 [M0_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 1.526e-05, p99 1.068e-05, median 3.052e-06 pp over 96,419 rows",
+      "name": "S3a ONNX Runtime CPU vs PyTorch fp32 [M0idx_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 1.526e-05, p99 1.068e-05, median 3.052e-06 pp over 96,419 rows",
+      "name": "S3a ONNX Runtime CPU vs PyTorch fp32 [M0idx_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "ONNX 0.419568, 7a parquet 0.419568, difference +4.85e-09",
+      "name": "S3b ONNX cell-macro MAE equals the 7a parquet value to 1e-4 pp [M0_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "ONNX 0.419568 vs 7a verdict 0.419568, difference -2.99e-08",
+      "name": "S3b ONNX reproduces the 7a verdict number to 1e-4 pp [M0_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "ONNX 0.597169, 7a parquet 0.597169, difference -3.82e-09",
+      "name": "S3b ONNX cell-macro MAE equals the 7a parquet value to 1e-4 pp [M0_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "ONNX 0.597169 vs 7a verdict 0.597169, difference +7.76e-08",
+      "name": "S3b ONNX reproduces the 7a verdict number to 1e-4 pp [M0_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "ONNX 0.546179, 7a parquet 0.546179, difference +3.56e-08",
+      "name": "S3b ONNX cell-macro MAE equals the 7a parquet value to 1e-4 pp [M0idx_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "ONNX 0.640558, 7a parquet 0.640558, difference -3.30e-08",
+      "name": "S3b ONNX cell-macro MAE equals the 7a parquet value to 1e-4 pp [M0idx_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "4 runs on 10,000 rows, max difference 0.0e+00",
+      "name": "S3c same inputs give identical outputs across runs and sessions [M0_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "4 runs on 10,000 rows, max difference 0.0e+00",
+      "name": "S3c same inputs give identical outputs across runs and sessions [M0_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "4 runs on 10,000 rows, max difference 0.0e+00",
+      "name": "S3c same inputs give identical outputs across runs and sessions [M0idx_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "4 runs on 10,000 rows, max difference 0.0e+00",
+      "name": "S3c same inputs give identical outputs across runs and sessions [M0idx_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 0.00e+00 pp, 500/500 identical (fp32 spacing at 90 pp is 7.6e-6)",
+      "name": "S3d single-row vs batched outputs [M0_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 0.00e+00 pp, 500/500 identical (fp32 spacing at 90 pp is 7.6e-6)",
+      "name": "S3d single-row vs batched outputs [M0_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 0.00e+00 pp, 500/500 identical (fp32 spacing at 90 pp is 7.6e-6)",
+      "name": "S3d single-row vs batched outputs [M0idx_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 0.00e+00 pp, 500/500 identical (fp32 spacing at 90 pp is 7.6e-6)",
+      "name": "S3d single-row vs batched outputs [M0idx_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 1.53e-05 pp on 4,096 rows",
+      "name": "timing modules agree (torch vs ONNX) [M0_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 1.53e-05 pp on 4,096 rows",
+      "name": "timing modules agree (torch vs ONNX) [M0_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 1.53e-05 pp on 4,096 rows",
+      "name": "timing modules agree (torch vs ONNX) [M0idx_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 1.53e-05 pp on 4,096 rows",
+      "name": "timing modules agree (torch vs ONNX) [M0idx_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "repeats min 100, max 5000; configurations below 5000: 27 of 39",
+      "name": "every latency configuration reached at least 100 repeats (or the smoke count)",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed 6.7404 ms vs limit 10.0 ms (model only)",
+      "name": "engineering target: at most 10 ms per cell update (batch 1, p99, ORT 1 thread)",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed 5.8155 ms vs limit 50.0 ms (model only)",
+      "name": "engineering target: at most 50 ms for 124 cells (one call, p99, ORT 1 thread)",
+      "status": "PASS"
+    },
+    {
+      "detail": "fp32 0.419568, int8 0.424668, change +0.005100 pp, max |row diff| 0.5247 pp",
+      "name": "int8 batch-3 cell-macro MAE change reported",
+      "status": "PASS"
+    },
+    {
+      "detail": "rows [63750, 66094, 73154], max diff 7.63e-06 pp, window W240, sha256 4fe196d3f778",
+      "name": "scorer reproduces 3 stored batch-3 predictions to 1e-4 pp [M0_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "rows [63750, 66094, 73154], max diff 7.63e-06 pp, window W300, sha256 4e8cd5235869",
+      "name": "scorer reproduces 3 stored batch-3 predictions to 1e-4 pp [M0_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "rows [63750, 66094, 73154], max diff 6.10e-06 pp, window W240, sha256 50ea2ebbf287",
+      "name": "scorer reproduces 3 stored batch-3 predictions to 1e-4 pp [M0idx_W240]",
+      "status": "PASS"
+    },
+    {
+      "detail": "rows [63750, 66094, 73154], max diff 6.10e-06 pp, window W300, sha256 4c94897e3f76",
+      "name": "scorer reproduces 3 stored batch-3 predictions to 1e-4 pp [M0idx_W300]",
+      "status": "PASS"
+    },
+    {
+      "detail": "raised ValueError: dq32 contains 1 NaN/inf value(s); first bad row index 0",
+      "name": "scorer rejects: NaN in dq32",
+      "status": "PASS"
+    },
+    {
+      "detail": "raised ValueError: q0 contains 1 NaN/inf value(s); first bad row index 1",
+      "name": "scorer rejects: inf in q0",
+      "status": "PASS"
+    },
+    {
+      "detail": "raised ValueError: dq32 must have shape (N, 32) with N >= 1, got (2, 31)",
+      "name": "scorer rejects: wrong width",
+      "status": "PASS"
+    },
+    {
+      "detail": "raised TypeError: dq32 must be float32, got float64",
+      "name": "scorer rejects: float64 dq32",
+      "status": "PASS"
+    },
+    {
+      "detail": "raised ValueError: q0 must have shape (2,) or (2, 1), got (1,)",
+      "name": "scorer rejects: q0 length mismatch",
+      "status": "PASS"
+    },
+    {
+      "detail": "raised ValueError: M0idx_W240 needs log_cycle (log1p of the cycle number)",
+      "name": "scorer rejects: missing log_cycle",
+      "status": "PASS"
+    },
+    {
+      "detail": "raised ValueError: M0_W240 takes no log_cycle input",
+      "name": "scorer rejects: unexpected log_cycle",
+      "status": "PASS"
+    },
+    {
+      "detail": "raised ValueError: dq32 must have shape (N, 32) with N >= 1, got (0, 32)",
+      "name": "scorer rejects: empty batch",
+      "status": "PASS"
+    },
+    {
+      "detail": "max 1.526e-05 pp (worst model M0_W300)",
+      "name": "H12 < 1e-3 pp",
+      "status": "PASS"
+    },
+    {
+      "detail": "median 0.1474 ms, p99 6.7404 ms",
+      "name": "H13 median < 1 ms and p99 < 5 ms",
+      "status": "WARN"
+    },
+    {
+      "detail": "median 0.4576 ms, p99 5.8155 ms",
+      "name": "H14 median < 5 ms",
+      "status": "PASS"
+    },
+    {
+      "detail": "change +0.005100 pp (fp32 0.419568, int8 0.424668)",
+      "name": "H15 |change| < 0.02 pp",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W240.npz: got 29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe",
+      "name": "[end] sha256 M0_W240.npz",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0_W300.npz: got 06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2",
+      "name": "[end] sha256 M0_W300.npz",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0idx_W240.npz: got b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18",
+      "name": "[end] sha256 M0idx_W240.npz",
+      "status": "PASS"
+    },
+    {
+      "detail": "M0idx_W300.npz: got 0e7430ee1586a57b38207ce95e7d73b902b230678a92c0f32a4a704e5c05e99e",
+      "name": "[end] sha256 M0idx_W300.npz",
+      "status": "PASS"
+    },
+    {
+      "detail": "batch3_predictions.parquet: got 679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd",
+      "name": "[end] sha256 batch3_predictions.parquet",
+      "status": "PASS"
+    },
+    {
+      "detail": "soh_deep_v4.py: got 2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4",
+      "name": "[end] sha256 soh_deep_v4.py",
+      "status": "PASS"
+    },
+    {
+      "detail": "monitor_config.json: got 638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+      "name": "[end] sha256 monitor_config",
+      "status": "PASS"
+    },
+    {
+      "detail": "monitor_config_addendum.json: got d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632",
+      "name": "[end] sha256 monitor_config_addendum",
+      "status": "PASS"
+    },
+    {
+      "detail": "6 entries, events ['start', 'start', 'onnx_written', 'start', 'onnx_written', 'scorer_written']",
+      "name": "log hash chain intact",
+      "status": "PASS"
+    },
+    {
+      "detail": "mtime scan of outputs/phase7a",
+      "name": "no 7a file newer than this run's start (read-only)",
+      "status": "PASS"
+    }
+  ],
+  "created_utc": "2026-11-05T19:36:21+00:00",
+  "elapsed_s": 323.7,
+  "extra": {
+    "export": [
+      {
+        "file": "outputs\\phase8a\\models\\M0_W240.onnx",
+        "inputs": "dq32,q0",
+        "ir": 8,
+        "model": "M0_W240",
+        "opset": 17,
+        "output": "soh_pp",
+        "params": 14845,
+        "sha256": "4fe196d3f7787a4f2dcd5f20939447518afb032eb8dc724c018f891630945771",
+        "size_kb": 62.0
+      },
+      {
+        "file": "outputs\\phase8a\\models\\M0_W300.onnx",
+        "inputs": "dq32,q0",
+        "ir": 8,
+        "model": "M0_W300",
+        "opset": 17,
+        "output": "soh_pp",
+        "params": 14845,
+        "sha256": "4e8cd5235869301eb2694e4b56c346cdb816d06277db7a2914ed0af6580fd1d9",
+        "size_kb": 62.0
+      },
+      {
+        "file": "outputs\\phase8a\\models\\M0idx_W240.onnx",
+        "inputs": "dq32,q0,log_cycle",
+        "ir": 8,
+        "model": "M0idx_W240",
+        "opset": 17,
+        "output": "soh_pp",
+        "params": 15065,
+        "sha256": "50ea2ebbf287ab24a2385bdee8fbe0db4c725442cf4a3076a4daac8063ac2459",
+        "size_kb": 63.4
+      },
+      {
+        "file": "outputs\\phase8a\\models\\M0idx_W300.onnx",
+        "inputs": "dq32,q0,log_cycle",
+        "ir": 8,
+        "model": "M0idx_W300",
+        "opset": 17,
+        "output": "soh_pp",
+        "params": 15065,
+        "sha256": "4c94897e3f765671ad25a412c1f1b78810f660b6bf9262c43cd4d2e6ed2dcd79",
+        "size_kb": 63.4
+      },
+      {
+        "file": "outputs\\phase8a\\models\\M0_W240_int8.onnx",
+        "inputs": "dq32,q0",
+        "ir": 8,
+        "model": "M0_W240_int8 (optional)",
+        "opset": 17,
+        "output": "soh_pp",
+        "params": 0,
+        "sha256": "bc05a2cad0f04adaf2b30a9dbb475e0d667ff09db84175b7635982f82ad9e84f",
+        "size_kb": 30.2
+      }
+    ],
+    "files_opened_during_export": [
+      {
+        "access": "read",
+        "allowed": true,
+        "path": "outputs\\phase7a\\models\\M0_W240.npz"
+      },
+      {
+        "access": "write",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0_W240.onnx"
+      },
+      {
+        "access": "read",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0_W240.onnx"
+      },
+      {
+        "access": "write",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0_W240.onnx.sha256"
+      },
+      {
+        "access": "read",
+        "allowed": true,
+        "path": "outputs\\phase7a\\models\\M0_W300.npz"
+      },
+      {
+        "access": "write",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0_W300.onnx"
+      },
+      {
+        "access": "read",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0_W300.onnx"
+      },
+      {
+        "access": "write",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0_W300.onnx.sha256"
+      },
+      {
+        "access": "read",
+        "allowed": true,
+        "path": "outputs\\phase7a\\models\\M0idx_W240.npz"
+      },
+      {
+        "access": "write",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0idx_W240.onnx"
+      },
+      {
+        "access": "read",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0idx_W240.onnx"
+      },
+      {
+        "access": "write",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0idx_W240.onnx.sha256"
+      },
+      {
+        "access": "read",
+        "allowed": true,
+        "path": "outputs\\phase7a\\models\\M0idx_W300.npz"
+      },
+      {
+        "access": "write",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0idx_W300.onnx"
+      },
+      {
+        "access": "read",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0idx_W300.onnx"
+      },
+      {
+        "access": "write",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0idx_W300.onnx.sha256"
+      },
+      {
+        "access": "write",
+        "allowed": true,
+        "path": "outputs\\phase8a\\scratch\\M0_W240_matmul_fp32.onnx"
+      },
+      {
+        "access": "read",
+        "allowed": true,
+        "path": "outputs\\phase8a\\scratch\\M0_W240_matmul_fp32-inferred.onnx"
+      },
+      {
+        "access": "write",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0_W240_int8.onnx"
+      },
+      {
+        "access": "read",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0_W240_int8.onnx"
+      },
+      {
+        "access": "write",
+        "allowed": true,
+        "path": "outputs\\phase8a\\models\\M0_W240_int8.onnx.sha256"
+      }
+    ],
+    "int8": {
+      "mae_change": 0.005100293567008751,
+      "mae_fp32": 0.4195679700532791,
+      "mae_int8": 0.42466826362028787,
+      "max_abs_diff": 0.524749755859375,
+      "median_abs_diff": 0.04763031005859375,
+      "size_kb_fp32": 61.9765625,
+      "size_kb_int8": 30.2041015625
+    },
+    "latency": [
+      {
+        "batch": 1,
+        "engine": "ort_1thread",
+        "mean_ms": 0.4883805399062112,
+        "median_ms": 0.1473500014981255,
+        "model": "M0_W240",
+        "n_repeats": 5000,
+        "p95_ms": 1.9472849984595089,
+        "p99_ms": 6.740395997912862,
+        "rows_per_s": 2047.5836326157478,
+        "warmup": 200
+      },
+      {
+        "batch": 1,
+        "engine": "ort_default",
+        "mean_ms": 0.33464329993294084,
+        "median_ms": 0.1266999970539473,
+        "model": "M0_W240",
+        "n_repeats": 5000,
+        "p95_ms": 1.0323350004910035,
+        "p99_ms": 4.37652700027684,
+        "rows_per_s": 2988.256451572137,
+        "warmup": 200
+      },
+      {
+        "batch": 1,
+        "engine": "torch_cpu_8thr",
+        "mean_ms": 1.725691342826581,
+        "median_ms": 0.9722999966470525,
+        "model": "M0_W240",
+        "n_repeats": 3165,
+        "p95_ms": 5.250499997055156,
+        "p99_ms": 12.66963599715383,
+        "rows_per_s": 579.477902671783,
+        "warmup": 200
+      },
+      {
+        "batch": 1,
+        "engine": "torch_cuda (extra)",
+        "mean_ms": 7.150190845014365,
+        "median_ms": 5.692150007234886,
+        "model": "M0_W240",
+        "n_repeats": 426,
+        "p95_ms": 17.333025003608782,
+        "p99_ms": 24.339299994608155,
+        "rows_per_s": 139.8564068674157,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "ort_1thread",
+        "mean_ms": 0.7754459399264306,
+        "median_ms": 0.45759999193251133,
+        "model": "M0_W240",
+        "n_repeats": 5000,
+        "p95_ms": 2.21242499537766,
+        "p99_ms": 5.815523999190196,
+        "rows_per_s": 159907.98792726197,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "ort_default",
+        "mean_ms": 0.8346092818470638,
+        "median_ms": 0.4695000025094487,
+        "model": "M0_W240",
+        "n_repeats": 4234,
+        "p95_ms": 2.5805200100876364,
+        "p99_ms": 6.561992992938036,
+        "rows_per_s": 148572.5149444505,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "torch_cpu_8thr",
+        "mean_ms": 2.3477870649715085,
+        "median_ms": 1.4717500089318492,
+        "model": "M0_W240",
+        "n_repeats": 920,
+        "p95_ms": 5.906145000335521,
+        "p99_ms": 14.840649003162943,
+        "rows_per_s": 52815.69263671908,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "torch_cuda (extra)",
+        "mean_ms": 9.72729132778966,
+        "median_ms": 7.656749992747791,
+        "model": "M0_W240",
+        "n_repeats": 738,
+        "p95_ms": 24.967339994327627,
+        "p99_ms": 41.194974995159996,
+        "rows_per_s": 12747.639175332135,
+        "warmup": 200
+      },
+      {
+        "batch": 4096,
+        "engine": "ort_1thread",
+        "mean_ms": 15.769967909010974,
+        "median_ms": 16.034049993322697,
+        "model": "M0_W240",
+        "n_repeats": 134,
+        "p95_ms": 25.483499991241835,
+        "p99_ms": 30.97963400228762,
+        "rows_per_s": 259734.2000714879,
+        "warmup": 200
+      },
+      {
+        "batch": 4096,
+        "engine": "ort_default",
+        "mean_ms": 16.22067682018639,
+        "median_ms": 5.120900001202244,
+        "model": "M0_W240",
+        "n_repeats": 522,
+        "p95_ms": 64.93042999209138,
+        "p99_ms": 80.79187399111096,
+        "rows_per_s": 252517.20661264818,
+        "warmup": 200
+      },
+      {
+        "batch": 4096,
+        "engine": "torch_cpu_8thr",
+        "mean_ms": 13.31634712682045,
+        "median_ms": 11.849200003780425,
+        "model": "M0_W240",
+        "n_repeats": 261,
+        "p95_ms": 24.099299989757128,
+        "p99_ms": 32.9829799942671,
+        "rows_per_s": 307591.86141597707,
+        "warmup": 200
+      },
+      {
+        "batch": 4096,
+        "engine": "torch_cuda (extra)",
+        "mean_ms": 23.048207006427596,
+        "median_ms": 20.737900005769916,
+        "model": "M0_W240",
+        "n_repeats": 157,
+        "p95_ms": 40.229020008700886,
+        "p99_ms": 49.65670000354292,
+        "rows_per_s": 177714.47465990405,
+        "warmup": 200
+      },
+      {
+        "batch": 1,
+        "engine": "ort_1thread",
+        "mean_ms": 0.49618028005061204,
+        "median_ms": 0.3099999958067201,
+        "model": "M0_W300",
+        "n_repeats": 5000,
+        "p95_ms": 1.427229997352697,
+        "p99_ms": 3.506160989927608,
+        "rows_per_s": 2015.396500437294,
+        "warmup": 200
+      },
+      {
+        "batch": 1,
+        "engine": "ort_default",
+        "mean_ms": 0.5458369748302383,
+        "median_ms": 0.338400001055561,
+        "model": "M0_W300",
+        "n_repeats": 3213,
+        "p95_ms": 1.8169199989642937,
+        "p99_ms": 3.384879991644994,
+        "rows_per_s": 1832.0488462897035,
+        "warmup": 200
+      },
+      {
+        "batch": 1,
+        "engine": "torch_cpu_8thr",
+        "mean_ms": 4.045308259893891,
+        "median_ms": 3.1325000018114224,
+        "model": "M0_W300",
+        "n_repeats": 908,
+        "p95_ms": 10.449229995720087,
+        "p99_ms": 16.571525007457222,
+        "rows_per_s": 247.1999501037358,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "ort_1thread",
+        "mean_ms": 1.6613094046333108,
+        "median_ms": 1.3751499936915934,
+        "model": "M0_W300",
+        "n_repeats": 1882,
+        "p95_ms": 3.235455004323738,
+        "p99_ms": 6.4238459985062955,
+        "rows_per_s": 74639.91936370796,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "ort_default",
+        "mean_ms": 0.9117591381669778,
+        "median_ms": 0.6457000126829371,
+        "model": "M0_W300",
+        "n_repeats": 3365,
+        "p95_ms": 2.136100007919592,
+        "p99_ms": 4.165507996804083,
+        "rows_per_s": 136000.83049268092,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "torch_cpu_8thr",
+        "mean_ms": 2.9362284155888956,
+        "median_ms": 2.5738999975146726,
+        "model": "M0_W300",
+        "n_repeats": 1281,
+        "p95_ms": 5.312799999956042,
+        "p99_ms": 7.767359990975821,
+        "rows_per_s": 42231.046924573246,
+        "warmup": 200
+      },
+      {
+        "batch": 4096,
+        "engine": "ort_1thread",
+        "mean_ms": 32.5301280018175,
+        "median_ms": 31.06340000522323,
+        "model": "M0_W300",
+        "n_repeats": 100,
+        "p95_ms": 47.914285003207624,
+        "p99_ms": 57.78137200017228,
+        "rows_per_s": 125914.04496690424,
+        "warmup": 152
+      },
+      {
+        "batch": 4096,
+        "engine": "ort_default",
+        "mean_ms": 54.50948800047627,
+        "median_ms": 51.63840000750497,
+        "model": "M0_W300",
+        "n_repeats": 100,
+        "p95_ms": 81.10159999341704,
+        "p99_ms": 113.91821300247105,
+        "rows_per_s": 75142.88154686414,
+        "warmup": 92
+      },
+      {
+        "batch": 4096,
+        "engine": "torch_cpu_8thr",
+        "mean_ms": 12.773079120988136,
+        "median_ms": 11.227700000745244,
+        "model": "M0_W300",
+        "n_repeats": 273,
+        "p95_ms": 21.30758000130299,
+        "p99_ms": 36.84553600323841,
+        "rows_per_s": 320674.4404541925,
+        "warmup": 200
+      },
+      {
+        "batch": 1,
+        "engine": "ort_1thread",
+        "mean_ms": 0.433355579993804,
+        "median_ms": 0.22209998860489577,
+        "model": "M0idx_W240",
+        "n_repeats": 5000,
+        "p95_ms": 1.266684993606761,
+        "p99_ms": 3.1939410021004786,
+        "rows_per_s": 2307.5738404344484,
+        "warmup": 200
+      },
+      {
+        "batch": 1,
+        "engine": "ort_default",
+        "mean_ms": 0.5706690199120203,
+        "median_ms": 0.38085000414866954,
+        "model": "M0idx_W240",
+        "n_repeats": 5000,
+        "p95_ms": 1.6762500017648565,
+        "p99_ms": 3.097437995747899,
+        "rows_per_s": 1752.3292225573578,
+        "warmup": 200
+      },
+      {
+        "batch": 1,
+        "engine": "torch_cpu_8thr",
+        "mean_ms": 3.077162437194835,
+        "median_ms": 2.4370000028284267,
+        "model": "M0idx_W240",
+        "n_repeats": 1592,
+        "p95_ms": 6.498294995253667,
+        "p99_ms": 11.610984996805186,
+        "rows_per_s": 324.97471953791546,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "ort_1thread",
+        "mean_ms": 1.6881916991214945,
+        "median_ms": 1.4313000137917697,
+        "model": "M0idx_W240",
+        "n_repeats": 2313,
+        "p95_ms": 3.2662199984770273,
+        "p99_ms": 6.1711080063832995,
+        "rows_per_s": 73451.37407352934,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "ort_default",
+        "mean_ms": 1.068200116404147,
+        "median_ms": 0.7513000018661842,
+        "model": "M0idx_W240",
+        "n_repeats": 4298,
+        "p95_ms": 2.5413949886569718,
+        "p99_ms": 5.257085999619434,
+        "rows_per_s": 116083.11785006899,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "torch_cpu_8thr",
+        "mean_ms": 3.278056416235282,
+        "median_ms": 2.6937999937217683,
+        "model": "M0idx_W240",
+        "n_repeats": 1317,
+        "p95_ms": 5.539780002436603,
+        "p99_ms": 10.18640799797137,
+        "rows_per_s": 37827.292839093076,
+        "warmup": 200
+      },
+      {
+        "batch": 4096,
+        "engine": "ort_1thread",
+        "mean_ms": 37.56611100077862,
+        "median_ms": 37.825550003617536,
+        "model": "M0idx_W240",
+        "n_repeats": 100,
+        "p95_ms": 53.41260499480995,
+        "p99_ms": 61.55773800506722,
+        "rows_per_s": 109034.44330223865,
+        "warmup": 155
+      },
+      {
+        "batch": 4096,
+        "engine": "ort_default",
+        "mean_ms": 20.25745346371409,
+        "median_ms": 8.795649999228772,
+        "model": "M0idx_W240",
+        "n_repeats": 462,
+        "p95_ms": 67.31288499358924,
+        "p99_ms": 87.59819399827391,
+        "rows_per_s": 202197.18176013135,
+        "warmup": 200
+      },
+      {
+        "batch": 4096,
+        "engine": "torch_cpu_8thr",
+        "mean_ms": 3.3681713087613456,
+        "median_ms": 3.150200005620718,
+        "model": "M0idx_W240",
+        "n_repeats": 955,
+        "p95_ms": 5.462219998298677,
+        "p99_ms": 6.684197994763965,
+        "rows_per_s": 1216090.164222174,
+        "warmup": 200
+      },
+      {
+        "batch": 1,
+        "engine": "ort_1thread",
+        "mean_ms": 0.09504859993467107,
+        "median_ms": 0.0670000008540228,
+        "model": "M0idx_W300",
+        "n_repeats": 5000,
+        "p95_ms": 0.2125350030837582,
+        "p99_ms": 0.45033099464490145,
+        "rows_per_s": 10520.933508618973,
+        "warmup": 200
+      },
+      {
+        "batch": 1,
+        "engine": "ort_default",
+        "mean_ms": 0.1261293199902866,
+        "median_ms": 0.06770000618416816,
+        "model": "M0idx_W300",
+        "n_repeats": 5000,
+        "p95_ms": 0.34818500207620706,
+        "p99_ms": 0.7714130093518182,
+        "rows_per_s": 7928.370660184416,
+        "warmup": 200
+      },
+      {
+        "batch": 1,
+        "engine": "torch_cpu_8thr",
+        "mean_ms": 0.7138190401397878,
+        "median_ms": 0.4195500077912584,
+        "model": "M0idx_W300",
+        "n_repeats": 5000,
+        "p95_ms": 2.1198000082222324,
+        "p99_ms": 3.821271004853778,
+        "rows_per_s": 1400.9152793180874,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "ort_1thread",
+        "mean_ms": 0.46421006008749827,
+        "median_ms": 0.2984999882755801,
+        "model": "M0idx_W300",
+        "n_repeats": 5000,
+        "p95_ms": 1.2629949975234926,
+        "p99_ms": 1.9097300032444793,
+        "rows_per_s": 267120.4496874269,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "ort_default",
+        "mean_ms": 0.3408478198252851,
+        "median_ms": 0.29784999787807465,
+        "model": "M0idx_W300",
+        "n_repeats": 5000,
+        "p95_ms": 0.5718100030208007,
+        "p99_ms": 0.8504089998314159,
+        "rows_per_s": 363798.71833582816,
+        "warmup": 200
+      },
+      {
+        "batch": 124,
+        "engine": "torch_cpu_8thr",
+        "mean_ms": 0.7340818599070189,
+        "median_ms": 0.5619500007014722,
+        "model": "M0idx_W300",
+        "n_repeats": 5000,
+        "p95_ms": 1.5337249933509156,
+        "p99_ms": 2.4802099970111158,
+        "rows_per_s": 168918.4909373816,
+        "warmup": 200
+      },
+      {
+        "batch": 4096,
+        "engine": "ort_1thread",
+        "mean_ms": 10.013261675099821,
+        "median_ms": 8.135450007102918,
+        "model": "M0idx_W300",
+        "n_repeats": 394,
+        "p95_ms": 20.803555005113587,
+        "p99_ms": 26.731417994888027,
+        "rows_per_s": 409057.5212056633,
+        "warmup": 200
+      },
+      {
+        "batch": 4096,
+        "engine": "ort_default",
+        "mean_ms": 6.265087067059512,
+        "median_ms": 6.0354000015649945,
+        "model": "M0idx_W300",
+        "n_repeats": 433,
+        "p95_ms": 8.122379999258554,
+        "p99_ms": 9.216764000011608,
+        "rows_per_s": 653781.8159839936,
+        "warmup": 200
+      },
+      {
+        "batch": 4096,
+        "engine": "torch_cpu_8thr",
+        "mean_ms": 2.8417932641405343,
+        "median_ms": 2.6419000059831887,
+        "model": "M0idx_W300",
+        "n_repeats": 965,
+        "p95_ms": 4.346719998284243,
+        "p99_ms": 5.397871994064193,
+        "rows_per_s": 1441343.4121636518,
+        "warmup": 200
+      }
+    ],
+    "memory": [
+      {
+        "delta_mb": 0.26953125,
+        "model": "M0_W240",
+        "npz_kb": 68.87109375,
+        "onnx_kb": 61.9765625,
+        "rss_after_mb": 1443.609375,
+        "rss_before_mb": 1443.33984375
+      },
+      {
+        "delta_mb": 2.05859375,
+        "model": "M0_W300",
+        "npz_kb": 68.875,
+        "onnx_kb": 61.9765625,
+        "rss_after_mb": 1493.859375,
+        "rss_before_mb": 1491.80078125
+      },
+      {
+        "delta_mb": 1.88671875,
+        "model": "M0idx_W240",
+        "npz_kb": 70.3359375,
+        "onnx_kb": 63.4052734375,
+        "rss_after_mb": 1543.78515625,
+        "rss_before_mb": 1541.8984375
+      },
+      {
+        "delta_mb": 2.52734375,
+        "model": "M0idx_W300",
+        "npz_kb": 70.33984375,
+        "onnx_kb": 63.4052734375,
+        "rss_after_mb": 1593.0859375,
+        "rss_before_mb": 1590.55859375
+      }
+    ],
+    "s1_pytorch_vs_7a": [
+      {
+        "ens_mean_max_pp": 3.051757815342171e-06,
+        "ens_mean_median_pp": 0.0,
+        "model": "M0_W240",
+        "per_seed_max_pp": 7.62939453125e-06,
+        "per_seed_median_pp": 0.0,
+        "rows": 40456
+      },
+      {
+        "ens_mean_max_pp": 3.051757815342171e-06,
+        "ens_mean_median_pp": 0.0,
+        "model": "M0_W300",
+        "per_seed_max_pp": 7.62939453125e-06,
+        "per_seed_median_pp": 0.0,
+        "rows": 40456
+      },
+      {
+        "ens_mean_max_pp": 4.577636715907829e-06,
+        "ens_mean_median_pp": 0.0,
+        "model": "M0idx_W240",
+        "per_seed_max_pp": 7.62939453125e-06,
+        "per_seed_median_pp": 0.0,
+        "rows": 40456
+      },
+      {
+        "ens_mean_max_pp": 4.577636715907829e-06,
+        "ens_mean_median_pp": 0.0,
+        "model": "M0idx_W300",
+        "per_seed_max_pp": 7.62939453125e-06,
+        "per_seed_median_pp": 0.0,
+        "rows": 40456
+      }
+    ],
+    "s3a": [
+      {
+        "max_pp": 1.3732910161934342e-05,
+        "median_pp": 3.051757815342171e-06,
+        "model": "M0_W240",
+        "p99_pp": 1.0681152346592171e-05,
+        "rows": 96419
+      },
+      {
+        "max_pp": 1.52587890625e-05,
+        "median_pp": 3.051757815342171e-06,
+        "model": "M0_W300",
+        "p99_pp": 1.0681152346592171e-05,
+        "rows": 96419
+      },
+      {
+        "max_pp": 1.52587890625e-05,
+        "median_pp": 3.051757815342171e-06,
+        "model": "M0idx_W240",
+        "p99_pp": 1.0681152346592171e-05,
+        "rows": 96419
+      },
+      {
+        "max_pp": 1.52587890625e-05,
+        "median_pp": 3.051757815342171e-06,
+        "model": "M0idx_W300",
+        "p99_pp": 1.0681152346592171e-05,
+        "rows": 96419
+      }
+    ],
+    "s3b": [
+      {
+        "from_7a_parquet": 0.41956796520323314,
+        "model": "M0_W240",
+        "onnx_cell_macro_mae": 0.4195679700532791,
+        "onnx_minus_7a_parquet": 4.85004597594596e-09,
+        "onnx_minus_verdict": -2.9946720880857924e-08,
+        "pytorch_cell_macro_mae": 0.41956796635066523,
+        "verdict_7a": 0.419568
+      },
+      {
+        "from_7a_parquet": 0.5971690814487174,
+        "model": "M0_W300",
+        "onnx_cell_macro_mae": 0.5971690776317263,
+        "onnx_minus_7a_parquet": -3.816991056559971e-09,
+        "onnx_minus_verdict": 7.763172638064475e-08,
+        "pytorch_cell_macro_mae": 0.5971690770363125,
+        "verdict_7a": 0.597169
+      },
+      {
+        "from_7a_parquet": 0.5461787634374466,
+        "model": "M0idx_W240",
+        "onnx_cell_macro_mae": 0.5461787990645485,
+        "onnx_minus_7a_parquet": 3.562710182425377e-08,
+        "onnx_minus_verdict": NaN,
+        "pytorch_cell_macro_mae": 0.5461787689898133,
+        "verdict_7a": NaN
+      },
+      {
+        "from_7a_parquet": 0.6405584614756803,
+        "model": "M0idx_W300",
+        "onnx_cell_macro_mae": 0.6405584284852421,
+        "onnx_minus_7a_parquet": -3.29904381590751e-08,
+        "onnx_minus_verdict": NaN,
+        "pytorch_cell_macro_mae": 0.6405584582220841,
+        "verdict_7a": NaN
+      }
+    ],
+    "s3c": [
+      {
+        "identical": true,
+        "max_diff_pp": 0.0,
+        "model": "M0_W240",
+        "rows": 10000,
+        "runs": 4
+      },
+      {
+        "identical": true,
+        "max_diff_pp": 0.0,
+        "model": "M0_W300",
+        "rows": 10000,
+        "runs": 4
+      },
+      {
+        "identical": true,
+        "max_diff_pp": 0.0,
+        "model": "M0idx_W240",
+        "rows": 10000,
+        "runs": 4
+      },
+      {
+        "identical": true,
+        "max_diff_pp": 0.0,
+        "model": "M0idx_W300",
+        "rows": 10000,
+        "runs": 4
+      }
+    ],
+    "s3d": [
+      {
+        "max_diff_pp": 0.0,
+        "median_diff_pp": 0.0,
+        "model": "M0_W240",
+        "n_exactly_equal": 500,
+        "rows": 500
+      },
+      {
+        "max_diff_pp": 0.0,
+        "median_diff_pp": 0.0,
+        "model": "M0_W300",
+        "n_exactly_equal": 500,
+        "rows": 500
+      },
+      {
+        "max_diff_pp": 0.0,
+        "median_diff_pp": 0.0,
+        "model": "M0idx_W240",
+        "n_exactly_equal": 500,
+        "rows": 500
+      },
+      {
+        "max_diff_pp": 0.0,
+        "median_diff_pp": 0.0,
+        "model": "M0idx_W300",
+        "n_exactly_equal": 500,
+        "rows": 500
+      }
+    ],
+    "s6": [
+      {
+        "consistent": "yes",
+        "expected": "< 1e-3 pp",
+        "id": "H12",
+        "observed": "max 1.526e-05 pp (worst model M0_W300)"
+      },
+      {
+        "consistent": "NO",
+        "expected": "median < 1 ms and p99 < 5 ms",
+        "id": "H13",
+        "observed": "median 0.1474 ms, p99 6.7404 ms"
+      },
+      {
+        "consistent": "yes",
+        "expected": "median < 5 ms",
+        "id": "H14",
+        "observed": "median 0.4576 ms, p99 5.8155 ms"
+      },
+      {
+        "consistent": "yes",
+        "expected": "|change| < 0.02 pp",
+        "id": "H15",
+        "observed": "change +0.005100 pp (fp32 0.419568, int8 0.424668)"
+      }
+    ],
+    "scorer": {
+      "sha256": "7f56bd5b5df08f7a37bc6104a140da2411b5290d25434a03aa8971599ec139c7",
+      "tests": [
+        {
+          "max_diff_pp": 7.62939453125e-06,
+          "model": "M0_W240",
+          "row_ids": "63750,66094,73154",
+          "sha256": "4fe196d3f7787a4f",
+          "window": "W240"
+        },
+        {
+          "max_diff_pp": 7.62939453125e-06,
+          "model": "M0_W300",
+          "row_ids": "63750,66094,73154",
+          "sha256": "4e8cd5235869301e",
+          "window": "W300"
+        },
+        {
+          "max_diff_pp": 6.103515630684342e-06,
+          "model": "M0idx_W240",
+          "row_ids": "63750,66094,73154",
+          "sha256": "50ea2ebbf287ab24",
+          "window": "W240"
+        },
+        {
+          "max_diff_pp": 6.103515630684342e-06,
+          "model": "M0idx_W300",
+          "row_ids": "63750,66094,73154",
+          "sha256": "4c94897e3f765671",
+          "window": "W300"
+        }
+      ]
+    }
+  },
+  "failed": null,
+  "smoke": false
+}

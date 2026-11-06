@@ -1,0 +1,2 @@
+cell_id,cycle,reason
+b3c38,829,tau not reached: minimum V 3.3836 V > 2.3994 V (4 samples in the discharge run)

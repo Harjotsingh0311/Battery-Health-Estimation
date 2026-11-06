@@ -1,0 +1,54 @@
+check,status,detail
+hash guard start: src/health_monitor.py,PASS,expected a9531dde7d93.. observed a9531dde7d93..
+hash guard start: src/onnx_scorer.py,PASS,expected 7f56bd5b5df0.. observed 7f56bd5b5df0..
+hash guard start: outputs/phase8a/models/M0_W240.onnx,PASS,expected 4fe196d3f778.. observed 4fe196d3f778..
+hash guard start: outputs/phase7b/monitor_config.json,PASS,expected 638b6c3a6ad3.. observed 638b6c3a6ad3..
+provenance: phase8b replay was produced by the frozen health_monitor.py,PASS,"phase8b verification_report health_monitor_sha256=a9531dde7d93.., frozen (re-registered)=a9531dde7d93.., superseded values: brief=b280094074df.., v1=c3f0a5367373.., v2 (pre-v4)=0aa411d7a09e.."
+labels columns present,PASS,missing=[]; n_rows=104971
+"labels (cell, cycle) unique",PASS,no duplicate keys
+development cells,PASS,84 development cells (8b expected 84)
+kept cells,PASS,124 kept cells in kept_cells_groups_strata.csv (expected 124)
+"flagged count vs earlier phases (289 total, 208 in b2c40)",WARN,no definition reproduces the counts (pre-stated or extended search over up to 3 flag terms in 4 row universes); using the pre-stated definition A: ~qdlin_ok | label_suspect | qdlin_tail_suspect (see table)
+stored Qdlin shape,PASS,"shape=(104971, 1000)"
+W240 dq cache shape,PASS,"shape=(96419, 734)"
+row_id within Qdlin array,PASS,max row_id=104970
+scored2 kept-cell rows == cache rows,PASS,"scored2 & kept rows=96419 (scored2 all cells=100793), cache rows=96419, expected 96419"
+"W240 window located in Qdlin row (row differences, my choice: PASS<=1e-6, WARN<=1e-5 Ah)",PASS,dq[j] = Q[0+j] - Q[0] up to a per-cell constant; worst first-vs-last deviation 6.26e-08 Ah over 6 cells
+cache grid indexing aligned with the online window (w[k] = Q[k]-Q[0]),PASS,"cache offset a=0, b=0; online window index k is Q at grid index k; a nonzero offset would shift every feature by 0 grid step(s)"
+grid matches M0_W240.npz,PASS,len(grid)=32
+q0 finite and plausible (Ah),PASS,range 1.0487..1.0981
+offline raw computed,PASS,"n=96419, range 77.63..99.90 pp"
+replay columns present,PASS,missing=[]
+replay cycles matched to cache,PASS,compared 10744 of 10926 OK rows
+raw/offline finite,PASS,n=10744
+reproduces pooled 8b replay-set aggregate: median |d|,PASS,"row set 'excluding b1c18' (best single set; worst deviation 0.68 of tolerance): 0.03269 pp vs 8b pooled 0.03205 pp (tolerance 0.002, my choice); all-cell value 0.03463"
+reproduces pooled 8b replay-set aggregate: p99 |d|,PASS,"row set 'excluding b1c18' (best single set; worst deviation 0.68 of tolerance): 0.18026 pp vs 8b pooled 0.17344 pp (tolerance 0.01, my choice); all-cell value 0.23119"
+reproduces pooled 8b replay-set aggregate: max |d|,PASS,"row set 'excluding b1c18' (best single set; worst deviation 0.68 of tolerance): 6.56492 pp vs 8b pooled 6.56492 pp (tolerance 0.05, my choice); all-cell value 6.56492"
+S2 large differences found,PASS,14 cycles with |d|>0.5 pp; 4 flagged or adjacent
+raw files opened,PASS,"batches [1, 2, 3]"
+Vdlin grid,PASS,"len=1000, V from 3.500 to 2.000"
+raw file cell/cycle mapping reproduces stored Qdlin,PASS,max |raw-file Qdlin - stored| = 5.96e-08 Ah on 3 clean cycles
+"monitor API preflight (reference gate constants, builder attributes, _ref_ok)",PASS,"constants {'REF_START': 8, 'REF_DEADLINE': 60, 'N_REF': 5, 'REF_I_BAND': 0.1, 'REF_QD_RANGE': (0.5, 1.3), 'REF_END_TOL': 0.046, 'REF_I_NOM': -4.0, 'REF_I_TOL': 0.05, 'REF_I_MIN_FRAC': 0.92}; _ref_ok(self, b, qd_total, qc_total=None)"
+stored Qref is constant within a cell (derivation valid),PASS,"max first-vs-last spread 7.10e-08 Ah (limit 1e-4, my choice)"
+"reference emulation sanity (regular cells: same reference cycles and Q0 as stored, per 8b H18)",PASS,12 of 12 regular cells have online == stored reference cycles and Q0
+cells whose online references differ from the stored ones,PASS,"['b1c18', 'b1c41']"
+forced-reference effect b1c18,PASS,"median |d| 0.0904 -> 0.0151 pp (confirmed if forced median <= 0.05 pp and below replayed; post-hoc, my choice); p99 |d| 0.3430 -> 0.1690 pp"
+forced-reference effect b1c41,PASS,"median |d| 0.0549 -> 0.0167 pp (confirmed if forced median <= 0.05 pp and below replayed; post-hoc, my choice); p99 |d| 0.1402 -> 0.0694 pp"
+development rows available for the top list,PASS,6442 compared rows in development cells (of 10744)
+S3 truth-closeness complete,PASS,30 of 30 classified
+"sample-gap time axis plausible (t minutes x 60 -> s; median step 0.1-60 s, my choice)",PASS,median time step of the control cycles 3.805 s
+sample-gap check complete,PASS,"19 of 19 isolated cycles, 56 control cycles"
+expectation E1 (pre-registered),WARN,expected >= 0.80; observed 0.286 (4/14)
+expectation E1p (post-hoc),WARN,"expected >= 0.80; observed 0.357 (5/14); cells with differing references: ['b1c18', 'b1c41']"
+expectation E2 (pre-registered),PASS,expected >= 10 of 14; observed 12 of 14 cells
+expectation E3 (pre-registered),WARN,"expected p99 <= 0.10 and max <= 0.5; observed p99 0.2268, max 6.5649 (n=10720)"
+expectation E3p (post-hoc),WARN,"expected p99 <= 0.15 and share > 0.5 pp <= 0.002; observed p99 0.1826, share 0.0990% (n=9093, cells excluded: ['b1c18', 'b1c41'])"
+expectation E5 (registered before v4 rerun),WARN,"expected reference-differs False for b1c18 and b1c41; observed differs: {'b1c18': True, 'b1c41': True}"
+expectation E6 (registered before v4 rerun),WARN,"expected p99 <= 0.20 and share > 0.5 pp <= 0.002 (all 14 cells); observed p99 0.2312, share 0.1303% (n=10744, cells: ['b1c18', 'b1c20', 'b1c28', 'b1c36', 'b1c41', 'b1c5', 'b2c1', 'b2c17', 'b2c38', 'b2c47', 'b3c1', 'b3c14', 'b3c28', 'b3c38'])"
+expectation E4p (post-hoc),WARN,"expected max window difference <= 2 mAh (b1c18 top 10); observed max 6.633 mAh, median 3.693 mAh"
+hash guard end: src/health_monitor.py,PASS,expected a9531dde7d93.. observed a9531dde7d93..
+hash guard end: src/onnx_scorer.py,PASS,expected 7f56bd5b5df0.. observed 7f56bd5b5df0..
+hash guard end: outputs/phase8a/models/M0_W240.onnx,PASS,expected 4fe196d3f778.. observed 4fe196d3f778..
+hash guard end: outputs/phase7b/monitor_config.json,PASS,expected 638b6c3a6ad3.. observed 638b6c3a6ad3..
+frozen files unchanged between start and end,PASS,all four hashes identical
+runtime,PASS,30 s (target < 600 s)

@@ -1,0 +1,6 @@
+model,file,opset,ir,inputs,output,params,size_kb,sha256
+M0_W240,outputs\phase8a\models\M0_W240.onnx,17,8,"dq32,q0",soh_pp,14845,62.0,4fe196d3f7787a4f2dcd5f20939447518afb032eb8dc724c018f891630945771
+M0_W300,outputs\phase8a\models\M0_W300.onnx,17,8,"dq32,q0",soh_pp,14845,62.0,4e8cd5235869301eb2694e4b56c346cdb816d06277db7a2914ed0af6580fd1d9
+M0idx_W240,outputs\phase8a\models\M0idx_W240.onnx,17,8,"dq32,q0,log_cycle",soh_pp,15065,63.4,50ea2ebbf287ab24a2385bdee8fbe0db4c725442cf4a3076a4daac8063ac2459
+M0idx_W300,outputs\phase8a\models\M0idx_W300.onnx,17,8,"dq32,q0,log_cycle",soh_pp,15065,63.4,4c94897e3f765671ad25a412c1f1b78810f660b6bf9262c43cd4d2e6ed2dcd79
+M0_W240_int8 (optional),outputs\phase8a\models\M0_W240_int8.onnx,17,8,"dq32,q0",soh_pp,0,30.2,bc05a2cad0f04adaf2b30a9dbb475e0d667ff09db84175b7635982f82ad9e84f

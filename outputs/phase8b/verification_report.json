@@ -1,0 +1,338 @@
+{
+ "smoke": false,
+ "run_id": "20261106T082437-4d73b1",
+ "runtime_min": 2.635049943129222,
+ "recipe": {
+  "dup": "first",
+  "offset": "interp0"
+ },
+ "bin_convention": "hi_ge",
+ "health_monitor_sha256": "a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53",
+ "frozen_hashes_unchanged": true,
+ "counts": {
+  "PASS": 48,
+  "WARN": 5,
+  "FAIL": 0
+ },
+ "checks": [
+  {
+   "check": "hash guard start",
+   "status": "PASS",
+   "detail": "8/8 frozen files match; mismatches: []"
+  },
+  {
+   "check": "S1 recipe calibration",
+   "status": "PASS",
+   "detail": "best recipe runmin|first|interp0, max error 0.002086 Ah, p99 0.001558 Ah over 90 cycles; earlier work: ~0.0056 Ah"
+  },
+  {
+   "check": "S1 charge gate rejects b1c18 cycles 54-58",
+   "status": "WARN",
+   "detail": "calibrated tolerance 0.0120 Ah; 54-58 gaps [0.0003, 0.0003, 0.0003, 0.0004, 0.0003] Ah"
+  },
+  {
+   "check": "S1 gate pass rate, development cells",
+   "status": "PASS",
+   "detail": "all gates pass on 1.0000 of the development reference cycles (1.0 expected: tolerances are calibrated on them)"
+  },
+  {
+   "check": "S1 reference gates",
+   "status": "PASS",
+   "detail": "nominal -4.0 A, median tolerance 0.050 A, plateau fraction >= 0.92 (band 0.1 A), end-capacity tolerance 0.046 Ah, charge-gap tolerance 0.012; margin check: injected mismatch 0.10 Ah is 2.2x the end-capacity tolerance (needs >= 2x); S8 test g2 scales the current by x0.8 and x1.10"
+  },
+  {
+   "check": "S1 charge gate enabled",
+   "status": "PASS",
+   "detail": "calibrated tolerance 0.0120 Ah lies above the largest gap of the good cycles 54-58 (0.0004 Ah) and below the smallest gap of the bad cycles 8-12 (0.0463 Ah); charge gate ENABLED"
+  },
+  {
+   "check": "S1 b1c18 simulated references",
+   "status": "WARN",
+   "detail": "simulated first five passing cycles [41, 42, 43, 44, 45], stored [54, 55, 56, 57, 58]; sample-count gate off: simulated references [41, 42, 43, 44, 45] differ from stored [54, 55, 56, 57, 58] and a sample-count gate (anomalous passing cycles []) does not fix it"
+  },
+  {
+   "check": "S4 module window == calibration window",
+   "status": "PASS",
+   "detail": "max abs difference 6.245e-16 Ah"
+  },
+  {
+   "check": "scored2 counts",
+   "status": "PASS",
+   "detail": "total 96419, development 55963, batch 3 40456 (expected 96419 / 55963 / 40456)"
+  },
+  {
+   "check": "dq cache key",
+   "status": "PASS",
+   "detail": "computed key b1c0103adbcf (expected b1c0103adbcf)"
+  },
+  {
+   "check": "dq cache row alignment",
+   "status": "PASS",
+   "detail": "first-vs-last row of 124 cells: max |cache difference - stored Qdlin difference| = 8.439e-08 Ah after removing each row's first value (7.110e-03 Ah without: the cache rows start at zero); misaligned rows give 0.4+ Ah"
+  },
+  {
+   "check": "EMA alpha",
+   "status": "PASS",
+   "detail": "alpha used = 0.3, from: monitor_config.json / ema / chosen / W240 (expected 0.3)"
+  },
+  {
+   "check": "S2 reference reproduction",
+   "status": "PASS",
+   "detail": "14 of 14 reference numbers matched (14 required; convention hi_ge)"
+  },
+  {
+   "check": "S2 scorer == 7a ensemble mean",
+   "status": "PASS",
+   "detail": "max |monitor raw - parquet ensemble mean| = 1.373e-05 pp over 40456 batch-3 rows (limit 1e-4)"
+  },
+  {
+   "check": "S2 W300 scorer == 7a ensemble mean",
+   "status": "PASS",
+   "detail": "max difference 1.526e-05 pp (limit 1e-4)"
+  },
+  {
+   "check": "S2 monitor == vectorised path",
+   "status": "PASS",
+   "detail": "max lower-bound difference 0.000e+00 pp"
+  },
+  {
+   "check": "S3 stored-feature consistency",
+   "status": "PASS",
+   "detail": "max abs difference over 124 cells = 1.188e-07 Ah after removing each row's first value (the cache rows start at zero; float32 eps ~1.2e-7); 7.113e-03 Ah without that removal; cells without reference rows: 0"
+  },
+  {
+   "check": "S3 q0/ref_last/score_start constant per cell",
+   "status": "PASS",
+   "detail": "max distinct q0 1, ref_last 1, score_start 1 per cell; score_start - ref_last values [np.float64(8.0)]"
+  },
+  {
+   "check": "replay set",
+   "status": "PASS",
+   "detail": "14 replay cells, 12 regular (rule: life quantiles 0, 1/3, 2/3, 1 per batch) + extras ['b1c18', 'b1c41']"
+  },
+  {
+   "check": "S5 online windows built",
+   "status": "PASS",
+   "detail": "13378 of 13379 cycles produced a window; 1 failed, of which 1 are truncated or interrupted cycles (< 50 discharge samples, voltage never near tau: not scorable by construction, the monitor returns INVALID_WINDOW for them); other failures: 0 (listed below)"
+  },
+  {
+   "check": "S5 builder causality",
+   "status": "PASS",
+   "detail": "0 of 300 cycles gave a different window when the stream was truncated at tau or extended with junk"
+  },
+  {
+   "check": "S6 INVALID_WINDOW cycles",
+   "status": "PASS",
+   "detail": "2 truncated or interrupted cycles, 1 validity failures [('b2c1', 130)]; every one was carried forward as a stale record, none was scored"
+  },
+  {
+   "check": "S8 (a) causality",
+   "status": "PASS",
+   "detail": "29 of 29 records for cycles <= 30 identical to the full-stream run"
+  },
+  {
+   "check": "S8 (b) missing cycle -> stale carry-forward",
+   "status": "PASS",
+   "detail": "cycle 25 missing: stale record raw 98.28078 == carried cycle 24 raw 98.28078; cycle 26 fresh raw 98.28963"
+  },
+  {
+   "check": "S8 (c) duplicate ignored",
+   "status": "PASS",
+   "detail": "1 duplicate record(s) ignored; other 79 records identical to the clean run; cycles counted 79 of 79"
+  },
+  {
+   "check": "S8 (d) out-of-order ignored",
+   "status": "PASS",
+   "detail": "1 out-of-order record(s) ignored; other 79 of 79 records identical"
+  },
+  {
+   "check": "S8 (e) late joiner -> NO_REFERENCE",
+   "status": "PASS",
+   "detail": "statuses ['NO_REFERENCE']; estimates all NaN: True"
+  },
+  {
+   "check": "S8 (f) corrupted windows -> INVALID_WINDOW",
+   "status": "PASS",
+   "detail": "NaN in V -> INVALID_WINDOW (1 non-finite samples before tau); non-monotone step -> INVALID_WINDOW (non-monotone (min step -0.0370 Ah)); spike -> INVALID_WINDOW (non-monotone (min step -0.0745 Ah)); carried raw equals previous estimate; next clean cycle scored normally"
+  },
+  {
+   "check": "S8 (g) bad reference candidates skipped",
+   "status": "PASS",
+   "detail": "clean references [8, 9, 10, 11, 12]; with cycles 9 (NaN) and 10 (capacity mismatch 0.100 Ah = 2.2x the 0.046 Ah tolerance, margin check needs >= 2x) corrupted: [8, 11, 12, 13, 14], ref_last 14, score_start 22"
+  },
+  {
+   "check": "S8 (g2) bad discharge current rejected",
+   "status": "PASS",
+   "detail": "cycle 9 with discharge current scaled x0.8 / x1.10 rejected as a reference (and 5 references still built): [(0.8, True), (1.1, True)]"
+  },
+  {
+   "check": "S8 (g3) charge/discharge gap rejected",
+   "status": "PASS",
+   "detail": "cycle 9 with QCharge shifted by 0.030 Ah (2.5x the 0.0120 Ah tolerance) rejected as a reference, 5 references still built: [8, 10, 11, 12, 13]"
+  },
+  {
+   "check": "S8 (g4) missing QCharge -> gate skipped and noted",
+   "status": "PASS",
+   "detail": "QCharge NaN: references [8, 9, 10, 11, 12] (clean run [8, 9, 10, 11, 12]); skip noted on the accepted candidates: True"
+  },
+  {
+   "check": "S8 (g5) abnormal sample count rejected",
+   "status": "PASS",
+   "detail": "sample-count gate is off in this monitor (off: simulated references [41, 42, 43, 44, 45] differ from stored [54, 55, 56, 57, 58] and a sample-count gate (anomalous passing cycles []) does not fix it); nothing to test"
+  },
+  {
+   "check": "S8 (h) to_dict/from_dict round-trip",
+   "status": "PASS",
+   "detail": "55 of 55 future records identical after JSON round-trip at cycle 25; final states identical: True"
+  },
+  {
+   "check": "S8 (i) fleet == per-cell",
+   "status": "PASS",
+   "detail": "24 cells, 24 scored in both; max |fleet - per-cell| = 0.000e+00 pp (limit 7.63e-06 = max(1e-6, one float32 ulp at 100 pp))"
+  },
+  {
+   "check": "S8 (j) no torch import",
+   "status": "PASS",
+   "detail": "static imports ['json', 'math', 'numpy', 'pathlib', 'src.onnx_scorer', 'time']; fresh-interpreter import leaves torch/soh_deep modules: []"
+  },
+  {
+   "check": "S8 (k) M0idx variant runs (experimental)",
+   "status": "PASS",
+   "detail": "variant M0idx (experimental=True) cycle 23 raw 98.2257 pp vs M0 98.2554 pp"
+  },
+  {
+   "check": "S8 (l) per-sample path == cycle path",
+   "status": "PASS",
+   "detail": "22 of 22 per-sample-path records equal the cycle-path records (status and raw)"
+  },
+  {
+   "check": "S8 (m) temperature field is informational",
+   "status": "PASS",
+   "detail": "records identical with and without T: True; temp_delta_c finite for 4 scored cycles with T (last -0.261 C): True; NaN without T: True"
+  },
+  {
+   "check": "S9 per-cell update p99 <= 10 ms",
+   "status": "PASS",
+   "detail": "p99 per pass: [1.82, 1.829, 1.788] ms"
+  },
+  {
+   "check": "S9 fleet update median <= 50 ms",
+   "status": "PASS",
+   "detail": "median per pass: [6.706, 5.571, 5.7] ms (124 cells, one scorer call)"
+  },
+  {
+   "check": "S9 timing stability",
+   "status": "PASS",
+   "detail": "largest spread of pass medians (max/min) = 1.20x over components; earlier measurements drifted up to 4.6x"
+  },
+  {
+   "check": "S7 H16",
+   "status": "PASS",
+   "detail": "p99 per-cycle max diff = 0.00434 Ah (share above 6e-3: 0.0049)"
+  },
+  {
+   "check": "S7 H17",
+   "status": "WARN",
+   "detail": "median |diff| = 0.03205 pp, p99 = 0.17344 pp, max = 6.56492 pp"
+  },
+  {
+   "check": "S7 H18",
+   "status": "PASS",
+   "detail": "references equal for all regular cells: True; max Q0 diff = 3.60e-08 Ah"
+  },
+  {
+   "check": "S7 H19",
+   "status": "WARN",
+   "detail": "0.536 of 28 pairs equal, 11 within 2 cycles, 2 different"
+  },
+  {
+   "check": "S7 H20",
+   "status": "PASS",
+   "detail": "per-cell p99 per pass [1.82, 1.829, 1.788] ms; fleet median per pass [6.706, 5.571, 5.7] ms"
+  },
+  {
+   "check": "S7 H21",
+   "status": "WARN",
+   "detail": "b1c18 online references [41, 42, 43, 44, 45], stored [54, 55, 56, 57, 58]; sample-count gate: off: simulated references [41, 42, 43, 44, 45] differ from stored [54, 55, 56, 57, 58] and a sample-count gate (anomalous passing cycles []) does not fix it"
+  },
+  {
+   "check": "S7 H19-posthoc",
+   "status": "PASS",
+   "detail": "27 pairs fire on both sides: median difference 0.0, max 5 cycles; 0 pair(s) fire on one side only; 1 pair(s) silent on both"
+  },
+  {
+   "check": "hash guard end",
+   "status": "PASS",
+   "detail": "8/8 frozen files match; mismatches: []"
+  },
+  {
+   "check": "monitor v4 unchanged since it was written",
+   "status": "PASS",
+   "detail": "sha256 now a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53, at write a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53"
+  },
+  {
+   "check": "S10 provenance",
+   "status": "PASS",
+   "detail": "previous_sha256 0aa411d7a09e differs from the current a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53; chain: ['b280094074df', 'c3f0a5367373', '0aa411d7a09e', 'a9531dde7d93']"
+  },
+  {
+   "check": "runtime",
+   "status": "PASS",
+   "detail": "2.6 minutes (target under 25)"
+  }
+ ],
+ "expectations": [
+  {
+   "id": "H16",
+   "expected": "online window vs stored Qdlin: p99 of per-cycle max |diff| <= 6e-3 Ah",
+   "observed": "p99 per-cycle max diff = 0.00434 Ah (share above 6e-3: 0.0049)",
+   "consistent": "yes"
+  },
+  {
+   "id": "H17",
+   "expected": "online raw estimate vs offline: median |diff| <= 0.02 pp and p99 <= 0.10 pp",
+   "observed": "median |diff| = 0.03205 pp, p99 = 0.17344 pp, max = 6.56492 pp",
+   "consistent": "NO"
+  },
+  {
+   "id": "H18",
+   "expected": "monitor references and Q0 equal the stored ones for the 12 regular replay cells (b1c18, b1c41 may differ)",
+   "observed": "references equal for all regular cells: True; max Q0 diff = 3.60e-08 Ah",
+   "consistent": "yes"
+  },
+  {
+   "id": "H19",
+   "expected": "replay fire cycles equal offline for >= 90% of cell x alert pairs and within 2 cycles otherwise",
+   "observed": "0.536 of 28 pairs equal, 11 within 2 cycles, 2 different",
+   "consistent": "NO"
+  },
+  {
+   "id": "H20",
+   "expected": "per-cell update p99 <= 10 ms and fleet update median <= 50 ms in every pass",
+   "observed": "per-cell p99 per pass [1.82, 1.829, 1.788] ms; fleet median per pass [6.706, 5.571, 5.7] ms",
+   "consistent": "yes"
+  },
+  {
+   "id": "H21",
+   "expected": "monitor v4: the online references of b1c18 equal the stored cycles [54, 55, 56, 57, 58] (registered before the v4 rerun)",
+   "observed": "b1c18 online references [41, 42, 43, 44, 45], stored [54, 55, 56, 57, 58]; sample-count gate: off: simulated references [41, 42, 43, 44, 45] differ from stored [54, 55, 56, 57, 58] and a sample-count gate (anomalous passing cycles []) does not fix it",
+   "consistent": "NO"
+  },
+  {
+   "id": "H19-posthoc",
+   "expected": "POST-HOC (written after results were seen; registered H19 kept): over warn85/eol_watch pairs where online and offline both fire, median fire-cycle difference <= 1 cycle and maximum <= 5 cycles; no pair fires on only one side",
+   "observed": "27 pairs fire on both sides: median difference 0.0, max 5 cycles; 0 pair(s) fire on one side only; 1 pair(s) silent on both",
+   "consistent": "yes"
+  }
+ ],
+ "frozen_sha256": {
+  "M0_W240.onnx": "4fe196d3f7787a4f2dcd5f20939447518afb032eb8dc724c018f891630945771",
+  "M0_W300.onnx": "4e8cd5235869301eb2694e4b56c346cdb816d06277db7a2914ed0af6580fd1d9",
+  "M0idx_W240.onnx": "50ea2ebbf287ab24a2385bdee8fbe0db4c725442cf4a3076a4daac8063ac2459",
+  "M0idx_W300.onnx": "4c94897e3f765671ad25a412c1f1b78810f660b6bf9262c43cd4d2e6ed2dcd79",
+  "onnx_scorer.py": "7f56bd5b5df08f7a37bc6104a140da2411b5290d25434a03aa8971599ec139c7",
+  "monitor_config.json": "638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2",
+  "monitor_config_addendum.json": "d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632",
+  "batch3_predictions.parquet": "679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd"
+ }
+}

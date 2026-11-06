@@ -1,0 +1,10 @@
+,definition,universe,flagged,in_b2c40,matches_289_208
+0,A: ~qdlin_ok | label_suspect | qdlin_tail_suspect,all rows,444,210,False
+1,A: ~qdlin_ok | label_suspect | qdlin_tail_suspect,kept cells,439,210,False
+2,A: ~qdlin_ok | label_suspect | qdlin_tail_suspect,kept & scored2,0,0,False
+3,B: ~qdlin_ok2 | label_suspect | qdlin_tail_suspect,all rows,444,210,False
+4,B: ~qdlin_ok2 | label_suspect | qdlin_tail_suspect,kept cells,439,210,False
+5,B: ~qdlin_ok2 | label_suspect | qdlin_tail_suspect,kept & scored2,0,0,False
+6,C: ~qdlin_ok2,all rows,355,210,False
+7,C: ~qdlin_ok2,kept cells,350,210,False
+8,C: ~qdlin_ok2,kept & scored2,0,0,False

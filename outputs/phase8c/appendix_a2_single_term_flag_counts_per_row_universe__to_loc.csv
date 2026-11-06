@@ -1,0 +1,29 @@
+term,universe,flagged,in_b2c40
+~qdlin_ok,all rows,349,210
+~qdlin_ok,kept cells,344,210
+~qdlin_ok,in_life rows,301,208
+~qdlin_ok,kept cells & in_life rows,301,208
+~qdlin_ok2,all rows,355,210
+~qdlin_ok2,kept cells,350,210
+~qdlin_ok2,in_life rows,307,208
+~qdlin_ok2,kept cells & in_life rows,307,208
+~causal_ok,all rows,543,210
+~causal_ok,kept cells,537,210
+~causal_ok,in_life rows,487,207
+~causal_ok,kept cells & in_life rows,486,207
+label_suspect,all rows,107,0
+label_suspect,kept cells,107,0
+label_suspect,in_life rows,107,0
+label_suspect,kept cells & in_life rows,107,0
+qdlin_tail_suspect,all rows,131,93
+qdlin_tail_suspect,kept cells,131,93
+qdlin_tail_suspect,in_life rows,131,93
+qdlin_tail_suspect,kept cells & in_life rows,131,93
+post_junction,all rows,3393,0
+post_junction,kept cells,3393,0
+post_junction,in_life rows,3393,0
+post_junction,kept cells & in_life rows,3393,0
+~in_life,all rows,1225,31
+~in_life,kept cells,1220,31
+~in_life,in_life rows,0,0
+~in_life,kept cells & in_life rows,0,0

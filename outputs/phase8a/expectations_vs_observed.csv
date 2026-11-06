@@ -1,0 +1,5 @@
+id,expected,observed,consistent
+H12,< 1e-3 pp,max 1.526e-05 pp (worst model M0_W300),yes
+H13,median < 1 ms and p99 < 5 ms,"median 0.1474 ms, p99 6.7404 ms",NO
+H14,median < 5 ms,"median 0.4576 ms, p99 5.8155 ms",yes
+H15,|change| < 0.02 pp,"change +0.005100 pp (fp32 0.419568, int8 0.424668)",yes

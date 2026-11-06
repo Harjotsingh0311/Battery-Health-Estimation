@@ -1,0 +1,3 @@
+,cell_id,cycle,win_maxdiff_Ah,win_argmax,online_valid,stored_valid,mono_online,mono_stored,tail_ratio,qd_end_minus_summary,n_dis,n_dis_cell_median,med_absI,upstep_mV,stored_min_step_Ah
+0,b3c38,1321,0.0011581842501694642,68,True,True,True,True,0.971540450462038,0.0,304,306.0,3.999859636363636,-0.9222000000002062,3.23476697303704e-05
+1,b3c38,1322,0.0008597670856639317,660,True,True,True,True,0.9722704248373901,0.0,306,306.0,3.999875,-0.8459000000002881,3.0307941898399804e-05

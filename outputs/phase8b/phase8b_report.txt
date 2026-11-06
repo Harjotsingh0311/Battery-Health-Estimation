@@ -1,0 +1,950 @@
+Python 3.13.13 | numpy 2.5.4 | h5py 3.16.0 | onnxruntime 1.31.1 | pandas 3.1.0 | CPU count 12
+torch probe (separate process, never imported here): 2.14.1+cu130 cuda True
+
+=== hash guard (start) ===
+                        file                                                           sha256  matches_expected
+                M0_W240.onnx 4fe196d3f7787a4f2dcd5f20939447518afb032eb8dc724c018f891630945771              True
+                M0_W300.onnx 4e8cd5235869301eb2694e4b56c346cdb816d06277db7a2914ed0af6580fd1d9              True
+             M0idx_W240.onnx 50ea2ebbf287ab24a2385bdee8fbe0db4c725442cf4a3076a4daac8063ac2459              True
+             M0idx_W300.onnx 4c94897e3f765671ad25a412c1f1b78810f660b6bf9262c43cd4d2e6ed2dcd79              True
+              onnx_scorer.py 7f56bd5b5df08f7a37bc6104a140da2411b5290d25434a03aa8971599ec139c7              True
+         monitor_config.json 638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2              True
+monitor_config_addendum.json d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632              True
+  batch3_predictions.parquet 679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd              True
+[PASS] hash guard start: 8/8 frozen files match; mismatches: []
+run_id: 20261106T082437-4d73b1
+data\raw\MATR listing:
+  2017-05-12_batchdata_updated_struct_errorcorrect.mat             3025.3 MB
+  2017-06-30_batchdata_updated_struct_errorcorrect.mat             2007.3 MB
+  2018-04-12_batchdata_updated_struct_errorcorrect.mat             3236.7 MB
+batch 1 top-level keys: ['#refs#', '#subsystem#', 'batch', 'batch_date'] | batch keys: ['Vdlin', 'barcode', 'channel_id', 'cycle_life', 'cycles', 'policy', 'policy_readable', 'summary']
+  batch/Vdlin: shape=(46, 1) dtype=object
+  batch/barcode: shape=(46, 1) dtype=object
+  batch/channel_id: shape=(46, 1) dtype=object
+  batch/cycle_life: shape=(46, 1) dtype=object
+  batch/cycles: shape=(46, 1) dtype=object
+  batch/policy: shape=(46, 1) dtype=object
+  batch/policy_readable: shape=(46, 1) dtype=object
+  batch/summary: shape=(46, 1) dtype=object
+cell 0 cycles-group fields: {'I': (1189, 1), 'Qc': (1189, 1), 'Qd': (1189, 1), 'Qdlin': (1189, 1), 'T': (1189, 1), 'Tdlin': (1189, 1), 'V': (1189, 1), 'discharge_dQdV': (1189, 1), 't': (1189, 1)}
+cycle position 10 sample arrays (shape, dtype): {'V': ((1, 1133), 'float64'), 'Qd': ((1, 1133), 'float64'), 'I': ((1, 1133), 'float64'), 't': ((1, 1133), 'float64')}
+cell 0 summary fields: {'IR': (1, 1189), 'QCharge': (1, 1189), 'QDischarge': (1, 1189), 'Tavg': (1, 1189), 'Tmax': (1, 1189), 'Tmin': (1, 1189), 'chargetime': (1, 1189), 'cycle': (1, 1189)}
+Vdlin: n=1000 first=3.500000 last=2.000000 spacing=0.0015015 Vdlin[733]=2.39940
+  data\processed\_cache                                    0.0 MB
+  data\processed\cell_reference.csv                        0.0 MB
+  data\processed\cell_registry_final.csv                   0.0 MB
+  data\processed\cycles_table.parquet                     12.3 MB
+  data\processed\labels_table.parquet                      3.8 MB
+  data\processed\labels_table_v2.parquet                   5.0 MB
+  data\processed\qdlin_f32.npy                           419.9 MB
+  data\processed\qref_cell_ids.csv                         0.0 MB
+  data\processed\qref_f32.npy                              0.5 MB
+  data\processed\splits                                    0.0 MB
+  data\processed\t_knots_f32.npy                           6.7 MB
+
+structure of monitor_config.json
+monitor_config.json: dict(13 keys)
+  alert_rules: dict(5 keys)
+    eol: str = cycle_life field
+    eol_80: dict(3 keys)
+      comparison: str = rule A: point estimate <= 80.0
+      fires_when: str = conformal one-sided lower bound <= 80.0
+      rule: str = B
+    metrics: str = missed = never fires by EOL (right-censored: later detections count as missed); 
+    true_crossing: str = first scored cycle with y <= threshold + 1e-9
+    warning_85: dict(2 keys)
+      fires_when: str = point estimate <= 85.0 (EMA series primary, raw reported)
+      rule: str = A
+  built_from: str = 84 development cells (batches 1+2); out-of-fold M0 ensemble-mean predictions fro
+  conformal: dict(9 keys)
+    bin_definition: dict(2 keys)
+      W240: str = 10 equal-count bins on development OOF predicted SOH, bins with fewer than 12 ce
+      W300: str = 10 equal-count bins on development OOF predicted SOH, bins with fewer than 12 ce
+    coverage: float = 0.9
+    interval: str = estimate +/- q2[bin(estimate)]
+    kind: str = split conformal calibrated on development OOF M0 predictions, binned by PREDICTE
+    lower_bound: str = lower = estimate - ql[bin(estimate)]
+    parity_gate: dict(2 keys)
+      W240: dict(3 keys)
+        abs_diff: float = 0.004389037367934057
+        observed: float = 0.8963890373679341
+        reference_6b: float = 0.892
+      W300: dict(3 keys)
+        abs_diff: float = 0.011861863502317438
+        observed: float = 0.9578618635023174
+        reference_6b: float = 0.946
+    primary: str = quantile pooled over rows (q2_pooled two-sided half-width, ql_pooled one-sided o
+    sensitivity: str = cell-balanced weights (q2_cellbal, ql_cellbal)
+    tables: dict(2 keys)
+      W240: dict(2 keys)
+        ema: dict(3 keys)
+        raw: dict(3 keys)
+      W300: dict(2 keys)
+        ema: dict(3 keys)
+        raw: dict(3 keys)
+  ema: dict(6 keys)
+    alphas_tested: list(len=3)
+      [0]: float = 0.2
+    causal: bool = True
+    chosen: dict(2 keys)
+      W240: float = 0.3
+      W300: float = 0.3
+    dev_oof_cell_macro_mae_pp: dict(8 keys)
+      W240|EMA alpha=0.2: float = 0.5287747915304752
+      W240|EMA alpha=0.3: float = 0.521109266945399
+      W240|EMA alpha=0.5: float = 0.5217685459276191
+      W240|raw: float = 0.530092315471049
+      W300|EMA alpha=0.2: float = 0.8168467584611311
+      W300|EMA alpha=0.3: float = 0.8159574444285616
+      W300|EMA alpha=0.5: float = 0.8206981250036529
+      W300|raw: float = 0.8360091897695184
+    initialisation: str = first scored estimate (no warm-up)
+    selection: str = lowest pooled development OOF cell-macro MAE of the smoothed M0 ensemble mean
+  frozen_reference_hashes: dict(15 keys)
+    batch3_predictions: str = 679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd
+    batch3_verdict: str = 57a054bdf25243d3b9e0aced2c0c245135da2c769b2d1e635d329b742fc4deb8
+    comparator_reproduction: str = 2e9bd9d7d9c588aac6ee78f6d1e7f13ae736d2aeb8cccb251368d997627f2688
+    formal_comparators: str = 0e1c1daa4839e8b92773c04a866327d308d5a1bda29e9768ca83f3bf91fc2231
+    frozen_config: str = 78b571c7526551c70a01cb709661052ddfb5b4c9783e4eb5babb1c7e11b65fe5
+    gate_verdict_5b: str = 2f59f82a7c7d8940636b55d7fd3397760d4486569d95575c802dbd02df69b1bb
+    gate_week2: str = 40df2fb82096e994f8bf7b8084433bb5ca148d3fa92c780461f68c0c4247d901
+    model_M0_W240: str = 29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe
+    model_M0_W300: str = 06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2
+    model_M0idx_W240: str = b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18
+    model_M0idx_W300: str = 0e7430ee1586a57b38207ce95e7d73b902b230678a92c0f32a4a704e5c05e99e
+    preregistration: str = 11f9741387cb001ef55aa8459e4857ab70871e89cd03e7cce318043be41c8bce
+    soh_deep_v2: str = fc53e37d506ebe51f6e4d71819c4b047de5bc38456669a160183531fbefebea6
+    soh_deep_v3: str = 9c022dd391193de9c65f2d77b9dcdc5a2e939419596ecb38a55399ffcc06cbbb
+    soh_deep_v4: str = 2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4
+  label: str = soh_nom = QD / 1.1 Ah, in percentage points (pp); bias = pred - y
+  models: dict(3 keys)
+    all_files: dict(4 keys)
+      M0_W240: dict(2 keys)
+        file: str = outputs\phase7a\models\M0_W240.npz
+        sha256: str = 29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe
+      M0_W300: dict(2 keys)
+        file: str = outputs\phase7a\models\M0_W300.npz
+        sha256: str = 06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2
+      M0idx_W240: dict(2 keys)
+        file: str = outputs\phase7a\models\M0idx_W240.npz
+        sha256: str = b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18
+      M0idx_W300: dict(2 keys)
+        file: str = outputs\phase7a\models\M0idx_W300.npz
+        sha256: str = 0e7430ee1586a57b38207ce95e7d73b902b230678a92c0f32a4a704e5c05e99e
+    deployed: dict(5 keys)
+      file: str = outputs\phase7a\models\M0_W240.npz
+      model: str = M0
+      note: str = no cycle index, from-scratch, no pretrained weights
+      sha256: str = 29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe
+      window: str = W240
+    experimental: dict(5 keys)
+      file: str = outputs\phase7a\models\M0idx_W240.npz
+      model: str = M0+idx
+      note: str = EXPERIMENTAL: adds log1p(cycle_number)
+      sha256: str = b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18
+      window: str = W240
+  name: str = Phase 7b monitor configuration
+  q0_definition: str = Q0 = median discharge capacity QD of the reference cycles
+  reference_cycles: str = reference cycles per rule D15 (normally cycles 8-12); DeltaQ(V) is referenced to
+  scoring_start: str = normally cycle 20 (last reference cycle + 8); scored cycles <= end of life (EOL 
+  statement: str = built from development data only
+  windows: dict(2 keys)
+    W240: dict(7 keys)
+      close_voltage: float = 2.4
+      end_index_inclusive: int = 733
+      grid: str = 1000-point voltage grid, 3.5 V down to 2.0 V
+      role: str = companion, deployed
+      source: str = soh_common.grid_index (frozen module)
+      start_index: int = 0
+      width: int = 734
+    W300: dict(7 keys)
+      close_voltage: float = 3.0
+      end_index_inclusive: int = 333
+      grid: str = 1000-point voltage grid, 3.5 V down to 2.0 V
+      role: str = headline
+      source: str = soh_common.grid_index (frozen module)
+      start_index: int = 0
+      width: int = 334
+
+structure of monitor_config_addendum.json
+monitor_config_addendum.json: dict(8 keys)
+  correction_statement: str = The 80% definition was corrected after the first definition (true crossing = fir
+  eol_80: dict(9 keys)
+    counts_only_if: str = the alert fires at a scored cycle <= cycle_life_final
+    delay: str = fire cycle - cycle_life_final (negative = early)
+    delay_summaries: str = mean and median absolute delay (cycles and % of life) are over cells that fired
+    early_alarm: str = fires more than 5% of life before cycle_life_final; early_pct = early alarms / a
+    lead_time: str = cycle_life_final - fire cycle, median over cells that fired (reported for rule B
+    missed: str = no alert at a scored cycle <= cycle_life_final; missed_pct = missed cells / all 
+    rule_A: str = estimate <= 80.0
+    rule_B: str = conformal lower bound <= 80.0, lower = estimate - ql[bin(estimate)], pooled ql (
+    truth: str = 80% EOL = cycle_life_final; no y <= 80 crossing is used
+  life_column: str = cycle_life_final (not cycle_life_field)
+  monitor_config: dict(3 keys)
+    file: str = outputs/phase7b/monitor_config.json
+    sha256: str = 638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2
+    status: str = unchanged; EMA alpha and conformal tables are read from it and never recomputed
+  name: str = Phase 7b2 monitor configuration addendum
+  series: str = raw and EMA series both reported; EMA alpha and conformal tables per window and 
+  test_set_status: str = Batch 3 is spent: labels are used for descriptive reporting only and nothing is 
+  warning_85: dict(7 keys)
+    delay: str = fire cycle - 85% crossing cycle (negative = early)
+    early_alarm: str = fires more than 5% of life before the crossing
+    missed: str = never fires by end of life (right-censored)
+    note: str = computed with the 7b functions and cycle_life_final; the result must equal 7b
+    rule_A: str = fires at the first scored cycle with estimate <= 85.0
+    signal: str = raw M0 ensemble-mean estimate (D84); the EMA series is reported alongside
+    truth: str = 85% crossing = first scored cycle with y <= 85.0 + 1e-9
+
+=== expectations registered (H16-H21) ===
+ id                                                                                                              expectation
+H16                                                    online window vs stored Qdlin: p99 of per-cycle max |diff| <= 6e-3 Ah
+H17                                              online raw estimate vs offline: median |diff| <= 0.02 pp and p99 <= 0.10 pp
+H18                monitor references and Q0 equal the stored ones for the 12 regular replay cells (b1c18, b1c41 may differ)
+H19                          replay fire cycles equal offline for >= 90% of cell x alert pairs and within 2 cycles otherwise
+H20                                              per-cell update p99 <= 10 ms and fleet update median <= 50 ms in every pass
+H21 monitor v4: the online references of b1c18 equal the stored cycles [54, 55, 56, 57, 58] (registered before the v4 rerun)
+labels_table_v2 columns: ['row_id', 'cell_id', 'batch', 'cycle_number', 'segment', 'in_life', 'qdlin_ok', 'causal_ok', 'label_suspect', 'post_junction', 'is_ref', 'q0', 'ref_last', 'score_start', 'soh_nom', 'soh_rel', 'soh_nom_repaired', 'scored', 'scored_incl_suspect', 'train_ok', 'ratio_end', 'max_step', 'qdlin_tail_suspect', 'qdlin_ok2', 'scored2', 'high_defect_cell'] | rows: 104971
+
+=== S1 calibration: max abs error (Ah) of the W240 window vs stored Qdlin, cycles 20..49 ===
+                        recipe  max_err      p99   median  n  max_b1c5  max_b2c5  max_b1c30
+nomin|none|interp0 (info only) 0.002086 0.001558 0.000935 90   0.00119  0.002086   0.001234
+     runmin|first|first_sample 0.002086 0.001558 0.000963 90   0.00124  0.002086   0.001425
+          runmin|first|interp0 0.002086 0.001558 0.000935 90   0.00119  0.002086   0.001234
+      runmin|last|first_sample 0.002086 0.001558 0.000963 90   0.00124  0.002086   0.001425
+           runmin|last|interp0 0.002086 0.001558 0.000935 90   0.00119  0.002086   0.001234
+      runmin|none|first_sample 0.002086 0.001558 0.000963 90   0.00124  0.002086   0.001425
+           runmin|none|interp0 0.002086 0.001558 0.000935 90   0.00119  0.002086   0.001234
+frozen recipe: {'dup': 'first', 'offset': 'interp0'} (max error 0.002086 Ah)
+[PASS] S1 recipe calibration: best recipe runmin|first|interp0, max error 0.002086 Ah, p99 0.001558 Ah over 90 cycles; earlier work: ~0.0056 Ah
+
+=== S1 reference-gate calibration (DEVELOPMENT cells only): 395 stored reference cycles, 79 cells ===
+     statistic  count     mean     std      min      25%      50%      75%      max
+    qd_summary  395.0  1.07792 0.00847  1.04783  1.07333  1.07811  1.08301  1.09828
+      i_median  395.0 -3.99999 0.00002 -4.00004 -4.00001 -3.99999 -3.99998 -3.99993
+     i_med_dev  395.0  0.00002 0.00001  0.00000  0.00001  0.00001  0.00002  0.00007
+i_plateau_frac  395.0  0.97603 0.00170  0.97078  0.97440  0.97682  0.97742  0.97866
+    end_gap_ah  395.0  0.01185 0.00163  0.00965  0.01094  0.01154  0.01226  0.02266
+     qc_gap_ah  395.0  0.00037 0.00046  0.00000  0.00013  0.00023  0.00052  0.00540
+
+=== S1 b1c18 summary |QDischarge - QCharge| gap, cycles 8-12 vs 54-58 (diagnostic for the charge gate) ===
+ cycle group       qd       qc   gap_ah
+     8  8-12 1.069132 1.115464 0.046332
+     9  8-12 1.069364 1.142957 0.073593
+    10  8-12 1.069551 1.170447 0.100896
+    11  8-12 1.068375 1.197940 0.129566
+    12  8-12 1.069784 1.225439 0.155655
+    54 54-58 1.068813 1.068467 0.000347
+    55 54-58 1.068990 1.068645 0.000344
+    56 54-58 1.069044 1.068717 0.000326
+    57 54-58 1.069031 1.068656 0.000375
+    58 54-58 1.068565 1.068279 0.000286
+charge gate: calibrated tolerance 0.0120 Ah lies above the largest gap of the good cycles 54-58 (0.0004 Ah) and below the smallest gap of the bad cycles 8-12 (0.0463 Ah); charge gate ENABLED
+reference gates (calibrated on development cells only): {'i_nom': -4.0, 'i_tol': 0.05, 'i_min_frac': 0.92, 'end_tol': 0.046, 'qc_tol': 0.012, 'ns_range': None} | calibrated qc tolerance (info): 0.012
+[WARN] S1 charge gate rejects b1c18 cycles 54-58: calibrated tolerance 0.0120 Ah; 54-58 gaps [0.0003, 0.0003, 0.0003, 0.0004, 0.0003] Ah
+discharge samples per development reference cycle: min 327, max 374 -> candidate sample-count range (261, 468) (used only if the diagnostic below calls for it)
+
+=== S1 b1c18 per-cycle gate results, cycles 13-60 (simulated references [41, 42, 43, 44, 45], stored [54, 55, 56, 57, 58]) ===
+ cycle     qd  qc_gap_ah  n_samples  i_med_dev  plateau  end_gap_ah  current  end capacity  qd range  charge gap  sample count  all_ok
+    13 1.0698     0.1831        363        0.0    0.978      0.0132     True          True      True       False          True   False
+    14 1.0698     0.2106        345        0.0    0.977      0.0132     True          True      True       False          True   False
+    15 1.0697     0.2382        350        0.0    0.974      0.0111     True          True      True       False          True   False
+    16 1.0699     0.2655        354        0.0    0.974      0.0111     True          True      True       False          True   False
+    17 1.0701     0.2928        362        0.0    0.978      0.0111     True          True      True       False          True   False
+    18 1.0701     0.3204        350        0.0    0.977      0.0111     True          True      True       False          True   False
+    19 1.0701     0.3478        357        0.0    0.977      0.0111     True          True      True       False          True   False
+    20 1.0701     0.3754        343        0.0    0.973      0.0111     True          True      True       False          True   False
+    21 1.0701     0.4028        365        0.0    0.978      0.0110     True          True      True       False          True   False
+    22 1.0701     0.4303        348        0.0    0.977      0.0110     True          True      True       False          True   False
+    23 1.0701     0.4578        352        0.0    0.977      0.0110     True          True      True       False          True   False
+    24 1.0700     0.4854        338        0.0    0.976      0.0110     True          True      True       False          True   False
+    25 1.0700     0.5129        338        0.0    0.976      0.0110     True          True      True       False          True   False
+    26 1.0700     0.5404        369        0.0    0.978      0.0111     True          True      True       False          True   False
+    27 1.0700     0.5680        351        0.0    0.977      0.0110     True          True      True       False          True   False
+    28 1.0699     0.5955        350        0.0    0.977      0.0110     True          True      True       False          True   False
+    29 1.0697     0.6232        351        0.0    0.977      0.0110     True          True      True       False          True   False
+    30 1.0699     0.6506        326        0.0    0.972      0.0110     True          True      True       False          True   False
+    31 1.0699     0.6780        341        0.0    0.976      0.0111     True          True      True       False          True   False
+    32 1.0697     0.7057        340        0.0    0.976      0.0110     True          True      True       False          True   False
+    33 1.0698     0.7331        357        0.0    0.977      0.0110     True          True      True       False          True   False
+    34 1.0697     0.7607        345        0.0    0.977      0.0111     True          True      True       False          True   False
+    35 1.0697     0.7883        349        0.0    0.977      0.0111     True          True      True       False          True   False
+    36 1.0696     0.8158        347        0.0    0.977      0.0111     True          True      True       False          True   False
+    37 1.0696     0.8433        350        0.0    0.977      0.0111     True          True      True       False          True   False
+    38 1.0696     0.8708        354        0.0    0.977      0.0111     True          True      True       False          True   False
+    39 1.0695     0.8985        348        0.0    0.977      0.0111     True          True      True       False          True   False
+    40 2.8841     0.0818        344        0.0    0.976      1.8257     True         False     False       False          True   False
+    41 1.0695     0.0004        357        0.0    0.978      0.0111     True          True      True        True          True    True
+    42 1.0695     0.0004        353        0.0    0.977      0.0111     True          True      True        True          True    True
+    43 1.0694     0.0004        334        0.0    0.976      0.0112     True          True      True        True          True    True
+    44 1.0693     0.0004        352        0.0    0.977      0.0112     True          True      True        True          True    True
+    45 1.0693     0.0007        346        0.0    0.977      0.0112     True          True      True        True          True    True
+    46 1.0691     0.0003        336        0.0    0.976      0.0112     True          True      True        True          True    True
+    47 1.0691     0.0004        340        0.0    0.976      0.0112     True          True      True        True          True    True
+    48 1.0691     0.0003        341        0.0    0.976      0.0113     True          True      True        True          True    True
+    49 1.0689     0.0003        353        0.0    0.977      0.0113     True          True      True        True          True    True
+    50 1.0689     0.0004        351        0.0    0.977      0.0114     True          True      True        True          True    True
+    51 1.0688     0.0003        352        0.0    0.974      0.0114     True          True      True        True          True    True
+    52 1.0688     0.0004        354        0.0    0.977      0.0114     True          True      True        True          True    True
+    53 1.0675     0.0009        347        0.0    0.977      0.0113     True          True      True        True          True    True
+    54 1.0688     0.0003        336        0.0    0.976      0.0112     True          True      True        True          True    True
+    55 1.0690     0.0003        347        0.0    0.973      0.0111     True          True      True        True          True    True
+    56 1.0690     0.0003        337        0.0    0.976      0.0111     True          True      True        True          True    True
+    57 1.0690     0.0004        340        0.0    0.976      0.0111     True          True      True        True          True    True
+    58 1.0686     0.0003        345        0.0    0.977      0.0115     True          True      True        True          True    True
+    59 1.0684     0.0004        351        0.0    0.977      0.0115     True          True      True        True          True    True
+    60 1.0683     0.0003        352        0.0    0.974      0.0116     True          True      True        True          True    True
+sample-count gate: off: simulated references [41, 42, 43, 44, 45] differ from stored [54, 55, 56, 57, 58] and a sample-count gate (anomalous passing cycles []) does not fix it
+reference gates after the b1c18 diagnostic: {'i_nom': -4.0, 'i_tol': 0.05, 'i_min_frac': 0.92, 'end_tol': 0.046, 'qc_tol': 0.012, 'ns_range': None}
+
+=== S1 reference-gate pass rates on stored reference cycles (gate 'charge gap' is always 1 when the gate is off) ===
+                                   subset  cycles  cells  current median  current plateau  end capacity  charge gap  sample count  all gates
+            development (calibration set)     395     79             1.0              1.0           1.0         1.0           1.0        1.0
+batch 3 / non-development (reported only)     200     40             1.0              1.0           1.0         1.0           1.0        1.0
+[PASS] S1 gate pass rate, development cells: all gates pass on 1.0000 of the development reference cycles (1.0 expected: tolerances are calibrated on them)
+[PASS] S1 reference gates: nominal -4.0 A, median tolerance 0.050 A, plateau fraction >= 0.92 (band 0.1 A), end-capacity tolerance 0.046 Ah, charge-gap tolerance 0.012; margin check: injected mismatch 0.10 Ah is 2.2x the end-capacity tolerance (needs >= 2x); S8 test g2 scales the current by x0.8 and x1.10
+[PASS] S1 charge gate enabled: calibrated tolerance 0.0120 Ah lies above the largest gap of the good cycles 54-58 (0.0004 Ah) and below the smallest gap of the bad cycles 8-12 (0.0463 Ah); charge gate ENABLED
+[WARN] S1 b1c18 simulated references: simulated first five passing cycles [41, 42, 43, 44, 45], stored [54, 55, 56, 57, 58]; sample-count gate off: simulated references [41, 42, 43, 44, 45] differ from stored [54, 55, 56, 57, 58] and a sample-count gate (anomalous passing cycles []) does not fix it
+monitor v4 sha256 a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53 (previous version in the provenance chain: 0aa411d7a09e)
+src\health_monitor.py sha256: a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53
+
+=== serving-side validate_window thresholds (my choice) ===
+ first_abs  mono_tol    lo  hi  max_step
+      0.01     0.005 -0.02 1.2      0.05
+
+=== reference rules ===
+ ref_start_cycle  n_ref  score_gap  join_max_cycle  deadline_cycle qd_range_ah  end_capacity_tol_ah  nominal_current_a  current_tol_a  plateau_frac_min  charge_gap_tol_ah sample_count_range
+               8      5          8               8              60  (0.5, 1.3)                0.046               -4.0           0.05              0.92              0.012               None
+[PASS] S4 module window == calibration window: max abs difference 6.245e-16 Ah
+cell_registry_final columns: ['cell_id', 'batch', 'idx', 'status', 'stitched_into', 'has_continuation', 'continuation_cell', 'policy_str', 'policy_norm', 'cycle_life_field', 'n_cycles', 'cycle_life_final', 'qd_last', 'reached_eol_in_data', 'n_post_eol_cycles', 'last_cycle_number', 'policy_raw', 'policy_numeric', 'policy_vec', 'policy_size', 'policy_dtype'] | rows: 140
+stitched cells excluded from the replay: ['b1c0', 'b1c1', 'b1c2', 'b1c3', 'b1c4', 'b2c15', 'b2c16', 'b2c7', 'b2c8', 'b2c9'] (registry column: ['stitched_into'])
+kept_cells_groups_strata columns: ['cell_id', 'batch', 'policy_norm', 'policy_str', 'life', 'position', 'is_dev', 'tertile', 'tertile_label'] | kept cells: 124 | development: 84
+
+=== scored2 row set x cache row order search (rows with the expected counts or key; alignment = stored-Qdlin test) ===
+                                 selection                     order  total  development  batch3          key  key_match  align_max_ah
+                      scored2 & kept cells                    row_id  96419        55963   40456 ed770c0ae36d      False      0.637206
+                      scored2 & kept cells            cell_id, cycle  96419        55963   40456 b1c0103adbcf       True      0.007110
+                      scored2 & kept cells batch, cell number, cycle  96419        55963   40456 ed770c0ae36d      False      0.637206
+                      scored2 & kept cells     batch, cell_id, cycle  96419        55963   40456 b1c0103adbcf       True      0.007110
+                      scored2 & kept cells            cycle, cell_id  96419        55963   40456 2e05f7420d7b      False      0.398765
+     scored2 & kept cells & ~label_suspect                    row_id  96419        55963   40456 ed770c0ae36d      False      0.637206
+     scored2 & kept cells & ~label_suspect            cell_id, cycle  96419        55963   40456 b1c0103adbcf       True      0.007110
+     scored2 & kept cells & ~label_suspect batch, cell number, cycle  96419        55963   40456 ed770c0ae36d      False      0.637206
+     scored2 & kept cells & ~label_suspect     batch, cell_id, cycle  96419        55963   40456 b1c0103adbcf       True      0.007110
+     scored2 & kept cells & ~label_suspect            cycle, cell_id  96419        55963   40456 2e05f7420d7b      False      0.398765
+scored2 & kept cells & ~qdlin_tail_suspect                    row_id  96419        55963   40456 ed770c0ae36d      False      0.637206
+scored2 & kept cells & ~qdlin_tail_suspect            cell_id, cycle  96419        55963   40456 b1c0103adbcf       True      0.007110
+scored2 & kept cells & ~qdlin_tail_suspect batch, cell number, cycle  96419        55963   40456 ed770c0ae36d      False      0.637206
+scored2 & kept cells & ~qdlin_tail_suspect     batch, cell_id, cycle  96419        55963   40456 b1c0103adbcf       True      0.007110
+scored2 & kept cells & ~qdlin_tail_suspect            cycle, cell_id  96419        55963   40456 2e05f7420d7b      False      0.398765
+scored2 selection used: 'scored2 & kept cells', cache order 'cell_id, cycle' (identified by the dq cache key hash)
+soh_nom median 0.953 -> scaled by 100 to pp
+[PASS] scored2 counts: total 96419, development 55963, batch 3 40456 (expected 96419 / 55963 / 40456)
+[PASS] dq cache key: computed key b1c0103adbcf (expected b1c0103adbcf)
+M0_W240.npz keys: ['seeds', 'grid', 'm0_fc1_w', 'm0_fc1_b', 'm0_fc2_w', 'm0_fc2_b', 'm0_fc3_w', 'm0_fc3_b', 'm1_fc1_w', 'm1_fc1_b', 'm1_fc2_w', 'm1_fc2_b', 'm1_fc3_w', 'm1_fc3_b', 'm2_fc1_w', 'm2_fc1_b', 'm2_fc2_w', 'm2_fc2_b', 'm2_fc3_w', 'm2_fc3_b', 'm3_fc1_w', 'm3_fc1_b', 'm3_fc2_w', 'm3_fc2_b', 'm3_fc3_w', 'm3_fc3_b', 'm4_fc1_w', 'm4_fc1_b', 'm4_fc2_w', 'm4_fc2_b', 'm4_fc3_w', 'm4_fc3_b', 'scaler_s', 'scaler_qm', 'scaler_qs', 'scaler_ym', 'scaler_ys', 'meta']
+W240 cache dq_W240_b1c0103adbcf.npy shape (96419, 734) dtype float32
+M0_W300.npz keys: ['seeds', 'grid', 'm0_fc1_w', 'm0_fc1_b', 'm0_fc2_w', 'm0_fc2_b', 'm0_fc3_w', 'm0_fc3_b', 'm1_fc1_w', 'm1_fc1_b', 'm1_fc2_w', 'm1_fc2_b', 'm1_fc3_w', 'm1_fc3_b', 'm2_fc1_w', 'm2_fc1_b', 'm2_fc2_w', 'm2_fc2_b', 'm2_fc3_w', 'm2_fc3_b', 'm3_fc1_w', 'm3_fc1_b', 'm3_fc2_w', 'm3_fc2_b', 'm3_fc3_w', 'm3_fc3_b', 'm4_fc1_w', 'm4_fc1_b', 'm4_fc2_w', 'm4_fc2_b', 'm4_fc3_w', 'm4_fc3_b', 'scaler_s', 'scaler_qm', 'scaler_qs', 'scaler_ym', 'scaler_ys', 'meta']
+W300 cache dq_W300_b1c0103adbcf.npy shape (96419, 334) dtype float32
+32 grid indices W240: [0, 24, 47, 71, 95, 118, 142, 166, 189, 213, 236, 260, 284, 307, 331, 355, 378, 402, 426, 449, 473, 497, 520, 544, 567, 591, 615, 638, 662, 686, 709, 733]
+[PASS] dq cache row alignment: first-vs-last row of 124 cells: max |cache difference - stored Qdlin difference| = 8.439e-08 Ah after removing each row's first value (7.110e-03 Ah without: the cache rows start at zero); misaligned rows give 0.4+ Ah
+batch3_predictions columns: ['model', 'window', 'seed', 'row_id', 'cell_id', 'pred_pp'] | model labels: ['B0b', 'B1', 'B3', 'B3r', 'B4', 'B4r', 'B4ridx', 'M0', 'M0idx'] | window labels: ['W240', 'W300'] | seeds: [np.int32(42), np.int32(43), np.int32(44), np.int32(45), np.int32(46)]
+7a ensemble mean W240: model=M0 window=W240 rows=40456
+7a ensemble mean W300: model=M0 window=W300 rows=40456
+
+=== conformal table W240 raw (from monitor_config.json / conformal / tables / W240 / raw / bins), alpha=0.30 ===
+  pred_lo   pred_hi  q2_pooled  ql_pooled
+     -inf 86.770098   1.642532   1.591819
+86.770098 91.112083   1.824958   1.776659
+91.112083 93.642634   1.606824   1.565472
+93.642634 95.071948   1.418943   1.346777
+95.071948 96.057401   1.242728   1.107632
+96.057401 96.764765   1.014308   0.919360
+96.764765 97.319988   0.795569   0.717719
+97.319988 97.789375   0.576721   0.483935
+97.789375 98.247350   0.428226   0.378115
+98.247350       inf   0.249256   0.193533
+
+=== conformal table W300 raw (from monitor_config.json / conformal / tables / W300 / raw / bins), alpha=0.30 ===
+  pred_lo   pred_hi  q2_pooled  ql_pooled
+     -inf 87.865135   2.745062   2.492925
+87.865135 92.128330   4.607864   4.591121
+92.128330 94.403018   3.085342   3.063483
+94.403018 95.616696   3.916339   3.916339
+95.616696 96.428740   3.505686   3.505686
+96.428740 97.007345   3.467480   3.467480
+97.007345 97.448153   2.959981   2.959981
+97.448153 97.811398   2.253337   2.253337
+97.811398 98.263628   1.356400   1.356400
+98.263628       inf   0.418087   0.414440
+
+=== alpha values found in the config files (the EMA alpha is the one under a path containing 'ema'; first 40) ===
+                                                                      path    value
+monitor_config.json / ema / dev_oof_cell_macro_mae_pp / W240|EMA alpha=0.2 0.528775
+monitor_config.json / ema / dev_oof_cell_macro_mae_pp / W240|EMA alpha=0.3 0.521109
+monitor_config.json / ema / dev_oof_cell_macro_mae_pp / W240|EMA alpha=0.5 0.521769
+monitor_config.json / ema / dev_oof_cell_macro_mae_pp / W300|EMA alpha=0.2 0.816847
+monitor_config.json / ema / dev_oof_cell_macro_mae_pp / W300|EMA alpha=0.3 0.815957
+monitor_config.json / ema / dev_oof_cell_macro_mae_pp / W300|EMA alpha=0.5 0.820698
+[PASS] EMA alpha: alpha used = 0.3, from: monitor_config.json / ema / chosen / W240 (expected 0.3)
+
+=== S2 bin-lookup convention search (first that reproduces every reference number exactly is kept) ===
+bin_convention  reference_numbers_matched  all_match
+         hi_ge                         14       True
+         hi_gt                         14       True
+            lo                         14       True
+
+=== S2 reference numbers per bin convention (expected vs observed) ===
+bin_convention window             metric  expected  observed  match
+         hi_ge   W240         warn_fired 40.000000 40.000000   True
+         hi_ge   W240         warn_total 40.000000 40.000000   True
+         hi_ge   W240 warn_med_abs_delay 12.000000 12.000000   True
+         hi_ge   W240          eol_fired 33.000000 33.000000   True
+         hi_ge   W240         eol_missed  7.000000  7.000000   True
+         hi_ge   W240              early  0.000000  0.000000   True
+         hi_ge   W240       eol_med_lead  9.000000  9.000000   True
+         hi_ge   W240                mae  0.419568  0.419568   True
+         hi_ge   W240                cov  0.980000  0.979959   True
+         hi_ge   W300          eol_fired 35.000000 35.000000   True
+         hi_ge   W300         eol_missed  5.000000  5.000000   True
+         hi_ge   W300       eol_med_lead 19.000000 19.000000   True
+         hi_ge   W300                mae  0.597169  0.597169   True
+         hi_ge   W300                cov  0.986000  0.986065   True
+         hi_gt   W240         warn_fired 40.000000 40.000000   True
+         hi_gt   W240         warn_total 40.000000 40.000000   True
+         hi_gt   W240 warn_med_abs_delay 12.000000 12.000000   True
+         hi_gt   W240          eol_fired 33.000000 33.000000   True
+         hi_gt   W240         eol_missed  7.000000  7.000000   True
+         hi_gt   W240              early  0.000000  0.000000   True
+         hi_gt   W240       eol_med_lead  9.000000  9.000000   True
+         hi_gt   W240                mae  0.419568  0.419568   True
+         hi_gt   W240                cov  0.980000  0.979959   True
+         hi_gt   W300          eol_fired 35.000000 35.000000   True
+         hi_gt   W300         eol_missed  5.000000  5.000000   True
+         hi_gt   W300       eol_med_lead 19.000000 19.000000   True
+         hi_gt   W300                mae  0.597169  0.597169   True
+         hi_gt   W300                cov  0.986000  0.986065   True
+            lo   W240         warn_fired 40.000000 40.000000   True
+            lo   W240         warn_total 40.000000 40.000000   True
+            lo   W240 warn_med_abs_delay 12.000000 12.000000   True
+            lo   W240          eol_fired 33.000000 33.000000   True
+            lo   W240         eol_missed  7.000000  7.000000   True
+            lo   W240              early  0.000000  0.000000   True
+            lo   W240       eol_med_lead  9.000000  9.000000   True
+            lo   W240                mae  0.419568  0.419568   True
+            lo   W240                cov  0.980000  0.979959   True
+            lo   W300          eol_fired 35.000000 35.000000   True
+            lo   W300         eol_missed  5.000000  5.000000   True
+            lo   W300       eol_med_lead 19.000000 19.000000   True
+            lo   W300                mae  0.597169  0.597169   True
+            lo   W300                cov  0.986000  0.986065   True
+bin convention kept: hi_ge
+
+=== S2 reproduction of the reference results (monitor path W240, vectorised path W300) ===
+window             metric  expected  observed  match
+  W240         warn_fired 40.000000 40.000000   True
+  W240         warn_total 40.000000 40.000000   True
+  W240 warn_med_abs_delay 12.000000 12.000000   True
+  W240          eol_fired 33.000000 33.000000   True
+  W240         eol_missed  7.000000  7.000000   True
+  W240              early  0.000000  0.000000   True
+  W240       eol_med_lead  9.000000  9.000000   True
+  W240                mae  0.419568  0.419568   True
+  W240                cov  0.980000  0.979959   True
+  W300          eol_fired 35.000000 35.000000   True
+  W300         eol_missed  5.000000  5.000000   True
+  W300       eol_med_lead 19.000000 19.000000   True
+  W300                mae  0.597169  0.597169   True
+  W300                cov  0.986000  0.986065   True
+[PASS] S2 reference reproduction: 14 of 14 reference numbers matched (14 required; convention hi_ge)
+[PASS] S2 scorer == 7a ensemble mean: max |monitor raw - parquet ensemble mean| = 1.373e-05 pp over 40456 batch-3 rows (limit 1e-4)
+[PASS] S2 W300 scorer == 7a ensemble mean: max difference 1.526e-05 pp (limit 1e-4)
+[PASS] S2 monitor == vectorised path: max lower-bound difference 0.000e+00 pp
+
+=== S2 per-cell results, batch 3, W240 raw (warn85 and eol_watch fire cycles) ===
+cell_id  life    mae   cov  warn_fire  warn_truth  warn_delay  eol_first_fire  eol_fire  lead  early
+   b3c0  1009 0.3656 1.000        975         962          13          1006.0    1006.0   3.0  False
+   b3c1  1063 0.1906 1.000       1010         997          13          1058.0    1058.0   5.0  False
+  b3c10  1078 0.2918 1.000       1020        1005          15          1073.0    1073.0   5.0  False
+  b3c11   817 0.3040 1.000        774         768           6           808.0     808.0   9.0  False
+  b3c12   932 0.3352 1.000        873         885         -12           908.0     908.0  24.0  False
+  b3c13   816 0.7532 0.839        787         768          19             NaN       NaN   NaN  False
+  b3c14   858 0.4940 1.000        819         815           4           845.0     845.0  13.0  False
+  b3c15   876 0.5313 1.000        837         824          13           868.0     868.0   8.0  False
+  b3c16  1638 0.2468 1.000       1511        1507           4          1606.0    1606.0  32.0  False
+  b3c17  1315 0.2866 1.000       1231        1214          17          1303.0    1303.0  12.0  False
+  b3c18  1146 0.1950 1.000       1070        1058          12          1129.0    1129.0  17.0  False
+  b3c19  1155 0.4318 1.000       1079        1067          12          1140.0    1140.0  15.0  False
+  b3c20   813 0.3014 0.996        783         773          10             NaN       NaN   NaN  False
+  b3c21   772 0.3863 1.000        721         700          21           768.0     768.0   4.0  False
+  b3c22  1002 1.0903 0.913        951         965         -14           982.0     982.0  20.0  False
+  b3c24   825 0.4081 1.000        790         783           7           823.0     823.0   2.0  False
+  b3c25   989 0.2117 1.000        943         941           2           981.0     981.0   8.0  False
+  b3c26  1028 0.1764 1.000        958         961          -3          1006.0    1006.0  22.0  False
+  b3c27   850 0.1587 1.000        806         799           7           843.0     843.0   7.0  False
+  b3c28   541 0.6824 0.862        492         451          41             NaN       NaN   NaN  False
+  b3c29   858 0.5127 1.000        821         807          14           854.0     854.0   4.0  False
+   b3c3  1115 0.2028 1.000       1057        1045          12             NaN       NaN   NaN  False
+  b3c30   935 0.2263 1.000        901         892           9           930.0     930.0   5.0  False
+  b3c31   731 0.5141 1.000        691         695          -4           721.0     721.0  10.0  False
+  b3c33  1284 0.5877 0.951       1243        1215          28             NaN       NaN   NaN  False
+  b3c34  1158 0.3427 1.000       1091        1068          23          1157.0    1157.0   1.0  False
+  b3c35  1093 0.2541 1.000       1027        1009          18          1089.0    1089.0   4.0  False
+  b3c36   923 0.1434 1.000        879         887          -8           909.0     909.0  14.0  False
+  b3c38  1935 0.5764 1.000       1794        1811         -17          1888.0    1888.0  47.0  False
+  b3c39  1156 0.1147 1.000       1106        1101           5          1148.0    1148.0   8.0  False
+   b3c4  1048 0.5924 1.000        990         978          12          1037.0    1037.0  11.0  False
+  b3c40   796 0.6096 0.992        764         748          16             NaN       NaN   NaN  False
+  b3c41   786 0.8818 0.873        712         735         -23           750.0     750.0  36.0  False
+  b3c44   940 0.2561 1.000        906         903           3           932.0     932.0   8.0  False
+  b3c45  1801 0.3169 0.999       1684        1674          10          1774.0    1774.0  27.0  False
+   b3c5   828 0.2389 1.000        784         780           4           819.0     819.0   9.0  False
+   b3c6   667 0.8531 0.921        597         551          46             NaN       NaN   NaN  False
+   b3c7  1836 0.8541 0.851       1741        1709          32          1821.0    1821.0  15.0  False
+   b3c8   828 0.4176 1.000        802         790          12           826.0     826.0   2.0  False
+   b3c9  1039 0.4462 1.000        980         986          -6          1019.0    1019.0  20.0  False
+
+=== S3 reference rows per cell (is_ref True): distribution ===
+ rows_per_cell  cells
+             5    129
+
+=== S3 DeltaQ rebuilt from stored Qdlin and Qref vs stored dq block (largest 10 of 124 cells) ===
+cell_id  n_rows  max_abs_diff  max_abs_diff_raw
+   b2c5     460  1.187727e-07          0.000500
+  b1c11     768  1.185981e-07          0.000500
+   b2c6     486  1.182780e-07          0.000520
+   b3c4    1028  1.179869e-07          0.001656
+  b1c17     837  1.169392e-07          0.000528
+  b1c35     663  1.166773e-07          0.001916
+  b2c30     462  1.162698e-07          0.000488
+  b2c24     476  1.162553e-07          0.000556
+  b3c14     838  1.158478e-07          0.004016
+  b2c26     451  1.154258e-07          0.000659
+[PASS] S3 stored-feature consistency: max abs difference over 124 cells = 1.188e-07 Ah after removing each row's first value (the cache rows start at zero; float32 eps ~1.2e-7); 7.113e-03 Ah without that removal; cells without reference rows: 0
+[PASS] S3 q0/ref_last/score_start constant per cell: max distinct q0 1, ref_last 1, score_start 1 per cell; score_start - ref_last values [np.float64(8.0)]
+[PASS] replay set: 14 replay cells, 12 regular (rule: life quantiles 0, 1/3, 2/3, 1 per batch) + extras ['b1c18', 'b1c41']
+
+=== replay cells ===
+cell_id  batch    policy_norm                  policy_str  position  is_dev  tertile tertile_label  life    kind
+  b1c20      1 5.4C(80%)-5.4C              5.4C(80%)-5.4C        16    True        1           mid   534 regular
+  b1c36      1     7C(40%)-3C                  7C(40%)-3C        31    True        1           mid   704 regular
+  b1c28      1     6C(50%)-3C                  6C(50%)-3C        23    True        2          long   860 regular
+   b1c5      1 4.4C(80%)-4.4C              4.4C(80%)-4.4C         5    True        2          long  1074 regular
+   b2c1      2     2C(10%)-6C                  2C(10%)-6C        42    True        0         short   148 regular
+  b2c38      2   5.6C(47%)-4C                5.6C(47%)-4C        74    True        0         short   465 regular
+  b2c17      2   4.4C(24%)-5C                4.4C(24%)-5C        53    True        1           mid   494 regular
+  b2c47      2     6C(60%)-3C                  6C(60%)-3C        83    True        2          long   713 regular
+  b3c28      3 3.7C(31%)-5.9C 3.7C(31%)-5.9C-newstructure       110   False        1           mid   541 regular
+  b3c14      3 5.6C(36%)-4.3C 5.6C(36%)-4.3C-newstructure        97   False        2          long   858 regular
+   b3c1      3   5.3C(54%)-4C   5.3C(54%)-4C-newstructure        85   False        2          long  1063 regular
+  b3c38      3     5C(67%)-4C     5C(67%)-4C-newstructure       118   False        2          long  1935 regular
+  b1c18      1   5.4C(70%)-3C                5.4C(70%)-3C        14    True        1           mid   691   extra
+  b1c41      1   8C(15%)-3.6C                8C(15%)-3.6C        36    True        2          long  1051   extra
+S5 sample: 13379 cycles (1000 per batch stratified + all scored cycles of the replay cells)
+[PASS] S5 online windows built: 13378 of 13379 cycles produced a window; 1 failed, of which 1 are truncated or interrupted cycles (< 50 discharge samples, voltage never near tau: not scorable by construction, the monitor returns INVALID_WINDOW for them); other failures: 0 (listed below)
+
+=== S5 online window vs stored Qdlin: per-cycle max abs difference (Ah) ===
+ subset     n      max      p99   median  share_above_6e-3
+    all 13378 0.143009 0.004339 0.000913          0.004859
+batch 1  5542 0.143009 0.004772 0.000974          0.006496
+batch 2  2631 0.080488 0.006254 0.000994          0.011022
+batch 3  5205 0.004196 0.001526 0.000809          0.000000
+
+=== S5 online dq32 (stored-reference Qref) vs stored dq32: difference per input (Ah) ===
+                  input      max      p99   median
+   dq32[0] (grid idx 0) 0.000583 0.000442 0.000230
+  dq32[1] (grid idx 24) 0.003153 0.000670 0.000308
+  dq32[2] (grid idx 47) 0.004003 0.000811 0.000279
+  dq32[3] (grid idx 71) 0.003977 0.000805 0.000175
+  dq32[4] (grid idx 95) 0.003495 0.000675 0.000262
+ dq32[5] (grid idx 118) 0.003986 0.000747 0.000344
+ dq32[6] (grid idx 142) 0.003228 0.000639 0.000355
+ dq32[7] (grid idx 166) 0.026172 0.000659 0.000371
+ dq32[8] (grid idx 189) 0.003171 0.000772 0.000430
+ dq32[9] (grid idx 213) 0.005086 0.000765 0.000427
+dq32[10] (grid idx 236) 0.007962 0.001651 0.000359
+dq32[11] (grid idx 260) 0.018308 0.001561 0.000356
+dq32[12] (grid idx 284) 0.017893 0.001168 0.000347
+dq32[13] (grid idx 307) 0.031782 0.000887 0.000335
+dq32[14] (grid idx 331) 0.026310 0.000738 0.000329
+dq32[15] (grid idx 355) 0.037054 0.000699 0.000321
+dq32[16] (grid idx 378) 0.017946 0.000703 0.000314
+dq32[17] (grid idx 402) 0.053221 0.000707 0.000311
+dq32[18] (grid idx 426) 0.032082 0.000744 0.000319
+dq32[19] (grid idx 449) 0.031867 0.000722 0.000324
+dq32[20] (grid idx 473) 0.056018 0.000728 0.000330
+dq32[21] (grid idx 497) 0.037657 0.000722 0.000333
+dq32[22] (grid idx 520) 0.017889 0.000736 0.000337
+dq32[23] (grid idx 544) 0.017940 0.000734 0.000337
+dq32[24] (grid idx 567) 0.042636 0.000733 0.000337
+dq32[25] (grid idx 591) 0.100513 0.000737 0.000338
+dq32[26] (grid idx 615) 0.132260 0.000754 0.000340
+dq32[27] (grid idx 638) 0.142753 0.000766 0.000337
+dq32[28] (grid idx 662) 0.137693 0.000845 0.000326
+dq32[29] (grid idx 686) 0.121172 0.000850 0.000316
+dq32[30] (grid idx 709) 0.099175 0.000789 0.000290
+dq32[31] (grid idx 733) 0.074577 0.000836 0.000277
+
+=== S5 end-to-end raw estimate, online window + online Qref/Q0 vs offline estimate (pp) ===
+ subset     n      max      p99   median
+    all 13378 6.564919 0.173437 0.032055
+batch 1  5542 6.564919 0.132693 0.030636
+batch 2  2631 1.011024 0.213219 0.027191
+batch 3  5205 0.293167 0.122566 0.035217
+
+=== S5 online reference vs stored reference ===
+ cells  max |Q0 online - stored| (Ah)  max |Qref online - stored| (Ah)
+   119                   4.952240e-08                          0.00433
+[PASS] S5 builder causality: 0 of 300 cycles gave a different window when the stream was truncated at tau or extended with junk
+
+=== S5 FAILED WINDOWS: 1 cycle(s) for which no online window was produced (cell, cycle, reason) ===
+cell_id  cycle                                                                          reason
+  b3c38    829 tau not reached: minimum V 3.3836 V > 2.3994 V (4 samples in the discharge run)
+
+=== S5 worst 20 end-to-end differences with label flags ===
+cell_id  cycle     d_pp  win_diff_ah  qdlin_tail_suspect  label_suspect  post_junction
+   b1c5    158 6.564919     0.143009               False          False          False
+  b1c28    687 3.401878     0.054573               False          False          False
+   b1c5    159 1.185120     0.056032               False          False          False
+  b1c36    142 1.125519     0.053764               False          False          False
+  b2c17    117 1.011024     0.019076               False          False          False
+  b2c17    115 0.931969     0.018961               False          False          False
+  b1c18    673 0.751808     0.003964               False          False          False
+  b1c18    360 0.705856     0.006784               False          False          False
+  b2c17    114 0.681099     0.012812               False          False          False
+  b1c41    588 0.647751     0.007581               False          False          False
+  b1c18    486 0.592102     0.006718               False          False          False
+  b2c17    112 0.580215     0.011589               False          False          False
+  b1c29    604 0.560638     0.007433               False          False          False
+  b2c17    145 0.524734     0.012682               False          False          False
+  b1c18    206 0.518913     0.006473               False          False          False
+  b2c47    400 0.459595     0.006772               False          False          False
+  b1c36    464 0.446716     0.007095               False          False          False
+   b1c5    365 0.436043     0.006797               False          False          False
+  b1c36    347 0.424179     0.006789               False          False          False
+  b2c17    144 0.386383     0.009799               False          False          False
+
+=== S5 post-hoc: worst 20 end-to-end differences, uptick before tau and where the window differs most ===
+cell_id  cycle     d_pp  win_diff_ah  win_diff_at_V  max_uptick_v  uptick_at_V  uptick_sample  samples_to_tau
+   b1c5    158 6.564919     0.143009       2.537538           0.0     3.280852             29             291
+  b1c28    687 3.401878     0.054573       2.798799           0.0     3.556001              2             262
+   b1c5    159 1.185120     0.056032       2.789790           0.0     3.289652             28             297
+  b1c36    142 1.125519     0.053764       2.893393           0.0     3.295206             27             304
+  b2c17    117 1.011024     0.019076       2.402402           0.0     3.297713             27             290
+  b2c17    115 0.931969     0.018961       2.448949           0.0     3.284287             28             288
+  b1c18    673 0.751808     0.003964       2.492492           0.0     3.184299             38             247
+  b1c18    360 0.705856     0.006784       3.102102           0.0     3.326776             24             286
+  b2c17    114 0.681099     0.012812       2.465465           0.0     3.365846             20             286
+  b1c41    588 0.647751     0.007581       3.055556           0.0     3.327555             24             281
+  b1c18    486 0.592102     0.006718       3.082583           0.0     3.316514             25             281
+  b2c17    112 0.580215     0.011589       2.436937           0.0     3.285629             29             304
+  b1c29    604 0.560638     0.007433       3.124625           0.0     3.238452             33             277
+  b2c17    145 0.524734     0.012682       3.111111           0.0     3.322333             24             287
+  b1c18    206 0.518913     0.006473       3.153153           0.0     3.307643             26             293
+  b2c47    400 0.459595     0.006772       2.905405           0.0     3.304225             26             266
+  b1c36    464 0.446716     0.007095       3.120120           0.0     3.210764             36             294
+   b1c5    365 0.436043     0.006797       2.515015           0.0     3.278143             29             312
+  b1c36    347 0.424179     0.006789       3.088589           0.0     3.390489             18             282
+  b2c17    144 0.386383     0.009799       3.084084           0.0     3.362526             20             308
+
+=== S5 post-hoc: uptick summary, worst 20 vs random control ===
+             group   n  median_uptick_v  share_uptick_above_1mV  median_win_diff_ah
+random control 200 200              0.0                   0.005            0.000925
+          worst 20  20              0.0                   0.000            0.008690
+
+=== S6 INVALID_WINDOW cycles in the replay: 3 (cell, cycle, kind, reason) ===
+cell_id  cycle                           kind                                          reason
+   b1c5    909 truncated or interrupted cycle                                 tau not reached
+   b2c1    130               validity failure step 0.0741 Ah between neighbouring grid points
+  b3c38    829 truncated or interrupted cycle                                 tau not reached
+[PASS] S6 INVALID_WINDOW cycles: 2 truncated or interrupted cycles, 1 validity failures [('b2c1', 130)]; every one was carried forward as a stale record, none was scored
+
+=== S6 largest upward voltage step before the estimate time, per OK record (V; information only, NOT a gate until calibrated) ===
+ records  median      p99      max  share_above_1mV
+   10926     0.0 0.000417 0.327481         0.001647
+
+=== S6 per-cell largest voltage uptick before the estimate (V) ===
+cell_id  max_v_uptick_median  max_v_uptick_max
+  b1c20                  0.0          0.000093
+  b1c36                  0.0          0.327481
+  b1c28                  0.0          0.016400
+   b1c5                  0.0          0.000202
+   b2c1                  0.0          0.000000
+  b2c38                  0.0          0.000153
+  b2c17                  0.0          0.000080
+  b2c47                  0.0          0.001100
+  b3c28                  0.0          0.000000
+  b3c14                  0.0          0.000000
+   b3c1                  0.0          0.000000
+  b3c38                  0.0          0.000062
+  b1c18                  0.0          0.002074
+  b1c41                  0.0          0.082034
+
+=== S6 rejected reference candidates (numbers masked as #) ===
+cell_id                                                                          reason  count
+  b1c18 reference candidate rejected: charge/discharge gap # Ah above # Ah (QD #, QC #)     32
+  b1c18                 reference candidate rejected: summary capacity # outside (#, #)      1
+replay MAE is descriptive only: batch-3 labels are spent and nothing was selected with them
+
+=== S6 replay: references and Q0 (monitor vs labels table) ===
+cell_id    kind          ref_monitor           ref_stored  ref_equal  q0_monitor  q0_stored      q0_diff
+  b1c20 regular   [8, 9, 10, 11, 12]   [8, 9, 10, 11, 12]       True    1.075677   1.075677 2.434235e-08
+  b1c36 regular   [8, 9, 10, 11, 12]   [8, 9, 10, 11, 12]       True    1.081539   1.081539 3.484344e-08
+  b1c28 regular   [8, 9, 10, 11, 12]   [8, 9, 10, 11, 12]       True    1.080961   1.080961 3.021088e-08
+   b1c5 regular   [8, 9, 10, 11, 12]   [8, 9, 10, 11, 12]       True    1.080176   1.080176 4.173279e-09
+   b2c1 regular   [8, 9, 10, 11, 12]   [8, 9, 10, 11, 12]       True    1.068325   1.068325 1.490326e-08
+  b2c38 regular   [8, 9, 10, 11, 12]   [8, 9, 10, 11, 12]       True    1.073881   1.073881 1.228943e-08
+  b2c17 regular   [8, 9, 10, 11, 12]   [8, 9, 10, 11, 12]       True    1.072607   1.072607 1.986694e-09
+  b2c47 regular   [8, 9, 10, 11, 12]   [8, 9, 10, 11, 12]       True    1.048652   1.048652 1.446075e-08
+  b3c28 regular   [8, 9, 10, 11, 12]   [8, 9, 10, 11, 12]       True    1.052458   1.052458 2.897034e-08
+  b3c14 regular   [8, 9, 10, 11, 12]   [8, 9, 10, 11, 12]       True    1.076318   1.076318 3.599243e-08
+   b3c1 regular   [8, 9, 10, 11, 12]   [8, 9, 10, 11, 12]       True    1.068262   1.068262 1.898956e-08
+  b3c38 regular   [8, 9, 10, 11, 12]   [8, 9, 10, 11, 12]       True    1.072234   1.072234 7.833862e-09
+  b1c18   extra [41, 42, 43, 44, 45] [54, 55, 56, 57, 58]      False    1.069414   1.068990 4.242847e-04
+  b1c41   extra   [8, 9, 10, 11, 12]   [8, 9, 10, 12, 13]      False    1.082748   1.082748 2.137909e-08
+
+=== S6 replay: online raw vs offline raw per cycle (pp) and descriptive MAE vs soh_nom (batch-3 labels spent) ===
+cell_id  n_ok  n_matched  raw_diff_max  raw_diff_p99  raw_diff_median  mae_vs_soh_nom_pp  median_minutes_into_discharge  n_invalid  n_stale
+  b1c20   514        513      0.103935      0.095328         0.043045           1.011571                      12.901084          0        0
+  b1c36   684        663      1.125519      0.106507         0.044083           0.256514                      13.570871          0        0
+  b1c28   840        840      3.401878      0.138040         0.053738           0.100331                      13.634078          0        0
+   b1c5  1053       1053      6.564919      0.062206         0.017807           0.682583                      13.647333          1        0
+   b2c1   150        128      0.084373      0.079412         0.021572           0.238924                      12.886635          1        0
+  b2c38   468        445      0.106873      0.090229         0.050957           0.387350                      13.275928          0        0
+  b2c17   506        473      1.011024      0.425121         0.126244           0.185644                      13.265768          0        0
+  b2c47   726        676      0.459595      0.048012         0.010906           0.078294                      13.146276          0        0
+  b3c28   521        521      0.059219      0.054681         0.026649           0.706850                      12.838255          0        0
+  b3c14   838        838      0.293167      0.104491         0.022133           0.524932                      13.648357          0        0
+   b3c1  1043       1043      0.076317      0.060560         0.035439           0.200069                      13.591629          0        0
+  b3c38  1914       1900      0.138733      0.126536         0.044804           0.549620                      13.417933          1        0
+  b1c18   638        625      1.038925      0.343009         0.090393           0.377515                      13.333338          0        0
+  b1c41  1031       1026      0.647461      0.140207         0.054947           0.355750                      13.590158          0        0
+
+=== S6 replay: fire cycles online vs offline (offline over scored2 cycles only) ===
+cell_id  life  warn85_online  warn85_offline warn85_class  warn85_online_first_unscored  eol_online  eol_offline eol_class  eol_online_first_unscored
+  b1c20   534            498             498        equal                         False       531.0        531.0     equal                      False
+  b1c36   704            648             647     within 2                         False       686.0        685.0  within 2                      False
+  b1c28   860            794             793     within 2                         False       844.0        843.0  within 2                      False
+   b1c5  1074           1034            1034        equal                         False      1072.0       1072.0     equal                      False
+   b2c1   148            118             118        equal                         False       138.0        138.0     equal                      False
+  b2c38   465            436             435     within 2                         False       455.0        455.0     equal                      False
+  b2c17   494            461             460     within 2                         False       482.0        482.0     equal                      False
+  b2c47   713            657             657        equal                         False       698.0        698.0     equal                      False
+  b3c28   541            492             492        equal                         False         NaN          NaN     equal                      False
+  b3c14   858            820             819     within 2                         False       846.0        845.0  within 2                      False
+   b3c1  1063           1011            1010     within 2                         False      1058.0       1058.0     equal                      False
+  b3c38  1935           1799            1794    different                         False      1890.0       1888.0  within 2                      False
+  b1c18   691            640             642     within 2                         False       673.0        677.0 different                      False
+  b1c41  1051            989             989        equal                         False      1042.0       1042.0     equal                      False
+
+=== S6 H21 diagnostic: b1c18 per-cycle gate results, cycles 13-60 (online references [41, 42, 43, 44, 45]) ===
+ cycle     qd  qc_gap_ah  n_samples  i_med_dev  plateau  end_gap_ah  current  end capacity  qd range  charge gap  sample count  all_ok
+    13 1.0698     0.1831        363        0.0    0.978      0.0132     True          True      True       False          True   False
+    14 1.0698     0.2106        345        0.0    0.977      0.0132     True          True      True       False          True   False
+    15 1.0697     0.2382        350        0.0    0.974      0.0111     True          True      True       False          True   False
+    16 1.0699     0.2655        354        0.0    0.974      0.0111     True          True      True       False          True   False
+    17 1.0701     0.2928        362        0.0    0.978      0.0111     True          True      True       False          True   False
+    18 1.0701     0.3204        350        0.0    0.977      0.0111     True          True      True       False          True   False
+    19 1.0701     0.3478        357        0.0    0.977      0.0111     True          True      True       False          True   False
+    20 1.0701     0.3754        343        0.0    0.973      0.0111     True          True      True       False          True   False
+    21 1.0701     0.4028        365        0.0    0.978      0.0110     True          True      True       False          True   False
+    22 1.0701     0.4303        348        0.0    0.977      0.0110     True          True      True       False          True   False
+    23 1.0701     0.4578        352        0.0    0.977      0.0110     True          True      True       False          True   False
+    24 1.0700     0.4854        338        0.0    0.976      0.0110     True          True      True       False          True   False
+    25 1.0700     0.5129        338        0.0    0.976      0.0110     True          True      True       False          True   False
+    26 1.0700     0.5404        369        0.0    0.978      0.0111     True          True      True       False          True   False
+    27 1.0700     0.5680        351        0.0    0.977      0.0110     True          True      True       False          True   False
+    28 1.0699     0.5955        350        0.0    0.977      0.0110     True          True      True       False          True   False
+    29 1.0697     0.6232        351        0.0    0.977      0.0110     True          True      True       False          True   False
+    30 1.0699     0.6506        326        0.0    0.972      0.0110     True          True      True       False          True   False
+    31 1.0699     0.6780        341        0.0    0.976      0.0111     True          True      True       False          True   False
+    32 1.0697     0.7057        340        0.0    0.976      0.0110     True          True      True       False          True   False
+    33 1.0698     0.7331        357        0.0    0.977      0.0110     True          True      True       False          True   False
+    34 1.0697     0.7607        345        0.0    0.977      0.0111     True          True      True       False          True   False
+    35 1.0697     0.7883        349        0.0    0.977      0.0111     True          True      True       False          True   False
+    36 1.0696     0.8158        347        0.0    0.977      0.0111     True          True      True       False          True   False
+    37 1.0696     0.8433        350        0.0    0.977      0.0111     True          True      True       False          True   False
+    38 1.0696     0.8708        354        0.0    0.977      0.0111     True          True      True       False          True   False
+    39 1.0695     0.8985        348        0.0    0.977      0.0111     True          True      True       False          True   False
+    40 2.8841     0.0818        344        0.0    0.976      1.8257     True         False     False       False          True   False
+    41 1.0695     0.0004        357        0.0    0.978      0.0111     True          True      True        True          True    True
+    42 1.0695     0.0004        353        0.0    0.977      0.0111     True          True      True        True          True    True
+    43 1.0694     0.0004        334        0.0    0.976      0.0112     True          True      True        True          True    True
+    44 1.0693     0.0004        352        0.0    0.977      0.0112     True          True      True        True          True    True
+    45 1.0693     0.0007        346        0.0    0.977      0.0112     True          True      True        True          True    True
+    46 1.0691     0.0003        336        0.0    0.976      0.0112     True          True      True        True          True    True
+    47 1.0691     0.0004        340        0.0    0.976      0.0112     True          True      True        True          True    True
+    48 1.0691     0.0003        341        0.0    0.976      0.0113     True          True      True        True          True    True
+    49 1.0689     0.0003        353        0.0    0.977      0.0113     True          True      True        True          True    True
+    50 1.0689     0.0004        351        0.0    0.977      0.0114     True          True      True        True          True    True
+    51 1.0688     0.0003        352        0.0    0.974      0.0114     True          True      True        True          True    True
+    52 1.0688     0.0004        354        0.0    0.977      0.0114     True          True      True        True          True    True
+    53 1.0675     0.0009        347        0.0    0.977      0.0113     True          True      True        True          True    True
+    54 1.0688     0.0003        336        0.0    0.976      0.0112     True          True      True        True          True    True
+    55 1.0690     0.0003        347        0.0    0.973      0.0111     True          True      True        True          True    True
+    56 1.0690     0.0003        337        0.0    0.976      0.0111     True          True      True        True          True    True
+    57 1.0690     0.0004        340        0.0    0.976      0.0111     True          True      True        True          True    True
+    58 1.0686     0.0003        345        0.0    0.977      0.0115     True          True      True        True          True    True
+    59 1.0684     0.0004        351        0.0    0.977      0.0115     True          True      True        True          True    True
+    60 1.0683     0.0003        352        0.0    0.974      0.0116     True          True      True        True          True    True
+S8 test stream: cell b1c5, cycles 2..80, reference cycles [8, 9, 10, 11, 12], score_start 20
+[PASS] S8 (a) causality: 29 of 29 records for cycles <= 30 identical to the full-stream run
+[PASS] S8 (b) missing cycle -> stale carry-forward: cycle 25 missing: stale record raw 98.28078 == carried cycle 24 raw 98.28078; cycle 26 fresh raw 98.28963
+[PASS] S8 (c) duplicate ignored: 1 duplicate record(s) ignored; other 79 records identical to the clean run; cycles counted 79 of 79
+[PASS] S8 (d) out-of-order ignored: 1 out-of-order record(s) ignored; other 79 of 79 records identical
+[PASS] S8 (e) late joiner -> NO_REFERENCE: statuses ['NO_REFERENCE']; estimates all NaN: True
+[PASS] S8 (f) corrupted windows -> INVALID_WINDOW: NaN in V -> INVALID_WINDOW (1 non-finite samples before tau); non-monotone step -> INVALID_WINDOW (non-monotone (min step -0.0370 Ah)); spike -> INVALID_WINDOW (non-monotone (min step -0.0745 Ah)); carried raw equals previous estimate; next clean cycle scored normally
+[PASS] S8 (g) bad reference candidates skipped: clean references [8, 9, 10, 11, 12]; with cycles 9 (NaN) and 10 (capacity mismatch 0.100 Ah = 2.2x the 0.046 Ah tolerance, margin check needs >= 2x) corrupted: [8, 11, 12, 13, 14], ref_last 14, score_start 22
+[PASS] S8 (g2) bad discharge current rejected: cycle 9 with discharge current scaled x0.8 / x1.10 rejected as a reference (and 5 references still built): [(0.8, True), (1.1, True)]
+[PASS] S8 (g3) charge/discharge gap rejected: cycle 9 with QCharge shifted by 0.030 Ah (2.5x the 0.0120 Ah tolerance) rejected as a reference, 5 references still built: [8, 10, 11, 12, 13]
+[PASS] S8 (g4) missing QCharge -> gate skipped and noted: QCharge NaN: references [8, 9, 10, 11, 12] (clean run [8, 9, 10, 11, 12]); skip noted on the accepted candidates: True
+[PASS] S8 (g5) abnormal sample count rejected: sample-count gate is off in this monitor (off: simulated references [41, 42, 43, 44, 45] differ from stored [54, 55, 56, 57, 58] and a sample-count gate (anomalous passing cycles []) does not fix it); nothing to test
+[PASS] S8 (h) to_dict/from_dict round-trip: 55 of 55 future records identical after JSON round-trip at cycle 25; final states identical: True
+[PASS] S8 (i) fleet == per-cell: 24 cells, 24 scored in both; max |fleet - per-cell| = 0.000e+00 pp (limit 7.63e-06 = max(1e-6, one float32 ulp at 100 pp))
+[PASS] S8 (j) no torch import: static imports ['json', 'math', 'numpy', 'pathlib', 'src.onnx_scorer', 'time']; fresh-interpreter import leaves torch/soh_deep modules: []
+[PASS] S8 (k) M0idx variant runs (experimental): variant M0idx (experimental=True) cycle 23 raw 98.2257 pp vs M0 98.2554 pp
+[PASS] S8 (l) per-sample path == cycle path: 22 of 22 per-sample-path records equal the cycle-path records (status and raw)
+[PASS] S8 (m) temperature field is informational: records identical with and without T: True; temp_delta_c finite for 4 scored cycles with T (last -0.261 C): True; NaN without T: True
+REMINDER before timing: connect the charger, set the High-performance power plan and close other applications.
+Targets (my choice, from the proposal): per-cell update p99 <= 10 ms, fleet update median <= 50 ms; WARN, not FAIL, if missed.
+
+=== S9 latency, three passes side by side (ORT 1 thread; 10926 scored cycle updates per pass; fleet repeats 200) ===
+                                      component  pass1_median  pass1_p95  pass1_p99  pass2_median  pass2_p95  pass2_p99  pass3_median  pass3_p95  pass3_p99  median_spread_max/min
+                        ingest, per sample (us)        0.7656     1.5428     2.5485        0.7649     1.4124     2.2882        0.7344     1.3697     2.5374                 1.0424
+                       window finalisation (ms)        0.0955     0.2470     0.4870        0.0896     0.2208     0.3769        0.0888     0.2054     0.3369                 1.0755
+                         feature subsample (ms)        0.0044     0.0103     0.0170        0.0041     0.0090     0.0156        0.0040     0.0083     0.0162                 1.1000
+                                 ONNX call (ms)        0.1323     0.3662     0.6436        0.1265     0.3160     0.5968        0.1225     0.2843     0.4699                 1.0800
+                           post-processing (ms)        0.0330     0.0869     0.1695        0.0301     0.0799     0.1444        0.0293     0.0714     0.1314                 1.1263
+                    total per cycle update (ms)        0.4771     1.1811     1.8203        0.4591     1.0209     1.8295        0.4550     0.9340     1.7878                 1.0486
+fleet update, 124 windows, one scorer call (ms)        6.7063    10.5009    13.8286        5.5707     8.3360    10.4917        5.6996     8.3302     9.1092                 1.2038
+[PASS] S9 per-cell update p99 <= 10 ms: p99 per pass: [1.82, 1.829, 1.788] ms
+[PASS] S9 fleet update median <= 50 ms: median per pass: [6.706, 5.571, 5.7] ms (124 cells, one scorer call)
+[PASS] S9 timing stability: largest spread of pass medians (max/min) = 1.20x over components; earlier measurements drifted up to 4.6x
+
+=== S7 expectations: expected / observed / consistent? ===
+         id                                                                                                                                                                                                                         expected                                                                                                                                                                                                                                                   observed consistent
+        H16                                                                                                                                                            online window vs stored Qdlin: p99 of per-cycle max |diff| <= 6e-3 Ah                                                                                                                                                                                             p99 per-cycle max diff = 0.00434 Ah (share above 6e-3: 0.0049)        yes
+        H17                                                                                                                                                      online raw estimate vs offline: median |diff| <= 0.02 pp and p99 <= 0.10 pp                                                                                                                                                                                             median |diff| = 0.03205 pp, p99 = 0.17344 pp, max = 6.56492 pp         NO
+        H18                                                                                                                        monitor references and Q0 equal the stored ones for the 12 regular replay cells (b1c18, b1c41 may differ)                                                                                                                                                                                    references equal for all regular cells: True; max Q0 diff = 3.60e-08 Ah        yes
+        H19                                                                                                                                  replay fire cycles equal offline for >= 90% of cell x alert pairs and within 2 cycles otherwise                                                                                                                                                                                                   0.536 of 28 pairs equal, 11 within 2 cycles, 2 different         NO
+        H20                                                                                                                                                      per-cell update p99 <= 10 ms and fleet update median <= 50 ms in every pass                                                                                                                                                                per-cell p99 per pass [1.82, 1.829, 1.788] ms; fleet median per pass [6.706, 5.571, 5.7] ms        yes
+        H21                                                                                                         monitor v4: the online references of b1c18 equal the stored cycles [54, 55, 56, 57, 58] (registered before the v4 rerun) b1c18 online references [41, 42, 43, 44, 45], stored [54, 55, 56, 57, 58]; sample-count gate: off: simulated references [41, 42, 43, 44, 45] differ from stored [54, 55, 56, 57, 58] and a sample-count gate (anomalous passing cycles []) does not fix it         NO
+H19-posthoc POST-HOC (written after results were seen; registered H19 kept): over warn85/eol_watch pairs where online and offline both fire, median fire-cycle difference <= 1 cycle and maximum <= 5 cycles; no pair fires on only one side                                                                                                                                27 pairs fire on both sides: median difference 0.0, max 5 cycles; 0 pair(s) fire on one side only; 1 pair(s) silent on both        yes
+[PASS] S7 H16: p99 per-cycle max diff = 0.00434 Ah (share above 6e-3: 0.0049)
+[WARN] S7 H17: median |diff| = 0.03205 pp, p99 = 0.17344 pp, max = 6.56492 pp
+[PASS] S7 H18: references equal for all regular cells: True; max Q0 diff = 3.60e-08 Ah
+[WARN] S7 H19: 0.536 of 28 pairs equal, 11 within 2 cycles, 2 different
+[PASS] S7 H20: per-cell p99 per pass [1.82, 1.829, 1.788] ms; fleet median per pass [6.706, 5.571, 5.7] ms
+[WARN] S7 H21: b1c18 online references [41, 42, 43, 44, 45], stored [54, 55, 56, 57, 58]; sample-count gate: off: simulated references [41, 42, 43, 44, 45] differ from stored [54, 55, 56, 57, 58] and a sample-count gate (anomalous passing cycles []) does not fix it
+[PASS] S7 H19-posthoc: 27 pairs fire on both sides: median difference 0.0, max 5 cycles; 0 pair(s) fire on one side only; 1 pair(s) silent on both
+
+=== hash guard (end) ===
+                        file                                                           sha256  matches_expected
+                M0_W240.onnx 4fe196d3f7787a4f2dcd5f20939447518afb032eb8dc724c018f891630945771              True
+                M0_W300.onnx 4e8cd5235869301eb2694e4b56c346cdb816d06277db7a2914ed0af6580fd1d9              True
+             M0idx_W240.onnx 50ea2ebbf287ab24a2385bdee8fbe0db4c725442cf4a3076a4daac8063ac2459              True
+             M0idx_W300.onnx 4c94897e3f765671ad25a412c1f1b78810f660b6bf9262c43cd4d2e6ed2dcd79              True
+              onnx_scorer.py 7f56bd5b5df08f7a37bc6104a140da2411b5290d25434a03aa8971599ec139c7              True
+         monitor_config.json 638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2              True
+monitor_config_addendum.json d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632              True
+  batch3_predictions.parquet 679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd              True
+[PASS] hash guard end: 8/8 frozen files match; mismatches: []
+[PASS] monitor v4 unchanged since it was written: sha256 now a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53, at write a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53
+[PASS] S10 provenance: previous_sha256 0aa411d7a09e differs from the current a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53; chain: ['b280094074df', 'c3f0a5367373', '0aa411d7a09e', 'a9531dde7d93']
+monitor v4 FROZEN: sha256 a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53 | previous 0aa411d7a09e
+[PASS] runtime: 2.6 minutes (target under 25)
+
+=== check summary ===
+status  count
+  PASS     48
+  WARN      5
+  FAIL      0
+
+=== all checks ===
+                                            check status                                                                                                                                                                                                                                                                                  detail
+                                 hash guard start   PASS                                                                                                                                                                                                                                                  8/8 frozen files match; mismatches: []
+                            S1 recipe calibration   PASS                                                                                                                                                                       best recipe runmin|first|interp0, max error 0.002086 Ah, p99 0.001558 Ah over 90 cycles; earlier work: ~0.0056 Ah
+        S1 charge gate rejects b1c18 cycles 54-58   WARN                                                                                                                                                                                                  calibrated tolerance 0.0120 Ah; 54-58 gaps [0.0003, 0.0003, 0.0003, 0.0004, 0.0003] Ah
+             S1 gate pass rate, development cells   PASS                                                                                                                                                                          all gates pass on 1.0000 of the development reference cycles (1.0 expected: tolerances are calibrated on them)
+                               S1 reference gates   PASS nominal -4.0 A, median tolerance 0.050 A, plateau fraction >= 0.92 (band 0.1 A), end-capacity tolerance 0.046 Ah, charge-gap tolerance 0.012; margin check: injected mismatch 0.10 Ah is 2.2x the end-capacity tolerance (needs >= 2x); S8 test g2 scales the current by x0.8 and x1.10
+                           S1 charge gate enabled   PASS                                                                                                       calibrated tolerance 0.0120 Ah lies above the largest gap of the good cycles 54-58 (0.0004 Ah) and below the smallest gap of the bad cycles 8-12 (0.0463 Ah); charge gate ENABLED
+                    S1 b1c18 simulated references   WARN                   simulated first five passing cycles [41, 42, 43, 44, 45], stored [54, 55, 56, 57, 58]; sample-count gate off: simulated references [41, 42, 43, 44, 45] differ from stored [54, 55, 56, 57, 58] and a sample-count gate (anomalous passing cycles []) does not fix it
+           S4 module window == calibration window   PASS                                                                                                                                                                                                                                                         max abs difference 6.245e-16 Ah
+                                   scored2 counts   PASS                                                                                                                                                                                                          total 96419, development 55963, batch 3 40456 (expected 96419 / 55963 / 40456)
+                                     dq cache key   PASS                                                                                                                                                                                                                                       computed key b1c0103adbcf (expected b1c0103adbcf)
+                           dq cache row alignment   PASS                                                                first-vs-last row of 124 cells: max |cache difference - stored Qdlin difference| = 8.439e-08 Ah after removing each row's first value (7.110e-03 Ah without: the cache rows start at zero); misaligned rows give 0.4+ Ah
+                                        EMA alpha   PASS                                                                                                                                                                                                        alpha used = 0.3, from: monitor_config.json / ema / chosen / W240 (expected 0.3)
+                        S2 reference reproduction   PASS                                                                                                                                                                                                                      14 of 14 reference numbers matched (14 required; convention hi_ge)
+                    S2 scorer == 7a ensemble mean   PASS                                                                                                                                                                                           max |monitor raw - parquet ensemble mean| = 1.373e-05 pp over 40456 batch-3 rows (limit 1e-4)
+               S2 W300 scorer == 7a ensemble mean   PASS                                                                                                                                                                                                                                                max difference 1.526e-05 pp (limit 1e-4)
+                    S2 monitor == vectorised path   PASS                                                                                                                                                                                                                                                 max lower-bound difference 0.000e+00 pp
+                    S3 stored-feature consistency   PASS                                                                          max abs difference over 124 cells = 1.188e-07 Ah after removing each row's first value (the cache rows start at zero; float32 eps ~1.2e-7); 7.113e-03 Ah without that removal; cells without reference rows: 0
+     S3 q0/ref_last/score_start constant per cell   PASS                                                                                                                                                                                  max distinct q0 1, ref_last 1, score_start 1 per cell; score_start - ref_last values [np.float64(8.0)]
+                                       replay set   PASS                                                                                                                                                                                 14 replay cells, 12 regular (rule: life quantiles 0, 1/3, 2/3, 1 per batch) + extras ['b1c18', 'b1c41']
+                          S5 online windows built   PASS                         13378 of 13379 cycles produced a window; 1 failed, of which 1 are truncated or interrupted cycles (< 50 discharge samples, voltage never near tau: not scorable by construction, the monitor returns INVALID_WINDOW for them); other failures: 0 (listed below)
+                             S5 builder causality   PASS                                                                                                                                                                                      0 of 300 cycles gave a different window when the stream was truncated at tau or extended with junk
+                         S6 INVALID_WINDOW cycles   PASS                                                                                                                                                2 truncated or interrupted cycles, 1 validity failures [('b2c1', 130)]; every one was carried forward as a stale record, none was scored
+                                 S8 (a) causality   PASS                                                                                                                                                                                                                      29 of 29 records for cycles <= 30 identical to the full-stream run
+      S8 (b) missing cycle -> stale carry-forward   PASS                                                                                                                                                                               cycle 25 missing: stale record raw 98.28078 == carried cycle 24 raw 98.28078; cycle 26 fresh raw 98.28963
+                         S8 (c) duplicate ignored   PASS                                                                                                                                                                                     1 duplicate record(s) ignored; other 79 records identical to the clean run; cycles counted 79 of 79
+                      S8 (d) out-of-order ignored   PASS                                                                                                                                                                                                                      1 out-of-order record(s) ignored; other 79 of 79 records identical
+               S8 (e) late joiner -> NO_REFERENCE   PASS                                                                                                                                                                                                                                      statuses ['NO_REFERENCE']; estimates all NaN: True
+       S8 (f) corrupted windows -> INVALID_WINDOW   PASS            NaN in V -> INVALID_WINDOW (1 non-finite samples before tau); non-monotone step -> INVALID_WINDOW (non-monotone (min step -0.0370 Ah)); spike -> INVALID_WINDOW (non-monotone (min step -0.0745 Ah)); carried raw equals previous estimate; next clean cycle scored normally
+          S8 (g) bad reference candidates skipped   PASS                                                                        clean references [8, 9, 10, 11, 12]; with cycles 9 (NaN) and 10 (capacity mismatch 0.100 Ah = 2.2x the 0.046 Ah tolerance, margin check needs >= 2x) corrupted: [8, 11, 12, 13, 14], ref_last 14, score_start 22
+           S8 (g2) bad discharge current rejected   PASS                                                                                                                                                   cycle 9 with discharge current scaled x0.8 / x1.10 rejected as a reference (and 5 references still built): [(0.8, True), (1.1, True)]
+            S8 (g3) charge/discharge gap rejected   PASS                                                                                                                                          cycle 9 with QCharge shifted by 0.030 Ah (2.5x the 0.0120 Ah tolerance) rejected as a reference, 5 references still built: [8, 10, 11, 12, 13]
+S8 (g4) missing QCharge -> gate skipped and noted   PASS                                                                                                                                                                  QCharge NaN: references [8, 9, 10, 11, 12] (clean run [8, 9, 10, 11, 12]); skip noted on the accepted candidates: True
+           S8 (g5) abnormal sample count rejected   PASS                                                                sample-count gate is off in this monitor (off: simulated references [41, 42, 43, 44, 45] differ from stored [54, 55, 56, 57, 58] and a sample-count gate (anomalous passing cycles []) does not fix it); nothing to test
+              S8 (h) to_dict/from_dict round-trip   PASS                                                                                                                                                                                       55 of 55 future records identical after JSON round-trip at cycle 25; final states identical: True
+                         S8 (i) fleet == per-cell   PASS                                                                                                                                                              24 cells, 24 scored in both; max |fleet - per-cell| = 0.000e+00 pp (limit 7.63e-06 = max(1e-6, one float32 ulp at 100 pp))
+                           S8 (j) no torch import   PASS                                                                                                                                              static imports ['json', 'math', 'numpy', 'pathlib', 'src.onnx_scorer', 'time']; fresh-interpreter import leaves torch/soh_deep modules: []
+         S8 (k) M0idx variant runs (experimental)   PASS                                                                                                                                                                                                              variant M0idx (experimental=True) cycle 23 raw 98.2257 pp vs M0 98.2554 pp
+             S8 (l) per-sample path == cycle path   PASS                                                                                                                                                                                                          22 of 22 per-sample-path records equal the cycle-path records (status and raw)
+        S8 (m) temperature field is informational   PASS                                                                                                                                                   records identical with and without T: True; temp_delta_c finite for 4 scored cycles with T (last -0.261 C): True; NaN without T: True
+                  S9 per-cell update p99 <= 10 ms   PASS                                                                                                                                                                                                                                                   p99 per pass: [1.82, 1.829, 1.788] ms
+                  S9 fleet update median <= 50 ms   PASS                                                                                                                                                                                                                    median per pass: [6.706, 5.571, 5.7] ms (124 cells, one scorer call)
+                              S9 timing stability   PASS                                                                                                                                                                               largest spread of pass medians (max/min) = 1.20x over components; earlier measurements drifted up to 4.6x
+                                           S7 H16   PASS                                                                                                                                                                                                                          p99 per-cycle max diff = 0.00434 Ah (share above 6e-3: 0.0049)
+                                           S7 H17   WARN                                                                                                                                                                                                                          median |diff| = 0.03205 pp, p99 = 0.17344 pp, max = 6.56492 pp
+                                           S7 H18   PASS                                                                                                                                                                                                                 references equal for all regular cells: True; max Q0 diff = 3.60e-08 Ah
+                                           S7 H19   WARN                                                                                                                                                                                                                                0.536 of 28 pairs equal, 11 within 2 cycles, 2 different
+                                           S7 H20   PASS                                                                                                                                                                                             per-cell p99 per pass [1.82, 1.829, 1.788] ms; fleet median per pass [6.706, 5.571, 5.7] ms
+                                           S7 H21   WARN                              b1c18 online references [41, 42, 43, 44, 45], stored [54, 55, 56, 57, 58]; sample-count gate: off: simulated references [41, 42, 43, 44, 45] differ from stored [54, 55, 56, 57, 58] and a sample-count gate (anomalous passing cycles []) does not fix it
+                                   S7 H19-posthoc   PASS                                                                                                                                                             27 pairs fire on both sides: median difference 0.0, max 5 cycles; 0 pair(s) fire on one side only; 1 pair(s) silent on both
+                                   hash guard end   PASS                                                                                                                                                                                                                                                  8/8 frozen files match; mismatches: []
+        monitor v4 unchanged since it was written   PASS                                                                                                                                  sha256 now a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53, at write a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53
+                                   S10 provenance   PASS                                                                                         previous_sha256 0aa411d7a09e differs from the current a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53; chain: ['b280094074df', 'c3f0a5367373', '0aa411d7a09e', 'a9531dde7d93']
+                                          runtime   PASS                                                                                                                                                                                                                                                           2.6 minutes (target under 25)
+
+=== artifacts ===
+                                        artifact  bytes
+         outputs\phase8b\monitor_provenance.json    397
+          outputs\phase8b\monitor_v3_freeze.json   1348
+          outputs\phase8b\monitor_v4_freeze.json   2050
+               outputs\phase8b\phase8b_log.jsonl  53398
+            outputs\phase8b\replay\b1c18.parquet  58136
+            outputs\phase8b\replay\b1c20.parquet  48360
+            outputs\phase8b\replay\b1c28.parquet  71830
+            outputs\phase8b\replay\b1c36.parquet  60680
+            outputs\phase8b\replay\b1c41.parquet  89970
+             outputs\phase8b\replay\b1c5.parquet  88527
+             outputs\phase8b\replay\b2c1.parquet  21062
+            outputs\phase8b\replay\b2c17.parquet  47276
+            outputs\phase8b\replay\b2c38.parquet  44208
+            outputs\phase8b\replay\b2c47.parquet  65765
+             outputs\phase8b\replay\b3c1.parquet  87528
+            outputs\phase8b\replay\b3c14.parquet  71353
+            outputs\phase8b\replay\b3c28.parquet  48915
+            outputs\phase8b\replay\b3c38.parquet 150330
+           outputs\phase8b\replay_four_cells.png 217696
+          outputs\phase8b\s1_gate_pass_rates.csv    235
+     outputs\phase8b\s2_per_cell_batch3_W240.csv   2921
+         outputs\phase8b\s3_qref_consistency.csv   6892
+           outputs\phase8b\s5_failed_windows.csv    113
+outputs\phase8b\s5_posthoc_uptick_diagnostic.csv  25756
+    outputs\phase8b\s6_invalid_window_cycles.csv    217
+          outputs\phase8b\s6_replay_per_cell.csv   5075
+                  outputs\phase8b\s9_latency.csv   1681
+        outputs\phase8b\verification_report.json  11391
+                           src\health_monitor.py  29763
+sha256 of src\health_monitor.py: a9531dde7d933954a1d942112cd147256fe7138fe9c4cb6e17cc12b257ee4b53
+full run

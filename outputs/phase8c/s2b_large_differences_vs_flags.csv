@@ -1,0 +1,6 @@
+,count,share
+cycles with |d| > 0.5 pp,14,1.0
+offline-flagged themselves,0,0.0
+adjacent to a flagged cycle (+-1),4,0.2857142857142857
+flagged or adjacent,4,0.2857142857142857
+inside 246-258 (batch-2 cell),0,0.0

@@ -1,0 +1,458 @@
+PHASE 8a - ONNX EXPORT, PARITY AND LATENCY
+==============================================================================
+generated 2026-11-05T19:36:21+00:00 | SMOKE=False
+checks: 97 PASS, 1 WARN, 0 FAIL
+
+Environment
+-----------
+                          item                                                             value
+                        python                                                           3.13.13
+                         numpy                                                             2.5.4
+                        pandas                                                             3.1.0
+                         torch                                                      2.14.1+cu130
+                          onnx                                                            1.23.2
+                   onnxruntime                                                            1.31.1
+                    onnxscript                                                             0.7.2
+                CUDA available                                                              True
+                        device                            NVIDIA GeForce RTX 3050 6GB Laptop GPU
+                free VRAM (GB)                                                              5.04
+CPU count (logical / physical)                                                            12 / 8
+   torch CPU threads (default)                                                                 8
+        ONNX Runtime providers                       AzureExecutionProvider,CPUExecutionProvider
+                         SMOKE                                                             False
+                          ROOT                 C:\workstation\3RD YEAR\Battery-Health-Estimation
+                           OUT C:\workstation\3RD YEAR\Battery-Health-Estimation\outputs\phase8a
+
+Hash guard (start)
+------------------
+                      item                                          path         expected              got  match
+               M0_W240.npz            outputs\phase7a\models\M0_W240.npz 29cd3ec8c5c2113d 29cd3ec8c5c2113d   True
+               M0_W300.npz            outputs\phase7a\models\M0_W300.npz 06f63dc6c5a89750 06f63dc6c5a89750   True
+            M0idx_W240.npz         outputs\phase7a\models\M0idx_W240.npz b7822335aa1c7cb5 b7822335aa1c7cb5   True
+            M0idx_W300.npz         outputs\phase7a\models\M0idx_W300.npz 0e7430ee1586a57b 0e7430ee1586a57b   True
+batch3_predictions.parquet    outputs\phase7a\batch3_predictions.parquet 679ec76862de63f2 679ec76862de63f2   True
+            soh_deep_v4.py                            src\soh_deep_v4.py 2be9ce5ded197b16 2be9ce5ded197b16   True
+            monitor_config           outputs\phase7b\monitor_config.json 638b6c3a6ad31c69 638b6c3a6ad31c69   True
+   monitor_config_addendum outputs\phase7b2\monitor_config_addendum.json d842e5f4c3186889 d842e5f4c3186889   True
+
+Expectations registered before parity and timing
+------------------------------------------------
+ id                                                                                                statement                     expected
+H12 ONNX Runtime CPU vs PyTorch fp32, max |difference| over all 96,419 stored rows, worst of the four models                    < 1e-3 pp
+H13                                                   deployed M0 W240, ONNX Runtime CPU intra_op=1, batch 1 median < 1 ms and p99 < 5 ms
+H14                        deployed M0 W240, ONNX Runtime CPU intra_op=1, one call with 124 rows (all cells)                median < 5 ms
+H15                          int8 dynamic quantisation of deployed M0 W240, change in batch-3 cell-macro MAE           |change| < 0.02 pp
+
+Signatures of helpers used
+--------------------------
+                                   helper                                                                                                                                                                                                                                                                                                                                             signature
+                      soh_deep_v4.sub_idx                                                                                                                                                                                                                                                                                                                                                   (L)
+                  soh_deep_v4.make_single                                                                                                                                                                                                                                                                                                       (kind, L, seed, dtype=torch.float32, n_extra=0)
+            soh_deep_v4.SingleM0.__init__                                                                                                                                                                                                                                                                                                                                  (self, L, n_extra=0)
+             soh_deep_v4.SingleM0.forward                                                                                                                                                                                                                                                                                                                                          (self, d, q)
+                       soh_deep_v4._qcols                                                                                                                                                                                                                                                                                                                                               (q, nd)
+                 soh_deep_v4.count_params                                                                                                                                                                                                                                                                                                                                               (model)
+                    onnx.helper.make_node                                                                                                                           (op_type: 'str', inputs: 'Sequence[str]', outputs: 'Sequence[str]', name: 'str | None' = None, doc_string: 'str | None' = None, domain: 'str | None' = None, overload: 'str | None' = None, **kwargs: 'Any') -> 'NodeProto'
+       onnx.helper.make_tensor_value_info                                                                                                                                                                                  (name: 'str', elem_type: 'int', shape: 'Sequence[str | int | None] | None', doc_string: 'str' = '', shape_denotation: 'list[str] | None' = None) -> 'ValueInfoProto'
+                   onnx.helper.make_graph (nodes: 'Sequence[NodeProto]', name: 'str', inputs: 'Sequence[ValueInfoProto]', outputs: 'Sequence[ValueInfoProto]', initializer: 'Sequence[TensorProto] | None' = None, doc_string: 'str | None' = None, value_info: 'Sequence[ValueInfoProto] | None' = None, sparse_initializer: 'Sequence[onnx.SparseTensorProto] | None' = None) -> 'GraphProto'
+                   onnx.helper.make_model                                                                                                                                                                                                                                                                                                (graph: 'GraphProto', **kwargs: 'Any') -> 'ModelProto'
+                 onnx.checker.check_model                                                                                                                                                                     (model: 'onnx.ModelProto | str | bytes | os.PathLike', full_check: 'bool' = False, skip_opset_compatibility_check: 'bool' = False, check_custom_domain: 'bool' = False) -> 'None'
+             onnxruntime.InferenceSession                                                                                                   (path_or_bytes: 'str | bytes | os.PathLike', sess_options: 'C.SessionOptions | None' = None, providers: 'Sequence[str | tuple[str, dict[Any, Any]]] | None' = None, provider_options: 'Sequence[dict[Any, Any]] | None' = None, **kwargs) -> 'None'
+onnxruntime.quantization.quantize_dynamic                                                                      (model_input: 'str | Path | onnx.ModelProto', model_output: 'str | Path', op_types_to_quantize=None, per_channel=False, reduce_range=False, weight_type=<QuantType.QInt8: 0>, nodes_to_quantize=None, nodes_to_exclude=None, use_external_data_format=False, extra_options=None)
+                  pyarrow.dataset.dataset                                                                                                                                                                                                     (source, schema=None, format=None, filesystem=None, partitioning=None, partition_base_dir=None, exclude_invalid_files=None, ignore_prefixes=None)
+                               numpy.load                                                                                                                                                                                                                                              (file, mmap_mode=None, allow_pickle=False, fix_imports=True, encoding='ASCII', *, max_header_size=10000)
+
+M0 architecture read from the module
+------------------------------------
+ model      layer    shape
+    M0 fc1.weight (44, 33)
+    M0   fc1.bias    (44,)
+    M0 fc2.weight (32, 44)
+    M0   fc2.bias    (32,)
+    M0 fc3.weight  (1, 32)
+    M0   fc3.bias     (1,)
+M0+idx fc1.weight (44, 34)
+M0+idx   fc1.bias    (44,)
+M0+idx fc2.weight (32, 44)
+M0+idx   fc2.bias    (32,)
+M0+idx fc3.weight  (1, 32)
+M0+idx   fc3.bias     (1,)
+
+batch3_predictions.parquet columns
+----------------------------------
+model: large_string
+window: large_string
+seed: int32
+row_id: int64
+cell_id: large_string
+pred_pp: double
+
+7a reference predictions
+------------------------
+     model  rows          seeds
+   M0_W240 40456 42,43,44,45,46
+   M0_W300 40456 42,43,44,45,46
+M0idx_W240 40456 42,43,44,45,46
+M0idx_W300 40456 42,43,44,45,46
+
+npz keys: M0_W240.npz (38 keys)
+-------------------------------
+grid, m0_fc1_b, m0_fc1_w, m0_fc2_b, m0_fc2_w, m0_fc3_b, m0_fc3_w, m1_fc1_b, m1_fc1_w, m1_fc2_b, m1_fc2_w,
+m1_fc3_b, m1_fc3_w, m2_fc1_b, m2_fc1_w, m2_fc2_b, m2_fc2_w, m2_fc3_b, m2_fc3_w, m3_fc1_b, m3_fc1_w, m3_fc2_b,
+m3_fc2_w, m3_fc3_b, m3_fc3_w, m4_fc1_b, m4_fc1_w, m4_fc2_b, m4_fc2_w, m4_fc3_b, m4_fc3_w, meta, scaler_qm,
+scaler_qs, scaler_s, scaler_ym, scaler_ys, seeds
+
+npz keys: M0_W300.npz (38 keys)
+-------------------------------
+grid, m0_fc1_b, m0_fc1_w, m0_fc2_b, m0_fc2_w, m0_fc3_b, m0_fc3_w, m1_fc1_b, m1_fc1_w, m1_fc2_b, m1_fc2_w,
+m1_fc3_b, m1_fc3_w, m2_fc1_b, m2_fc1_w, m2_fc2_b, m2_fc2_w, m2_fc3_b, m2_fc3_w, m3_fc1_b, m3_fc1_w, m3_fc2_b,
+m3_fc2_w, m3_fc3_b, m3_fc3_w, m4_fc1_b, m4_fc1_w, m4_fc2_b, m4_fc2_w, m4_fc3_b, m4_fc3_w, meta, scaler_qm,
+scaler_qs, scaler_s, scaler_ym, scaler_ys, seeds
+
+npz keys: M0idx_W240.npz (40 keys)
+----------------------------------
+grid, m0_fc1_b, m0_fc1_w, m0_fc2_b, m0_fc2_w, m0_fc3_b, m0_fc3_w, m1_fc1_b, m1_fc1_w, m1_fc2_b, m1_fc2_w,
+m1_fc3_b, m1_fc3_w, m2_fc1_b, m2_fc1_w, m2_fc2_b, m2_fc2_w, m2_fc3_b, m2_fc3_w, m3_fc1_b, m3_fc1_w, m3_fc2_b,
+m3_fc2_w, m3_fc3_b, m3_fc3_w, m4_fc1_b, m4_fc1_w, m4_fc2_b, m4_fc2_w, m4_fc3_b, m4_fc3_w, meta, scaler_em,
+scaler_es, scaler_qm, scaler_qs, scaler_s, scaler_ym, scaler_ys, seeds
+
+npz keys: M0idx_W300.npz (40 keys)
+----------------------------------
+grid, m0_fc1_b, m0_fc1_w, m0_fc2_b, m0_fc2_w, m0_fc3_b, m0_fc3_w, m1_fc1_b, m1_fc1_w, m1_fc2_b, m1_fc2_w,
+m1_fc3_b, m1_fc3_w, m2_fc1_b, m2_fc1_w, m2_fc2_b, m2_fc2_w, m2_fc3_b, m2_fc3_w, m3_fc1_b, m3_fc1_w, m3_fc2_b,
+m3_fc2_w, m3_fc3_b, m3_fc3_w, m4_fc1_b, m4_fc1_w, m4_fc2_b, m4_fc2_w, m4_fc3_b, m4_fc3_w, meta, scaler_em,
+scaler_es, scaler_qm, scaler_qs, scaler_s, scaler_ym, scaler_ys, seeds
+
+npz metadata
+------------
+     model kind window   L  n_extra head    lr     wd  epochs           trained_on
+   M0_W240   M0   W240 734        0  abs 0.008  0.001     120 84 development cells
+   M0_W300   M0   W300 334        0  abs 0.004 0.0001     120 84 development cells
+M0idx_W240   M0   W240 734        1  abs 0.008  0.001     120 84 development cells
+M0idx_W300   M0   W300 334        1  abs 0.004 0.0001     120 84 development cells
+
+S1 · PyTorch rebuild vs 7a batch3_predictions.parquet (pp)
+----------------------------------------------------------
+     model  rows  per_seed_max_pp  per_seed_median_pp  ens_mean_max_pp  ens_mean_median_pp
+   M0_W240 40456        7.629e-06                   0        3.052e-06                   0
+   M0_W300 40456        7.629e-06                   0        3.052e-06                   0
+M0idx_W240 40456        7.629e-06                   0        4.578e-06                   0
+M0idx_W300 40456        7.629e-06                   0        4.578e-06                   0
+
+S2 · exported ONNX graphs
+-------------------------
+                  model                                     file  opset  ir            inputs output  params  size_kb                                                           sha256
+                M0_W240      outputs\phase8a\models\M0_W240.onnx     17   8           dq32,q0 soh_pp   14845       62 4fe196d3f7787a4f2dcd5f20939447518afb032eb8dc724c018f891630945771
+                M0_W300      outputs\phase8a\models\M0_W300.onnx     17   8           dq32,q0 soh_pp   14845       62 4e8cd5235869301eb2694e4b56c346cdb816d06277db7a2914ed0af6580fd1d9
+             M0idx_W240   outputs\phase8a\models\M0idx_W240.onnx     17   8 dq32,q0,log_cycle soh_pp   15065     63.4 50ea2ebbf287ab24a2385bdee8fbe0db4c725442cf4a3076a4daac8063ac2459
+             M0idx_W300   outputs\phase8a\models\M0idx_W300.onnx     17   8 dq32,q0,log_cycle soh_pp   15065     63.4 4c94897e3f765671ad25a412c1f1b78810f660b6bf9262c43cd4d2e6ed2dcd79
+M0_W240_int8 (optional) outputs\phase8a\models\M0_W240_int8.onnx     17   8           dq32,q0 soh_pp       0     30.2 bc05a2cad0f04adaf2b30a9dbb475e0d667ff09db84175b7635982f82ad9e84f
+
+ONNX operators used
+-------------------
+Add, Concat, Div, Gemm, Mul, Relu, Sub, Sum
+
+Files opened under outputs\ and models\ during export
+-----------------------------------------------------
+                                                     path access  allowed
+                       outputs\phase7a\models\M0_W240.npz   read     True
+                      outputs\phase8a\models\M0_W240.onnx  write     True
+                      outputs\phase8a\models\M0_W240.onnx   read     True
+               outputs\phase8a\models\M0_W240.onnx.sha256  write     True
+                       outputs\phase7a\models\M0_W300.npz   read     True
+                      outputs\phase8a\models\M0_W300.onnx  write     True
+                      outputs\phase8a\models\M0_W300.onnx   read     True
+               outputs\phase8a\models\M0_W300.onnx.sha256  write     True
+                    outputs\phase7a\models\M0idx_W240.npz   read     True
+                   outputs\phase8a\models\M0idx_W240.onnx  write     True
+                   outputs\phase8a\models\M0idx_W240.onnx   read     True
+            outputs\phase8a\models\M0idx_W240.onnx.sha256  write     True
+                    outputs\phase7a\models\M0idx_W300.npz   read     True
+                   outputs\phase8a\models\M0idx_W300.onnx  write     True
+                   outputs\phase8a\models\M0idx_W300.onnx   read     True
+            outputs\phase8a\models\M0idx_W300.onnx.sha256  write     True
+         outputs\phase8a\scratch\M0_W240_matmul_fp32.onnx  write     True
+outputs\phase8a\scratch\M0_W240_matmul_fp32-inferred.onnx   read     True
+                 outputs\phase8a\models\M0_W240_int8.onnx  write     True
+                 outputs\phase8a\models\M0_W240_int8.onnx   read     True
+          outputs\phase8a\models\M0_W240_int8.onnx.sha256  write     True
+
+S3a · |ONNX Runtime CPU - PyTorch fp32| (pp)
+--------------------------------------------
+     model  rows    max_pp    p99_pp  median_pp
+   M0_W240 96419 1.373e-05 1.068e-05  3.052e-06
+   M0_W300 96419 1.526e-05 1.068e-05  3.052e-06
+M0idx_W240 96419 1.526e-05 1.068e-05  3.052e-06
+M0idx_W300 96419 1.526e-05 1.068e-05  3.052e-06
+
+S3b · batch-3 cell-macro MAE (pp, 40 cells)
+-------------------------------------------
+     model  onnx_cell_macro_mae  pytorch_cell_macro_mae  from_7a_parquet  verdict_7a  onnx_minus_7a_parquet  onnx_minus_verdict
+   M0_W240             0.419568                0.419568         0.419568    0.419568           4.850046e-09       -2.994672e-08
+   M0_W300            0.5971691               0.5971691        0.5971691    0.597169          -3.816991e-09        7.763173e-08
+M0idx_W240            0.5461788               0.5461788        0.5461788         NaN            3.56271e-08                 NaN
+M0idx_W300            0.6405584               0.6405585        0.6405585         NaN          -3.299044e-08                 NaN
+
+S3c · repeatability
+-------------------
+     model  rows  runs  identical  max_diff_pp
+   M0_W240 10000     4       True            0
+   M0_W300 10000     4       True            0
+M0idx_W240 10000     4       True            0
+M0idx_W300 10000     4       True            0
+
+S3d · single-row vs batched (pp)
+--------------------------------
+     model  rows  max_diff_pp  median_diff_pp  n_exactly_equal
+   M0_W240   500            0               0              500
+   M0_W300   500            0               0              500
+M0idx_W240   500            0               0              500
+M0idx_W300   500            0               0              500
+
+S4 · latency (ms) and throughput, CPU unless stated
+---------------------------------------------------
+     model             engine  batch  warmup  n_repeats  median_ms  p95_ms  p99_ms  mean_ms  rows_per_s
+   M0_W240        ort_1thread      1     200       5000     0.1474   1.947    6.74   0.4884        2048
+   M0_W240        ort_default      1     200       5000     0.1267   1.032   4.377   0.3346        2988
+   M0_W240     torch_cpu_8thr      1     200       3165     0.9723    5.25   12.67    1.726       579.5
+   M0_W240 torch_cuda (extra)      1     200        426      5.692   17.33   24.34     7.15       139.9
+   M0_W240        ort_1thread    124     200       5000     0.4576   2.212   5.816   0.7754   1.599e+05
+   M0_W240        ort_default    124     200       4234     0.4695   2.581   6.562   0.8346   1.486e+05
+   M0_W240     torch_cpu_8thr    124     200        920      1.472   5.906   14.84    2.348   5.282e+04
+   M0_W240 torch_cuda (extra)    124     200        738      7.657   24.97   41.19    9.727   1.275e+04
+   M0_W240        ort_1thread   4096     200        134      16.03   25.48   30.98    15.77   2.597e+05
+   M0_W240        ort_default   4096     200        522      5.121   64.93   80.79    16.22   2.525e+05
+   M0_W240     torch_cpu_8thr   4096     200        261      11.85    24.1   32.98    13.32   3.076e+05
+   M0_W240 torch_cuda (extra)   4096     200        157      20.74   40.23   49.66    23.05   1.777e+05
+   M0_W300        ort_1thread      1     200       5000       0.31   1.427   3.506   0.4962        2015
+   M0_W300        ort_default      1     200       3213     0.3384   1.817   3.385   0.5458        1832
+   M0_W300     torch_cpu_8thr      1     200        908      3.133   10.45   16.57    4.045       247.2
+   M0_W300        ort_1thread    124     200       1882      1.375   3.235   6.424    1.661   7.464e+04
+   M0_W300        ort_default    124     200       3365     0.6457   2.136   4.166   0.9118    1.36e+05
+   M0_W300     torch_cpu_8thr    124     200       1281      2.574   5.313   7.767    2.936   4.223e+04
+   M0_W300        ort_1thread   4096     152        100      31.06   47.91   57.78    32.53   1.259e+05
+   M0_W300        ort_default   4096      92        100      51.64    81.1   113.9    54.51   7.514e+04
+   M0_W300     torch_cpu_8thr   4096     200        273      11.23   21.31   36.85    12.77   3.207e+05
+M0idx_W240        ort_1thread      1     200       5000     0.2221   1.267   3.194   0.4334        2308
+M0idx_W240        ort_default      1     200       5000     0.3809   1.676   3.097   0.5707        1752
+M0idx_W240     torch_cpu_8thr      1     200       1592      2.437   6.498   11.61    3.077         325
+M0idx_W240        ort_1thread    124     200       2313      1.431   3.266   6.171    1.688   7.345e+04
+M0idx_W240        ort_default    124     200       4298     0.7513   2.541   5.257    1.068   1.161e+05
+M0idx_W240     torch_cpu_8thr    124     200       1317      2.694    5.54   10.19    3.278   3.783e+04
+M0idx_W240        ort_1thread   4096     155        100      37.83   53.41   61.56    37.57    1.09e+05
+M0idx_W240        ort_default   4096     200        462      8.796   67.31    87.6    20.26   2.022e+05
+M0idx_W240     torch_cpu_8thr   4096     200        955       3.15   5.462   6.684    3.368   1.216e+06
+M0idx_W300        ort_1thread      1     200       5000      0.067  0.2125  0.4503  0.09505   1.052e+04
+M0idx_W300        ort_default      1     200       5000     0.0677  0.3482  0.7714   0.1261        7928
+M0idx_W300     torch_cpu_8thr      1     200       5000     0.4196    2.12   3.821   0.7138        1401
+M0idx_W300        ort_1thread    124     200       5000     0.2985   1.263    1.91   0.4642   2.671e+05
+M0idx_W300        ort_default    124     200       5000     0.2978  0.5718  0.8504   0.3408   3.638e+05
+M0idx_W300     torch_cpu_8thr    124     200       5000      0.562   1.534    2.48   0.7341   1.689e+05
+M0idx_W300        ort_1thread   4096     200        394      8.135    20.8   26.73    10.01   4.091e+05
+M0idx_W300        ort_default   4096     200        433      6.035   8.122   9.217    6.265   6.538e+05
+M0idx_W300     torch_cpu_8thr   4096     200        965      2.642   4.347   5.398    2.842   1.441e+06
+
+S4 · process memory (RSS, MB) around session creation, and file sizes (KB)
+--------------------------------------------------------------------------
+     model  rss_before_mb  rss_after_mb  delta_mb  onnx_kb  npz_kb  process_rss_now_mb
+   M0_W240         1443.3        1443.6   0.26953   61.977  68.871              1810.2
+   M0_W300         1491.8        1493.9    2.0586   61.977  68.875              1810.2
+M0idx_W240         1541.9        1543.8    1.8867   63.405  70.336              1810.2
+M0idx_W300         1590.6        1593.1    2.5273   63.405   70.34              1810.2
+
+S4 · engineering targets, deployed M0 W240 (model only)
+-------------------------------------------------------
+                                                    target  observed_ms  limit_ms  met
+at most 10 ms per cell update (batch 1, p99, ORT 1 thread)       6.7404        10 True
+ at most 50 ms for 124 cells (one call, p99, ORT 1 thread)       5.8155        50 True
+
+S4 · optional int8 (dynamic quantisation) vs fp32, M0 W240 (option only, not the default)
+-----------------------------------------------------------------------------------------
+ mae_fp32  mae_int8  mae_change  max_abs_diff  median_abs_diff  size_kb_int8  size_kb_fp32
+ 0.419568  0.424668  0.00510029       0.52475        0.0476303       30.2041       61.9766
+
+S4 · int8 latency (ms), ORT 1 thread
+------------------------------------
+       model  batch  n_repeats  median_ms  p95_ms  p99_ms  mean_ms  rows_per_s  median_ms_fp32  speed_ratio_fp32_over_int8
+M0_W240_int8      1       5000       0.09  0.3139  0.7017   0.1341        7460          0.1474                       1.637
+M0_W240_int8    124       5000     0.2818   1.064   1.998   0.4322   2.869e+05          0.4576                       1.624
+M0_W240_int8   4096        472      9.149    23.3   31.32    11.25    3.64e+05           16.03                       1.753
+
+onnx_scorer helper signatures
+-----------------------------
+OnnxScorer.__init__(self, model_path, intra_op_threads=1)
+OnnxScorer.predict(self, dq32, q0, log_cycle=None)
+
+S5 · scorer unit test (pp)
+--------------------------
+     model window           sha256           row_ids  max_diff_pp
+   M0_W240   W240 4fe196d3f7787a4f 63750,66094,73154    7.629e-06
+   M0_W300   W300 4e8cd5235869301e 63750,66094,73154    7.629e-06
+M0idx_W240   W240 50ea2ebbf287ab24 63750,66094,73154    6.104e-06
+M0idx_W300   W300 4c94897e3f765671 63750,66094,73154    6.104e-06
+
+S5 · scorer input validation
+----------------------------
+                case   expected     raised                                                 message
+         NaN in dq32 ValueError ValueError dq32 contains 1 NaN/inf value(s); first bad row index 0
+           inf in q0 ValueError ValueError   q0 contains 1 NaN/inf value(s); first bad row index 1
+         wrong width ValueError ValueError   dq32 must have shape (N, 32) with N >= 1, got (2, 31)
+        float64 dq32  TypeError  TypeError                       dq32 must be float32, got float64
+  q0 length mismatch ValueError ValueError             q0 must have shape (2,) or (2, 1), got (1,)
+   missing log_cycle ValueError ValueError  M0idx_W240 needs log_cycle (log1p of the cycle number)
+unexpected log_cycle ValueError ValueError                        M0_W240 takes no log_cycle input
+         empty batch ValueError ValueError   dq32 must have shape (N, 32) with N >= 1, got (0, 32)
+
+S6 · expectations (registered before timing and parity) against observations
+----------------------------------------------------------------------------
+ id                     expected                                           observed consistent
+H12                    < 1e-3 pp             max 1.526e-05 pp (worst model M0_W300)        yes
+H13 median < 1 ms and p99 < 5 ms                    median 0.1474 ms, p99 6.7404 ms         NO
+H14                median < 5 ms                    median 0.4576 ms, p99 5.8155 ms        yes
+H15           |change| < 0.02 pp change +0.005100 pp (fp32 0.419568, int8 0.424668)        yes
+
+Hash guard (end)
+----------------
+                      item                                          path         expected              got  match
+               M0_W240.npz            outputs\phase7a\models\M0_W240.npz 29cd3ec8c5c2113d 29cd3ec8c5c2113d   True
+               M0_W300.npz            outputs\phase7a\models\M0_W300.npz 06f63dc6c5a89750 06f63dc6c5a89750   True
+            M0idx_W240.npz         outputs\phase7a\models\M0idx_W240.npz b7822335aa1c7cb5 b7822335aa1c7cb5   True
+            M0idx_W300.npz         outputs\phase7a\models\M0idx_W300.npz 0e7430ee1586a57b 0e7430ee1586a57b   True
+batch3_predictions.parquet    outputs\phase7a\batch3_predictions.parquet 679ec76862de63f2 679ec76862de63f2   True
+            soh_deep_v4.py                            src\soh_deep_v4.py 2be9ce5ded197b16 2be9ce5ded197b16   True
+            monitor_config           outputs\phase7b\monitor_config.json 638b6c3a6ad31c69 638b6c3a6ad31c69   True
+   monitor_config_addendum outputs\phase7b2\monitor_config_addendum.json d842e5f4c3186889 d842e5f4c3186889   True
+
+Artifacts (report size not listed: it is written after this table)
+------------------------------------------------------------------
+                                           path  size_kb
+      outputs\phase8a\batch3_cell_macro_mae.csv      0.5
+   outputs\phase8a\expectations_registered.json      0.8
+   outputs\phase8a\expectations_vs_observed.csv      0.3
+       outputs\phase8a\fig_latency_vs_batch.png    133.5
+            outputs\phase8a\fig_parity_hist.png     90.9
+               outputs\phase8a\int8_vs_fp32.csv      0.2
+                    outputs\phase8a\latency.csv        5
+           outputs\phase8a\memory_and_sizes.csv      0.4
+            outputs\phase8a\models\M0_W240.onnx       62
+     outputs\phase8a\models\M0_W240.onnx.sha256      0.1
+       outputs\phase8a\models\M0_W240_int8.onnx     30.2
+outputs\phase8a\models\M0_W240_int8.onnx.sha256      0.1
+            outputs\phase8a\models\M0_W300.onnx       62
+     outputs\phase8a\models\M0_W300.onnx.sha256      0.1
+         outputs\phase8a\models\M0idx_W240.onnx     63.4
+  outputs\phase8a\models\M0idx_W240.onnx.sha256      0.1
+         outputs\phase8a\models\M0idx_W300.onnx     63.4
+  outputs\phase8a\models\M0idx_W300.onnx.sha256      0.1
+               outputs\phase8a\onnx_exports.csv      0.8
+     outputs\phase8a\parity_onnx_vs_pytorch.csv      0.4
+              outputs\phase8a\phase8a_log.jsonl        7
+              outputs\phase8a\pytorch_vs_7a.csv      0.3
+       outputs\phase8a\verification_report.json     42.5
+                             src\onnx_scorer.py      4.1
+             outputs\phase8a\phase8a_report.txt      NaN
+
+Runtime
+-------
+324 s (5.4 min), SMOKE=False
+
+CHECKS
+------
+[PASS] CUDA available (extra rows only; all latency numbers are CPU) - torch.cuda.is_available() = True
+[PASS] [start] sha256 M0_W240.npz - M0_W240.npz: got 29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe
+[PASS] [start] sha256 M0_W300.npz - M0_W300.npz: got 06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2
+[PASS] [start] sha256 M0idx_W240.npz - M0idx_W240.npz: got b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18
+[PASS] [start] sha256 M0idx_W300.npz - M0idx_W300.npz: got 0e7430ee1586a57b38207ce95e7d73b902b230678a92c0f32a4a704e5c05e99e
+[PASS] [start] sha256 batch3_predictions.parquet - batch3_predictions.parquet: got 679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd
+[PASS] [start] sha256 soh_deep_v4.py - soh_deep_v4.py: got 2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4
+[PASS] [start] sha256 monitor_config - monitor_config.json: got 638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2
+[PASS] [start] sha256 monitor_config_addendum - monitor_config_addendum.json: got d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632
+[PASS] soh_deep_v4 on disk is the guarded file - self_hash 2be9ce5ded197b16
+[PASS] module architecture M0 33->44->32->1 - shapes [('fc1.weight', (44, 33)), ('fc1.bias', (44,)), ('fc2.weight', (32, 44)), ('fc2.bias', (32,)), ('fc3.weight', (1, 32)), ('fc3.bias', (1,))], count_params 2969 (expected 2969)
+[PASS] module architecture M0+idx 34->44->32->1 - shapes [('fc1.weight', (44, 34)), ('fc1.bias', (44,)), ('fc2.weight', (32, 44)), ('fc2.bias', (32,)), ('fc3.weight', (1, 32)), ('fc3.bias', (1,))], count_params 3013 (expected 3013)
+[PASS] input exists: labels_table_v2.parquet - C:\workstation\3RD YEAR\Battery-Health-Estimation\data\processed\labels_table_v2.parquet
+[PASS] input exists: protocol_D.csv - C:\workstation\3RD YEAR\Battery-Health-Estimation\data\processed\splits\protocol_D.csv
+[PASS] 84 development cells - 84
+[PASS] 40 batch-3 cells - 40
+[PASS] no cell in both sets - 0 shared
+[PASS] scored rows: dev 55,963, batch 3 40,456, total 96,419 - dev 55,963, batch 3 40,456, total 96,419
+[PASS] q0 and cycle_number finite
+[PASS] fleet snapshot is 124 rows (one per cell) - 124
+[PASS] stored DeltaQ block W300 - dq_W300_b1c0103adbcf.npy shape (96419, 334) dtype float32
+[PASS] stored DeltaQ block W240 - dq_W240_b1c0103adbcf.npy shape (96419, 734) dtype float32
+[PASS] predictions parquet has the needed columns - columns ['model', 'window', 'seed', 'row_id', 'cell_id', 'pred_pp']
+[PASS] 7a predictions complete [M0_W240] - shape (40456, 5), seeds [42, 43, 44, 45, 46]
+[PASS] 7a predictions complete [M0_W300] - shape (40456, 5), seeds [42, 43, 44, 45, 46]
+[PASS] 7a predictions complete [M0idx_W240] - shape (40456, 5), seeds [42, 43, 44, 45, 46]
+[PASS] 7a predictions complete [M0idx_W300] - shape (40456, 5), seeds [42, 43, 44, 45, 46]
+[PASS] batch-3 labels complete (descriptive reproduction only; nothing is selected with them) - 40,456 rows
+[PASS] npz metadata [M0_W240] - kind M0, head abs, L 734, window W240, n_extra 0, seeds [42, 43, 44, 45, 46], grid==sub_idx(L) True
+[PASS] npz metadata [M0_W300] - kind M0, head abs, L 334, window W300, n_extra 0, seeds [42, 43, 44, 45, 46], grid==sub_idx(L) True
+[PASS] npz metadata [M0idx_W240] - kind M0, head abs, L 734, window W240, n_extra 1, seeds [42, 43, 44, 45, 46], grid==sub_idx(L) True
+[PASS] npz metadata [M0idx_W300] - kind M0, head abs, L 334, window W300, n_extra 1, seeds [42, 43, 44, 45, 46], grid==sub_idx(L) True
+[PASS] PyTorch rebuild reproduces 7a to 1e-4 pp [M0_W240] - per-seed max 7.63e-06, median 0.00e+00; ensemble mean max 3.05e-06, median 0.00e+00 (rows 40,456)
+[PASS] PyTorch rebuild reproduces 7a to 1e-4 pp [M0_W300] - per-seed max 7.63e-06, median 0.00e+00; ensemble mean max 3.05e-06, median 0.00e+00 (rows 40,456)
+[PASS] PyTorch rebuild reproduces 7a to 1e-4 pp [M0idx_W240] - per-seed max 7.63e-06, median 0.00e+00; ensemble mean max 4.58e-06, median 0.00e+00 (rows 40,456)
+[PASS] PyTorch rebuild reproduces 7a to 1e-4 pp [M0idx_W300] - per-seed max 7.63e-06, median 0.00e+00; ensemble mean max 4.58e-06, median 0.00e+00 (rows 40,456)
+[PASS] every weight comes from the npz [M0_W240] - 55 weight tensors, mismatches 0 [], parameters 14,845, non-weight constants ['const_n_members']
+[PASS] no control flow, dynamic batch axis, opset >= 17 [M0_W240] - ops ['Add', 'Concat', 'Div', 'Gemm', 'Mul', 'Relu', 'Sub', 'Sum'], opset 17, ir 8, batch dim N
+[PASS] every weight comes from the npz [M0_W300] - 55 weight tensors, mismatches 0 [], parameters 14,845, non-weight constants ['const_n_members']
+[PASS] no control flow, dynamic batch axis, opset >= 17 [M0_W300] - ops ['Add', 'Concat', 'Div', 'Gemm', 'Mul', 'Relu', 'Sub', 'Sum'], opset 17, ir 8, batch dim N
+[PASS] every weight comes from the npz [M0idx_W240] - 65 weight tensors, mismatches 0 [], parameters 15,065, non-weight constants ['const_n_members']
+[PASS] no control flow, dynamic batch axis, opset >= 17 [M0idx_W240] - ops ['Add', 'Concat', 'Div', 'Gemm', 'Mul', 'Relu', 'Sub', 'Sum'], opset 17, ir 8, batch dim N
+[PASS] every weight comes from the npz [M0idx_W300] - 65 weight tensors, mismatches 0 [], parameters 15,065, non-weight constants ['const_n_members']
+[PASS] no control flow, dynamic batch axis, opset >= 17 [M0idx_W300] - ops ['Add', 'Concat', 'Div', 'Gemm', 'Mul', 'Relu', 'Sub', 'Sum'], opset 17, ir 8, batch dim N
+[PASS] optional int8 model built - M0_W240_int8.onnx written
+[PASS] no checkpoint other than the four npz files was opened - 21 distinct files, outside-allowed 0, npz read ['M0_W240.npz', 'M0_W300.npz', 'M0idx_W240.npz', 'M0idx_W300.npz']
+[PASS] S3a ONNX Runtime CPU vs PyTorch fp32 [M0_W240] - max 1.373e-05, p99 1.068e-05, median 3.052e-06 pp over 96,419 rows
+[PASS] S3a ONNX Runtime CPU vs PyTorch fp32 [M0_W300] - max 1.526e-05, p99 1.068e-05, median 3.052e-06 pp over 96,419 rows
+[PASS] S3a ONNX Runtime CPU vs PyTorch fp32 [M0idx_W240] - max 1.526e-05, p99 1.068e-05, median 3.052e-06 pp over 96,419 rows
+[PASS] S3a ONNX Runtime CPU vs PyTorch fp32 [M0idx_W300] - max 1.526e-05, p99 1.068e-05, median 3.052e-06 pp over 96,419 rows
+[PASS] S3b ONNX cell-macro MAE equals the 7a parquet value to 1e-4 pp [M0_W240] - ONNX 0.419568, 7a parquet 0.419568, difference +4.85e-09
+[PASS] S3b ONNX reproduces the 7a verdict number to 1e-4 pp [M0_W240] - ONNX 0.419568 vs 7a verdict 0.419568, difference -2.99e-08
+[PASS] S3b ONNX cell-macro MAE equals the 7a parquet value to 1e-4 pp [M0_W300] - ONNX 0.597169, 7a parquet 0.597169, difference -3.82e-09
+[PASS] S3b ONNX reproduces the 7a verdict number to 1e-4 pp [M0_W300] - ONNX 0.597169 vs 7a verdict 0.597169, difference +7.76e-08
+[PASS] S3b ONNX cell-macro MAE equals the 7a parquet value to 1e-4 pp [M0idx_W240] - ONNX 0.546179, 7a parquet 0.546179, difference +3.56e-08
+[PASS] S3b ONNX cell-macro MAE equals the 7a parquet value to 1e-4 pp [M0idx_W300] - ONNX 0.640558, 7a parquet 0.640558, difference -3.30e-08
+[PASS] S3c same inputs give identical outputs across runs and sessions [M0_W240] - 4 runs on 10,000 rows, max difference 0.0e+00
+[PASS] S3c same inputs give identical outputs across runs and sessions [M0_W300] - 4 runs on 10,000 rows, max difference 0.0e+00
+[PASS] S3c same inputs give identical outputs across runs and sessions [M0idx_W240] - 4 runs on 10,000 rows, max difference 0.0e+00
+[PASS] S3c same inputs give identical outputs across runs and sessions [M0idx_W300] - 4 runs on 10,000 rows, max difference 0.0e+00
+[PASS] S3d single-row vs batched outputs [M0_W240] - max 0.00e+00 pp, 500/500 identical (fp32 spacing at 90 pp is 7.6e-6)
+[PASS] S3d single-row vs batched outputs [M0_W300] - max 0.00e+00 pp, 500/500 identical (fp32 spacing at 90 pp is 7.6e-6)
+[PASS] S3d single-row vs batched outputs [M0idx_W240] - max 0.00e+00 pp, 500/500 identical (fp32 spacing at 90 pp is 7.6e-6)
+[PASS] S3d single-row vs batched outputs [M0idx_W300] - max 0.00e+00 pp, 500/500 identical (fp32 spacing at 90 pp is 7.6e-6)
+[PASS] timing modules agree (torch vs ONNX) [M0_W240] - max 1.53e-05 pp on 4,096 rows
+[PASS] timing modules agree (torch vs ONNX) [M0_W300] - max 1.53e-05 pp on 4,096 rows
+[PASS] timing modules agree (torch vs ONNX) [M0idx_W240] - max 1.53e-05 pp on 4,096 rows
+[PASS] timing modules agree (torch vs ONNX) [M0idx_W300] - max 1.53e-05 pp on 4,096 rows
+[PASS] every latency configuration reached at least 100 repeats (or the smoke count) - repeats min 100, max 5000; configurations below 5000: 27 of 39
+[PASS] engineering target: at most 10 ms per cell update (batch 1, p99, ORT 1 thread) - observed 6.7404 ms vs limit 10.0 ms (model only)
+[PASS] engineering target: at most 50 ms for 124 cells (one call, p99, ORT 1 thread) - observed 5.8155 ms vs limit 50.0 ms (model only)
+[PASS] int8 batch-3 cell-macro MAE change reported - fp32 0.419568, int8 0.424668, change +0.005100 pp, max |row diff| 0.5247 pp
+[PASS] scorer reproduces 3 stored batch-3 predictions to 1e-4 pp [M0_W240] - rows [63750, 66094, 73154], max diff 7.63e-06 pp, window W240, sha256 4fe196d3f778
+[PASS] scorer reproduces 3 stored batch-3 predictions to 1e-4 pp [M0_W300] - rows [63750, 66094, 73154], max diff 7.63e-06 pp, window W300, sha256 4e8cd5235869
+[PASS] scorer reproduces 3 stored batch-3 predictions to 1e-4 pp [M0idx_W240] - rows [63750, 66094, 73154], max diff 6.10e-06 pp, window W240, sha256 50ea2ebbf287
+[PASS] scorer reproduces 3 stored batch-3 predictions to 1e-4 pp [M0idx_W300] - rows [63750, 66094, 73154], max diff 6.10e-06 pp, window W300, sha256 4c94897e3f76
+[PASS] scorer rejects: NaN in dq32 - raised ValueError: dq32 contains 1 NaN/inf value(s); first bad row index 0
+[PASS] scorer rejects: inf in q0 - raised ValueError: q0 contains 1 NaN/inf value(s); first bad row index 1
+[PASS] scorer rejects: wrong width - raised ValueError: dq32 must have shape (N, 32) with N >= 1, got (2, 31)
+[PASS] scorer rejects: float64 dq32 - raised TypeError: dq32 must be float32, got float64
+[PASS] scorer rejects: q0 length mismatch - raised ValueError: q0 must have shape (2,) or (2, 1), got (1,)
+[PASS] scorer rejects: missing log_cycle - raised ValueError: M0idx_W240 needs log_cycle (log1p of the cycle number)
+[PASS] scorer rejects: unexpected log_cycle - raised ValueError: M0_W240 takes no log_cycle input
+[PASS] scorer rejects: empty batch - raised ValueError: dq32 must have shape (N, 32) with N >= 1, got (0, 32)
+[PASS] H12 < 1e-3 pp - max 1.526e-05 pp (worst model M0_W300)
+[WARN] H13 median < 1 ms and p99 < 5 ms - median 0.1474 ms, p99 6.7404 ms
+[PASS] H14 median < 5 ms - median 0.4576 ms, p99 5.8155 ms
+[PASS] H15 |change| < 0.02 pp - change +0.005100 pp (fp32 0.419568, int8 0.424668)
+[PASS] [end] sha256 M0_W240.npz - M0_W240.npz: got 29cd3ec8c5c2113db1d1b3562365461f3045f07b5e3113532f28eeff34c744fe
+[PASS] [end] sha256 M0_W300.npz - M0_W300.npz: got 06f63dc6c5a89750d18622099961e875ee1aeb1b65d9afe16b556f0d7cb149c2
+[PASS] [end] sha256 M0idx_W240.npz - M0idx_W240.npz: got b7822335aa1c7cb592e4a12e3044c614a3b2616b2a5be5c940b47579862f8e18
+[PASS] [end] sha256 M0idx_W300.npz - M0idx_W300.npz: got 0e7430ee1586a57b38207ce95e7d73b902b230678a92c0f32a4a704e5c05e99e
+[PASS] [end] sha256 batch3_predictions.parquet - batch3_predictions.parquet: got 679ec76862de63f2615a710c7fc1f3ca2ec6c01149735bdd909b95ad5a9c7acd
+[PASS] [end] sha256 soh_deep_v4.py - soh_deep_v4.py: got 2be9ce5ded197b16028079e7d34b550c683f4152b528f55f5064251b146eded4
+[PASS] [end] sha256 monitor_config - monitor_config.json: got 638b6c3a6ad31c699fb77a22eb9fae72b571d6dc21ee65a73b41e849d7acb4b2
+[PASS] [end] sha256 monitor_config_addendum - monitor_config_addendum.json: got d842e5f4c3186889ce8292e0654e1a0ca29d4434bcdeaf1bd3c7131479479632
+[PASS] log hash chain intact - 6 entries, events ['start', 'start', 'onnx_written', 'start', 'onnx_written', 'scorer_written']
+[PASS] no 7a file newer than this run's start (read-only) - mtime scan of outputs/phase7a
